@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sampling Theory Add-ons (Lecture Slides) · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="../index.html">Probability and Statistics</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-random-variables.html">Random Variables</a></li><li><a href="../u1/02-binomial-distribution.html">Binomial Distribution</a></li><li><a href="../u1/03-hypergeometric-distribution.html">Hypergeometric Distribution</a></li><li><a href="../u1/04-poisson-approximation-to-the-binomial.html">Poisson Approximation to the Binomial</a></li><li><a href="../u1/05-poisson-process.html">Poisson Process</a></li><li><a href="../u1/06-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-continuous-random-variables.html">Continuous Random Variables</a></li><li><a href="../u2/02-normal-distribution.html">Normal Distribution</a></li><li><a href="../u2/03-normal-approximation-to-the-binomial.html">Normal Approximation to the Binomial</a></li><li><a href="../u2/04-joint-distributions-discrete.html">Joint Distributions: Discrete</a></li><li><a href="../u2/05-joint-distributions-continuous.html">Joint Distributions: Continuous</a></li><li><a href="../u2/06-properties-of-expectation-lecture-slides.html">Properties of Expectation (Lecture Slides)</a></li><li><a href="../u2/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details open><summary><a href="index.html">Unit III</a></summary><ul><li><a href="01-point-estimation.html">Point Estimation</a></li><li><a href="02-interval-estimation.html">Interval Estimation</a></li><li><a href="03-tests-of-hypotheses.html">Tests of Hypotheses</a></li><li><a href="04-null-hypotheses-and-tests-of-hypotheses-procedure.html">Null Hypotheses and Tests of Hypotheses (procedure)</a></li><li><a href="05-hypotheses-concerning-one-mean.html">Hypotheses Concerning One Mean</a></li><li><a href="06-relation-between-tests-and-confidence-intervals.html">Relation Between Tests and Confidence Intervals</a></li><li><a href="07-comparisons-two-independent-large-samples.html">Comparisons: Two Independent Large Samples</a></li><li><a href="08-comparisons-two-independent-small-samples.html">Comparisons: Two Independent Small Samples</a></li><li class="cur"><a href="09-sampling-theory-add-ons-lecture-slides.html">Sampling Theory Add-ons (Lecture Slides)</a></li><li><a href="10-maximum-error-and-sample-size.html">Maximum Error and Sample Size</a></li><li><a href="11-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-estimation-of-variances.html">Estimation of Variances</a></li><li><a href="../u4/02-hypotheses-concerning-one-variance.html">Hypotheses Concerning One Variance</a></li><li><a href="../u4/03-hypotheses-concerning-two-variances.html">Hypotheses Concerning Two Variances</a></li><li><a href="../u4/04-estimation-of-proportions.html">Estimation of Proportions</a></li><li><a href="../u4/05-hypotheses-concerning-one-proportion.html">Hypotheses Concerning One Proportion</a></li><li><a href="../u4/06-hypotheses-concerning-several-proportions.html">Hypotheses Concerning Several Proportions</a></li><li><a href="../u4/07-the-analysis-of-r-c-tables.html">The Analysis of r × c Tables</a></li><li><a href="../u4/08-estimating-sigma-from-the-range.html">Estimating $\sigma$ from the Range</a></li><li><a href="../u4/09-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-introduction-to-non-parametric-tests.html">Introduction to Non-Parametric Tests</a></li><li><a href="../u5/02-the-sign-test.html">The Sign Test</a></li><li><a href="../u5/03-wilcoxon-signed-rank-test-extension-of-sign-test.html">Wilcoxon Signed-Rank Test (extension of sign test)</a></li><li><a href="../u5/04-rank-sum-tests.html">Rank-Sum Tests</a></li><li><a href="../u5/05-correlation-based-on-ranks-spearman-s-r-s.html">Correlation Based on Ranks — Spearman's $r_s$</a></li><li><a href="../u5/06-tests-of-randomness-runs-test-wald-wolfowitz.html">Tests of Randomness — Runs Test (Wald–Wolfowitz)</a></li><li><a href="../u5/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="../index.html">Probability and Statistics</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-random-variables.html">Random Variables</a></li><li><a href="../u1/02-binomial-distribution.html">Binomial Distribution</a></li><li><a href="../u1/03-hypergeometric-distribution.html">Hypergeometric Distribution</a></li><li><a href="../u1/04-poisson-approximation-to-the-binomial.html">Poisson Approximation to the Binomial</a></li><li><a href="../u1/05-poisson-process.html">Poisson Process</a></li><li><a href="../u1/06-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-continuous-random-variables.html">Continuous Random Variables</a></li><li><a href="../u2/02-normal-distribution.html">Normal Distribution</a></li><li><a href="../u2/03-normal-approximation-to-the-binomial.html">Normal Approximation to the Binomial</a></li><li><a href="../u2/04-joint-distributions-discrete.html">Joint Distributions: Discrete</a></li><li><a href="../u2/05-joint-distributions-continuous.html">Joint Distributions: Continuous</a></li><li><a href="../u2/06-properties-of-expectation-lecture-slides.html">Properties of Expectation (Lecture Slides)</a></li><li><a href="../u2/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details open><summary><a href="index.html">Unit III</a></summary><ul><li><a href="01-point-estimation.html">Point Estimation</a></li><li><a href="02-interval-estimation.html">Interval Estimation</a></li><li><a href="03-tests-of-hypotheses.html">Tests of Hypotheses</a></li><li><a href="04-null-hypotheses-and-tests-of-hypotheses-procedure.html">Null Hypotheses and Tests of Hypotheses (procedure)</a></li><li><a href="05-hypotheses-concerning-one-mean.html">Hypotheses Concerning One Mean</a></li><li><a href="06-relation-between-tests-and-confidence-intervals.html">Relation Between Tests and Confidence Intervals</a></li><li><a href="07-comparisons-two-independent-large-samples.html">Comparisons: Two Independent Large Samples</a></li><li><a href="08-comparisons-two-independent-small-samples.html">Comparisons: Two Independent Small Samples</a></li><li class="cur"><a href="09-sampling-theory-add-ons-lecture-slides.html">Sampling Theory Add-ons (Lecture Slides)</a></li><li><a href="10-maximum-error-and-sample-size.html">Maximum Error and Sample Size</a></li><li><a href="11-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-estimation-of-variances.html">Estimation of Variances</a></li><li><a href="../u4/02-hypotheses-concerning-one-variance.html">Hypotheses Concerning One Variance</a></li><li><a href="../u4/03-hypotheses-concerning-two-variances.html">Hypotheses Concerning Two Variances</a></li><li><a href="../u4/04-estimation-of-proportions.html">Estimation of Proportions</a></li><li><a href="../u4/05-hypotheses-concerning-one-proportion.html">Hypotheses Concerning One Proportion</a></li><li><a href="../u4/06-hypotheses-concerning-several-proportions.html">Hypotheses Concerning Several Proportions</a></li><li><a href="../u4/07-the-analysis-of-r-c-tables.html">The Analysis of r × c Tables</a></li><li><a href="../u4/08-estimating-sigma-from-the-range.html">Estimating $\sigma$ from the Range</a></li><li><a href="../u4/09-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-introduction-to-non-parametric-tests.html">Introduction to Non-Parametric Tests</a></li><li><a href="../u5/02-the-sign-test.html">The Sign Test</a></li><li><a href="../u5/03-wilcoxon-signed-rank-test-extension-of-sign-test.html">Wilcoxon Signed-Rank Test (extension of sign test)</a></li><li><a href="../u5/04-rank-sum-tests.html">Rank-Sum Tests</a></li><li><a href="../u5/05-correlation-based-on-ranks-spearman-s-r-s.html">Correlation Based on Ranks — Spearman's $r_s$</a></li><li><a href="../u5/06-tests-of-randomness-runs-test-wald-wolfowitz.html">Tests of Randomness — Runs Test (Wald–Wolfowitz)</a></li><li><a href="../u5/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Prob &amp; Stats</a> <span>›</span> <a href="index.html">Unit III</a> <span>›</span> <b>Sampling Theory Add-ons (Lecture Slides)</b></nav>
+    <article class="wiki" style="--h:#6d4bc3"><h1>Sampling Theory Add-ons (Lecture Slides)</h1><p class="byline">Probability and Statistics · Unit III: Statistical Inference</p><aside class="infobox" style="--h:#6d4bc3"><div class="ib-h">Sampling Theory Add-ons (Lecture Slides)</div><dl><dt>Subject</dt><dd><a href="../index.html">Probability and Statistics</a> (24MA203)</dd><dt>Unit</dt><dd><a href="index.html">Unit III: Statistical Inference</a></dd><dt>Topic</dt><dd>9 of 11</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/variance.html">Variance</a>, <a href="../../../terms/central-limit-theorem.html">Central limit theorem</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/ps/u3.html">Part B questions for Unit III</a> and <a href="../../../qa/ps/part-a.html">Part A short questions</a>.</p><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Population vs sample:</strong> population = the whole set we study; sample = a subset picked to represent it.</li>
+<li><strong>Parameter</strong> = a number describing the population (\(\mu,\sigma\)). <strong>Statistic</strong> = a number computed from the sample (\(\bar x,s\)).</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Population (parameter)</th>
+<th>Sample (statistic)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean</td>
+<td>\(\mu=\dfrac{\sum X}{N}\)</td>
+<td>\(\bar x=\dfrac{\sum x}{n}\)</td>
+</tr>
+<tr>
+<td><a class="wk" href="../../../terms/variance.html">Variance</a></td>
+<td>\(\sigma^2=\dfrac{\sum(X_i-\mu)^2}{N}\)</td>
+<td>\(s^2=\dfrac{\sum(x_i-\bar x)^2}{n-1}\)</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>\(\sigma=\sqrt{\sigma^2}\)</td>
+<td>\(s=\sqrt{s^2}\)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Finite population</strong> (can be counted, like students of a university) vs <strong>infinite population</strong>.</li>
+<li><strong>Random sample, finite population</strong> of size \(N\): every subset of \(n\) elements has the same chance of being picked.</li>
+<li><strong>Random sample, infinite population</strong> with density \(f(x)\): each \(X_i\) has density \(f\) and the \(X_i\) are independent.</li>
+</ul>
+<p><strong>Theorem (mean and variance of \(\bar X\)).</strong> Population mean \(\mu\), variance \(\sigma^2\).</p>
+<ul>
+<li>\(E(\bar X)=\mu\) always.</li>
+<li>Infinite population (or sampling with replacement): \(\text{Var}(\bar X)=\dfrac{\sigma^2}{n}\)</li>
+<li>Finite population of size \(N\), sampling without replacement: \(\text{Var}(\bar X)=\dfrac{\sigma^2}{n}\cdot\dfrac{N-n}{N-1}\). The factor \(\frac{N-n}{N-1}\) is the <strong>finite population correction</strong>. It is close to 1 when \(n\) is small compared with \(N\).</li>
+</ul>
+<p><strong>Law of Large Numbers.</strong> For independent \(X_i\) with the same mean \(\mu\): \(P(|\bar X-\mu|&gt;\epsilon)\to0\) as \(n\to\infty\) for any fixed \(\epsilon&gt;0\). Larger samples make \(\bar X\) more and more likely to be close to \(\mu\).</p>
+<p><strong><a class="wk" href="../../../terms/central-limit-theorem.html">Central Limit Theorem</a>.</strong> \(Z=\dfrac{\bar X-\mu}{\sigma/\sqrt n}\) has a distribution that approaches the standard normal as \(n\to\infty\), whatever the shape of the population.</p>
+<blockquote>
+<p>LLN says \(\bar X\) <em>lands near</em> \(\mu\). CLT says <em>how</em> it is spread around \(\mu\) (normal, sd \(\sigma/\sqrt n\)). Don't mix them in answers.</p>
+</blockquote>
+<p><strong>Unbiased and more efficient estimators.</strong></p>
+<ul>
+<li>\(\hat\theta\) is <strong>unbiased</strong> if \(E(\hat\theta)=\theta\) for every value of \(\theta\).</li>
+<li>\(\hat\theta_1\) is <strong>more efficient</strong> than \(\hat\theta_2\) if both are unbiased and \(\text{Var}(\hat\theta_1)\le\text{Var}(\hat\theta_2)\), with strict inequality for at least one \(\theta\).</li>
+<li>Example: for a normal population, both \(\bar X\) and the sample median are unbiased for \(\mu\), but \(\bar X\) has the smaller variance, so \(\bar X\) is more efficient.</li>
+</ul>
+<p><strong>Point estimate of a mean.</strong> Estimator \(\bar X\); estimated standard error \(\dfrac{s}{\sqrt n}\).</p>
+<p><strong>Mean and SD of the numbers 0 to 100 (population).</strong> \(N=101\), \(\mu=50\), \(\sigma=\sqrt{\frac{101^2-1}{12}}=\mathbf{29.155}\).</p>
+<p><strong>Why \(n-1\) (slide demo).</strong> Sample \(\{1,3,29,34,40,42,48,52,68,85\}\), \(n=10\), \(\bar x=40.2\).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Divisor / centre</th>
+<th>\(\sum\) squares</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>around \(\bar x=40.2\), divide by 10</td>
+<td>6067.6</td>
+<td>\(\sqrt{606.76}=24.63\)</td>
+</tr>
+<tr>
+<td>around true \(\mu=50\), divide by 10</td>
+<td>7028</td>
+<td>\(\sqrt{702.8}=26.51\)</td>
+</tr>
+<tr>
+<td>around \(\bar x\), divide by \(n-1=9\)</td>
+<td>6067.6</td>
+<td>\(\sqrt{674.18}=25.96\)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>The sum of squares is smallest around \(\bar x\) (6067.6 &lt; 7028). Measured from the true centre it is larger, so dividing by \(n\) makes \(s\) too small on average. Dividing by \(n-1\) corrects that shortfall on average.</li>
+</ul>
+<blockquote>
+<p>⚠ Slide slip: the slide shows "\(\sqrt{70.28}=26.51\)" but \(7028/10=702.8\), and \(\sqrt{702.8}=26.51\).</p>
+</blockquote></div><div class="explain"><div class="tag">Explanation</div><p>This section fills in the language that Unit III quietly relies on. A <em>parameter</em> belongs to the population and is fixed but unknown; a <em>statistic</em> comes from your sample and changes from sample to sample. Everything in the later topics is about how much a statistic can wander (its standard error) and what that lets us say about the parameter.</p>
+<p>The finite population correction matters only when you sample a large share of the population. If you draw 40 out of 1000, the factor is \(\frac{960}{999}\approx0.96\), so ignoring it changes little. If you draw 500 out of 1000 it is about 0.5, and ignoring it overstates the spread a lot.</p>
+<p>The \(0..100\) demo shows the \(n-1\) idea with numbers: the squares around \(\bar x\) always add up to less than the squares around any other point (including the true \(\mu\)), so a divisor of \(n\) would on average underestimate the spread.</p></div><nav class="pager"><a class="prev" href="08-comparisons-two-independent-small-samples.html"><small>← Previous</small>Comparisons: Two Independent Small Samples</a><a class="next" href="10-maximum-error-and-sample-size.html"><small>Next →</small>Maximum Error and Sample Size</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

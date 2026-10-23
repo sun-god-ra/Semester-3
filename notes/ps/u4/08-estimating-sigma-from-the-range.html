@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estimating $\sigma$ from the Range · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="../index.html">Probability and Statistics</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-random-variables.html">Random Variables</a></li><li><a href="../u1/02-binomial-distribution.html">Binomial Distribution</a></li><li><a href="../u1/03-hypergeometric-distribution.html">Hypergeometric Distribution</a></li><li><a href="../u1/04-poisson-approximation-to-the-binomial.html">Poisson Approximation to the Binomial</a></li><li><a href="../u1/05-poisson-process.html">Poisson Process</a></li><li><a href="../u1/06-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-continuous-random-variables.html">Continuous Random Variables</a></li><li><a href="../u2/02-normal-distribution.html">Normal Distribution</a></li><li><a href="../u2/03-normal-approximation-to-the-binomial.html">Normal Approximation to the Binomial</a></li><li><a href="../u2/04-joint-distributions-discrete.html">Joint Distributions: Discrete</a></li><li><a href="../u2/05-joint-distributions-continuous.html">Joint Distributions: Continuous</a></li><li><a href="../u2/06-properties-of-expectation-lecture-slides.html">Properties of Expectation (Lecture Slides)</a></li><li><a href="../u2/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-point-estimation.html">Point Estimation</a></li><li><a href="../u3/02-interval-estimation.html">Interval Estimation</a></li><li><a href="../u3/03-tests-of-hypotheses.html">Tests of Hypotheses</a></li><li><a href="../u3/04-null-hypotheses-and-tests-of-hypotheses-procedure.html">Null Hypotheses and Tests of Hypotheses (procedure)</a></li><li><a href="../u3/05-hypotheses-concerning-one-mean.html">Hypotheses Concerning One Mean</a></li><li><a href="../u3/06-relation-between-tests-and-confidence-intervals.html">Relation Between Tests and Confidence Intervals</a></li><li><a href="../u3/07-comparisons-two-independent-large-samples.html">Comparisons: Two Independent Large Samples</a></li><li><a href="../u3/08-comparisons-two-independent-small-samples.html">Comparisons: Two Independent Small Samples</a></li><li><a href="../u3/09-sampling-theory-add-ons-lecture-slides.html">Sampling Theory Add-ons (Lecture Slides)</a></li><li><a href="../u3/10-maximum-error-and-sample-size.html">Maximum Error and Sample Size</a></li><li><a href="../u3/11-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details open><summary><a href="index.html">Unit IV</a></summary><ul><li><a href="01-estimation-of-variances.html">Estimation of Variances</a></li><li><a href="02-hypotheses-concerning-one-variance.html">Hypotheses Concerning One Variance</a></li><li><a href="03-hypotheses-concerning-two-variances.html">Hypotheses Concerning Two Variances</a></li><li><a href="04-estimation-of-proportions.html">Estimation of Proportions</a></li><li><a href="05-hypotheses-concerning-one-proportion.html">Hypotheses Concerning One Proportion</a></li><li><a href="06-hypotheses-concerning-several-proportions.html">Hypotheses Concerning Several Proportions</a></li><li><a href="07-the-analysis-of-r-c-tables.html">The Analysis of r × c Tables</a></li><li class="cur"><a href="08-estimating-sigma-from-the-range.html">Estimating $\sigma$ from the Range</a></li><li><a href="09-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-introduction-to-non-parametric-tests.html">Introduction to Non-Parametric Tests</a></li><li><a href="../u5/02-the-sign-test.html">The Sign Test</a></li><li><a href="../u5/03-wilcoxon-signed-rank-test-extension-of-sign-test.html">Wilcoxon Signed-Rank Test (extension of sign test)</a></li><li><a href="../u5/04-rank-sum-tests.html">Rank-Sum Tests</a></li><li><a href="../u5/05-correlation-based-on-ranks-spearman-s-r-s.html">Correlation Based on Ranks — Spearman's $r_s$</a></li><li><a href="../u5/06-tests-of-randomness-runs-test-wald-wolfowitz.html">Tests of Randomness — Runs Test (Wald–Wolfowitz)</a></li><li><a href="../u5/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="../index.html">Probability and Statistics</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-random-variables.html">Random Variables</a></li><li><a href="../u1/02-binomial-distribution.html">Binomial Distribution</a></li><li><a href="../u1/03-hypergeometric-distribution.html">Hypergeometric Distribution</a></li><li><a href="../u1/04-poisson-approximation-to-the-binomial.html">Poisson Approximation to the Binomial</a></li><li><a href="../u1/05-poisson-process.html">Poisson Process</a></li><li><a href="../u1/06-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-continuous-random-variables.html">Continuous Random Variables</a></li><li><a href="../u2/02-normal-distribution.html">Normal Distribution</a></li><li><a href="../u2/03-normal-approximation-to-the-binomial.html">Normal Approximation to the Binomial</a></li><li><a href="../u2/04-joint-distributions-discrete.html">Joint Distributions: Discrete</a></li><li><a href="../u2/05-joint-distributions-continuous.html">Joint Distributions: Continuous</a></li><li><a href="../u2/06-properties-of-expectation-lecture-slides.html">Properties of Expectation (Lecture Slides)</a></li><li><a href="../u2/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-point-estimation.html">Point Estimation</a></li><li><a href="../u3/02-interval-estimation.html">Interval Estimation</a></li><li><a href="../u3/03-tests-of-hypotheses.html">Tests of Hypotheses</a></li><li><a href="../u3/04-null-hypotheses-and-tests-of-hypotheses-procedure.html">Null Hypotheses and Tests of Hypotheses (procedure)</a></li><li><a href="../u3/05-hypotheses-concerning-one-mean.html">Hypotheses Concerning One Mean</a></li><li><a href="../u3/06-relation-between-tests-and-confidence-intervals.html">Relation Between Tests and Confidence Intervals</a></li><li><a href="../u3/07-comparisons-two-independent-large-samples.html">Comparisons: Two Independent Large Samples</a></li><li><a href="../u3/08-comparisons-two-independent-small-samples.html">Comparisons: Two Independent Small Samples</a></li><li><a href="../u3/09-sampling-theory-add-ons-lecture-slides.html">Sampling Theory Add-ons (Lecture Slides)</a></li><li><a href="../u3/10-maximum-error-and-sample-size.html">Maximum Error and Sample Size</a></li><li><a href="../u3/11-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details open><summary><a href="index.html">Unit IV</a></summary><ul><li><a href="01-estimation-of-variances.html">Estimation of Variances</a></li><li><a href="02-hypotheses-concerning-one-variance.html">Hypotheses Concerning One Variance</a></li><li><a href="03-hypotheses-concerning-two-variances.html">Hypotheses Concerning Two Variances</a></li><li><a href="04-estimation-of-proportions.html">Estimation of Proportions</a></li><li><a href="05-hypotheses-concerning-one-proportion.html">Hypotheses Concerning One Proportion</a></li><li><a href="06-hypotheses-concerning-several-proportions.html">Hypotheses Concerning Several Proportions</a></li><li><a href="07-the-analysis-of-r-c-tables.html">The Analysis of r × c Tables</a></li><li class="cur"><a href="08-estimating-sigma-from-the-range.html">Estimating $\sigma$ from the Range</a></li><li><a href="09-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-introduction-to-non-parametric-tests.html">Introduction to Non-Parametric Tests</a></li><li><a href="../u5/02-the-sign-test.html">The Sign Test</a></li><li><a href="../u5/03-wilcoxon-signed-rank-test-extension-of-sign-test.html">Wilcoxon Signed-Rank Test (extension of sign test)</a></li><li><a href="../u5/04-rank-sum-tests.html">Rank-Sum Tests</a></li><li><a href="../u5/05-correlation-based-on-ranks-spearman-s-r-s.html">Correlation Based on Ranks — Spearman's $r_s$</a></li><li><a href="../u5/06-tests-of-randomness-runs-test-wald-wolfowitz.html">Tests of Randomness — Runs Test (Wald–Wolfowitz)</a></li><li><a href="../u5/07-worked-examples-from-the-lecture-slides-dr-m-v-rao.html">Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Prob &amp; Stats</a> <span>›</span> <a href="index.html">Unit IV</a> <span>›</span> <b>Estimating $\sigma$ from the Range</b></nav>
+    <article class="wiki" style="--h:#6d4bc3"><h1>Estimating $\sigma$ from the Range</h1><p class="byline">Probability and Statistics · Unit IV: Variances and Proportions</p><aside class="infobox" style="--h:#6d4bc3"><div class="ib-h">Estimating $\sigma$ from the Range</div><dl><dt>Subject</dt><dd><a href="../index.html">Probability and Statistics</a> (24MA203)</dd><dt>Unit</dt><dd><a href="index.html">Unit IV: Variances and Proportions</a></dd><dt>Topic</dt><dd>8 of 9</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/standard-deviation.html">Standard deviation</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/ps/u4.html">Part B questions for Unit IV</a> and <a href="../../../qa/ps/part-a.html">Part A short questions</a>.</p><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Range</strong> \(R=\) largest \(-\) smallest in the sample.</li>
+<li>For samples from a normal population, \(R\) has mean \(d_2\sigma\) and <a class="wk" href="../../../terms/standard-deviation.html">standard deviation</a> \(d_3\sigma\), where \(d_2,d_3\) depend only on \(n\).</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>\(n\)</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(d_2\)</td>
+<td>1.128</td>
+<td>1.693</td>
+<td>2.059</td>
+<td>2.326</td>
+<td>2.534</td>
+<td>2.704</td>
+<td>2.847</td>
+<td>2.970</td>
+<td>3.078</td>
+</tr>
+<tr>
+<td>\(d_3\)</td>
+<td>0.853</td>
+<td>0.888</td>
+<td>0.880</td>
+<td>0.864</td>
+<td>0.848</td>
+<td>0.833</td>
+<td>0.820</td>
+<td>0.808</td>
+<td>0.797</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>So \(\hat\sigma=\dfrac{R}{d_2}\). It is a quick estimate for small samples (used in control charts), a little less efficient than \(s\).</li>
+</ul>
+<p><strong>Example (coal, Mine 1).</strong> Readings 8260, 8130, 8350, 8070, 8340. \(R=8350-8070=280\), \(n=5\), \(d_2=2.326\):</p>
+<ul>
+<li>\(\hat\sigma=\frac{280}{2.326}=\mathbf{120.4}\)</li>
+<li>Compare with the usual \(s_1=\sqrt{15750}=125.5\). Close, as expected.</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>The range is the quickest way to guess the spread: subtract the smallest from the largest. For a normal population, the <em>expected</em> range is a fixed multiple \(d_2\) of \(\sigma\) that grows with sample size (a bigger sample is more likely to contain extreme values). Dividing by \(d_2\) undoes that growth. It works well only for small samples, say \(n\le10\), because the range ignores everything between the two extremes.</p></div><nav class="pager"><a class="prev" href="07-the-analysis-of-r-c-tables.html"><small>← Previous</small>The Analysis of r × c Tables</a><a class="next" href="09-worked-examples-from-the-lecture-slides-dr-m-v-rao.html"><small>Next →</small>Worked Examples from the Lecture Slides (Dr M. V. Rao)</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

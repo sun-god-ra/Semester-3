@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Logic Design Unit IV questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li class="cur"><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li class="cur"><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Digital Logic</a> <span>›</span> <b>Unit IV</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><span class="ulabel">Part B · Unit IV</span><h1>Sequential Logic and State Machine Design</h1><p class="byline">Digital Logic Design · 5 questions · <a href="../../notes/dld/u4/index.html">Notes for this unit</a></p><article class="qa exp" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">Explain the <a class="wk" href="../../terms/sr-latch.html">SR latch</a> (<a class="wk" href="../../terms/nor.html">NOR</a>) and the D <a class="wk" href="../../terms/latch.html">latch</a>/<a class="wk" href="../../terms/flip-flop.html">flip-flop</a>. Give the characteristic tables.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/sr-latch.html">SR latch</a> with <a class="wk" href="../../terms/nor.html">NOR</a> gates:</strong> \(Q=(R+Q')'\), \(Q'=(S+Q)'\).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>S R</th>
+<th>\(Q^+\)</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 0</td>
+<td>\(Q\)</td>
+<td>hold (no change)</td>
+</tr>
+<tr>
+<td>0 1</td>
+<td>0</td>
+<td>reset</td>
+</tr>
+<tr>
+<td>1 0</td>
+<td>1</td>
+<td>set</td>
+</tr>
+<tr>
+<td>1 1</td>
+<td>undefined (both outputs 0)</td>
+<td>forbidden</td>
+</tr>
+</tbody>
+</table></div>
+<p>\(Q^+=S+R'Q\), with \(SR=0\). (With <a class="wk" href="../../terms/nand.html">NAND</a> gates the inputs are active low.)</p>
+<p><strong>Gated (clocked) D <a class="wk" href="../../terms/latch.html">latch</a>:</strong> \(D\) is applied through an SR latch with \(S=D\), \(R=D'\) when the enable is 1: \(Q^+=D\). No forbidden state. The edge-triggered <strong>D <a class="wk" href="../../terms/flip-flop.html">flip-flop</a></strong> (master–slave) copies \(D\) to \(Q\) only at the clock edge.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>D</th>
+<th>\(Q^+\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div></div></article><article class="qa exp" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">Explain the JK and T <a class="wk" href="../../terms/flip-flop.html">flip-flops</a> with characteristic tables, characteristic equations and excitation tables. What is the <a class="wk" href="../../terms/race-around.html">race-around</a> condition?</h4><div class="ans"><div class="tag">Answer</div><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>J K</th>
+<th>\(Q^+\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 0</td>
+<td>\(Q\) (hold)</td>
+</tr>
+<tr>
+<td>0 1</td>
+<td>0 (reset)</td>
+</tr>
+<tr>
+<td>1 0</td>
+<td>1 (set)</td>
+</tr>
+<tr>
+<td>1 1</td>
+<td>\(Q'\) (toggle)</td>
+</tr>
+</tbody>
+</table></div>
+<p>\(Q^+=JQ'+K'Q\). T <a class="wk" href="../../terms/flip-flop.html">flip-flop</a> (\(J=K=T\)): \(Q^+=T\oplus Q\) (toggle when \(T=1\)).</p>
+<p><strong>Excitation tables</strong> (what inputs are needed for \(Q\to Q^+\)):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>\(Q\to Q^+\)</th>
+<th>J</th>
+<th>K</th>
+<th>T</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 → 0</td>
+<td>0</td>
+<td>X</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0 → 1</td>
+<td>1</td>
+<td>X</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1 → 0</td>
+<td>X</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1 → 1</td>
+<td>X</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong><a class="wk" href="../../terms/race-around.html">Race-around</a>:</strong> for \(J=K=1\) and a level-triggered clock longer than the <a class="wk" href="../../terms/propagation-delay.html">propagation delay</a>, \(Q\) toggles many times in one clock pulse. Cures: master–slave flip-flop or edge triggering (or a clock pulse shorter than the delay).</p></div></article><article class="qa exp" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO4 K3</span></div><h4 class="qtext">Reduce the following state table and give the reduced <a class="wk" href="../../terms/state-diagram.html">state diagram</a>.</h4><div class="ans"><div class="tag">Answer</div><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Present</th>
+<th>Next (x=0)</th>
+<th>Next (x=1)</th>
+<th>Output (x=0)</th>
+<th>Output (x=1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>b</td>
+<td>c</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>c</td>
+<td>a</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>d</td>
+<td>e</td>
+<td>f</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>e</td>
+<td>a</td>
+<td>f</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>f</td>
+<td>g</td>
+<td>f</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>g</td>
+<td>a</td>
+<td>f</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Method (row matching):</strong> two states are equivalent if they have the same outputs and go to the same (or equivalent) next states.</p>
+<ul>
+<li>\(e\) and \(g\) have the same next states (\(a,f\)) and outputs → equivalent. Remove \(g\), replace \(g\) by \(e\).</li>
+<li>Now \(f\) goes to \((e,f)\) with outputs \((0,1)\), the same as \(d\): \((e,f)\) and \((0,1)\) → \(d\equiv f\). Remove \(f\), replace \(f\) by \(d\).
+Reduced table (5 states):</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Present</th>
+<th>x=0</th>
+<th>x=1</th>
+<th>Out x=0</th>
+<th>Out x=1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>b</td>
+<td>c</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>c</td>
+<td>a</td>
+<td>d</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>d</td>
+<td>e</td>
+<td>d</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>e</td>
+<td>a</td>
+<td>d</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>7 states need 3 <a class="wk" href="../../terms/flip-flop.html">flip-flops</a> and 5 states also need 3, but the reduced circuit has fewer gates (more don't-cares).</p></div></article><article class="qa exp" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO4 K3</span></div><h4 class="qtext">Design a sequence detector (Mealy) that detects the overlapping sequence 101 using D <a class="wk" href="../../terms/flip-flop.html">flip-flops</a>.</h4><div class="ans"><div class="tag">Answer</div><p>States: \(S_0\) (nothing yet), \(S_1\) (seen "1"), \(S_2\) (seen "10").</p>
+<figure class="fig"><pre class="mermaid">stateDiagram-v2
+  S0 --&gt; S0: 0/0
+  S0 --&gt; S1: 1/0
+  S1 --&gt; S2: 0/0
+  S1 --&gt; S1: 1/0
+  S2 --&gt; S0: 0/0
+  S2 --&gt; S1: 1/1</pre></figure>
+<p>State assignment: \(S_0=00,S_1=01,S_2=10\) (\(Q_1Q_0\)); state 11 is unused (<a class="wk" href="../../terms/don-t-care.html">don't care</a>).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>\(Q_1Q_0\)</th>
+<th>x</th>
+<th>\(Q_1^+Q_0^+\)</th>
+<th>z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>0</td>
+<td>00</td>
+<td>0</td>
+</tr>
+<tr>
+<td>00</td>
+<td>1</td>
+<td>01</td>
+<td>0</td>
+</tr>
+<tr>
+<td>01</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td>01</td>
+<td>1</td>
+<td>01</td>
+<td>0</td>
+</tr>
+<tr>
+<td>10</td>
+<td>0</td>
+<td>00</td>
+<td>0</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>01</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>With D <a class="wk" href="../../terms/flip-flop.html">flip-flops</a> (\(D=Q^+\)) and <a class="wk" href="../../terms/k-map.html">K-map</a> simplification using the don't-cares (11):
+\[D_1=Q_0\,x',\qquad D_0=x,\qquad z=Q_1\,x\]
+For the input stream 1 0 1 0 1 the output is 0 0 1 0 1 (the overlap at the middle 1 is detected twice).</p></div></article><article class="qa exp" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO4 K3</span></div><h4 class="qtext">Design a synchronous mod-6 counter (0 to 5) using T <a class="wk" href="../../terms/flip-flop.html">flip-flops</a>.</h4><div class="ans"><div class="tag">Answer</div><p>Sequence \(Q_2Q_1Q_0\): 000 → 001 → 010 → 011 → 100 → 101 → 000. States 110, 111 are unused (<a class="wk" href="../../terms/don-t-care.html">don't care</a>).
+A T <a class="wk" href="../../terms/flip-flop.html">flip-flop</a> toggles when \(T=1\). Excitation from the sequence:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Present</th>
+<th>Next</th>
+<th>\(T_2T_1T_0\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000</td>
+<td>001</td>
+<td>001</td>
+</tr>
+<tr>
+<td>001</td>
+<td>010</td>
+<td>011</td>
+</tr>
+<tr>
+<td>010</td>
+<td>011</td>
+<td>001</td>
+</tr>
+<tr>
+<td>011</td>
+<td>100</td>
+<td>111</td>
+</tr>
+<tr>
+<td>100</td>
+<td>101</td>
+<td>001</td>
+</tr>
+<tr>
+<td>101</td>
+<td>000</td>
+<td>101</td>
+</tr>
+</tbody>
+</table></div>
+<p><a class="wk" href="../../terms/k-map.html">K-map</a> simplification (with don't-cares at 110, 111):
+\[T_0=1,\qquad T_1=Q_0Q_2',\qquad T_2=Q_0(Q_1+Q_2)\]
+<strong>Lock-out check:</strong> from 110: \(T_0=1,T_1=0,T_2=0\) → 111; from 111: \(T_1=0\), \(T_2=1\), \(T_0=1\) → 010. So the unused states return to the valid sequence (self-starting).</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

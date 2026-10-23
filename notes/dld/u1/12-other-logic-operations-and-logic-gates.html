@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Other Logic Operations and Logic Gates · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details open><summary><a href="index.html">Unit I</a></summary><ul><li><a href="01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="02-number-systems.html">Number Systems</a></li><li><a href="03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="05-binary-codes.html">Binary Codes</a></li><li><a href="06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="10-boolean-functions.html">Boolean Functions</a></li><li><a href="11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li class="cur"><a href="12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="../u2/02-five-variable-map.html">Five-Variable Map</a></li><li><a href="../u2/03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="../u2/04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="../u2/05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="../u2/06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="../u2/07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="../u2/08-code-conversion.html">Code Conversion</a></li><li><a href="../u2/09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="../u2/10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details open><summary><a href="index.html">Unit I</a></summary><ul><li><a href="01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="02-number-systems.html">Number Systems</a></li><li><a href="03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="05-binary-codes.html">Binary Codes</a></li><li><a href="06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="10-boolean-functions.html">Boolean Functions</a></li><li><a href="11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li class="cur"><a href="12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="../u2/02-five-variable-map.html">Five-Variable Map</a></li><li><a href="../u2/03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="../u2/04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="../u2/05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="../u2/06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="../u2/07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="../u2/08-code-conversion.html">Code Conversion</a></li><li><a href="../u2/09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="../u2/10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Digital Logic</a> <span>›</span> <a href="index.html">Unit I</a> <span>›</span> <b>Other Logic Operations and Logic Gates</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><h1>Other Logic Operations and Logic Gates</h1><p class="byline">Digital Logic Design · Unit I: Number Systems, Boolean Algebra, and Logic Gates</p><aside class="infobox" style="--h:#0f7a6a"><div class="ib-h">Other Logic Operations and Logic Gates</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design</a> (24CS201)</dd><dt>Unit</dt><dd><a href="index.html">Unit I: Number Systems, Boolean Algebra, and Logic Gates</a></dd><dt>Topic</dt><dd>12 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/nand.html">NAND</a>, <a href="../../../terms/nor.html">NOR</a>, <a href="../../../terms/xor.html">XOR</a>, <a href="../../../terms/xnor.html">XNOR</a>, <a href="../../../terms/universal-gate.html">Universal gate</a>, <a href="../../../terms/fan-out.html">Fan-out</a>, <a href="../../../terms/propagation-delay.html">Propagation delay</a>, <a href="../../../terms/de-morgan.html">De morgan</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/dld/u1.html">Part B questions for Unit I</a> and <a href="../../../qa/dld/part-a.html">Part A short questions</a>.</p><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li>With 2 variables there are <strong>16 Boolean functions</strong>. Important ones:</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Symbol</th>
+<th>Expression</th>
+<th>Truth (00,01,10,11)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td>\(x\cdot y\)</td>
+<td>\(xy\)</td>
+<td>0 0 0 1</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>\(x+y\)</td>
+<td>\(x+y\)</td>
+<td>0 1 1 1</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>\(x'\)</td>
+<td>\(\bar x\)</td>
+<td>1 0</td>
+</tr>
+<tr>
+<td><strong><a class="wk" href="../../../terms/nand.html">NAND</a></strong></td>
+<td></td>
+<td>\((xy)'\)</td>
+<td>1 1 1 0</td>
+</tr>
+<tr>
+<td><strong><a class="wk" href="../../../terms/nor.html">NOR</a></strong></td>
+<td></td>
+<td>\((x+y)'\)</td>
+<td>1 0 0 0</td>
+</tr>
+<tr>
+<td><strong><a class="wk" href="../../../terms/xor.html">XOR</a></strong></td>
+<td>\(x\oplus y\)</td>
+<td>\(xy'+x'y\)</td>
+<td>0 1 1 0</td>
+</tr>
+<tr>
+<td><strong><a class="wk" href="../../../terms/xnor.html">XNOR</a></strong> (equivalence)</td>
+<td>\(x\odot y\)</td>
+<td>\(xy+x'y'\)</td>
+<td>1 0 0 1</td>
+</tr>
+<tr>
+<td>Inhibition</td>
+<td></td>
+<td>\(xy'\)</td>
+<td>0 0 1 0</td>
+</tr>
+<tr>
+<td>Implication</td>
+<td></td>
+<td>\(x'+y\)</td>
+<td>1 1 0 1</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>XOR properties:</strong> \(x\oplus0=x\), \(x\oplus1=x'\), \(x\oplus x=0\), \(x\oplus x'=1\); commutative &amp; associative. XOR of \(n\) bits = 1 if <strong>odd</strong> number of 1s (odd-parity function). XNOR = 1 if <strong>even</strong> number of 1s</li>
+<li><strong><a class="wk" href="../../../terms/universal-gate.html">Universal gates</a>:</strong> NAND and NOR alone can build any function<ul>
+<li>NOT from NAND: tie inputs: \((xx)'=x'\)</li>
+<li>AND = NAND followed by NAND-as-NOT. OR = NAND of inverted inputs (\(x'\) NAND \(y'\) = \(x+y\))</li>
+<li>NOR dual</li>
+</ul>
+</li>
+<li><strong>Logic gates (standard symbols):</strong> AND (flat back, D-shape), OR (curved back), NOT (triangle + bubble), NAND/NOR = AND/OR + bubble, XOR = OR with extra curved line</li>
+</ul>
+<figure class="fig svgfig"><svg viewBox="0 0 640 230" width="640" role="img" aria-label="Basic logic gate symbols">
+  <g font-family="Bricolage Grotesque, sans-serif" font-size="14" fill="#17233a" stroke="#1f4fa8" stroke-width="2.2">
+    <!-- AND -->
+    <path d="M30 20 h28 a22 22 0 0 1 0 44 h-28 z" fill="#eaf1fb"/><path d="M10 31 h20 M10 53 h20 M80 42 h20" fill="none"/>
+    <text x="42" y="90" stroke="none">AND</text>
+    <!-- OR -->
+    <path d="M150 20 q22 22 0 44 q40 0 62 -22 q-22 -22 -62 -22z" fill="#eaf1fb"/><path d="M134 31 h22 M134 53 h22 M212 42 h20" fill="none"/>
+    <text x="170" y="90" stroke="none">OR</text>
+    <!-- NOT -->
+    <path d="M280 18 v48 l38 -24 z" fill="#eaf1fb"/><circle cx="323" cy="42" r="5" fill="#fff"/><path d="M260 42 h20 M328 42 h20" fill="none"/>
+    <text x="287" y="90" stroke="none">NOT</text>
+    <!-- NAND -->
+    <path d="M390 20 h28 a22 22 0 0 1 0 44 h-28 z" fill="#eaf1fb"/><circle cx="445" cy="42" r="5" fill="#fff"/><path d="M370 31 h20 M370 53 h20 M450 42 h20" fill="none"/>
+    <text x="400" y="90" stroke="none">NAND</text>
+    <!-- NOR -->
+    <path d="M510 20 q22 22 0 44 q40 0 62 -22 q-22 -22 -62 -22z" fill="#eaf1fb"/><circle cx="578" cy="42" r="5" fill="#fff"/><path d="M494 31 h22 M494 53 h22 M583 42 h20" fill="none"/>
+    <text x="530" y="90" stroke="none">NOR</text>
+    <!-- XOR -->
+    <path d="M70 140 q22 22 0 44 q40 0 62 -22 q-22 -22 -62 -22z" fill="#eaf1fb"/><path d="M60 140 q22 22 0 44" fill="none"/><path d="M50 151 h22 M50 173 h22 M132 162 h20" fill="none"/>
+    <text x="85" y="210" stroke="none">XOR</text>
+    <!-- XNOR -->
+    <path d="M250 140 q22 22 0 44 q40 0 62 -22 q-22 -22 -62 -22z" fill="#eaf1fb"/><path d="M240 140 q22 22 0 44" fill="none"/><circle cx="318" cy="162" r="5" fill="#fff"/><path d="M230 151 h22 M230 173 h22 M323 162 h20" fill="none"/>
+    <text x="262" y="210" stroke="none">XNOR</text>
+    <!-- BUFFER -->
+    <path d="M430 140 v48 l38 -24 z" fill="#eaf1fb"/><path d="M410 164 h20 M468 164 h20" fill="none"/>
+    <text x="428" y="210" stroke="none">Buffer</text>
+  </g>
+</svg></figure>
+<ul>
+<li><strong>Positive / negative logic</strong>, <strong>fan-in</strong>, <strong><a class="wk" href="../../../terms/fan-out.html">fan-out</a></strong>, <strong><a class="wk" href="../../../terms/propagation-delay.html">propagation delay</a></strong>, <strong>noise margin</strong> — gate characteristics</li>
+<li>Gate families: <strong>TTL</strong> (7400, 5 V), <strong>CMOS</strong> (low power), <strong>ECL</strong> (fastest), NMOS/PMOS</li>
+<li>NAND-only / NOR-only conversion of SOP: SOP → <strong>NAND-NAND</strong> two-level; POS → <strong>NOR-NOR</strong> two-level<ul>
+<li>\(F=AB+CD\) → \(F=((AB)'(CD)')'\)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>With two inputs there are 16 possible functions, but only a few have names. <a class="wk" href="../../../terms/nand.html">NAND</a> and <a class="wk" href="../../../terms/nor.html">NOR</a> are complete: any function can be built using NAND gates alone, or NOR gates alone. This matters in practice because the NAND gate is the cheapest to make in CMOS and TTL, so real designs are often converted to all-NAND. To convert an SOP to two-level NAND-NAND, double-complement the expression and use <a class="wk" href="../../../terms/de-morgan.html">De Morgan</a> once: \(AB+CD=((AB)'\cdot(CD)')'\), so each AND becomes a NAND and the OR becomes a NAND with the same inputs.</p>
+<p>The <a class="wk" href="../../../terms/xor.html">XOR</a> gate gives 1 when the inputs differ. For many inputs it gives 1 when an odd number of inputs are 1, which is why XOR trees are used to compute parity. <a class="wk" href="../../../terms/xnor.html">XNOR</a> is the equality detector. Real gates have a <a class="wk" href="../../../terms/propagation-delay.html">propagation delay</a>, a limited <a class="wk" href="../../../terms/fan-out.html">fan-out</a> (how many gate inputs one output can drive), and a noise margin, and these limits decide how circuits are built in practice.</p></div><nav class="pager"><a class="prev" href="11-canonical-and-standard-forms.html"><small>← Previous</small>Canonical and Standard Forms</a><span></span></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

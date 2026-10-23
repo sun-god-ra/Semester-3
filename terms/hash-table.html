@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hash table · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>Hash table</b></nav>
+    <article class="wiki term"><p class="kicker">Term · Java, Java Lab, Operating Systems</p><h1>Hash table</h1><div class="ex lead"><ul>
+<li><strong><code>HashSet</code></strong>: backed by a <strong>hash table</strong>; <strong>no order</strong>; O(1) average add/contains/remove</li>
+</ul><p class="src">From <a href="../notes/java/u5/05-set-interface.html">Java › Set Interface</a></p></div><div class="ex"><ul>
+<li><strong>Oracle SPARC Solaris</strong> (example): 64-bit, <strong>two hash tables</strong> (<a class="wk" href="kernel.html">kernel</a>, user); each entry is a <strong>TSB (translation storage buffer)</strong>; <strong><a class="wk" href="tlb.html">TLB</a></strong> holds translation table entries (TTEs)</li>
+</ul><p class="src">From <a href="../notes/os/u4/05-structure-of-the-page-table.html">Operating Systems › Structure of the Page Table</a></p></div><div class="ex"><ul>
+<li><strong>HashSet/<a class="wk" href="hashmap.html">HashMap</a>:</strong> hash table — average \(O(1)\) add/get/remove; <strong>no order guarantee</strong>; uses <code>hashCode()</code> and <code>equals()</code>. <strong>LinkedHashSet/Map:</strong> insertion order. <strong>TreeSet/<a class="wk" href="treemap.html">TreeMap</a>:</strong> red-black tree — <strong>sorted</strong> order, \(O(\log n)\), needs <code>Comparable</code> or a <code>Comparator</code>; <code>firstKey</code>, <code>floorKey</code>, <code>headMap</code>…</li>
+</ul><p class="src">From <a href="../notes/jlab/lab/11-task-11-collections-arraylist-linkedlist-hashset-h.html">Java Lab › Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></p></div><div class="ex"><ul>
+<li><strong>Directory implementation:</strong> <strong>linear list</strong> of file names with <strong>pointers to the data blocks</strong> — <strong>simple to program but time-consuming to execute</strong> (linear search to find a file: <strong>create and delete</strong> need the search; a <strong>software cache</strong> or a <strong>sorted list with binary search</strong> helps; or a <strong>B+ tree</strong>: NTFS); <strong>hash table</strong> — linear list <strong>with a hash data structure</strong> (decreases directory search time; <strong>collisions</strong> — situations where two file names hash to the same location; <strong>fixed size</strong> of the hash table, and the hash function depends on it → <strong>chained-overflow hash table</strong>; entry = <a class="wk" href="linked-list.html">linked list</a>)</li>
+</ul><p class="src">From <a href="../notes/os/u5/07-file-system-implementation-structures-and-operatio.html">Operating Systems › File-System Implementation — Structures and Operations</a></p></div><div class="ex"><ol start="2">
+<li>Backed by a <strong>hash table</strong> (a <code>HashMap</code> inside); elements are placed by their <strong>hash code</strong>.</li>
+</ol><p class="src">From <a href="../qa/java/u5.html#q2">Object Oriented Programming Through Java Unit V questions › question</a></p></div><h2>Where it appears</h2><h3>Java</h3><ul><li><a href="../notes/java/u5/05-set-interface.html">Unit V › Set Interface</a></li><li><a href="../notes/java/u5/07-map-interface.html">Unit V › Map Interface</a></li><li><a href="../notes/java/u5/08-hashmap.html">Unit V › HashMap</a></li><li><a href="../qa/java/part-a.html">Part A questions</a></li><li><a href="../qa/java/u5.html">Unit V questions</a></li></ul><h3>Java Lab</h3><ul><li><a href="../notes/jlab/lab/11-task-11-collections-arraylist-linkedlist-hashset-h.html">Lab › Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li></ul><h3>Operating Systems</h3><ul><li><a href="../notes/os/u4/05-structure-of-the-page-table.html">Unit IV › Structure of the Page Table</a></li><li><a href="../notes/os/u5/06-file-system-implementation-structure.html">Unit V › File-System Implementation — Structure</a></li><li><a href="../notes/os/u5/07-file-system-implementation-structures-and-operatio.html">Unit V › File-System Implementation — Structures and Operations</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="linked-list.html">Linked list</a></li><li><a href="arraylist.html">Arraylist</a></li><li><a href="hashmap.html">Hashmap</a></li><li><a href="treemap.html">Treemap</a></li><li><a href="collections-framework.html">Collections framework</a></li><li><a href="comparator.html">Comparator</a></li><li><a href="constructor.html">Constructor</a></li><li><a href="inode.html">Inode</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

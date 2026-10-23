@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experiment 2 — Half adder and half subtractor (and full adder / full subtractor) · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2a8a7c"><a class="rs" href="../index.html">Digital Logic Design Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li class="cur"><a href="02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="03-experiment-3-code-converters-binary-gray-bcd-exces.html">Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></li><li><a href="04-experiment-4-single-bit-comparator.html">Experiment 4 — Single-bit comparator</a></li><li><a href="05-experiment-5-decoders-and-encoders.html">Experiment 5 — Decoders and encoders</a></li><li><a href="06-experiment-6-multiplexers-and-demultiplexers.html">Experiment 6 — Multiplexers and demultiplexers</a></li><li><a href="07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="08-experiment-8-synchronous-counters-up-down-up-down.html">Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a></li><li><a href="09-experiment-9-asynchronous-ripple-counters-up-down.html">Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li><li><a href="10-experiment-10-ring-counter-and-johnson-counter.html">Experiment 10 — Ring counter and Johnson counter</a></li><li><a href="11-experiment-11-shift-registers-siso-sipo-piso-and-p.html">Experiment 11 — Shift registers: SISO, SIPO, PISO and PIPO</a></li><li><a href="12-experiment-12-introduction-to-the-xilinx-spartan-6.html">Experiment 12 — Introduction to the Xilinx Spartan-6 FPGA: gates and combinational circuits</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2a8a7c"><a class="rs" href="../index.html">Digital Logic Design Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li class="cur"><a href="02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="03-experiment-3-code-converters-binary-gray-bcd-exces.html">Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></li><li><a href="04-experiment-4-single-bit-comparator.html">Experiment 4 — Single-bit comparator</a></li><li><a href="05-experiment-5-decoders-and-encoders.html">Experiment 5 — Decoders and encoders</a></li><li><a href="06-experiment-6-multiplexers-and-demultiplexers.html">Experiment 6 — Multiplexers and demultiplexers</a></li><li><a href="07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="08-experiment-8-synchronous-counters-up-down-up-down.html">Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a></li><li><a href="09-experiment-9-asynchronous-ripple-counters-up-down.html">Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li><li><a href="10-experiment-10-ring-counter-and-johnson-counter.html">Experiment 10 — Ring counter and Johnson counter</a></li><li><a href="11-experiment-11-shift-registers-siso-sipo-piso-and-p.html">Experiment 11 — Shift registers: SISO, SIPO, PISO and PIPO</a></li><li><a href="12-experiment-12-introduction-to-the-xilinx-spartan-6.html">Experiment 12 — Introduction to the Xilinx Spartan-6 FPGA: gates and combinational circuits</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">DLD Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</b></nav>
+    <article class="wiki" style="--h:#2a8a7c"><h1>Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</h1><p class="byline">Digital Logic Design Lab · Lab: Tasks 1 to 12</p><aside class="infobox" style="--h:#2a8a7c"><div class="ib-h">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design Lab</a> (24CS282)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Tasks 1 to 12</a></dd><dt>Topic</dt><dd>2 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/half-adder.html">Half adder</a>, <a href="../../../terms/full-adder.html">Full adder</a>, <a href="../../../terms/xor.html">XOR</a>, <a href="../../../terms/verilog.html">Verilog</a>, <a href="../../../terms/minterm.html">Minterm</a></dd></dl></aside><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Design, wire and verify the <a class="wk" href="../../../terms/half-adder.html">half adder</a> and half subtractor, and extend them to the <a class="wk" href="../../../terms/full-adder.html">full adder</a> and full subtractor.</li>
+<li><strong>Components:</strong> IC 7486 (<a class="wk" href="../../../terms/xor.html">XOR</a>), 7408 (AND), 7404 (NOT), 7432 (OR); trainer kit</li>
+<li><strong>Theory</strong><ul>
+<li><strong>Half adder:</strong> \(S=A\oplus B\), \(C=AB\). <strong>Half subtractor:</strong> \(D=A\oplus B\), \(B_{out}=\overline{A}B\)</li>
+<li><strong>Full adder:</strong> \(S=A\oplus B\oplus C_{in}\), \(C_{out}=AB+C_{in}(A\oplus B)\) — built from two half adders and an OR. <strong>Full subtractor:</strong> \(D=A\oplus B\oplus B_{in}\), \(B_{out}=\overline{A}B+\overline{(A\oplus B)}B_{in}\) — two half subtractors and an OR</li>
+<li>A half adder cannot add a carry-in; that is why the full adder is needed for multi-bit addition. Half subtractor has no borrow-in</li>
+</ul>
+</li>
+<li><strong>Procedure</strong><ul>
+<li>Wire the XOR and AND gates as half adder; the XOR and (NOT + AND) as half subtractor; apply the 4 combinations and note outputs</li>
+<li>Join two half adders and an OR gate for the full adder; apply the 8 combinations of A, B, Cin</li>
+<li>Likewise for the full subtractor</li>
+<li>Compare with the truth tables</li>
+</ul>
+</li>
+</ul>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  A["A"] --&gt; HA1["Half adder 1"]
+  B["B"] --&gt; HA1
+  HA1 --&gt;|"S1"| HA2["Half adder 2"]
+  CIN["Cin"] --&gt; HA2
+  HA2 --&gt; S["Sum"]
+  HA1 --&gt;|"C1"| OR["OR"]
+  HA2 --&gt;|"C2"| OR
+  OR --&gt; CO["Cout"]</pre></figure>
+<div class="code"><span class="lang"><a class="wk" href="../../../terms/verilog.html">verilog</a></span><pre><code class="language-verilog">// Task 2: half adder, half subtractor, full adder, full subtractor
+module half_adder(input a, b, output sum, carry);
+  xor (sum, a, b);
+  and (carry, a, b);
+endmodule
+
+module half_subtractor(input a, b, output diff, borrow);
+  wire na;
+  xor (diff, a, b);
+  not (na, a);
+  and (borrow, na, b);
+endmodule
+
+module full_adder(input a, b, cin, output sum, cout);
+  wire s1, c1, c2;
+  half_adder ha1(a, b, s1, c1);
+  half_adder ha2(s1, cin, sum, c2);
+  or (cout, c1, c2);
+endmodule
+
+module full_subtractor(input a, b, bin, output diff, bout);
+  wire d1, b1, b2;
+  half_subtractor hs1(a, b, d1, b1);
+  half_subtractor hs2(d1, bin, diff, b2);
+  or (bout, b1, b2);
+endmodule</code></pre></div>
+<p><strong>Simulation output</strong> (Icarus Verilog, the same results the hardware should show)</p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">Half adder / half subtractor
+A B | Sum Carry | Diff Borrow
+0 0 |  0    0   |  0     0
+0 1 |  1    0   |  1     1
+1 0 |  1    0   |  1     0
+1 1 |  0    1   |  0     0
+Full adder / full subtractor
+A B Cin | Sum Cout | Diff Bout
+0 0  0  |  0    0  |  0     0
+0 0  1  |  1    0  |  1     1
+0 1  0  |  1    0  |  1     1
+0 1  1  |  0    1  |  0     1
+1 0  0  |  1    0  |  1     0
+1 0  1  |  0    1  |  0     0
+1 1  0  |  0    1  |  0     0
+1 1  1  |  1    1  |  1     1</code></pre></div>
+<ul>
+<li><strong>Precautions:</strong> switch off the supply before changing wiring; check Vcc/GND; tie unused inputs; confirm LED polarity; no loose wires</li>
+<li><strong>Result:</strong> the observed outputs matched the truth table, so the circuit works as the theory predicts</li>
+<li><strong>Viva questions</strong><ul>
+<li>Why is it called a half adder?</li>
+<li>Draw the full adder using two half adders</li>
+<li>How many 7486 and 7408 ICs do you need for a full adder?</li>
+<li>Express \(C_{out}\) in the sum of <a class="wk" href="../../../terms/minterm.html">minterms</a> (3, 5, 6, 7)</li>
+<li>Write \(B_{out}\) of the full subtractor as a sum of minterms (1, 2, 3, 7)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>The <a class="wk" href="../../../terms/half-adder.html">half adder</a> adds two bits and gives a sum (<a class="wk" href="../../../terms/xor.html">XOR</a>) and a carry (AND). 1+1 gives sum 0 and carry 1. The half subtractor computes A−B. The difference is again XOR, but the borrow is \(\overline{A}B\), and it is 1 only for 0−1. The <a class="wk" href="../../../terms/full-adder.html">full adder</a> can be seen as two half adders in series: the first adds A and B, the second adds its sum and the carry-in, and the OR gate combines the two carries (they cannot both be 1). The output table shows that for inputs 1,1,1 the sum is 1 and the carry is 1 (1+1+1 = 3 = 11 in binary). The full subtractor shows difference 1 and borrow 1 for 1,1,1 (1−1−1 = −1, so we borrow 1 and the difference is 1).</p></div><nav class="pager"><a class="prev" href="01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html"><small>← Previous</small>Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a><a class="next" href="03-experiment-3-code-converters-binary-gray-bcd-exces.html"><small>Next →</small>Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

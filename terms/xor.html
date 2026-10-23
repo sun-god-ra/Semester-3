@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XOR · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>XOR</b></nav>
+    <article class="wiki term"><p class="kicker">Term · DLD Lab, Digital Logic, Java</p><h1>XOR</h1><div class="ex lead"><ul>
+<li><strong>XOR properties:</strong> \(x\oplus0=x\), \(x\oplus1=x'\), \(x\oplus x=0\), \(x\oplus x'=1\); commutative &amp; associative. XOR of \(n\) bits = 1 if <strong>odd</strong> number of 1s (odd-parity function). <a class="wk" href="xnor.html">XNOR</a> = 1 if <strong>even</strong> number of 1s</li>
+</ul><p class="src">From <a href="../notes/dld/u1/12-other-logic-operations-and-logic-gates.html">Digital Logic › Other Logic Operations and Logic Gates</a></p></div><div class="ex"><ul>
+<li><strong>Binary → Gray:</strong> \(G_3=B_3\), \(G_2=B_3\oplus B_2\), \(G_1=B_2\oplus B_1\), \(G_0=B_1\oplus B_0\) (3 XOR gates). <strong>Gray → binary:</strong> \(B_3=G_3\), \(B_2=B_3\oplus G_2\), \(B_1=B_2\oplus G_1\), \(B_0=B_1\oplus G_0\) (3 XOR gates, cascaded)</li>
+</ul><p class="src">From <a href="../notes/dlab/lab/03-experiment-3-code-converters-binary-gray-bcd-exces.html">DLD Lab › Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></p></div><div class="ex"><ul>
+<li><strong>Gates:</strong> AND \(Y=AB\); OR \(Y=A+B\); NOT \(Y=\overline{A}\); <a class="wk" href="nand.html">NAND</a> \(Y=\overline{AB}\); <a class="wk" href="nor.html">NOR</a> \(Y=\overline{A+B}\); XOR \(Y=A\oplus B=A\overline{B}+\overline{A}B\) (1 when inputs differ); <a class="wk" href="xnor.html">XNOR</a> \(Y=\overline{A\oplus B}\) (1 when inputs are equal)</li>
+</ul><p class="src">From <a href="../notes/dlab/lab/01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">DLD Lab › Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></p></div><div class="ex"><ul>
+<li>XOR from <a class="wk" href="nand.html">NAND</a>: 4 NAND gates</li>
+</ul><p class="src">From <a href="../notes/dld/u2/09-exclusive-or-functions.html">Digital Logic › Exclusive-OR Functions</a></p></div><div class="ex"><ul>
+<li>Generator and checker for \(n\) bits use \(n-1\) XOR gates in a chain or tree</li>
+</ul><p class="src">From <a href="../notes/dld/u2/10-parity-generators-and-checkers.html">Digital Logic › Parity Generators and Checkers</a></p></div><h2>Where it appears</h2><h3>DLD Lab</h3><ul><li><a href="../notes/dlab/lab/01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Lab › Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li><a href="../notes/dlab/lab/02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Lab › Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="../notes/dlab/lab/03-experiment-3-code-converters-binary-gray-bcd-exces.html">Lab › Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></li><li><a href="../notes/dlab/lab/04-experiment-4-single-bit-comparator.html">Lab › Experiment 4 — Single-bit comparator</a></li></ul><h3>Digital Logic</h3><ul><li><a href="../notes/dld/u1/12-other-logic-operations-and-logic-gates.html">Unit I › Other Logic Operations and Logic Gates</a></li><li><a href="../notes/dld/u2/07-adders-and-subtractors.html">Unit II › Adders and Subtractors</a></li><li><a href="../notes/dld/u2/08-code-conversion.html">Unit II › Code Conversion</a></li><li><a href="../notes/dld/u2/09-exclusive-or-functions.html">Unit II › Exclusive-OR Functions</a></li><li><a href="../notes/dld/u2/10-parity-generators-and-checkers.html">Unit II › Parity Generators and Checkers</a></li><li><a href="../notes/dld/u3/01-binary-parallel-adder.html">Unit III › Binary Parallel Adder</a></li><li><a href="../notes/dld/u3/08-programmable-logic-devices-pld.html">Unit III › Programmable Logic Devices (PLD)</a></li><li><a href="../qa/dld/u1.html">Unit I questions</a></li><li><a href="../qa/dld/u3.html">Unit III questions</a></li></ul><h3>Java</h3><ul><li><a href="../notes/java/u1/13-operators.html">Unit I › Operators</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="xnor.html">XNOR</a></li><li><a href="full-adder.html">Full adder</a></li><li><a href="nand.html">NAND</a></li><li><a href="verilog.html">Verilog</a></li><li><a href="bcd.html">BCD</a></li><li><a href="k-map.html">K-map</a></li><li><a href="minterm.html">Minterm</a></li><li><a href="nor.html">NOR</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

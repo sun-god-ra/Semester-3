@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 3 — UNIX system calls: process and file · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li class="cur"><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li class="cur"><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">OS Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 3 — UNIX system calls: process and file</b></nav>
+    <article class="wiki" style="--h:#3f8f43"><h1>Task 3 — UNIX system calls: process and file</h1><p class="byline">Operating Systems Lab · Lab: Programming Tasks 1 to 17</p><aside class="infobox" style="--h:#3f8f43"><div class="ib-h">Task 3 — UNIX system calls: process and file</div><dl><dt>Subject</dt><dd><a href="../index.html">Operating Systems Lab</a> (24CS204)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Programming Tasks 1 to 17</a></dd><dt>Topic</dt><dd>3 of 17</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/system-call.html">System call</a>, <a href="../../../terms/zombie-process.html">Zombie process</a></dd></dl></aside><div class="toc"><b>On this page</b><ol><li><a href="#program-1-fork-exec-wait">Program 1 — fork, exec, wait</a></li><li><a href="#program-2-file-system-calls">Program 2 — File system calls</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Use the process-related (<code>fork</code>, <code>exec</code>, <code>wait</code>, <code>exit</code>, <code>getpid</code>) and file-related (<code>open</code>, <code>read</code>, <code>write</code>, <code>lseek</code>, <code>close</code>, <code>stat</code>, <code>chmod</code>, <code>unlink</code>) <a class="wk" href="../../../terms/system-call.html">system calls</a> in C.</li>
+<li><strong>Theory</strong><ul>
+<li><strong><code>fork()</code></strong> creates a child (copy of the parent); returns <strong>0 in the child</strong>, the <strong>child's pid in the parent</strong>, −1 on error. <strong><code>exec</code></strong> family (<code>execl</code>, <code>execlp</code>, <code>execv</code>…) replaces the process image with a new program; it returns only on failure. <strong><code>wait(&amp;status)</code></strong> blocks the parent until a child ends; <code>WEXITSTATUS(status)</code> gives the exit code. <strong><code>exit(n)</code></strong> ends the process. A child that ends before the parent calls <code>wait</code> = <strong>zombie</strong>; a child whose parent ended = <strong>orphan</strong> (adopted by <code>init</code>)</li>
+<li><strong>File calls:</strong> <code>fd = open(name, flags, mode)</code> returns a <strong>file descriptor</strong> (0, 1, 2 are taken: stdin, stdout, stderr); <code>read(fd, buf, n)</code>, <code>write(fd, buf, n)</code> return the number of bytes; <code>lseek(fd, offset, whence)</code> (<code>SEEK_SET</code>, <code>SEEK_CUR</code>, <code>SEEK_END</code>); <code>close(fd)</code>; <code>stat(name, &amp;st)</code> gives size and mode; <code>chmod</code>, <code>unlink</code> (delete), <code>access</code></li>
+<li>\(n\) consecutive <code>fork()</code> calls give \(2^n\) processes in all (see Unit II)</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong><ul>
+<li>Call <code>fork()</code>; the child runs <code>exec</code>, the parent calls <code>wait</code> and prints the status</li>
+<li>Create a file with <code>open(O_CREAT)</code>, <code>write</code>, <code>close</code>; reopen, <code>read</code>, <code>lseek</code>, <code>read</code>; <code>stat</code>; <code>chmod</code>; <code>unlink</code></li>
+</ul>
+</li>
+</ul>
+<figure class="fig"><pre class="mermaid">flowchart TD
+  P["Parent: fork()"] --&gt; C["Child: pid = 0, exec(echo)"]
+  P --&gt; W["Parent: wait() until child exits"]
+  C --&gt; X["exit(0)"]
+  X --&gt; W
+  W --&gt; R["Parent prints the status"]</pre></figure>
+<h5 id="program-1-fork-exec-wait">Program 1 — fork, exec, wait</h5>
+<div class="code"><span class="lang">c</span><pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/wait.h&gt;
+
+int main() {
+    printf("Parent: calling fork()\n");
+    fflush(stdout);
+    pid_t pid = fork();
+    if (pid &lt; 0) { perror("fork"); exit(1); }
+    if (pid == 0) {                       /* child */
+        printf("Child : fork returned 0, now running 'echo' with exec\n");
+        fflush(stdout);
+        execlp("echo", "echo", "hello from exec", (char *)NULL);
+        perror("exec");                   /* reached only if exec fails */
+        exit(2);
+    } else {                              /* parent */
+        int status;
+        wait(&amp;status);
+        printf("Parent: child finished, exit status = %d\n", WEXITSTATUS(status));
+    }
+    /* fork count: 3 forks in a row give 2^3 = 8 processes */
+    return 0;
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">Parent: calling fork()
+Child : fork returned 0, now running 'echo' with exec
+hello from exec
+Parent: child finished, exit status = 0</code></pre></div>
+<h5 id="program-2-file-system-calls">Program 2 — File system calls</h5>
+<div class="code"><span class="lang">c</span><pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/stat.h&gt;
+
+int main() {
+    const char *msg = "Operating Systems Lab\nsystem calls\n";
+    int fd = open("demo.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
+    if (fd &lt; 0) { perror("open"); return 1; }
+    ssize_t w = write(fd, msg, strlen(msg));
+    printf("write() wrote %zd bytes\n", w);
+    close(fd);
+
+    fd = open("demo.txt", O_RDONLY);
+    char buf[16];
+    ssize_t n = read(fd, buf, 9);
+    buf[n] = '\0';
+    printf("read() returned %zd bytes: \"%s\"\n", n, buf);
+    off_t pos = lseek(fd, 10, SEEK_SET);          /* skip to byte 10 */
+    n = read(fd, buf, 6); buf[n] = '\0';
+    printf("lseek() to %ld, then read: \"%s\"\n", (long)pos, buf);
+    close(fd);
+
+    struct stat st;
+    stat("demo.txt", &amp;st);
+    printf("stat(): size = %ld bytes, mode = %o\n", (long)st.st_size, st.st_mode &amp; 0777);
+    chmod("demo.txt", 0600);
+    stat("demo.txt", &amp;st);
+    printf("after chmod: mode = %o\n", st.st_mode &amp; 0777);
+    unlink("demo.txt");                           /* delete the file */
+    printf("exists after unlink? %s\n", access("demo.txt", F_OK) == 0 ? "yes" : "no");
+    return 0;
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">write() wrote 35 bytes
+read() returned 9 bytes: "Operating"
+lseek() to 10, then read: "System"
+stat(): size = 35 bytes, mode = 644
+after chmod: mode = 600
+exists after unlink? no</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>What does <code>fork()</code> return in the parent and in the child?</li>
+<li>Difference between <code>fork()</code> and <code>exec()</code>?</li>
+<li>What is a <a class="wk" href="../../../terms/zombie-process.html">zombie process</a>? An orphan?</li>
+<li>What is a file descriptor? Which are 0, 1, 2?</li>
+<li>How many processes after <code>fork(); fork(); fork();</code>? (8)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>In program 1, <code>fork()</code> makes a child that runs <code>echo</code> through <code>execlp</code>, which replaces the child's code, and the parent waits for it with <code>wait</code>. The exit status 0 shows success. The output order is fixed because the parent waits. In program 2, <code>open</code> with <code>O_CREAT</code> creates the file and returns a descriptor, <code>write</code> returns the number of bytes (35), and <code>read</code> reads 9 bytes (<code>Operating</code>). <code>lseek(fd, 10, SEEK_SET)</code> moves the position to byte 10, so the next read gives <code>System</code>. <code>stat</code> gives the size and the permission bits (644 = rw-r--r--), <code>chmod</code> changes it to 600, and <code>unlink</code> removes the directory entry.</p></div><nav class="pager"><a class="prev" href="02-task-2-powershell-and-batch-scripts-windows.html"><small>← Previous</small>Task 2 — PowerShell and batch scripts (Windows)</a><a class="next" href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html"><small>Next →</small>Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

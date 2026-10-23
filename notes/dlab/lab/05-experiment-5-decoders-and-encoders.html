@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experiment 5 — Decoders and encoders · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2a8a7c"><a class="rs" href="../index.html">Digital Logic Design Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li><a href="02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="03-experiment-3-code-converters-binary-gray-bcd-exces.html">Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></li><li><a href="04-experiment-4-single-bit-comparator.html">Experiment 4 — Single-bit comparator</a></li><li class="cur"><a href="05-experiment-5-decoders-and-encoders.html">Experiment 5 — Decoders and encoders</a></li><li><a href="06-experiment-6-multiplexers-and-demultiplexers.html">Experiment 6 — Multiplexers and demultiplexers</a></li><li><a href="07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="08-experiment-8-synchronous-counters-up-down-up-down.html">Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a></li><li><a href="09-experiment-9-asynchronous-ripple-counters-up-down.html">Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li><li><a href="10-experiment-10-ring-counter-and-johnson-counter.html">Experiment 10 — Ring counter and Johnson counter</a></li><li><a href="11-experiment-11-shift-registers-siso-sipo-piso-and-p.html">Experiment 11 — Shift registers: SISO, SIPO, PISO and PIPO</a></li><li><a href="12-experiment-12-introduction-to-the-xilinx-spartan-6.html">Experiment 12 — Introduction to the Xilinx Spartan-6 FPGA: gates and combinational circuits</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2a8a7c"><a class="rs" href="../index.html">Digital Logic Design Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li><a href="02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="03-experiment-3-code-converters-binary-gray-bcd-exces.html">Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></li><li><a href="04-experiment-4-single-bit-comparator.html">Experiment 4 — Single-bit comparator</a></li><li class="cur"><a href="05-experiment-5-decoders-and-encoders.html">Experiment 5 — Decoders and encoders</a></li><li><a href="06-experiment-6-multiplexers-and-demultiplexers.html">Experiment 6 — Multiplexers and demultiplexers</a></li><li><a href="07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="08-experiment-8-synchronous-counters-up-down-up-down.html">Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a></li><li><a href="09-experiment-9-asynchronous-ripple-counters-up-down.html">Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li><li><a href="10-experiment-10-ring-counter-and-johnson-counter.html">Experiment 10 — Ring counter and Johnson counter</a></li><li><a href="11-experiment-11-shift-registers-siso-sipo-piso-and-p.html">Experiment 11 — Shift registers: SISO, SIPO, PISO and PIPO</a></li><li><a href="12-experiment-12-introduction-to-the-xilinx-spartan-6.html">Experiment 12 — Introduction to the Xilinx Spartan-6 FPGA: gates and combinational circuits</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">DLD Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Experiment 5 — Decoders and encoders</b></nav>
+    <article class="wiki" style="--h:#2a8a7c"><h1>Experiment 5 — Decoders and encoders</h1><p class="byline">Digital Logic Design Lab · Lab: Tasks 1 to 12</p><aside class="infobox" style="--h:#2a8a7c"><div class="ib-h">Experiment 5 — Decoders and encoders</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design Lab</a> (24CS282)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Tasks 1 to 12</a></dd><dt>Topic</dt><dd>5 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/decoder.html">Decoder</a>, <a href="../../../terms/encoder.html">Encoder</a>, <a href="../../../terms/priority-encoder.html">Priority encoder</a>, <a href="../../../terms/bcd.html">BCD</a>, <a href="../../../terms/minterm.html">Minterm</a>, <a href="../../../terms/verilog.html">Verilog</a>, <a href="../../../terms/full-adder.html">Full adder</a></dd></dl></aside><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Implement <a class="wk" href="../../../terms/decoder.html">decoders</a> (2×4, 3×8, BCD-to-decimal, BCD-to-7-segment) and <a class="wk" href="../../../terms/encoder.html">encoders</a> (4×2, octal-to-binary, decimal-to-BCD).</li>
+<li><strong>Components:</strong> IC 74139 / 7408 (2×4), 74138 (3×8), 7442 (<a class="wk" href="../../../terms/bcd.html">BCD</a> to decimal), 7447 (BCD to 7-segment) with a common-anode display, 74148 / 74147 (<a class="wk" href="../../../terms/priority-encoder.html">priority encoders</a>), 7432 (OR)</li>
+<li><strong>Theory</strong><ul>
+<li><strong>Decoder:</strong> \(n\) inputs → up to \(2^n\) outputs; each output is a <a class="wk" href="../../../terms/minterm.html">minterm</a>; with an <strong>enable</strong>: \(Y_i=E\cdot m_i\). 2×4: \(Y_0=\overline{A_1}\,\overline{A_0}\), \(Y_1=\overline{A_1}A_0\), \(Y_2=A_1\overline{A_0}\), \(Y_3=A_1A_0\). <strong>74138</strong> has active-low outputs and three enables (\(G_1\) high, \(\overline{G_{2A}}\), \(\overline{G_{2B}}\) low)</li>
+<li><strong>BCD to 7-segment:</strong> drives segments a–g; <strong>common cathode</strong> needs active-high outputs (7448); <strong>common anode</strong> needs active-low outputs (7447) with ~330 Ω resistors in series with every segment. Digit 8 lights all 7 segments, 1 lights b and c</li>
+<li><strong>Encoder:</strong> \(2^n\) (or fewer) inputs → \(n\) outputs; exactly one input should be high. <strong>Priority encoder</strong> handles several inputs at once: the highest priority wins; a <strong>valid</strong> output \(V\) shows at least one input is active (else the 00 output is ambiguous). 4×2: \(Y_1=D_3+D_2\), \(Y_0=D_3+\overline{D_2}D_1\). Octal-to-binary: \(Y_2=D_4+D_5+D_6+D_7\), \(Y_1=D_2+D_3+D_6+D_7\), \(Y_0=D_1+D_3+D_5+D_7\) (three 4-input OR gates). Decimal-to-BCD: \(Y_3=D_8+D_9\), \(Y_2=D_4+D_5+D_6+D_7\), \(Y_1=D_2+D_3+D_6+D_7\), \(Y_0=D_1+D_3+D_5+D_7+D_9\)</li>
+<li>Decoder ↔ encoder are inverse operations. A decoder can also implement any Boolean function (OR the minterm outputs)</li>
+</ul>
+</li>
+<li><strong>Procedure</strong><ul>
+<li>2×4: connect A1, A0 to switches, outputs to LEDs, enable to Vcc; verify 4 rows</li>
+<li>3×8 with 74138: connect enables as required, verify 8 rows (outputs are active-low, so an LED connected to Vcc glows for 0)</li>
+<li>BCD→7-segment: connect 7447 outputs a–g to the display through resistors; apply 0–9 and see the digits</li>
+<li>Encoders: wire OR gates for 8×3 and 10×4; apply one-hot inputs; use 74148 for a priority encoder and test two inputs at once</li>
+</ul>
+</li>
+</ul>
+<div class="code"><span class="lang"><a class="wk" href="../../../terms/verilog.html">verilog</a></span><pre><code class="language-verilog">// Task 5: decoders and encoders
+module dec2x4(input [1:0] a, input en, output [3:0] y);
+  assign y[0] = en &amp; ~a[1] &amp; ~a[0];
+  assign y[1] = en &amp; ~a[1] &amp;  a[0];
+  assign y[2] = en &amp;  a[1] &amp; ~a[0];
+  assign y[3] = en &amp;  a[1] &amp;  a[0];
+endmodule
+
+module dec3x8(input [2:0] a, input en, output [7:0] y);
+  assign y = en ? (8'b00000001 &lt;&lt; a) : 8'b0;
+endmodule
+
+module bcd2dec(input [3:0] b, output [9:0] y);       // BCD to decimal (1-of-10)
+  assign y = (b &lt;= 4'd9) ? (10'b1 &lt;&lt; b) : 10'b0;
+endmodule
+
+module bcd27seg(input [3:0] b, output reg [6:0] seg); // common cathode: seg = abcdefg
+  always @(*) begin
+    case (b)
+      4'd0: seg = 7'b1111110;  4'd1: seg = 7'b0110000;
+      4'd2: seg = 7'b1101101;  4'd3: seg = 7'b1111001;
+      4'd4: seg = 7'b0110011;  4'd5: seg = 7'b1011011;
+      4'd6: seg = 7'b1011111;  4'd7: seg = 7'b1110000;
+      4'd8: seg = 7'b1111111;  4'd9: seg = 7'b1111011;
+      default: seg = 7'b0000000;
+    endcase
+  end
+endmodule
+
+module enc4x2(input [3:0] d, output reg [1:0] y, output reg v);   // priority: D3 highest
+  always @(*) begin
+    v = 1'b1;
+    casex (d)
+      4'b1xxx: y = 2'b11;
+      4'b01xx: y = 2'b10;
+      4'b001x: y = 2'b01;
+      4'b0001: y = 2'b00;
+      default: begin y = 2'b00; v = 1'b0; end
+    endcase
+  end
+endmodule
+
+module oct2bin(input [7:0] d, output [2:0] y);        // octal to binary (8x3), one input high
+  assign y[2] = d[4] | d[5] | d[6] | d[7];
+  assign y[1] = d[2] | d[3] | d[6] | d[7];
+  assign y[0] = d[1] | d[3] | d[5] | d[7];
+endmodule
+
+module dec2bcd(input [9:0] d, output [3:0] y);         // decimal to BCD (10x4), one input high
+  assign y[3] = d[8] | d[9];
+  assign y[2] = d[4] | d[5] | d[6] | d[7];
+  assign y[1] = d[2] | d[3] | d[6] | d[7];
+  assign y[0] = d[1] | d[3] | d[5] | d[7] | d[9];
+endmodule</code></pre></div>
+<p><strong>Simulation output</strong> (Icarus Verilog, the same results the hardware should show)</p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">2x4 decoder (EN=1): A1A0 -&gt; Y3Y2Y1Y0
+  00 -&gt; 0001
+  01 -&gt; 0010
+  10 -&gt; 0100
+  11 -&gt; 1000
+3x8 decoder (EN=1): A2A1A0 -&gt; Y7..Y0
+  000 -&gt; 00000001
+  001 -&gt; 00000010
+  010 -&gt; 00000100
+  011 -&gt; 00001000
+  100 -&gt; 00010000
+  101 -&gt; 00100000
+  110 -&gt; 01000000
+  111 -&gt; 10000000
+BCD to decimal and BCD to 7-segment (abcdefg)
+  0000 -&gt; 0000000001 | 1111110
+  0001 -&gt; 0000000010 | 0110000
+  0010 -&gt; 0000000100 | 1101101
+  0011 -&gt; 0000001000 | 1111001
+  0100 -&gt; 0000010000 | 0110011
+  0101 -&gt; 0000100000 | 1011011
+  0110 -&gt; 0001000000 | 1011111
+  0111 -&gt; 0010000000 | 1110000
+  1000 -&gt; 0100000000 | 1111111
+  1001 -&gt; 1000000000 | 1111011
+4x2 priority encoder: D3D2D1D0 -&gt; Y1Y0 V
+  0000 -&gt; 00 0
+  0001 -&gt; 00 1
+  0010 -&gt; 01 1
+  0011 -&gt; 01 1
+  0100 -&gt; 10 1
+  0101 -&gt; 10 1
+  0110 -&gt; 10 1
+  0111 -&gt; 10 1
+  1000 -&gt; 11 1
+  1001 -&gt; 11 1
+  1010 -&gt; 11 1
+  1011 -&gt; 11 1
+  1100 -&gt; 11 1
+  1101 -&gt; 11 1
+  1110 -&gt; 11 1
+  1111 -&gt; 11 1
+Octal to binary (8x3)
+  00000001 -&gt; 000
+  00000010 -&gt; 001
+  00000100 -&gt; 010
+  00001000 -&gt; 011
+  00010000 -&gt; 100
+  00100000 -&gt; 101
+  01000000 -&gt; 110
+  10000000 -&gt; 111
+Decimal to BCD (10x4)
+  0000000001 -&gt; 0000
+  0000000010 -&gt; 0001
+  0000000100 -&gt; 0010
+  0000001000 -&gt; 0011
+  0000010000 -&gt; 0100
+  0000100000 -&gt; 0101
+  0001000000 -&gt; 0110
+  0010000000 -&gt; 0111
+  0100000000 -&gt; 1000
+  1000000000 -&gt; 1001</code></pre></div>
+<ul>
+<li><strong>Precautions:</strong> switch off the supply before changing wiring; check Vcc/GND; tie unused inputs; confirm LED polarity; no loose wires</li>
+<li><strong>Result:</strong> the observed outputs matched the truth table, so the circuit works as the theory predicts</li>
+<li><strong>Viva questions</strong><ul>
+<li>What is the use of the enable input of a decoder?</li>
+<li>Difference between encoder and priority encoder?</li>
+<li>Why 330 Ω resistors with a 7-segment display?</li>
+<li>What is the difference between common-anode and common-cathode?</li>
+<li>Implement a <a class="wk" href="../../../terms/full-adder.html">full adder</a> with a 3×8 decoder and two OR gates (\(S=\sum m(1,2,4,7)\), \(C=\sum m(3,5,6,7)\))</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>A <a class="wk" href="../../../terms/decoder.html">decoder</a> activates exactly one output line for each input code, so every output is a <a class="wk" href="../../../terms/minterm.html">minterm</a>. The 3×8 table shows that input 101 activates output 5 (bit 5 is set). The 7-segment table lists the segments abcdefg, with 1 meaning the segment is ON, so 8 = 1111111 and 1 = 0110000 (b and c). An <a class="wk" href="../../../terms/encoder.html">encoder</a> does the reverse. In the octal-to-binary encoder, the output bit for weight 4 is on if the input is 4, 5, 6 or 7, etc. In the plain encoder only one input may be active. The <a class="wk" href="../../../terms/priority-encoder.html">priority encoder</a> removes this limitation. In the output, 0110 (D2 and D1 both on) is encoded as 10, the code of the higher input D2, and V = 0 only when no input is active.</p></div><nav class="pager"><a class="prev" href="04-experiment-4-single-bit-comparator.html"><small>← Previous</small>Experiment 4 — Single-bit comparator</a><a class="next" href="06-experiment-6-multiplexers-and-demultiplexers.html"><small>Next →</small>Experiment 6 — Multiplexers and demultiplexers</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

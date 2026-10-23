@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operating Systems Unit IV questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2f7d32"><a class="rs" href="index.html">Operating Systems</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li class="cur"><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2f7d32"><a class="rs" href="index.html">Operating Systems</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li class="cur"><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Operating Systems</a> <span>›</span> <b>Unit IV</b></nav>
+    <article class="wiki" style="--h:#2f7d32"><span class="ulabel">Part B · Unit IV</span><h1>Memory Management</h1><p class="byline">Operating Systems · 5 questions · <a href="../../notes/os/u4/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K3</span></div><h4 class="qtext">Explain First-fit, Best-fit and Worst-fit allocation. Place processes of 212 KB, 417 KB, 112 KB and 426 KB (in order) in the partitions 100 KB, 500 KB, 200 KB, 300 KB and 600 KB.</h4><div class="ans"><div class="tag">Answer</div><ul>
+<li><strong>First-fit</strong>: allocate the first hole that is big enough. Fast.</li>
+<li><strong>Best-fit</strong>: allocate the <strong>smallest</strong> hole that is big enough; leaves the smallest leftover, searches the whole list.</li>
+<li><strong>Worst-fit</strong>: allocate the <strong>largest</strong> hole; the leftover is big enough to be useful, searches the whole list.</li>
+</ul>
+<p>Partitions: 100, 500, 200, 300, 600.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Process</th>
+<th>First-fit</th>
+<th>Best-fit</th>
+<th>Worst-fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>212 KB</td>
+<td>500 (left 288)</td>
+<td>300 (left 88)</td>
+<td>600 (left 388)</td>
+</tr>
+<tr>
+<td>417 KB</td>
+<td>600 (left 183)</td>
+<td>500 (left 83)</td>
+<td>500 (left 83)</td>
+</tr>
+<tr>
+<td>112 KB</td>
+<td>288 (in the 500 partition's remainder, left 176)</td>
+<td>200 (left 88)</td>
+<td>388 (in the 600 remainder, left 276)</td>
+</tr>
+<tr>
+<td>426 KB</td>
+<td><strong>must wait</strong> (no hole of 426 KB; the largest is 300)</td>
+<td>600 (left 174)</td>
+<td><strong>must wait</strong> (no hole of 426 KB; the largest is 300)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Check of the first-fit step for 112 KB: the first hole that fits in the list order (100, <strong>288</strong>, 200, 300, 183) is the 288 KB remainder, giving 176 left.
+<strong>Result</strong>: <strong>Best-fit</strong> is the only one that places all four processes. First-fit and worst-fit leave the 426 KB process waiting. (Best-fit isn't always the best in general: it tends to produce many tiny useless holes.)</p></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">Explain internal and <a class="wk" href="../../terms/external-fragmentation.html">external fragmentation</a>.</h4><div class="ans"><div class="tag">Answer</div><ul>
+<li><strong><a class="wk" href="../../terms/internal-fragmentation.html">Internal fragmentation</a></strong>: memory inside an allocated partition or page that the process does not use. Example: a process of 18,462 bytes in 4 KB pages needs 5 pages = 20,480 bytes; 2,018 bytes in the last page are wasted. Average waste is half a page per process. Reduced by smaller pages / variable partitions.</li>
+<li><strong><a class="wk" href="../../terms/external-fragmentation.html">External fragmentation</a></strong>: total free memory is enough for a request, but it is <strong>split into non-contiguous small holes</strong>. Occurs in variable (dynamic) partitioning, <a class="wk" href="../../terms/segmentation.html">segmentation</a> and contiguous allocation; the first-fit/best-fit statistics suggest about <strong>one-third of memory may be unusable</strong> (50 percent rule: for N allocated blocks about 0.5N are lost).</li>
+<li>Solutions: <strong>compaction</strong> (shuffle memory to make one big hole; needs run-time binding), <strong><a class="wk" href="../../terms/paging.html">paging</a></strong> (removes external fragmentation, leaves internal), segmentation with paging.</li>
+</ul>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  A[OS] --- B[P1] --- C[hole 20K] --- D[P2] --- E[hole 30K] --- F[P3] --- G[hole 10K]</pre></figure>
+<p>Total free = 60K but a 40K request fails: external fragmentation.</p></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K3</span></div><h4 class="qtext">(OR) Explain <a class="wk" href="../../terms/lru.html">LRU</a> and optimal page replacement with an example.</h4><div class="ans"><div class="tag">Answer</div><p>Reference string: 7 0 1 2 0 3 0 4 2 3 0 3 2 1 2 0 1 7 0 1, with 3 frames. <em>(The paper's own string was not captured by me, so use the same method on the string given in the question. This standard string is for practice.)</em></p>
+<ul>
+<li><strong>Optimal (OPT)</strong>: replace the page that <strong>will not be used for the longest time in the future</strong>. Lowest possible fault rate, but needs future knowledge, so it is only a benchmark.</li>
+<li><strong><a class="wk" href="../../terms/lru.html">LRU</a></strong>: replace the page <strong>not used for the longest time in the past</strong> (approximation of OPT using the past). Implemented with counters or a stack.</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Page faults (3 frames)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FIFO</td>
+<td>15</td>
+</tr>
+<tr>
+<td><strong>LRU</strong></td>
+<td><strong>12</strong></td>
+</tr>
+<tr>
+<td><strong>Optimal</strong></td>
+<td><strong>9</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>How OPT proceeds: 7, 0, 1 fill the frames (3 faults). Page 2 replaces 7 (4th fault; 7 is needed farthest in the future). 0 is a hit. Page 3 replaces 1 (5th). 0 hit. Page 4 replaces 0 (6th; among 2, 3, 0 the page 0 is next used farthest away). 2 and 3 hit. Page 0 replaces 4 (7th; 4 is never used again). Page 1 replaces 3 (8th). 2, 0, 1 hit. Page 7 replaces 2 (9th; 2 is never used again). 0 and 1 hit. Total <strong>9</strong> faults.
+Neither suffers from <strong><a class="wk" href="../../terms/belady-s-anomaly.html">Belady's anomaly</a></strong> (more frames can give more faults in FIFO). They are <em>stack algorithms</em>.</p></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">(OR) Explain the performance of <a class="wk" href="../../terms/copy-on-write.html">copy-on-write</a>.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/copy-on-write.html">Copy-on-write</a> (COW)</strong> lets parent and child processes initially <strong>share the same pages</strong>, marked read-only/copy-on-write. Only when either process <strong>writes</strong> to a shared page is a <strong>copy of that page</strong> made for the writer.</p>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  P[Parent page table] --&gt; F1[(Frame A)]
+  C[Child page table] --&gt; F1
+  C -. after child writes .-&gt; F2[(Frame A' - private copy)]</pre></figure>
+<p>Performance:</p>
+<ul>
+<li><code>fork()</code> becomes <strong>very fast</strong> and cheap: no copying of the whole address space.</li>
+<li><strong>Saves memory</strong>: only modified pages are duplicated; pages never modified (code, read-only data) stay shared.</li>
+<li>Especially good when the child calls <code>exec()</code> immediately (no copy at all).</li>
+<li>Cost: each first write causes a <strong><a class="wk" href="../../terms/page-fault.html">page fault</a></strong> and a page copy; the pages that are copied come from a pool of zero-filled free frames.</li>
+<li>Used in Linux, Windows and macOS (<code>vfork()</code> is a variant without COW).</li>
+</ul></div></article><article class="qa exp" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">Explain <a class="wk" href="../../terms/paging.html">paging</a> with a neat diagram, and the translation look-aside buffer.</h4><div class="ans"><div class="tag">Answer</div><p><a class="wk" href="../../terms/paging.html">Paging</a> divides the logical address space into fixed-size <strong>pages</strong> and the physical memory into frames of the same size. The CPU address is split into <strong>page number \(p\)</strong> and <strong>offset \(d\)</strong>; the <a class="wk" href="../../terms/page-table.html">page table</a> maps \(p\) to frame number \(f\); the physical address is \(f\times\text{page size}+d\).</p>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  CPU[CPU: p, d] --&gt; PT[Page table]
+  PT -- f --&gt; PM[Physical memory: f, d]</pre></figure>
+<p>Example: page size 1 KB, logical address 3500 → \(p=3\), \(d=428\); if page 3 is in frame 7 → physical address = \(7\times1024+428=7596\).
+<strong><a class="wk" href="../../terms/tlb.html">TLB</a></strong>: associative cache of (page, frame) pairs. Effective access time \(EAT=\alpha(t_{TLB}+m)+(1-\alpha)(t_{TLB}+2m)\). With hit ratio 80 percent, TLB 20 ns, memory 100 ns: \(0.8\times120+0.2\times220=140\) ns.</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

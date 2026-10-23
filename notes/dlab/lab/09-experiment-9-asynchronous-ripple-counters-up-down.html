@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2a8a7c"><a class="rs" href="../index.html">Digital Logic Design Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li><a href="02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="03-experiment-3-code-converters-binary-gray-bcd-exces.html">Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></li><li><a href="04-experiment-4-single-bit-comparator.html">Experiment 4 — Single-bit comparator</a></li><li><a href="05-experiment-5-decoders-and-encoders.html">Experiment 5 — Decoders and encoders</a></li><li><a href="06-experiment-6-multiplexers-and-demultiplexers.html">Experiment 6 — Multiplexers and demultiplexers</a></li><li><a href="07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="08-experiment-8-synchronous-counters-up-down-up-down.html">Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a></li><li class="cur"><a href="09-experiment-9-asynchronous-ripple-counters-up-down.html">Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li><li><a href="10-experiment-10-ring-counter-and-johnson-counter.html">Experiment 10 — Ring counter and Johnson counter</a></li><li><a href="11-experiment-11-shift-registers-siso-sipo-piso-and-p.html">Experiment 11 — Shift registers: SISO, SIPO, PISO and PIPO</a></li><li><a href="12-experiment-12-introduction-to-the-xilinx-spartan-6.html">Experiment 12 — Introduction to the Xilinx Spartan-6 FPGA: gates and combinational circuits</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2a8a7c"><a class="rs" href="../index.html">Digital Logic Design Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li><a href="02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="03-experiment-3-code-converters-binary-gray-bcd-exces.html">Experiment 3 — Code converters: Binary ↔ Gray, BCD ↔ Excess-3</a></li><li><a href="04-experiment-4-single-bit-comparator.html">Experiment 4 — Single-bit comparator</a></li><li><a href="05-experiment-5-decoders-and-encoders.html">Experiment 5 — Decoders and encoders</a></li><li><a href="06-experiment-6-multiplexers-and-demultiplexers.html">Experiment 6 — Multiplexers and demultiplexers</a></li><li><a href="07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="08-experiment-8-synchronous-counters-up-down-up-down.html">Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a></li><li class="cur"><a href="09-experiment-9-asynchronous-ripple-counters-up-down.html">Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li><li><a href="10-experiment-10-ring-counter-and-johnson-counter.html">Experiment 10 — Ring counter and Johnson counter</a></li><li><a href="11-experiment-11-shift-registers-siso-sipo-piso-and-p.html">Experiment 11 — Shift registers: SISO, SIPO, PISO and PIPO</a></li><li><a href="12-experiment-12-introduction-to-the-xilinx-spartan-6.html">Experiment 12 — Introduction to the Xilinx Spartan-6 FPGA: gates and combinational circuits</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">DLD Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</b></nav>
+    <article class="wiki" style="--h:#2a8a7c"><h1>Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</h1><p class="byline">Digital Logic Design Lab · Lab: Tasks 1 to 12</p><aside class="infobox" style="--h:#2a8a7c"><div class="ib-h">Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design Lab</a> (24CS282)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Tasks 1 to 12</a></dd><dt>Topic</dt><dd>9 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/ripple-counter.html">Ripple counter</a>, <a href="../../../terms/nand.html">NAND</a>, <a href="../../../terms/flip-flop.html">Flip-flop</a>, <a href="../../../terms/propagation-delay.html">Propagation delay</a>, <a href="../../../terms/verilog.html">Verilog</a></dd></dl></aside><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Design and verify 3-bit asynchronous up and down counters and a MOD-6 counter.</li>
+<li><strong>Components:</strong> IC 7476 / 7473 (JK) or 7474 (D), 7400 (<a class="wk" href="../../../terms/nand.html">NAND</a>) for the reset; (ready-made: 7490 decade, 7493 4-bit <a class="wk" href="../../../terms/ripple-counter.html">ripple counter</a>); clock pulser, LEDs</li>
+<li><strong>Theory</strong><ul>
+<li>In an <strong>asynchronous (ripple) counter</strong> only the first <a class="wk" href="../../../terms/flip-flop.html">flip-flop</a> gets the external clock; each next flip-flop is clocked by the <strong>output of the previous one</strong>. Flip-flops are JK with J=K=1 (or T flip-flops, or D with D = Q')</li>
+<li><strong>Up counter:</strong> negative-edge triggered flip-flops, clock of stage \(n\) = \(Q_{n-1}\). <strong>Down counter:</strong> clock of stage \(n\) = \(\overline{Q}_{n-1}\) (or use positive-edge FFs and connect Q of the previous stage)</li>
+<li><strong>MOD-N by asynchronous reset:</strong> use a NAND gate to detect the count N and connect its output to the active-low <strong>Clear</strong> inputs of all FFs; the counter jumps to 0 immediately when N appears (it exists only for a very short time — a <strong>glitch</strong>). <strong>MOD-6:</strong> the state 6 = 110, so detect \(Q_2Q_1\) (use NAND of \(Q_2\), \(Q_1\)). With 7490: connect \(Q_B\) and \(Q_C\) to the reset inputs R0(1), R0(2)</li>
+<li><strong>Disadvantage of ripple counters:</strong> the <strong><a class="wk" href="../../../terms/propagation-delay.html">propagation delays</a> add</strong>, so at high frequency the count is wrong momentarily (decoding glitches); the maximum clock frequency \(f_{max}=1/(n\cdot t_{pd})\). Advantage: simple hardware</li>
+</ul>
+</li>
+<li><strong>Procedure</strong><ul>
+<li>Connect the pulse to CLK of the first flip-flop; connect Q of the first to CLK of the second, and so on; J=K=1 (high); Clear all initially</li>
+<li>Give pulses; record the outputs; for the down counter connect Q' instead of Q</li>
+<li>For MOD-6 add the NAND gate from Q2, Q1 to the Clear lines; check the 0–5 cycle</li>
+</ul>
+</li>
+</ul>
+<div class="code"><span class="lang"><a class="wk" href="../../../terms/verilog.html">verilog</a></span><pre><code class="language-verilog">// Task 9: asynchronous (ripple) counters
+module tff_async(input clk, clr, output reg q);       // T flip-flop with T=1, async clear
+  always @(negedge clk or posedge clr)
+    if (clr) q &lt;= 1'b0;
+    else q &lt;= ~q;
+endmodule
+
+// 3-bit ripple UP counter: clock of each stage = Q of previous stage
+module ripple_up(input clk, clr, output [2:0] q);
+  tff_async a(clk,  clr, q[0]);
+  tff_async b(q[0], clr, q[1]);
+  tff_async c(q[1], clr, q[2]);
+endmodule
+
+// 3-bit ripple DOWN counter: clock of each stage = Q' of previous stage
+module ripple_down(input clk, clr, output [2:0] q);
+  tff_async a(clk,   clr, q[0]);
+  tff_async b(~q[0], clr, q[1]);
+  tff_async c(~q[1], clr, q[2]);
+endmodule
+
+// MOD-6 ripple counter: NAND of Q2 and Q1 clears all flip-flops when the count 110 (6) appears
+module ripple_mod6(input clk, rst, output [2:0] q);
+  wire clr = (q[2] &amp; q[1]) | rst;          // rst = manual clear switch (power-on)
+  tff_async a(clk,  clr, q[0]);
+  tff_async b(q[0], clr, q[1]);
+  tff_async c(q[1], clr, q[2]);
+endmodule</code></pre></div>
+<p><strong>Simulation output</strong> (Icarus Verilog, the same results the hardware should show)</p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">clock | UP   DOWN  MOD-6
+  0   | 000  000   000
+  1   | 001  111   001
+  2   | 010  110   010
+  3   | 011  101   011
+  4   | 100  100   100
+  5   | 101  011   101
+  6   | 110  010   000
+  7   | 111  001   001
+  8   | 000  000   010</code></pre></div>
+<ul>
+<li><strong>Precautions:</strong> switch off the supply before changing wiring; check Vcc/GND; tie unused inputs; confirm LED polarity; no loose wires</li>
+<li><strong>Result:</strong> the observed outputs matched the truth table, so the circuit works as the theory predicts</li>
+<li><strong>Viva questions</strong><ul>
+<li>Why are the counters called ripple counters? </li>
+<li>Compare asynchronous and synchronous counters</li>
+<li>How many flip-flops are needed for a MOD-10 counter? (4) How is it made using a 7490?</li>
+<li>What is a decoding glitch?</li>
+<li>Frequency division: input 8 kHz, 3-bit counter, frequency at the MSB output? (1 kHz)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>For the <a class="wk" href="../../../terms/ripple-counter.html">ripple counter</a>, each stage divides the frequency of the previous output by 2. Stage 0 toggles at every clock pulse, and stage 1 toggles every time Q0 falls, and so on. This works like a binary counter, but the delay accumulates. For the down counter the next stage is clocked by Q' of the previous stage, so the count goes 000, 111, 110, ... For the MOD-6 counter the <a class="wk" href="../../../terms/nand.html">NAND</a> gate detects 110 and resets all the <a class="wk" href="../../../terms/flip-flop.html">flip-flops</a>. In the simulated table, the circuit reaches 110 for a moment (it is shown cleared to 000 at the sixth pulse). In the real circuit this causes a short glitch on the outputs.</p></div><nav class="pager"><a class="prev" href="08-experiment-8-synchronous-counters-up-down-up-down.html"><small>← Previous</small>Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a><a class="next" href="10-experiment-10-ring-counter-and-johnson-counter.html"><small>Next →</small>Experiment 10 — Ring counter and Johnson counter</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

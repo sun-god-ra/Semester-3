@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propagation delay · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>Propagation delay</b></nav>
+    <article class="wiki term"><p class="kicker">Term · DLD Lab, Digital Logic</p><h1>Propagation delay</h1><div class="ex lead"><ul>
+<li><strong>Positive / negative logic</strong>, <strong>fan-in</strong>, <strong><a class="wk" href="fan-out.html">fan-out</a></strong>, <strong>propagation delay</strong>, <strong>noise margin</strong> — gate characteristics</li>
+</ul><p class="src">From <a href="../notes/dld/u1/12-other-logic-operations-and-logic-gates.html">Digital Logic › Other Logic Operations and Logic Gates</a></p></div><div class="ex"><ul>
+<li><strong>Advantages:</strong> simple, few gates. <strong>Disadvantages:</strong> <strong>propagation delays add up</strong> (\(n\,t_{pd}\)) → slower, <strong>glitches</strong> in decoding intermediate states → max clock frequency \(f_{max}=\dfrac{1}{n\,t_{pd}}\)</li>
+</ul><p class="src">From <a href="../notes/dld/u5/03-asynchronous-ripple-counters.html">Digital Logic › Asynchronous (Ripple) Counters</a></p></div><div class="ex"><ul>
+<li><strong>Disadvantage of <a class="wk" href="ripple-counter.html">ripple counters</a>:</strong> the <strong>propagation delays add</strong>, so at high frequency the count is wrong momentarily (decoding glitches); the maximum clock frequency \(f_{max}=1/(n\cdot t_{pd})\). Advantage: simple hardware</li>
+</ul><p class="src">From <a href="../notes/dlab/lab/09-experiment-9-asynchronous-ripple-counters-up-down.html">DLD Lab › Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></p></div><div class="ex"><ul>
+<li><strong>JK:</strong> 00 hold, 01 reset, 10 set, <strong>11 toggle</strong> — no forbidden state. <strong><a class="wk" href="race-around.html">Race-around</a>:</strong> when J=K=1 and the clock pulse is longer than the propagation delay, Q toggles repeatedly in one pulse. <strong>Cures:</strong> <strong><a class="wk" href="master-slave.html">master-slave</a></strong> construction (two <a class="wk" href="latch.html">latches</a>, the master is active while CLK=1 and the slave while CLK=0, so the output changes only on the falling edge), or <strong>edge triggering</strong></li>
+</ul><p class="src">From <a href="../notes/dlab/lab/07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">DLD Lab › Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></p></div><div class="ex"><ul>
+<li>Timing parameters: <strong><a class="wk" href="setup-time.html">setup time</a></strong> (input stable before the edge), <strong>hold time</strong> (after the edge), <strong>propagation delay</strong> \(t_{pd}\)</li>
+</ul><p class="src">From <a href="../notes/dld/u4/03-flip-flops-and-triggering.html">Digital Logic › Flip-Flops and Triggering</a></p></div><h2>Where it appears</h2><h3>DLD Lab</h3><ul><li><a href="../notes/dlab/lab/07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Lab › Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="../notes/dlab/lab/08-experiment-8-synchronous-counters-up-down-up-down.html">Lab › Experiment 8 — Synchronous counters: up, down, up/down and MOD-N</a></li><li><a href="../notes/dlab/lab/09-experiment-9-asynchronous-ripple-counters-up-down.html">Lab › Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li></ul><h3>Digital Logic</h3><ul><li><a href="../notes/dld/u1/12-other-logic-operations-and-logic-gates.html">Unit I › Other Logic Operations and Logic Gates</a></li><li><a href="../notes/dld/u4/03-flip-flops-and-triggering.html">Unit IV › Flip-Flops and Triggering</a></li><li><a href="../notes/dld/u5/03-asynchronous-ripple-counters.html">Unit V › Asynchronous (Ripple) Counters</a></li><li><a href="../qa/dld/part-a.html">Part A questions</a></li><li><a href="../qa/dld/u4.html">Unit IV questions</a></li><li><a href="../qa/dld/u5.html">Unit V questions</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="flip-flop.html">Flip-flop</a></li><li><a href="nand.html">NAND</a></li><li><a href="jk-flip-flop.html">Jk flip-flop</a></li><li><a href="latch.html">Latch</a></li><li><a href="nor.html">NOR</a></li><li><a href="race-around.html">Race-around</a></li><li><a href="decoder.html">Decoder</a></li><li><a href="k-map.html">K-map</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

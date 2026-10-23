@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabulation (Quine–McCluskey) Method · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details open><summary><a href="index.html">Unit II</a></summary><ul><li><a href="01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="02-five-variable-map.html">Five-Variable Map</a></li><li><a href="03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li class="cur"><a href="05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="08-code-conversion.html">Code Conversion</a></li><li><a href="09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details open><summary><a href="index.html">Unit II</a></summary><ul><li><a href="01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="02-five-variable-map.html">Five-Variable Map</a></li><li><a href="03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li class="cur"><a href="05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="08-code-conversion.html">Code Conversion</a></li><li><a href="09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Digital Logic</a> <span>›</span> <a href="index.html">Unit II</a> <span>›</span> <b>Tabulation (Quine–McCluskey) Method</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><h1>Tabulation (Quine–McCluskey) Method</h1><p class="byline">Digital Logic Design · Unit II: Boolean Function Simplification and Combinational Logic Design</p><aside class="infobox" style="--h:#0f7a6a"><div class="ib-h">Tabulation (Quine–McCluskey) Method</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design</a> (24CS201)</dd><dt>Unit</dt><dd><a href="index.html">Unit II: Boolean Function Simplification and Combinational Logic Design</a></dd><dt>Topic</dt><dd>5 of 10</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/k-map.html">K-map</a>, <a href="../../../terms/minterm.html">Minterm</a>, <a href="../../../terms/prime-implicant.html">Prime implicant</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/dld/u2.html">Part B questions for Unit II</a> and <a href="../../../qa/dld/part-a.html">Part A short questions</a>.</p><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Systematic</strong> method — works for any number of variables, programmable. <a class="wk" href="../../../terms/k-map.html">K-map</a> is limited to ~5–6 variables</li>
+<li>Steps<ol>
+<li>List <a class="wk" href="../../../terms/minterm.html">minterms</a> (and don't-cares) in <strong>binary</strong>, group by <strong>number of 1s</strong></li>
+<li>Compare adjacent groups. If two terms differ in <strong>one bit</strong>, combine; write <strong>–</strong> in the changed place; <strong>tick</strong> both</li>
+<li>Repeat on the new column until no more combining. <strong>Untick-ed terms = <a class="wk" href="../../../terms/prime-implicant.html">prime implicants</a></strong></li>
+<li>Build the <strong>prime implicant chart</strong> (rows = PIs, columns = minterms; <strong>don't-cares are not columns</strong>)</li>
+<li>Pick <strong>essential PIs</strong> (column with a single ×). Cover the rest with fewest PIs (Petrick's method if needed)</li>
+</ol>
+</li>
+<li>Terms only combine if the <strong>dash is in the same position</strong></li>
+</ul>
+<p><strong>Example:</strong> \(F=\sum m(0,1,2,5,6,7,8,9,10,14)\)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Col 1 (by number of 1s)</th>
+<th>Col 2 (pairs)</th>
+<th>Col 3 (quads)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 : 0000</td>
+<td>0,1 : 000–</td>
+<td>0,2,8,10 : –0–0</td>
+</tr>
+<tr>
+<td>1 : 0001</td>
+<td>0,2 : 00–0</td>
+<td>0,1,8,9 : –00–</td>
+</tr>
+<tr>
+<td>2 : 0010</td>
+<td>0,8 : –000</td>
+<td>2,6,10,14 : ––10</td>
+</tr>
+<tr>
+<td>8 : 1000</td>
+<td>1,5 : 0–01</td>
+<td></td>
+</tr>
+<tr>
+<td>5 : 0101</td>
+<td>1,9 : –001</td>
+<td></td>
+</tr>
+<tr>
+<td>6 : 0110</td>
+<td>2,6 : 0–10</td>
+<td></td>
+</tr>
+<tr>
+<td>9 : 1001</td>
+<td>2,10 : –010</td>
+<td></td>
+</tr>
+<tr>
+<td>10 : 1010</td>
+<td>8,9 : 100–</td>
+<td></td>
+</tr>
+<tr>
+<td>7 : 0111</td>
+<td>8,10 : 10–0</td>
+<td></td>
+</tr>
+<tr>
+<td>14 : 1110</td>
+<td>5,7 : 01–1</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>6,7 : 011–</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>6,14 : –110</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>10,14 : 1–10</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Prime implicants:</strong> \(A'C'D\) (1,5), \(A'BD\) (5,7), \(A'BC\) (6,7), \(B'D'\) (0,2,8,10), \(B'C'\) (0,1,8,9), \(CD'\) (2,6,10,14)</li>
+<li>Essential: minterm 9 only in \(B'C'\); minterm 14 only in \(CD'\). These two cover 0,1,2,6,8,9,10,14. Left: 5, 7 → both in \(A'BD\)</li>
+<li><strong>\(F=B'C'+CD'+A'BD\)</strong></li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>The <a class="wk" href="../../../terms/k-map.html">K-map</a> breaks down above five or six variables, and it relies on a human to see the groups. The Quine–McCluskey method does the same job with a fixed procedure, so it can be programmed. Terms are sorted by their number of 1s, because only terms in neighbouring groups can differ in a single bit. Terms that differ in exactly one position are merged and the position is marked with a dash. A term that cannot be merged any further is a <a class="wk" href="../../../terms/prime-implicant.html">prime implicant</a>. The merging requires dashes in the same position, so (0,2) cannot combine with (1,9).</p>
+<p>The second stage is the prime-implicant chart. Rows are the prime implicants and columns the <a class="wk" href="../../../terms/minterm.html">minterms</a> that must be covered. A column with a single mark identifies an essential prime implicant. After choosing those, we cover the leftover minterms with as few additional implicants as possible. Don't-care minterms take part in the merging but are <strong>not</strong> listed as columns in the chart, since they need not be covered.</p></div><nav class="pager"><a class="prev" href="04-don-t-care-conditions.html"><small>← Previous</small>Don't-Care Conditions</a><a class="next" href="06-combinational-logic-design-procedure.html"><small>Next →</small>Combinational Logic — Design Procedure</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

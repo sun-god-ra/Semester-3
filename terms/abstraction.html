@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abstraction · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>Abstraction</b></nav>
+    <article class="wiki term"><p class="kicker">Term · Java, Operating Systems, Software Eng</p><h1>Abstraction</h1><div class="ex lead"><ul>
+<li><strong>Iterative process:</strong> requirements → blueprint at <strong>high abstraction</strong> (traceable to requirements) → <strong>refined</strong> to lower levels</li>
+</ul><p class="src">From <a href="../notes/se/u3/07-the-design-process.html">Software Eng › The Design Process</a></p></div><div class="ex"><ul>
+<li><strong>Dimensions:</strong> <strong>process dimension</strong> (progress as design tasks are executed: from <strong>analysis</strong> to <strong>design</strong>) and <strong>abstraction dimension</strong> (from <strong>high</strong> abstraction <strong>analysis elements</strong> to <strong>low</strong> abstraction <strong>design elements</strong>)</li>
+</ul><p class="src">From <a href="../notes/se/u3/09-the-design-model.html">Software Eng › The Design Model</a></p></div><div class="ex"><ul>
+<li><strong>Open–Closed Principle (OCP):</strong> a module/component should be <strong>open for extension</strong> but <strong>closed for modification</strong> (use <strong>abstractions</strong> — interfaces/<a class="wk" href="abstract-class.html">abstract classes</a>)</li>
+</ul><p class="src">From <a href="../notes/se/u4/07-designing-class-based-components.html">Software Eng › Designing Class-Based Components</a></p></div><div class="ex"><ul>
+<li><strong>Monitor</strong> = <strong>high-level abstraction</strong> (an <strong>abstract data type, ADT</strong>) that provides a convenient and effective mechanism for process synchronisation: <strong>internal variables only accessible by code within the procedures</strong>; <strong>only one process may be active within the monitor at a time</strong> (<a class="wk" href="mutual-exclusion.html">mutual exclusion</a> is <strong>automatic</strong>, the programmer need not code it)</li>
+</ul><p class="src">From <a href="../notes/os/u3/08-monitors.html">Operating Systems › Monitors</a></p></div><div class="ex"><ul>
+<li><strong>Abstraction:</strong> manage complexity by hiding detail; show only what is essential (e.g. driving a car without knowing the engine). Hierarchical classification</li>
+</ul><p class="src">From <a href="../notes/java/u1/05-overview-of-oop.html">Java › Overview of OOP</a></p></div><h2>Where it appears</h2><h3>Java</h3><ul><li><a href="../notes/java/u1/05-overview-of-oop.html">Unit I › Overview of OOP</a></li><li><a href="../notes/java/u3/05-interfaces.html">Unit III › Interfaces</a></li><li><a href="../notes/java/u3/15-streams-introduction-to-java-i-o.html">Unit III › Streams — Introduction to Java I/O</a></li><li><a href="../qa/java/part-a.html">Part A questions</a></li><li><a href="../qa/java/u1.html">Unit I questions</a></li><li><a href="../qa/java/u3.html">Unit III questions</a></li></ul><h3>Operating Systems</h3><ul><li><a href="../notes/os/u3/08-monitors.html">Unit III › Monitors</a></li><li><a href="../qa/os/u1.html">Unit I questions</a></li></ul><h3>Software Eng</h3><ul><li><a href="../notes/se/u2/05-building-the-requirements-analysis-model.html">Unit II › Building the Requirements (Analysis) Model</a></li><li><a href="../notes/se/u2/08-validating-requirements.html">Unit II › Validating Requirements</a></li><li><a href="../notes/se/u3/07-the-design-process.html">Unit III › The Design Process</a></li><li><a href="../notes/se/u3/08-design-concepts.html">Unit III › Design Concepts</a></li><li><a href="../notes/se/u3/09-the-design-model.html">Unit III › The Design Model</a></li><li><a href="../notes/se/u4/01-software-architecture.html">Unit IV › Software Architecture</a></li><li><a href="../notes/se/u4/04-architectural-considerations.html">Unit IV › Architectural Considerations</a></li><li><a href="../notes/se/u4/05-architectural-decisions.html">Unit IV › Architectural Decisions</a></li><li><a href="../notes/se/u4/07-designing-class-based-components.html">Unit IV › Designing Class-Based Components</a></li><li><a href="../qa/se/part-a.html">Part A questions</a></li><li><a href="../qa/se/u2.html">Unit II questions</a></li><li><a href="../qa/se/u3.html">Unit III questions</a></li><li><a href="../qa/se/u4.html">Unit IV questions</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="inheritance.html">Inheritance</a></li><li><a href="coupling.html">Coupling</a></li><li><a href="polymorphism.html">Polymorphism</a></li><li><a href="abstract-class.html">Abstract class</a></li><li><a href="activity-diagram.html">Activity diagram</a></li><li><a href="cohesion.html">Cohesion</a></li><li><a href="encapsulation.html">Encapsulation</a></li><li><a href="class-diagram.html">Class diagram</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

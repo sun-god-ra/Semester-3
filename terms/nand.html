@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAND · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>NAND</b></nav>
+    <article class="wiki term"><p class="kicker">Term · DLD Lab, Digital Logic, Operating Systems</p><h1>NAND</h1><div class="ex lead"><ul>
+<li><strong><a class="wk" href="sr-latch.html">SR latch</a> (NAND):</strong> inputs are <strong>active low</strong> (\(S',R'\)). \(S'R'=00\) forbidden; \(11\) = hold</li>
+</ul><p class="src">From <a href="../notes/dld/u4/02-latches.html">Digital Logic › Latches</a></p></div><div class="ex"><ul>
+<li><strong><a class="wk" href="universal-gate.html">Universal gates</a>:</strong> NAND and <a class="wk" href="nor.html">NOR</a> can build any gate. <strong>With NAND:</strong> NOT \(=\overline{A\cdot A}\); AND \(=\overline{\overline{AB}}\) (NAND followed by NAND-as-NOT); OR \(=\overline{\overline{A}\cdot\overline{B}}\) (<a class="wk" href="de-morgan.html">De Morgan</a>). <strong>With NOR:</strong> NOT \(=\overline{A+A}\); OR \(=\overline{\overline{A+B}}\); AND \(=\overline{\overline{A}+\overline{B}}\)</li>
+</ul><p class="src">From <a href="../notes/dlab/lab/01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">DLD Lab › Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></p></div><div class="ex"><ul>
+<li><strong>Mod-\(N\) <a class="wk" href="ripple-counter.html">ripple counter</a> (\(N&lt;2^n\)):</strong> use \(n=\lceil\log_2N\rceil\) FFs, detect count \(N\) with a <strong>NAND gate</strong> and feed to the <strong>asynchronous CLEAR</strong> of all FFs → resets immediately. <strong>Decade (mod-10) counter:</strong> NAND of \(Q_3\) and \(Q_1\) (count 1010) → clear. 7490 IC<ul>
+<li>state 1010 appears only for a <strong>very short glitch</strong> time</li>
+</ul>
+</li>
+</ul><p class="src">From <a href="../notes/dld/u5/03-asynchronous-ripple-counters.html">Digital Logic › Asynchronous (Ripple) Counters</a></p></div><div class="ex"><ul>
+<li><strong><a class="wk" href="sr-latch.html">SR latch</a> (<a class="wk" href="nor.html">NOR</a>):</strong> active-high S,R. S=1,R=0 → Q=1 (set); S=0,R=1 → Q=0 (reset); S=R=0 → hold; <strong>S=R=1 → forbidden</strong> (both outputs 0, and an unpredictable state when released). <strong>NAND <a class="wk" href="latch.html">latch</a>:</strong> active-low \(\overline{S},\overline{R}\); set = (0,1), reset = (1,0), hold = (1,1), <strong>forbidden = (0,0)</strong></li>
+</ul><p class="src">From <a href="../notes/dlab/lab/07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">DLD Lab › Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></p></div><div class="ex"><p><strong>NAND is universal:</strong> NOT: \((AA)'=A'\). AND: \(((AB)')'\) (two NANDs). OR: \((A'B')'=A+B\) (three NANDs).</p><p class="src">From <a href="../qa/dld/u1.html#q6">Digital Logic Design Unit I questions › question</a></p></div><h2>Topic pages about NAND</h2><ul><li><a href="../notes/dlab/lab/01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a> <small>DLD Lab › Lab</small></li></ul><h2>Where it appears</h2><h3>DLD Lab</h3><ul><li><a href="../notes/dlab/lab/01-experiment-1-logic-gates-using-ics-nand-and-nor-as.html">Lab › Experiment 1 — Logic gates using ICs; NAND and NOR as universal gates</a></li><li><a href="../notes/dlab/lab/07-experiment-7-latches-and-flip-flops-sr-latch-sr-jk.html">Lab › Experiment 7 — Latches and flip-flops: SR latch, SR, JK, D, T and master-slave JK</a></li><li><a href="../notes/dlab/lab/09-experiment-9-asynchronous-ripple-counters-up-down.html">Lab › Experiment 9 — Asynchronous (ripple) counters: up, down and MOD-N</a></li></ul><h3>Digital Logic</h3><ul><li><a href="../notes/dld/u1/08-boolean-algebra-definitions-and-axioms.html">Unit I › Boolean Algebra — Definitions and Axioms</a></li><li><a href="../notes/dld/u1/09-basic-theorems-and-properties.html">Unit I › Basic Theorems and Properties</a></li><li><a href="../notes/dld/u1/12-other-logic-operations-and-logic-gates.html">Unit I › Other Logic Operations and Logic Gates</a></li><li><a href="../notes/dld/u2/09-exclusive-or-functions.html">Unit II › Exclusive-OR Functions</a></li><li><a href="../notes/dld/u3/04-decoders.html">Unit III › Decoders</a></li><li><a href="../notes/dld/u4/02-latches.html">Unit IV › Latches</a></li><li><a href="../notes/dld/u5/03-asynchronous-ripple-counters.html">Unit V › Asynchronous (Ripple) Counters</a></li><li><a href="../qa/dld/part-a.html">Part A questions</a></li><li><a href="../qa/dld/u1.html">Unit I questions</a></li><li><a href="../qa/dld/u4.html">Unit IV questions</a></li><li><a href="../qa/dld/u5.html">Unit V questions</a></li></ul><h3>Operating Systems</h3><ul><li><a href="../notes/os/u5/01-overview-of-mass-storage-structure.html">Unit V › Overview of Mass-Storage Structure</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="nor.html">NOR</a></li><li><a href="flip-flop.html">Flip-flop</a></li><li><a href="propagation-delay.html">Propagation delay</a></li><li><a href="de-morgan.html">De morgan</a></li><li><a href="decoder.html">Decoder</a></li><li><a href="latch.html">Latch</a></li><li><a href="xnor.html">XNOR</a></li><li><a href="xor.html">XOR</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Object Oriented Programming Through Java Unit V questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#c2410c"><a class="rs" href="index.html">Object Oriented Programming Through Java</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#c2410c"><a class="rs" href="index.html">Object Oriented Programming Through Java</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Java</a> <span>›</span> <b>Unit V</b></nav>
+    <article class="wiki" style="--h:#c2410c"><span class="ulabel">Part B · Unit V</span><h1>Collections Framework and Stream API</h1><p class="byline">Object Oriented Programming Through Java · 10 questions · <a href="../../notes/java/u5/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Differentiate between <a class="wk" href="../../terms/arraylist.html">ArrayList</a> and LinkedList with suitable examples.</h4><div class="ans"><div class="tag">Answer</div><p>Both implement the <code>List</code> interface (ordered, allow duplicates, allow null).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Point</th>
+<th>ArrayList</th>
+<th>LinkedList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Internal structure</td>
+<td><strong>Resizable (dynamic) array</strong></td>
+<td><strong>Doubly <a class="wk" href="../../terms/linked-list.html">linked list</a></strong> of nodes</td>
+</tr>
+<tr>
+<td>Access by index <code>get(i)</code></td>
+<td><strong>O(1)</strong> fast</td>
+<td><strong>O(n)</strong> must walk the list</td>
+</tr>
+<tr>
+<td>Insert/delete in the middle</td>
+<td><strong>O(n)</strong> (shifting elements)</td>
+<td><strong>O(1)</strong> once the node is reached (only pointers change)</td>
+</tr>
+<tr>
+<td>Add at end</td>
+<td>O(1) amortised</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>less (only elements)</td>
+<td>more (two links per node)</td>
+</tr>
+<tr>
+<td>Implements</td>
+<td><code>List</code>, <code>RandomAccess</code></td>
+<td><code>List</code>, <code>Deque</code>, <code>Queue</code></td>
+</tr>
+<tr>
+<td>Best use</td>
+<td>many reads, few changes</td>
+<td>many insertions/deletions, queue/stack use</td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+public class ListDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; al = new ArrayList&lt;&gt;();
+        al.add("A"); al.add("B"); al.add(1, "X");
+        System.out.println(al + " get(1)=" + al.get(1));   // [A, X, B] get(1)=X
+
+        LinkedList&lt;String&gt; ll = new LinkedList&lt;&gt;();
+        ll.add("A"); ll.addFirst("Z"); ll.addLast("B");
+        System.out.println(ll + " first=" + ll.getFirst()); // [Z, A, B] first=Z
+        ll.removeFirst();
+        System.out.println(ll);                              // [A, B]
+    }
+}</code></pre></div></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Explain the features of the HashSet class. Write a Java program to demonstrate insertion and iteration of elements in a HashSet.</h4><div class="ans"><div class="tag">Answer</div><p><strong>Features of <code>HashSet</code></strong></p>
+<ol>
+<li>Implements the <code>Set</code> interface; <strong>no duplicate elements</strong> (a duplicate <code>add</code> returns <code>false</code>).</li>
+<li>Backed by a <strong><a class="wk" href="../../terms/hash-table.html">hash table</a></strong> (a <code>HashMap</code> inside); elements are placed by their <strong>hash code</strong>.</li>
+<li><strong>No guaranteed order</strong>: iteration order can differ from insertion order and may change.</li>
+<li>Allows <strong>one null</strong> element.</li>
+<li><strong>Constant time O(1)</strong> average for <code>add</code>, <code>remove</code>, <code>contains</code>.</li>
+<li><strong>Not synchronized</strong> (not thread-safe). Use <code>Collections.synchronizedSet()</code> if needed.</li>
+<li>Duplicates are detected using <strong><code>hashCode()</code> and <code>equals()</code></strong>, so custom classes must override both.</li>
+<li>Initial capacity 16, load factor 0.75.
+   (<code>LinkedHashSet</code> keeps insertion order; <code>TreeSet</code> keeps sorted order.)</li>
+</ol>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+public class HashSetDemo {
+    public static void main(String[] args) {
+        HashSet&lt;String&gt; set = new HashSet&lt;&gt;();
+        set.add("Java");
+        set.add("Python");
+        set.add("C");
+        boolean added = set.add("Java");            // duplicate -&gt; false
+        System.out.println("Duplicate added? " + added);
+        System.out.println("Size: " + set.size());  // 3
+        System.out.println("Contains C? " + set.contains("C"));
+
+        System.out.println("Using for-each:");
+        for (String s : set) System.out.println(s);
+
+        System.out.println("Using Iterator:");
+        Iterator&lt;String&gt; it = set.iterator();
+        while (it.hasNext()) System.out.println(it.next());
+    }
+}</code></pre></div>
+<p>The element order printed may differ from the insertion order, because the order depends on the hash codes.</p></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Explain how a <a class="wk" href="../../terms/treemap.html">TreeMap</a> maintains elements in sorted order with an example program.</h4><div class="ans"><div class="tag">Answer</div><p><code>TreeMap&lt;K,V&gt;</code> implements <code>NavigableMap</code> (and <code>SortedMap</code>). It stores the entries in a <strong>Red-Black tree</strong>, a <em>self-balancing binary search tree</em>. Every insertion places the key at its correct position by comparison, so the keys are always in <strong>ascending order</strong>. The ordering comes from</p>
+<ul>
+<li>the keys' <strong>natural ordering</strong> (<code>Comparable.compareTo</code>) — e.g. <code>String</code>, <code>Integer</code>, or</li>
+<li>a <strong><code>Comparator</code></strong> passed to the <a class="wk" href="../../terms/constructor.html">constructor</a>.</li>
+</ul>
+<p>Properties: sorted by key, <strong>O(log n)</strong> for <code>put</code>, <code>get</code>, <code>remove</code>, <strong>no null keys</strong>, not synchronized, keys must be mutually comparable (else <code>ClassCastException</code>).</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+public class TreeMapDemo {
+    public static void main(String[] args) {
+        TreeMap&lt;Integer, String&gt; tm = new TreeMap&lt;&gt;();
+        tm.put(30, "Thirty");
+        tm.put(10, "Ten");
+        tm.put(20, "Twenty");
+        tm.put(40, "Forty");
+        System.out.println(tm);                       // {10=Ten, 20=Twenty, 30=Thirty, 40=Forty}
+        System.out.println(tm.firstKey() + " " + tm.lastKey());   // 10 40
+        System.out.println(tm.headMap(30));           // keys &lt; 30   {10=Ten, 20=Twenty}
+        System.out.println(tm.tailMap(30));           // keys &gt;= 30  {30=Thirty, 40=Forty}
+        System.out.println(tm.floorKey(25) + " " + tm.ceilingKey(25));  // 20 30
+
+        TreeMap&lt;String, Integer&gt; rev = new TreeMap&lt;&gt;(Comparator.reverseOrder());
+        rev.put("b", 2); rev.put("a", 1); rev.put("c", 3);
+        System.out.println(rev);                      // {c=3, b=2, a=1}
+    }
+}</code></pre></div>
+<p>Even though keys were inserted as 30, 10, 20, 40, the map prints them as 10, 20, 30, 40.</p></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Write a program to demonstrate mapping and collecting operations using streams.</h4><div class="ans"><div class="tag">Answer</div><ul>
+<li><strong><code>map()</code></strong> is an <strong>intermediate</strong> operation that <em>transforms</em> every element (one-to-one).</li>
+<li><strong><code>collect()</code></strong> is a <strong>terminal</strong> operation that gathers the elements into a collection or result using a <strong><code>Collector</code></strong> (<code>Collectors.toList()</code>, <code>toSet()</code>, <code>joining()</code>, <code>groupingBy()</code>, <code>toMap()</code>).</li>
+</ul>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+import java.util.stream.*;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; names = Arrays.asList("ravi", "asha", "kiran", "sita");
+        List&lt;Integer&gt; nums = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+        // mapping: transform each name to upper case, then collect to a list
+        List&lt;String&gt; upper = names.stream()
+                                  .map(String::toUpperCase)
+                                  .collect(Collectors.toList());
+        System.out.println(upper);                     // [RAVI, ASHA, KIRAN, SITA]
+
+        // mapping + filter + collect: squares of even numbers
+        List&lt;Integer&gt; sq = nums.stream()
+                               .filter(n -&gt; n % 2 == 0)
+                               .map(n -&gt; n * n)
+                               .collect(Collectors.toList());
+        System.out.println(sq);                        // [4, 16, 36]
+
+        // collect to a single String
+        String joined = names.stream().collect(Collectors.joining(", ", "[", "]"));
+        System.out.println(joined);                    // [ravi, asha, kiran, sita]
+
+        // collect to a Map: name -&gt; length
+        Map&lt;String, Integer&gt; lenMap = names.stream()
+                .collect(Collectors.toMap(s -&gt; s, String::length));
+        System.out.println(lenMap.get("kiran"));       // 5
+
+        // grouping by length
+        Map&lt;Integer, List&lt;String&gt;&gt; byLen = names.stream()
+                .collect(Collectors.groupingBy(String::length));
+        System.out.println(byLen);                     // {4=[ravi, asha, sita], 5=[kiran]}
+    }
+}</code></pre></div>
+<p>Streams are <strong>lazy</strong>: nothing runs until the terminal operation <code>collect()</code>. The original list is not changed.</p></div></article><article class="qa past" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain the <a class="wk" href="../../terms/collections-framework.html">Collections Framework</a> in Java. Discuss the roles of the List, Set and Map interfaces.</h4><div class="ans"><div class="tag">Answer</div><p>The <strong>Java <a class="wk" href="../../terms/collections-framework.html">Collections Framework</a> (JCF)</strong> (<code>java.util</code>) is a unified architecture of <strong>interfaces, implementation classes and algorithms</strong> for storing and processing groups of objects. It reduces effort (ready-made data structures), gives performance and is reusable. Generics make collections <strong>type safe</strong>.</p>
+<figure class="fig"><pre class="mermaid">flowchart TB
+  I[Iterable] --&gt; C[Collection]
+  C --&gt; L[List]
+  C --&gt; S[Set]
+  C --&gt; Q[Queue]
+  L --&gt; AL[ArrayList]
+  L --&gt; LL[LinkedList]
+  L --&gt; V[Vector]
+  S --&gt; HS[HashSet]
+  S --&gt; LHS[LinkedHashSet]
+  S --&gt; SS[SortedSet]
+  SS --&gt; TS[TreeSet]
+  Q --&gt; PQ[PriorityQueue]
+  M[Map] --&gt; HM[HashMap]
+  M --&gt; LHM[LinkedHashMap]
+  M --&gt; SM[SortedMap]
+  SM --&gt; TM[TreeMap]</pre></figure>
+<p>(<code>Map</code> is <strong>not</strong> a child of <code>Collection</code>.)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Role</th>
+<th>Main implementations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>List</strong></td>
+<td><strong>ordered</strong> collection, indexed access, <strong>duplicates allowed</strong></td>
+<td><code>ArrayList</code>, <code>LinkedList</code>, <code>Vector</code></td>
+</tr>
+<tr>
+<td><strong>Set</strong></td>
+<td>collection with <strong>no duplicates</strong></td>
+<td><code>HashSet</code> (unordered), <code>LinkedHashSet</code> (insertion order), <code>TreeSet</code> (sorted)</td>
+</tr>
+<tr>
+<td><strong>Map</strong></td>
+<td>stores <strong>key → value</strong> pairs; keys unique, values may repeat</td>
+<td><code>HashMap</code>, <code>LinkedHashMap</code>, <code>TreeMap</code>, <code>Hashtable</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Common operations: <code>add</code>, <code>remove</code>, <code>contains</code>, <code>size</code>, <code>isEmpty</code>, <code>iterator</code>. Utility class <code>Collections</code> offers <code>sort</code>, <code>reverse</code>, <code>shuffle</code>, <code>max</code>, <code>min</code>.</p></div></article><article class="qa past" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Write a Java program to demonstrate basic operations on an <a class="wk" href="../../terms/arraylist.html">ArrayList</a> (adding, removing, and retrieving elements).</h4><div class="ans"><div class="tag">Answer</div><div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+
+public class ArrayListOps {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+
+        // adding
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+        list.add(1, "Mango");                    // insert at index 1
+        System.out.println("After adding : " + list);   // [Apple, Mango, Banana, Cherry]
+
+        // retrieving
+        System.out.println("get(2)       : " + list.get(2));        // Banana
+        System.out.println("indexOf      : " + list.indexOf("Cherry")); // 3
+        System.out.println("contains     : " + list.contains("Mango")); // true
+        System.out.println("size         : " + list.size());       // 4
+
+        // updating
+        list.set(0, "Orange");
+
+        // removing
+        list.remove("Banana");                   // by object
+        list.remove(0);                          // by index
+        System.out.println("After removing: " + list);   // [Mango, Cherry]
+
+        // traversing
+        for (String s : list) System.out.println(s);
+        list.clear();
+        System.out.println("isEmpty      : " + list.isEmpty());   // true
+    }
+}</code></pre></div>
+<p><code>remove(int)</code> removes by index; <code>remove(Object)</code> removes the first matching element. For an <code>ArrayList&lt;Integer&gt;</code>, use <code>list.remove(Integer.valueOf(5))</code> to remove the <em>value</em> 5.</p></div></article><article class="qa past" id="q7"><div class="qhead"><span class="qn">Q7</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain reduction operations in Java streams with examples.</h4><div class="ans"><div class="tag">Answer</div><p>A <strong>reduction (terminal) operation</strong> combines all stream elements into <strong>a single result</strong> (a value, an <code>Optional</code>, or a collection).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Returns</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>count()</code></td>
+<td><code>long</code></td>
+<td>number of elements</td>
+</tr>
+<tr>
+<td><code>sum()</code>, <code>average()</code>, <code>max()</code>, <code>min()</code></td>
+<td>on <code>IntStream</code> etc.</td>
+<td><code>IntStream.of(..).sum()</code></td>
+</tr>
+<tr>
+<td><code>reduce(identity, op)</code></td>
+<td><code>T</code></td>
+<td><code>reduce(0, Integer::sum)</code></td>
+</tr>
+<tr>
+<td><code>reduce(op)</code></td>
+<td><code>Optional&lt;T&gt;</code></td>
+<td><code>reduce(Integer::max)</code></td>
+</tr>
+<tr>
+<td><code>max(comparator)</code>, <code>min(comparator)</code></td>
+<td><code>Optional&lt;T&gt;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>collect(...)</code></td>
+<td>mutable reduction</td>
+<td><code>Collectors.toList()</code></td>
+</tr>
+<tr>
+<td><code>anyMatch</code>, <code>allMatch</code>, <code>noneMatch</code></td>
+<td><code>boolean</code></td>
+<td>short-circuit</td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+import java.util.stream.*;
+
+public class ReduceDemo {
+    public static void main(String[] args) {
+        List&lt;Integer&gt; nums = Arrays.asList(4, 8, 15, 16, 23, 42);
+
+        int sum = nums.stream().reduce(0, (a, b) -&gt; a + b);            // identity + accumulator
+        Optional&lt;Integer&gt; product = nums.stream().reduce((a, b) -&gt; a * b);
+        Optional&lt;Integer&gt; max = nums.stream().reduce(Integer::max);
+        long cnt = nums.stream().filter(n -&gt; n % 2 == 0).count();
+        double avg = nums.stream().mapToInt(Integer::intValue).average().orElse(0);
+
+        System.out.println(sum);                 // 108
+        System.out.println(product.get());       // 4*8*15*16*23*42 = 7418880
+        System.out.println(max.get());           // 42
+        System.out.println(cnt);                 // 4  (4, 8, 16, 42)
+        System.out.println(avg);                 // 18.0
+        System.out.println(nums.stream().anyMatch(n -&gt; n &gt; 40));  // true
+    }
+}</code></pre></div>
+<p><strong>How <code>reduce</code> works:</strong> <code>(a, b) -&gt; a + b</code> starts with the identity 0: <code>0+4</code>, <code>+8</code>, <code>+15</code>, … The accumulator must be <strong>associative</strong> so parallel streams can combine partial results.</p></div></article><article class="qa past" id="q8"><div class="qhead"><span class="qn">Q8</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain the use of <a class="wk" href="../../terms/iterator.html">iterators</a> and streams in Java.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/iterator.html">Iterator</a>.</strong> An <code>Iterator&lt;E&gt;</code> visits the elements of a collection <strong>one by one</strong>. Methods: <code>hasNext()</code>, <code>next()</code>, <code>remove()</code>. It is <strong>external iteration</strong>: <em>we</em> write the loop. <code>ListIterator</code> adds backward traversal and <code>add()</code>/<code>set()</code> for lists.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">List&lt;Integer&gt; list = new ArrayList&lt;&gt;(Arrays.asList(1, 2, 3, 4, 5));
+Iterator&lt;Integer&gt; it = list.iterator();
+while (it.hasNext()) {
+    int n = it.next();
+    if (n % 2 == 0) it.remove();      // safe removal during iteration
+}
+System.out.println(list);             // [1, 3, 5]</code></pre></div>
+<p>(Removing with <code>list.remove()</code> inside a for-each loop throws <code>ConcurrentModificationException</code>.)</p>
+<p><strong>Stream.</strong> A <code>Stream&lt;T&gt;</code> is a <strong>sequence of elements supporting aggregate operations</strong>. It is <strong>internal iteration</strong>: the library does the looping and we say <em>what</em> to do.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int sumOfOddSquares = list.stream()
+                          .filter(n -&gt; n % 2 == 1)
+                          .mapToInt(n -&gt; n * n)
+                          .sum();                       // 1 + 9 + 25 = 35</code></pre></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Iterator</th>
+<th>Stream</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>External iteration (explicit loop)</td>
+<td>Internal iteration (declarative)</td>
+</tr>
+<tr>
+<td>Can <strong>remove</strong> elements</td>
+<td><strong>Does not modify</strong> the source</td>
+</tr>
+<tr>
+<td>Can be used many times (new iterator)</td>
+<td><strong>Single use</strong> (consumed after terminal op)</td>
+</tr>
+<tr>
+<td>Sequential only</td>
+<td>Can be <strong>parallel</strong> (<code>parallelStream()</code>)</td>
+</tr>
+<tr>
+<td>Eager</td>
+<td><strong>Lazy</strong> (intermediate ops run at the terminal op)</td>
+</tr>
+</tbody>
+</table></div>
+<p>A stream can also be created from an iterator-capable source: <code>StreamSupport</code> or <code>iterator()</code> can be obtained from a stream with <code>stream.iterator()</code>.</p></div></article><article class="qa exp" id="q9"><div class="qhead"><span class="qn">Q9</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Differentiate between Comparable and <a class="wk" href="../../terms/comparator.html">Comparator</a> with example programs.</h4><div class="ans"><div class="tag">Answer</div><p><code>Comparable&lt;T&gt;</code> (package <code>java.lang</code>) puts the <strong>natural ordering inside the class</strong> by <code>int compareTo(T o)</code>. <code>Comparator&lt;T&gt;</code> (package <code>java.util</code>) puts a <strong>separate ordering outside</strong> the class by <code>int compare(T a, T b)</code>.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Comparable</th>
+<th>Comparator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One natural order, class must be modified</td>
+<td>Many orders, class unchanged</td>
+</tr>
+<tr>
+<td><code>compareTo(o)</code></td>
+<td><code>compare(a, b)</code></td>
+</tr>
+<tr>
+<td><code>Collections.sort(list)</code></td>
+<td><code>Collections.sort(list, cmp)</code></td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+class Student implements Comparable&lt;Student&gt; {
+    int roll; String name;
+    Student(int r, String n) { roll = r; name = n; }
+    public int compareTo(Student o) { return this.roll - o.roll; }   // natural: by roll
+    public String toString() { return roll + ":" + name; }
+}
+public class SortDemo {
+    public static void main(String[] args) {
+        List&lt;Student&gt; l = new ArrayList&lt;&gt;();
+        l.add(new Student(3, "Ravi")); l.add(new Student(1, "Sita")); l.add(new Student(2, "Asha"));
+        Collections.sort(l);                                    // Comparable
+        System.out.println(l);                                  // [1:Sita, 2:Asha, 3:Ravi]
+        l.sort(Comparator.comparing(s -&gt; s.name));              // Comparator (lambda)
+        System.out.println(l);                                  // [2:Asha, 3:Ravi, 1:Sita]
+    }
+}</code></pre></div></div></article><article class="qa exp" id="q10"><div class="qhead"><span class="qn">Q10</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Write a program to demonstrate <a class="wk" href="../../terms/hashmap.html">HashMap</a> operations. How does HashMap differ from <a class="wk" href="../../terms/treemap.html">TreeMap</a>?</h4><div class="ans"><div class="tag">Answer</div><p><code>HashMap&lt;K,V&gt;</code> stores key–value pairs in a <strong><a class="wk" href="../../terms/hash-table.html">hash table</a></strong>. Allows <strong>one null key</strong> and many null values; no order guarantee; O(1) average time.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+public class HashMapDemo {
+    public static void main(String[] args) {
+        HashMap&lt;Integer, String&gt; map = new HashMap&lt;&gt;();
+        map.put(101, "Ravi");
+        map.put(102, "Asha");
+        map.put(103, "Sita");
+        map.put(102, "Kiran");                       // same key: value replaced
+        System.out.println(map.get(102));            // Kiran
+        System.out.println(map.containsKey(101));    // true
+        System.out.println(map.getOrDefault(200, "none"));   // none
+        map.remove(103);
+        for (Map.Entry&lt;Integer, String&gt; e : map.entrySet())
+            System.out.println(e.getKey() + " -&gt; " + e.getValue());
+    }
+}</code></pre></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>HashMap</th>
+<th>TreeMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hash table</td>
+<td>Red-black tree</td>
+</tr>
+<tr>
+<td>Unordered</td>
+<td>Sorted by key</td>
+</tr>
+<tr>
+<td>O(1) average</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>One null key allowed</td>
+<td>No null key</td>
+</tr>
+<tr>
+<td>Faster in general</td>
+<td>Needed for sorted/range queries</td>
+</tr>
+</tbody>
+</table></div></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

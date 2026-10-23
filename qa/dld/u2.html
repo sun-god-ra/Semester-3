@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Logic Design Unit II questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li class="cur"><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li class="cur"><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Digital Logic</a> <span>›</span> <b>Unit II</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><span class="ulabel">Part B · Unit II</span><h1>Boolean Function Simplification and Combinational Logic Design</h1><p class="byline">Digital Logic Design · 6 questions · <a href="../../notes/dld/u2/index.html">Notes for this unit</a></p><article class="qa exp" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K3</span></div><h4 class="qtext">Simplify \(F(A,B,C,D)=\sum m(0,1,2,5,8,9,10)\) using a <a class="wk" href="../../terms/k-map.html">K-map</a>.</h4><div class="ans"><div class="tag">Answer</div><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>\(AB\backslash CD\)</th>
+<th>00</th>
+<th>01</th>
+<th>11</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>00</strong></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>01</strong></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Groups: four corners \(m0,m2,m8,m10\to B'D'\); the quad \(m0,m1,m8,m9\to B'C'\); the pair \(m1,m5\to A'C'D\).
+\[F=B'D'+B'C'+A'C'D\]
+All <a class="wk" href="../../terms/minterm.html">minterms</a> are covered (\(m5\) only by \(A'C'D\), \(m2\) only by \(B'D'\), \(m9\) only by \(B'C'\), so all three groups are essential).</p></div></article><article class="qa exp" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K3</span></div><h4 class="qtext">Simplify \(F(A,B,C,D)=\sum m(1,3,7,11,15)+d(0,2,5)\) and give the product-of-sums form of \(F=\prod M(0,1,2,3,4,10,11)\).</h4><div class="ans"><div class="tag">Answer</div><p><strong>Part 1 (with don't-cares).</strong> Group \(m3,m7,m11,m15\to CD\); group \(m0,m1,m2,m3\) (with don't-cares 0 and 2 taken as 1) \(\to A'B'\).
+\[F=CD+A'B'\]
+(\(m5\) is a <a class="wk" href="../../terms/don-t-care.html">don't care</a> and need not be covered.)</p>
+<p><strong>Part 2 (POS).</strong> \(F'=\sum m(0,1,2,3,4,10,11)\). Groups on the <a class="wk" href="../../terms/k-map.html">K-map</a>: \(m0,1,2,3\to A'B'\); \(m0,m4\to A'C'D'\); \(m10,m11\to AB'C\). So \(F'=A'B'+A'C'D'+AB'C\) and by <a class="wk" href="../../terms/de-morgan.html">De Morgan</a>
+\[F=(A+B)(A+C+D)(A'+B+C')\]</p></div></article><article class="qa exp" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K3</span></div><h4 class="qtext">Simplify \(F(A,B,C,D)=\sum m(0,1,2,8,10,11,14,15)\) using the Quine–McCluskey (tabulation) method.</h4><div class="ans"><div class="tag">Answer</div><p><strong>Step 1: group by number of 1s.</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Minterm</th>
+<th>Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 ones</td>
+<td>0</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>1 one</td>
+<td>1, 2, 8</td>
+<td>0001, 0010, 1000</td>
+</tr>
+<tr>
+<td>2 ones</td>
+<td>10</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>3 ones</td>
+<td>11, 14</td>
+<td>1011, 1110</td>
+</tr>
+<tr>
+<td>4 ones</td>
+<td>15</td>
+<td>1111</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Step 2: combine terms that differ in one bit.</strong></p>
+<ul>
+<li>(0,1)→000-; (0,2)→00-0; (0,8)→-000; (2,10)→-010; (8,10)→10-0; (10,11)→101-; (10,14)→1-10; (11,15)→1-11; (14,15)→111-</li>
+<li>Second pass: (0,2,8,10)→-0-0; (10,11,14,15)→1-1-; (0,1) stays 000-.</li>
+</ul>
+<p><strong><a class="wk" href="../../terms/prime-implicant.html">Prime implicants</a>:</strong> \(000-=A'B'C'\) (0,1); \(-0-0=B'D'\) (0,2,8,10); \(1-1-=AC\) (10,11,14,15).</p>
+<p><strong>Step 3: prime-implicant chart.</strong> \(m1\) appears only in \(A'B'C'\); \(m2\) only in \(B'D'\); \(m11\) and \(m14\) only in \(AC\). So all three are essential and cover all 8 <a class="wk" href="../../terms/minterm.html">minterms</a>.
+\[F=A'B'C'+B'D'+AC\]</p></div></article><article class="qa exp" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K3</span></div><h4 class="qtext">Design a <a class="wk" href="../../terms/full-adder.html">full adder</a> and a full subtractor. Implement the full adder using two <a class="wk" href="../../terms/half-adder.html">half adders</a>.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/full-adder.html">Full adder</a></strong> (inputs \(A,B,C_{in}\)):</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>A B Cin</th>
+<th>Sum</th>
+<th>Cout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>001</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>010</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>011</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>100</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>101</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>110</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>111</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>\(S=A\oplus B\oplus C_{in}\), \(C_{out}=AB+AC_{in}+BC_{in}=AB+C_{in}(A\oplus B)\).
+<em>Two <a class="wk" href="../../terms/half-adder.html">half adders</a>:</em> HA1 gives \(S_1=A\oplus B\), \(C_1=AB\); HA2 adds \(S_1\) and \(C_{in}\) to give \(S=S_1\oplus C_{in}\), \(C_2=S_1C_{in}\); \(C_{out}=C_1+C_2\) (one OR gate).</p>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  A --&gt; HA1["Half adder 1"]
+  B --&gt; HA1
+  HA1 -- S1 --&gt; HA2["Half adder 2"]
+  Cin --&gt; HA2
+  HA2 -- Sum --&gt; S((Sum))
+  HA1 -- C1 --&gt; OR[OR]
+  HA2 -- C2 --&gt; OR
+  OR --&gt; Cout((Cout))</pre></figure>
+<p><strong>Full subtractor</strong> (\(A-B-B_{in}\)): \(D=A\oplus B\oplus B_{in}\), \(B_{out}=A'B+A'B_{in}+BB_{in}\) \(=A'B+B_{in}(A\odot B)\).
+Half subtractor: \(D=A\oplus B\), \(B_{out}=A'B\).</p></div></article><article class="qa exp" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K3</span></div><h4 class="qtext">Design a <a class="wk" href="../../terms/bcd.html">BCD</a> to <a class="wk" href="../../terms/excess-3.html">Excess-3</a> code converter.</h4><div class="ans"><div class="tag">Answer</div><p><a class="wk" href="../../terms/excess-3.html">Excess-3</a> code = <a class="wk" href="../../terms/bcd.html">BCD</a> + 3. Inputs \(A,B,C,D\) (BCD 0 to 9), outputs \(w,x,y,z\). Inputs 10 to 15 are <a class="wk" href="../../terms/don-t-care.html">don't cares</a>.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>BCD ABCD</th>
+<th>Excess-3 wxyz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0000</td>
+<td>0011</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>0100</td>
+</tr>
+<tr>
+<td>0010</td>
+<td>0101</td>
+</tr>
+<tr>
+<td>0011</td>
+<td>0110</td>
+</tr>
+<tr>
+<td>0100</td>
+<td>0111</td>
+</tr>
+<tr>
+<td>0101</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>0110</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>0111</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>1100</td>
+</tr>
+</tbody>
+</table></div>
+<p>Using <a class="wk" href="../../terms/k-map.html">K-maps</a> with don't-cares:
+\[w=A+BC+BD,\quad x=B'C+B'D+BC'D',\quad y=CD+C'D',\quad z=D'\]
+(I checked these four equations against all ten rows of the table.)</p></div></article><article class="qa exp" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">Explain parity generators and checkers with a 3-bit even parity example.</h4><div class="ans"><div class="tag">Answer</div><p>Parity is an error-detecting bit. For <strong>even parity</strong> the number of 1s in the transmitted word (data + parity) must be even.</p>
+<ul>
+<li><strong>Generator</strong> (3-bit data \(A,B,C\)): \(P=A\oplus B\oplus C\) (makes the total even).</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>A B C</th>
+<th>P</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>010</td>
+<td>1</td>
+</tr>
+<tr>
+<td>011</td>
+<td>0</td>
+</tr>
+<tr>
+<td>100</td>
+<td>1</td>
+</tr>
+<tr>
+<td>101</td>
+<td>0</td>
+</tr>
+<tr>
+<td>110</td>
+<td>0</td>
+</tr>
+<tr>
+<td>111</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Checker</strong> (4 bits received \(A,B,C,P\)): \(\text{PEC}=A\oplus B\oplus C\oplus P\). PEC \(=0\) means no error (even number of 1s); PEC \(=1\) means an error.
+Limits: detects single (odd number of) bit errors, but cannot correct them or detect an even number of bit errors.</li>
+</ul></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 17 — Free-space management: bit vector, linked list and grouping · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li class="cur"><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li class="cur"><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">OS Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 17 — Free-space management: bit vector, linked list and grouping</b></nav>
+    <article class="wiki" style="--h:#3f8f43"><h1>Task 17 — Free-space management: bit vector, linked list and grouping</h1><p class="byline">Operating Systems Lab · Lab: Programming Tasks 1 to 17</p><aside class="infobox" style="--h:#3f8f43"><div class="ib-h">Task 17 — Free-space management: bit vector, linked list and grouping</div><dl><dt>Subject</dt><dd><a href="../index.html">Operating Systems Lab</a> (24CS204)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Programming Tasks 1 to 17</a></dd><dt>Topic</dt><dd>17 of 17</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/linked-list.html">Linked list</a></dd></dl></aside><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Simulate the free-space management techniques: bit vector, <a class="wk" href="../../../terms/linked-list.html">linked list</a>, grouping and counting.</li>
+<li><strong>Theory</strong><ul>
+<li><strong>Bit vector:</strong> one bit per block (1 = free); finding the first free block or \(n\) consecutive free blocks is easy with bit instructions; needs memory: a 1 TB disk with 4 KB blocks needs \(2^{40}/2^{12}=2^{28}\) bits = 32 MB. <strong>Linked list:</strong> free blocks linked together; the head pointer is kept; allocation takes from the head; traversing is slow. <strong>Grouping:</strong> the first free block stores the addresses of \(n\) free blocks; the last of them points to the next group. <strong>Counting:</strong> stores (start, count) pairs of contiguous free runs</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong><ul>
+<li>Mark the free blocks</li>
+<li>Bit vector: print the bits; find the first free block and the first run of 3</li>
+<li>Linked list: print the chain; allocate 3 blocks from the head</li>
+<li>Grouping: split the addresses into groups of \(n-1\) with a link to the next group block</li>
+<li>Counting: merge consecutive blocks into (start, count)</li>
+</ul>
+</li>
+</ul>
+<div class="code"><span class="lang">c</span><pre><code class="language-c">/* Task 17: free-space management: bit vector, linked list, grouping */
+#include &lt;stdio.h&gt;
+#define N 24
+int main() {
+    int free_blocks[] = {2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 17, 18};
+    int nf = sizeof free_blocks / sizeof *free_blocks;
+    int bits[N] = {0};
+    for (int i = 0; i &lt; nf; i++) bits[free_blocks[i]] = 1;          /* 1 = free */
+
+    printf("1) Bit vector (1 = free) for %d blocks:\n   ", N);
+    for (int i = 0; i &lt; N; i++) printf("%d", bits[i]);
+    printf("\n   first free block = ");
+    for (int i = 0; i &lt; N; i++) if (bits[i]) { printf("%d\n", i); break; }
+    printf("   first run of 3 consecutive free blocks starts at ");
+    for (int i = 0; i + 3 &lt;= N; i++) if (bits[i] &amp;&amp; bits[i+1] &amp;&amp; bits[i+2]) { printf("%d\n", i); break; }
+    printf("   bit-map size for a 1 TB disk with 4 KB blocks = %llu MB\n", ((1ULL &lt;&lt; 40) / 4096 / 8) &gt;&gt; 20);
+
+    printf("\n2) Linked list of free blocks (head -&gt; ...):\n   head");
+    for (int i = 0; i &lt; nf; i++) printf(" -&gt; %d", free_blocks[i]);
+    printf(" -&gt; NULL\n   allocate 3 blocks: take from the head:");
+    int head = 0;
+    for (int k = 0; k &lt; 3; k++) printf(" %d", free_blocks[head++]);
+    printf("\n   new head = %d\n", free_blocks[head]);
+
+    printf("\n3) Grouping (n = 4 addresses per group block):\n");
+    int n = 4;
+    for (int g = 0; g * (n - 1) &lt; nf; g++) {
+        printf("   group block %d holds free addresses:", g + 1);
+        for (int k = 0; k &lt; n - 1 &amp;&amp; g * (n - 1) + k &lt; nf; k++) printf(" %d", free_blocks[g * (n - 1) + k]);
+        if ((g + 1) * (n - 1) &lt; nf) printf("  + pointer to next group block %d", free_blocks[(g + 1) * (n - 1)]);
+        printf("\n");
+    }
+    printf("\n4) Counting: (start, count) pairs:");
+    for (int i = 0; i &lt; nf;) { int j = i; while (j + 1 &lt; nf &amp;&amp; free_blocks[j + 1] == free_blocks[j] + 1) j++; printf(" (%d,%d)", free_blocks[i], j - i + 1); i = j + 1; }
+    printf("\n");
+    return 0;
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">1) Bit vector (1 = free) for 24 blocks:
+   001111001111110001100000
+   first free block = 2
+   first run of 3 consecutive free blocks starts at 2
+   bit-map size for a 1 TB disk with 4 KB blocks = 32 MB
+
+2) Linked list of free blocks (head -&gt; ...):
+   head -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 8 -&gt; 9 -&gt; 10 -&gt; 11 -&gt; 12 -&gt; 13 -&gt; 17 -&gt; 18 -&gt; NULL
+   allocate 3 blocks: take from the head: 2 3 4
+   new head = 5
+
+3) Grouping (n = 4 addresses per group block):
+   group block 1 holds free addresses: 2 3 4  + pointer to next group block 5
+   group block 2 holds free addresses: 5 8 9  + pointer to next group block 10
+   group block 3 holds free addresses: 10 11 12  + pointer to next group block 13
+   group block 4 holds free addresses: 13 17 18
+
+4) Counting: (start, count) pairs: (2,4) (8,6) (17,2)</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>Compare the bit vector and the linked list</li>
+<li>What is the size of the bit map for a given disk?</li>
+<li>What is grouping? counting?</li>
+<li>How does ZFS manage free space? (space maps, in counting format)</li>
+<li>What is TRIM for SSDs?</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>The free blocks are 2 to 5, 8 to 13 and 17, 18. The bit vector <code>001111001111110001100000</code> has 1 for these blocks. Allocating 3 blocks from the head of the <a class="wk" href="../../../terms/linked-list.html">linked list</a> takes blocks 2, 3, 4 and leaves 5 as the new head. In grouping with 4 addresses per block, each group block lists three free blocks and points to the next group block. The counting representation is the shortest: (2,4), (8,6), (17,2).</p></div><nav class="pager"><a class="prev" href="16-task-16-file-allocation-methods-contiguous-linked.html"><small>← Previous</small>Task 16 — File allocation methods: contiguous, linked and indexed</a><span></span></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

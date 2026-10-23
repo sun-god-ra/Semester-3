@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Object Oriented Programming Through Java Unit II questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#c2410c"><a class="rs" href="index.html">Object Oriented Programming Through Java</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li class="cur"><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#c2410c"><a class="rs" href="index.html">Object Oriented Programming Through Java</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li class="cur"><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Java</a> <span>›</span> <b>Unit II</b></nav>
+    <article class="wiki" style="--h:#c2410c"><span class="ulabel">Part B · Unit II</span><h1>Classes, Objects, Inheritance, and String Handling</h1><p class="byline">Object Oriented Programming Through Java · 10 questions · <a href="../../notes/java/u2/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">Write short notes on: i) <code>this</code> keyword ii) <a class="wk" href="../../terms/garbage-collection.html">Garbage Collection</a>.</h4><div class="ans"><div class="tag">Answer</div><p><strong>i) <code>this</code> keyword.</strong> <code>this</code> is a reference to the <strong>current object</strong> (the object whose method or <a class="wk" href="../../terms/constructor.html">constructor</a> is running).</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Student {
+    int id; String name;
+    Student(int id, String name) {
+        this.id = id;           // field = parameter (removes shadowing)
+        this.name = name;
+    }
+    Student() { this(0, "NA"); }        // constructor chaining
+    Student self() { return this; }     // returning current object
+}</code></pre></div>
+<p>Uses: (1) distinguish instance variable from local variable/parameter, (2) invoke another constructor (<code>this(...)</code> must be the <strong>first</strong> statement), (3) pass or return the current object, (4) call the current object's method. It cannot be used in a <code>static</code> context.</p>
+<p><strong>ii) <a class="wk" href="../../terms/garbage-collection.html">Garbage collection</a>.</strong> Java frees memory automatically: the <strong>garbage collector (GC)</strong> thread of the <a class="wk" href="../../terms/jvm.html">JVM</a> finds objects that are <strong>no longer reachable</strong> (no reference points to them) and reclaims their memory. The programmer need not <code>free</code> memory, so memory leaks and dangling pointers are avoided.</p>
+<p>An object becomes eligible when: its reference is set to <code>null</code> (<code>s = null;</code>), the reference is reassigned to another object, or the reference goes out of scope.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">Student s = new Student(1, "Ravi");
+s = null;               // object now eligible for GC
+System.gc();            // only a *request*; JVM decides when to run</code></pre></div>
+<p><code>finalize()</code> is a method that GC may call before destroying an object (deprecated since Java 9, not reliable for cleanup).</p></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">Explain <a class="wk" href="../../terms/method-overloading.html">method overloading</a> and how objects can be used as parameters and return values.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/method-overloading.html">Method overloading</a></strong>: several methods in one class share a name but differ in the <strong>number, type or order of parameters</strong>. The compiler chooses the version at compile time (<em>static <a class="wk" href="../../terms/polymorphism.html">polymorphism</a></em>).</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Calc {
+    int add(int a, int b)            { return a + b; }
+    int add(int a, int b, int c)     { return a + b + c; }
+    double add(double a, double b)   { return a + b; }
+}</code></pre></div>
+<p><strong>Objects as parameters.</strong> An object reference is passed by value (the reference is copied), so the method can change the <em>fields</em> of the caller's object.</p>
+<p><strong>Returning objects.</strong> A method can have a class type as return type and return a new or existing object.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Box {
+    int w, h;
+    Box(int w, int h) { this.w = w; this.h = h; }
+
+    boolean sameSize(Box b) {              // object as parameter
+        return this.w == b.w &amp;&amp; this.h == b.h;
+    }
+    Box doubled() {                        // object as return value
+        return new Box(w * 2, h * 2);
+    }
+    public static void main(String[] args) {
+        Box a = new Box(2, 3), b = new Box(2, 3);
+        System.out.println(a.sameSize(b));      // true
+        Box c = a.doubled();
+        System.out.println(c.w + "x" + c.h);    // 4x6
+    }
+}</code></pre></div>
+<p>(Overloaded <strong><a class="wk" href="../../terms/constructor.html">constructors</a></strong> work the same way: <code>Box()</code>, <code>Box(int)</code>, <code>Box(int,int)</code>, and a copy constructor <code>Box(Box b)</code> takes an object as parameter.)</p></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO2 K3</span></div><h4 class="qtext">Explain the basics of <a class="wk" href="../../terms/inheritance.html">inheritance</a> in Java. Illustrate with an example.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/inheritance.html">Inheritance</a></strong> is the mechanism by which a class (<strong>subclass / child</strong>) acquires the fields and methods of another class (<strong>superclass / parent</strong>) using the <code>extends</code> keyword. It models an <strong>IS-A</strong> relationship and gives <strong>code reuse</strong> and run-time <a class="wk" href="../../terms/polymorphism.html">polymorphism</a>.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Animal {
+    String name = "animal";
+    void eat() { System.out.println("eating..."); }
+}
+class Dog extends Animal {                 // Dog IS-A Animal
+    void bark() { System.out.println("barking..."); }
+}
+public class Test {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();      // inherited
+        d.bark();     // own
+    }
+}</code></pre></div>
+<p><strong>Rules / points.</strong></p>
+<ul>
+<li>Java supports <strong>single, multilevel and hierarchical</strong> inheritance for classes. <strong>Multiple inheritance</strong> of classes is <em>not</em> allowed (diamond problem), but a class can implement many interfaces.</li>
+<li><code>private</code> members are not inherited (not accessible); <a class="wk" href="../../terms/constructor.html">constructors</a> are not inherited.</li>
+<li><code>Object</code> is the root of all classes.</li>
+<li>A superclass reference can refer to a subclass object (<code>Animal a = new Dog();</code>).</li>
+</ul>
+<figure class="fig"><pre class="mermaid">flowchart BT
+  Dog --&gt; Animal
+  Cat --&gt; Animal</pre></figure></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">Discuss the use of the <code>super</code> keyword and the concept of multilevel <a class="wk" href="../../terms/inheritance.html">inheritance</a> with examples.</h4><div class="ans"><div class="tag">Answer</div><p><strong><code>super</code> keyword</strong> refers to the immediate superclass. Three uses:</p>
+<ol>
+<li><strong>Call superclass <a class="wk" href="../../terms/constructor.html">constructor</a></strong>: <code>super(args);</code> must be the first statement of the subclass constructor.</li>
+<li><strong>Access a hidden superclass variable</strong>: <code>super.x</code>.</li>
+<li><strong>Call an overridden superclass method</strong>: <code>super.display()</code>.</li>
+</ol>
+<p><strong>Multilevel <a class="wk" href="../../terms/inheritance.html">inheritance</a></strong>: a chain of inheritance: Grandparent → Parent → Child.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Person {
+    String name;
+    Person(String name) { this.name = name; System.out.println("Person()"); }
+    void show() { System.out.println("Name: " + name); }
+}
+class Employee extends Person {
+    int id;
+    Employee(String name, int id) {
+        super(name);                       // use 1: parent constructor
+        this.id = id; System.out.println("Employee()");
+    }
+    void show() { super.show();            // use 3: parent method
+                  System.out.println("Id: " + id); }
+}
+class Manager extends Employee {
+    String dept;
+    Manager(String n, int i, String d) {
+        super(n, i); dept = d; System.out.println("Manager()");
+    }
+    void show() { super.show(); System.out.println("Dept: " + dept); }
+    public static void main(String[] a) {
+        new Manager("Asha", 101, "IT").show();
+    }
+}</code></pre></div>
+<p><strong>Output:</strong> <code>Person()</code>, <code>Employee()</code>, <code>Manager()</code>, then <code>Name: Asha</code>, <code>Id: 101</code>, <code>Dept: IT</code>. Constructors run from the <strong>top of the hierarchy downward</strong>.</p></div></article><article class="qa past" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO2 K3</span></div><h4 class="qtext">Explain the fundamentals of classes and objects in Java with suitable examples.</h4><div class="ans"><div class="tag">Answer</div><p><strong>Class</strong> = a user-defined type (blueprint) that groups <strong>data members</strong> (fields) and <strong>member functions</strong> (methods). <strong>Object</strong> = a runtime instance of a class with its own copy of instance variables.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Student {                         // class
+    int roll;                           // instance variables
+    String name;
+    void set(int r, String n) { roll = r; name = n; }   // method
+    void show() { System.out.println(roll + " " + name); }
+}
+public class Demo {
+    public static void main(String[] args) {
+        Student s1 = new Student();     // object creation
+        s1.set(1, "Ravi");
+        s1.show();                      // 1 Ravi
+        Student s2 = s1;                // second reference, same object
+        s2.name = "Sita";
+        s1.show();                      // 1 Sita
+    }
+}</code></pre></div>
+<ul>
+<li><code>Student s1;</code> declares a <strong>reference</strong> (no object yet); <code>new Student()</code> allocates the object on the <strong>heap</strong> and runs the <a class="wk" href="../../terms/constructor.html">constructor</a>.</li>
+<li>Members are reached with the <strong>dot operator</strong>.</li>
+<li>Assigning one reference to another copies the reference, not the object.</li>
+<li>Access modifiers (<code>private</code>, default, <code>protected</code>, <code>public</code>) control visibility.</li>
+</ul></div></article><article class="qa past" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">What are <a class="wk" href="../../terms/constructor.html">constructors</a>? Explain types of constructors with examples.</h4><div class="ans"><div class="tag">Answer</div><p>A <strong><a class="wk" href="../../terms/constructor.html">constructor</a></strong> is a special method used to initialise a new object. Its name is the <strong>class name</strong>, it has <strong>no return type</strong>, and it runs automatically on <code>new</code>. If none is written, the compiler adds a <em>default constructor</em>.</p>
+<p><strong>Types</strong></p>
+<ol>
+<li><strong>Default (no-arg) constructor</strong>: takes no parameters.</li>
+<li><strong>Parameterised constructor</strong>: takes arguments to set initial values.</li>
+<li><strong>Copy constructor</strong>: builds an object from another object of the same class (Java does not provide it automatically; we write it).</li>
+</ol>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Point {
+    int x, y;
+    Point() { x = 0; y = 0; }                    // default
+    Point(int x, int y) { this.x = x; this.y = y; }   // parameterised
+    Point(Point p) { x = p.x; y = p.y; }         // copy
+    public static void main(String[] a) {
+        Point p1 = new Point();
+        Point p2 = new Point(3, 4);
+        Point p3 = new Point(p2);
+        System.out.println(p1.x + "," + p1.y + " " + p2.x + "," + p2.y + " " + p3.x + "," + p3.y);
+    }
+}</code></pre></div>
+<p>Constructors can be <strong>overloaded</strong>. They cannot be <code>static</code>, <code>final</code> or <code>abstract</code>, and are not inherited.</p></div></article><article class="qa past" id="q7"><div class="qhead"><span class="qn">Q7</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO2 K4</span></div><h4 class="qtext">Write a Java program to demonstrate <a class="wk" href="../../terms/method-overriding.html">method overriding</a> and <a class="wk" href="../../terms/dynamic-method-dispatch.html">dynamic method dispatch</a>.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/method-overriding.html">Method overriding</a></strong>: a subclass gives its own implementation of a method already defined in the superclass with the <strong>same signature</strong>. <strong><a class="wk" href="../../terms/dynamic-method-dispatch.html">Dynamic method dispatch</a></strong>: the overridden method that runs is chosen <strong>at run time</strong> from the actual object type held by a superclass reference.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Shape {
+    void draw() { System.out.println("Drawing a shape"); }
+}
+class Circle extends Shape {
+    @Override void draw() { System.out.println("Drawing a circle"); }
+}
+class Square extends Shape {
+    @Override void draw() { System.out.println("Drawing a square"); }
+}
+public class DispatchDemo {
+    public static void main(String[] args) {
+        Shape ref;                 // superclass reference
+        ref = new Shape();  ref.draw();   // Shape's draw
+        ref = new Circle(); ref.draw();   // Circle's draw
+        ref = new Square(); ref.draw();   // Square's draw
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><pre><code>Drawing a shape
+Drawing a circle
+Drawing a square</code></pre></div>
+<p>The same call <code>ref.draw()</code> gives three different behaviours: run-time <a class="wk" href="../../terms/polymorphism.html">polymorphism</a>. Rules: same name, parameters and compatible return type; the overriding method cannot be less accessible, and <code>static</code>, <code>final</code> and <code>private</code> methods cannot be overridden.</p></div></article><article class="qa past" id="q8"><div class="qhead"><span class="qn">Q8</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">Discuss the role of <a class="wk" href="../../terms/abstract-class.html">abstract classes</a> and the <code>final</code> keyword in <a class="wk" href="../../terms/inheritance.html">inheritance</a> with examples.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/abstract-class.html">Abstract class</a></strong> — declared <code>abstract</code>, cannot be instantiated. It may have abstract methods (no body) which every concrete subclass <strong>must</strong> implement, and normal methods, fields and <a class="wk" href="../../terms/constructor.html">constructors</a>. It is used to give a common template.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">abstract class Bank {
+    abstract double rate();                     // must be implemented
+    void info() { System.out.println("Rate = " + rate()); }   // concrete
+}
+class SBI extends Bank { double rate() { return 6.5; } }
+class HDFC extends Bank { double rate() { return 7.0; } }</code></pre></div>
+<p><strong><code>final</code> with <a class="wk" href="../../terms/inheritance.html">inheritance</a></strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Use</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>final class A</code></td>
+<td>cannot be extended (e.g. <code>String</code>, <code>Integer</code>)</td>
+</tr>
+<tr>
+<td><code>final void f()</code></td>
+<td>cannot be overridden in a subclass</td>
+</tr>
+<tr>
+<td><code>final int x = 5;</code></td>
+<td>constant, cannot be reassigned</td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">final class Secure { }                // class Hack extends Secure {}  -&gt; error
+class P { final void lock() { } }
+class C extends P { /* void lock() {}  -&gt; error */ }</code></pre></div>
+<p><code>abstract</code> and <code>final</code> are <strong>opposites</strong> for a class: an abstract class must be extended; a final class cannot be. So <code>abstract final class</code> is illegal.</p></div></article><article class="qa exp" id="q9"><div class="qhead"><span class="qn">Q9</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">Explain the <code>static</code> keyword and the different forms of inner (nested) classes.</h4><div class="ans"><div class="tag">Answer</div><p><strong><code>static</code> members</strong> belong to the class and are shared by all objects.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Counter {
+    static int count = 0;                 // one copy
+    Counter() { count++; }
+    static int total() { return count; }  // call as Counter.total()
+    static { System.out.println("class loaded"); }   // static block, runs once
+}</code></pre></div>
+<p>A static method cannot use <code>this</code>, <code>super</code> or non-static members directly.</p>
+<p><strong>Nested classes</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Declaration</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static nested</td>
+<td><code>static class N</code> inside outer</td>
+<td>Does not need an outer object</td>
+</tr>
+<tr>
+<td>Inner (non-static)</td>
+<td><code>class I</code> inside outer</td>
+<td>Has an outer object; can use outer's members</td>
+</tr>
+<tr>
+<td>Local</td>
+<td>class inside a method</td>
+<td>visible only inside that method</td>
+</tr>
+<tr>
+<td>Anonymous</td>
+<td><code>new Interface() { ... }</code></td>
+<td>unnamed, one-time implementation</td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Outer {
+    int x = 10;
+    class Inner { void show() { System.out.println(x); } }
+    static class SNested { void hi() { System.out.println("hi"); } }
+    public static void main(String[] a) {
+        Outer o = new Outer();
+        Outer.Inner i = o.new Inner();
+        i.show();                       // 10
+        new Outer.SNested().hi();
+    }
+}</code></pre></div></div></article><article class="qa exp" id="q10"><div class="qhead"><span class="qn">Q10</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO2 K2</span></div><h4 class="qtext">Explain string handling in Java: String, StringBuffer and StringBuilder.</h4><div class="ans"><div class="tag">Answer</div><ul>
+<li><strong><code>String</code></strong> is <strong>immutable</strong> (cannot be changed after creation). Any change makes a new object. Literals are kept in the <em>string pool</em>.</li>
+<li><strong><code>StringBuffer</code></strong> is <strong>mutable and thread-safe</strong> (synchronized methods).</li>
+<li><strong><code>StringBuilder</code></strong> is <strong>mutable, not synchronized</strong>, faster. Use it in a single thread.</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>String</th>
+<th>StringBuffer</th>
+<th>StringBuilder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutable</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Thread-safe</td>
+<td>Yes (immutable)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>slowest for repeated changes</td>
+<td>slower</td>
+<td>fastest</td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">String s = "Hello";
+System.out.println(s.length());            // 5
+System.out.println(s.charAt(1));           // e
+System.out.println(s.substring(1, 3));     // el
+System.out.println(s.toUpperCase());       // HELLO
+System.out.println(s.indexOf('l'));        // 2
+System.out.println(s.concat(" World"));    // Hello World
+System.out.println("a".equals("A"));       // false
+System.out.println("a".equalsIgnoreCase("A")); // true
+
+StringBuffer sb = new StringBuffer("Hello");
+sb.append(" Java").insert(0, "&gt;&gt; ").reverse();
+System.out.println(sb);                    // avaJ olleH &gt;&gt;</code></pre></div>
+<p>Key <code>StringBuffer</code> methods: <code>append</code>, <code>insert</code>, <code>delete</code>, <code>deleteCharAt</code>, <code>replace</code>, <code>reverse</code>, <code>capacity</code>, <code>setLength</code>.</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Object Oriented Programming Through Java Unit I questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#c2410c"><a class="rs" href="index.html">Object Oriented Programming Through Java</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li class="cur"><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#c2410c"><a class="rs" href="index.html">Object Oriented Programming Through Java</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li class="cur"><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Java</a> <span>›</span> <b>Unit I</b></nav>
+    <article class="wiki" style="--h:#c2410c"><span class="ulabel">Part B · Unit I</span><h1>Fundamental Java Programming Constructs</h1><p class="byline">Object Oriented Programming Through Java · 9 questions · <a href="../../notes/java/u1/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">Explain the history and evolution of Java in detail.</h4><div class="ans"><div class="tag">Answer</div><p><strong>Origin.</strong> Java was started in <strong>1991</strong> at Sun Microsystems by <strong>James Gosling, Mike Sheridan and Patrick Naughton</strong> (the "Green Team"). The language was first called <strong>Oak</strong> (after an oak tree outside Gosling's office), made for set-top boxes and consumer devices. Oak was renamed <strong>Java</strong> in <strong>1995</strong> (a trademark clash, named after Java coffee) and released publicly as <strong>Java 1.0 in 1996</strong>. The target changed from devices to the <strong>Internet</strong>, because Java's platform independence (<a class="wk" href="../../terms/bytecode.html">bytecode</a>) was ideal for applets running in browsers.</p>
+<p><strong>Evolution (timeline).</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Version</th>
+<th>Main additions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1996</td>
+<td>JDK 1.0</td>
+<td>first release, applets, AWT</td>
+</tr>
+<tr>
+<td>1997</td>
+<td>JDK 1.1</td>
+<td><a class="wk" href="../../terms/inner-class.html">inner classes</a>, JavaBeans, JDBC, RMI, event model</td>
+</tr>
+<tr>
+<td>1998</td>
+<td>J2SE 1.2</td>
+<td>Swing, <a class="wk" href="../../terms/collections-framework.html">Collections framework</a>, <a class="wk" href="../../terms/jit.html">JIT</a>, <em>"Java 2"</em></td>
+</tr>
+<tr>
+<td>2000</td>
+<td>J2SE 1.3 / 2002 1.4</td>
+<td>HotSpot <a class="wk" href="../../terms/jvm.html">JVM</a>, <code>assert</code>, NIO, regex</td>
+</tr>
+<tr>
+<td>2004</td>
+<td>J2SE 5.0</td>
+<td><strong>generics, annotations, enums, <a class="wk" href="../../terms/autoboxing.html">autoboxing</a>, varargs, enhanced for loop</strong></td>
+</tr>
+<tr>
+<td>2006</td>
+<td>Java SE 6</td>
+<td>performance and scripting support</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Java SE 7</td>
+<td>try-with-resources, diamond <code>&lt;&gt;</code>, strings in <code>switch</code></td>
+</tr>
+<tr>
+<td>2014</td>
+<td><strong>Java SE 8</strong></td>
+<td><strong><a class="wk" href="../../terms/lambda-expression.html">lambda expressions</a>, streams, default methods, <a class="wk" href="../../terms/method-reference.html">method references</a></strong></td>
+</tr>
+<tr>
+<td>2017+</td>
+<td>Java 9 onward</td>
+<td>modules, <code>var</code>, records, sealed classes, text blocks, 6-monthly releases</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ownership.</strong> Oracle acquired Sun Microsystems in 2010. Java is now open source as OpenJDK.</p>
+<p><strong>Why Java succeeded.</strong> It was designed for the Internet (portable, secure), borrowed the familiar syntax of C/C++ but removed pointers and multiple <a class="wk" href="../../terms/inheritance.html">inheritance</a>, and had a garbage collector and a rich library.</p></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">Discuss the important features of Java with examples.</h4><div class="ans"><div class="tag">Answer</div><p>Java's features are often called the "Java buzzwords".</p>
+<ol>
+<li><strong>Simple</strong>: syntax similar to C/C++; no pointers, no operator overloading, no header files, automatic memory management.</li>
+<li><strong>Object oriented</strong>: every program lives in a class; supports <a class="wk" href="../../terms/encapsulation.html">encapsulation</a>, <a class="wk" href="../../terms/inheritance.html">inheritance</a>, <a class="wk" href="../../terms/polymorphism.html">polymorphism</a>, <a class="wk" href="../../terms/abstraction.html">abstraction</a>.</li>
+<li><strong>Platform independent / portable</strong>: <code>javac</code> produces <em><a class="wk" href="../../terms/bytecode.html">bytecode</a></em>, which any <a class="wk" href="../../terms/jvm.html">JVM</a> runs. "Write once, run anywhere (WORA)".</li>
+<li><strong>Secure</strong>: no pointers, bytecode verifier, class loader, and security manager prevent illegal memory access and untrusted code from harming the system.</li>
+<li><strong>Robust</strong>: strong type checking, exception handling, <a class="wk" href="../../terms/garbage-collection.html">garbage collection</a>; compile time and run time checks.</li>
+<li><strong>Multithreaded</strong>: built-in thread support (<code>Thread</code>, <code>Runnable</code>) for concurrent work, e.g. a game that animates and plays sound together.</li>
+<li><strong>Architecture neutral</strong>: data sizes are fixed (<code>int</code> is always 32 bits), so there are no machine-dependent behaviours.</li>
+<li><strong>Interpreted and high performance</strong>: bytecode is interpreted, and the <strong><a class="wk" href="../../terms/jit.html">JIT</a> compiler</strong> converts hot spots into native code for speed.</li>
+<li><strong>Distributed</strong>: <code>java.net</code> and RMI help in building network applications.</li>
+<li><strong>Dynamic</strong>: classes are loaded on demand at run time; reflection allows runtime inspection.</li>
+</ol>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">// Example showing OOP and multithreading in one go
+class Hello extends Thread {
+    public void run() { System.out.println("Hello from " + getName()); }
+    public static void main(String[] a) { new Hello().start(); }
+}</code></pre></div></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO1 K3</span></div><h4 class="qtext">Write and explain the structure of a first simple Java program.</h4><div class="ans"><div class="tag">Answer</div><div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;                    // 1. optional import
+public class Hello {                   // 2. class declaration
+    public static void main(String[] args) {   // 3. main method
+        System.out.println("Hello, Java!");    // 4. statement
+    }
+}</code></pre></div>
+<p><strong>Explanation (line by line).</strong></p>
+<ol>
+<li><code>import java.util.*;</code> brings other classes into scope. (<code>java.lang</code> is imported automatically.)</li>
+<li><code>public class Hello</code> every Java code is inside a class. The file must be named <strong><code>Hello.java</code></strong> when the class is <code>public</code>.</li>
+<li><code>public static void main(String[] args)</code> is the <strong>entry point</strong>.<ul>
+<li><code>public</code>: so that the <a class="wk" href="../../terms/jvm.html">JVM</a> can call it from outside the class.</li>
+<li><code>static</code>: so that it can run without creating an object.</li>
+<li><code>void</code>: it returns nothing to the JVM.</li>
+<li><code>main</code>: the name the JVM looks for.</li>
+<li><code>String[] args</code>: command-line arguments.</li>
+</ul>
+</li>
+<li><code>System.out.println()</code> prints text. <code>System</code> is a class, <code>out</code> is its static <code>PrintStream</code> object, <code>println</code> is a method.</li>
+</ol>
+<p><strong>Steps to run.</strong></p>
+<div class="code"><pre><code>javac Hello.java      -&gt; produces Hello.class (bytecode)
+java Hello            -&gt; JVM runs it, prints: Hello, Java!</code></pre></div>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  S["Hello.java&lt;br/&gt;source"] -- javac --&gt; B["Hello.class&lt;br/&gt;bytecode"] -- "JVM (java)" --&gt; O["output"]</pre></figure></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Explain any two control statements in Java with examples.</h4><div class="ans"><div class="tag">Answer</div><p>Control statements decide the <em>order</em> in which statements run. Two common ones are the <strong><code>if-else</code></strong> selection statement and the <strong><code>for</code></strong> loop.</p>
+<p><strong>1. <code>if … else if … else</code> (selection)</strong></p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int marks = 72;
+if (marks &gt;= 90)       System.out.println("A+");
+else if (marks &gt;= 60)  System.out.println("First class");
+else                   System.out.println("Fail");</code></pre></div>
+<p>The condition must be a <code>boolean</code>. Only the first true branch runs. Output: <code>First class</code>.</p>
+<p><strong>2. <code>for</code> loop (iteration)</strong></p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int sum = 0;
+for (int i = 1; i &lt;= 5; i++) {   // init; condition; update
+    sum += i;
+}
+System.out.println(sum);        // 15</code></pre></div>
+<p>Order: initialise once → test → body → update → test again, until the condition is false.</p>
+<p>(Other control statements: <code>switch</code>, <code>while</code>, <code>do-while</code>, <code>break</code>, <code>continue</code>, <code>return</code>.)</p></div></article><article class="qa past" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Explain the concept of <a class="wk" href="../../terms/object-oriented-programming.html">Object-Oriented Programming</a> (OOP). How is it different from procedural programming?</h4><div class="ans"><div class="tag">Answer</div><p><strong>OOP</strong> is a programming style in which a program is built from <strong>objects</strong>. An object bundles <strong>data (fields)</strong> and <strong>the functions that work on that data (methods)</strong> together. A <em>class</em> is the blueprint and an <em>object</em> is an instance of it. Real-world things (student, bank account) are modelled directly.</p>
+<p><strong>Four pillars:</strong> <a class="wk" href="../../terms/encapsulation.html">encapsulation</a>, <a class="wk" href="../../terms/inheritance.html">inheritance</a>, <a class="wk" href="../../terms/polymorphism.html">polymorphism</a>, <a class="wk" href="../../terms/abstraction.html">abstraction</a>.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Procedural (C)</th>
+<th>Object oriented (Java)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Program = a set of <strong>functions</strong></td>
+<td>Program = a set of <strong>objects</strong></td>
+</tr>
+<tr>
+<td>Top-down design</td>
+<td>Bottom-up design</td>
+</tr>
+<tr>
+<td>Data and functions are <strong>separate</strong></td>
+<td>Data and methods are <strong>bound together</strong></td>
+</tr>
+<tr>
+<td>Data is usually global and <strong>exposed</strong></td>
+<td>Data is <strong>hidden</strong> (private) and accessed through methods</td>
+</tr>
+<tr>
+<td>No inheritance, little reuse</td>
+<td><strong>Inheritance</strong> gives reuse</td>
+</tr>
+<tr>
+<td>Adding new data types is difficult</td>
+<td>Easy to extend with new classes</td>
+</tr>
+<tr>
+<td>e.g. C, Pascal</td>
+<td>e.g. Java, C++, Python</td>
+</tr>
+</tbody>
+</table></div>
+<p>Because data is hidden, OOP programs are <strong>more secure, modular and easier to maintain</strong> for large systems.</p></div></article><article class="qa past" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Describe the principles of OOP with suitable examples.</h4><div class="ans"><div class="tag">Answer</div><p><strong>1. <a class="wk" href="../../terms/encapsulation.html">Encapsulation</a></strong> — wrapping data and methods in a class and hiding data using <code>private</code>. Access only through public getters/setters.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Account {
+    private double balance;                       // hidden
+    public void deposit(double amt) { if (amt &gt; 0) balance += amt; }
+    public double getBalance() { return balance; }
+}</code></pre></div>
+<p><strong>2. <a class="wk" href="../../terms/inheritance.html">Inheritance</a></strong> — a subclass acquires the fields and methods of a superclass using <code>extends</code>. Gives code reuse.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">class Vehicle { void start() { System.out.println("Starting"); } }
+class Car extends Vehicle { void honk() { System.out.println("Beep"); } }</code></pre></div>
+<p><strong>3. <a class="wk" href="../../terms/polymorphism.html">Polymorphism</a></strong> — "many forms". One name, many behaviours.</p>
+<ul>
+<li><em>Compile-time</em>: <a class="wk" href="../../terms/method-overloading.html">method overloading</a> (<code>add(int,int)</code>, <code>add(double,double)</code>).</li>
+<li><em>Run-time</em>: <a class="wk" href="../../terms/method-overriding.html">method overriding</a> + dynamic dispatch (<code>Shape s = new Circle(); s.draw();</code>).</li>
+</ul>
+<p><strong>4. <a class="wk" href="../../terms/abstraction.html">Abstraction</a></strong> — showing only the essential features and hiding the details, via <code>abstract</code> classes and interfaces. A driver uses <code>drive()</code> without knowing the engine.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">abstract class Shape { abstract double area(); }
+class Circle extends Shape { double r = 2; double area() { return Math.PI * r * r; } }</code></pre></div></div></article><article class="qa past" id="q7"><div class="qhead"><span class="qn">Q7</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Explain the concept of arrays in Java with examples of one-dimensional and multi-dimensional arrays.</h4><div class="ans"><div class="tag">Answer</div><p>An <strong>array</strong> is a fixed-size collection of elements of the <strong>same type</strong>, stored in contiguous memory and accessed by an index starting at 0. In Java arrays are <strong>objects</strong>, created with <code>new</code>, and <code>length</code> gives the size.</p>
+<p><strong>One-dimensional</strong></p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int[] a = new int[5];             // default values 0
+int[] b = {10, 20, 30, 40, 50};   // declaration + initialisation
+a[0] = 7;
+for (int i = 0; i &lt; b.length; i++) System.out.print(b[i] + " ");
+for (int x : b) System.out.print(x + " ");    // enhanced for</code></pre></div>
+<p><strong>Two-dimensional</strong> (array of arrays)</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int[][] m = { {1, 2, 3}, {4, 5, 6} };
+for (int i = 0; i &lt; m.length; i++) {
+    for (int j = 0; j &lt; m[i].length; j++) System.out.print(m[i][j] + " ");
+    System.out.println();
+}</code></pre></div>
+<p><strong>Jagged array</strong> (rows of different length)</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int[][] j = new int[3][];
+j[0] = new int[1]; j[1] = new int[2]; j[2] = new int[3];</code></pre></div>
+<p>Points to remember: an invalid index throws <code>ArrayIndexOutOfBoundsException</code>; arrays are passed to methods by reference; <code>arr.length</code> is a field (not a method), <code>str.length()</code> is a method.</p></div></article><article class="qa past" id="q8"><div class="qhead"><span class="qn">Q8</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO1 K3</span></div><h4 class="qtext">Discuss different operators in Java with examples.</h4><div class="ans"><div class="tag">Answer</div><p>Operators perform operations on operands.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Operators</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arithmetic</td>
+<td><code>+ - * / % ++ --</code></td>
+<td><code>7 % 3</code> → 1</td>
+</tr>
+<tr>
+<td>Relational</td>
+<td><code>== != &gt; &lt; &gt;= &lt;=</code></td>
+<td><code>5 &gt; 3</code> → true</td>
+</tr>
+<tr>
+<td>Logical</td>
+<td><code>&amp;&amp; \|\| !</code></td>
+<td><code>(a&gt;1) &amp;&amp; (b&lt;5)</code></td>
+</tr>
+<tr>
+<td>Bitwise</td>
+<td><code>&amp; \| ^ ~ &lt;&lt; &gt;&gt; &gt;&gt;&gt;</code></td>
+<td><code>5 &amp; 3</code> → 1</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td><code>= += -= *= /= %=</code></td>
+<td><code>x += 2</code></td>
+</tr>
+<tr>
+<td>Unary</td>
+<td><code>+ - ++ -- !</code></td>
+<td><code>-x</code>, <code>i++</code></td>
+</tr>
+<tr>
+<td>Ternary</td>
+<td><code>? :</code></td>
+<td><code>max = (a&gt;b) ? a : b;</code></td>
+</tr>
+<tr>
+<td><code>instanceof</code></td>
+<td>type test</td>
+<td><code>obj instanceof String</code></td>
+</tr>
+</tbody>
+</table></div>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int a = 10, b = 3;
+System.out.println(a / b);     // 3 (integer division)
+System.out.println(a % b);     // 1
+System.out.println(a++ + ++a); // 10 + 12 = 22
+System.out.println(a &gt; b &amp;&amp; b &gt; 0);   // true
+System.out.println(a &gt;&gt; 1);    // right shift: 12 &gt;&gt; 1 = 6</code></pre></div>
+<p><strong>Precedence</strong> (high → low): <code>() []</code> , unary, <code>* / %</code>, <code>+ -</code>, shifts, relational, equality, <code>&amp;</code>, <code>^</code>, <code>|</code>, <code>&amp;&amp;</code>, <code>||</code>, <code>?:</code>, assignment. <code>&amp;&amp;</code> and <code>||</code> are <strong>short-circuit</strong>: the right side is skipped when the result is already known.</p></div></article><article class="qa exp" id="q9"><div class="qhead"><span class="qn">Q9</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Explain Java's primitive data types and type conversion (casting).</h4><div class="ans"><div class="tag">Answer</div><p><strong>Primitive types</strong></p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size</th>
+<th>Range / values</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>byte</code></td>
+<td>8 bits</td>
+<td>−128 to 127</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td>16</td>
+<td>−32,768 to 32,767</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>32</td>
+<td>about ±2.1 × 10⁹</td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>64</td>
+<td>about ±9.2 × 10¹⁸</td>
+<td>0L</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>32</td>
+<td>~7 digits precision</td>
+<td>0.0f</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>64</td>
+<td>~15 digits precision</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>16</td>
+<td>Unicode 0 to 65,535</td>
+<td><code>'\u0000'</code></td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td>JVM-dependent</td>
+<td><code>true</code> / <code>false</code></td>
+<td>false</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Widening (automatic):</strong> a smaller type goes to a bigger one with no loss: <code>byte → short → int → long → float → double</code>; <code>char → int</code>.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">int i = 100;
+double d = i;          // widening, d = 100.0</code></pre></div>
+<p><strong>Narrowing (explicit cast):</strong> bigger to smaller, possible data loss.</p>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">double x = 9.78;
+int n = (int) x;       // n = 9 (fraction dropped)
+byte b = (byte) 300;   // b = 44 (300 mod 256)</code></pre></div>
+<p><strong>Type promotion in expressions:</strong> <code>byte</code>/<code>short</code>/<code>char</code> operands become <code>int</code> before the operation, so <code>byte c = a * b;</code> needs a cast: <code>byte c = (byte)(a * b);</code>.</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

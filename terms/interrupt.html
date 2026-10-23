@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interrupt · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>Interrupt</b></nav>
+    <article class="wiki term"><p class="kicker">Term · Digital Logic, OS Lab, Operating Systems, Software Eng</p><h1>Interrupt</h1><div class="ex lead"><ul>
+<li><strong>Stress testing</strong> — executes the system in a manner that demands <strong>resources in abnormal quantity, frequency or volume</strong> (e.g. 10× interrupts, maximum input data rates, high memory demand). <strong>Sensitivity testing</strong> is a variation</li>
+</ul><p class="src">From <a href="../notes/se/u5/05-test-strategies-for-conventional-software.html">Software Eng › Test Strategies for Conventional Software</a></p></div><div class="ex"><ul>
+<li><strong>Interrupt features of advanced systems:</strong> ability to <strong>defer</strong> during critical processing; efficient <strong>dispatch</strong> to the proper handler (vector); <strong>multilevel interrupts with priorities</strong> (<strong>maskable</strong> and <strong>nonmaskable (NMI)</strong> interrupts)</li>
+</ul><p class="src">From <a href="../notes/os/u1/02-computer-system-organization.html">Operating Systems › Computer-System Organization</a></p></div><div class="ex"><ul>
+<li>OS is <strong>interrupt driven</strong> — if there are no processes to execute, no I/O devices to service and no users to respond, OS <strong>sits idle waiting for an event</strong></li>
+</ul><p class="src">From <a href="../notes/os/u1/04-operating-system-operations.html">Operating Systems › Operating-System Operations</a></p></div><div class="ex"><ul>
+<li><strong>Uniprocessors:</strong> could <strong>disable interrupts</strong> — currently running code executes <strong>without preemption</strong>; generally <strong>too inefficient on <a class="wk" href="multiprocessor.html">multiprocessor</a> systems</strong> (message passed to all processors → delays entry; affects system clock)</li>
+</ul><p class="src">From <a href="../notes/os/u3/04-synchronisation-hardware.html">Operating Systems › Synchronisation Hardware</a></p></div><div class="ex"><ul>
+<li><strong>Three major activities:</strong> service the <strong>interrupt</strong> (careful coding: several hundred instructions), <strong>read the page</strong> (lots of time), <strong>restart the process</strong> (small)</li>
+</ul><p class="src">From <a href="../notes/os/u4/08-demand-paging.html">Operating Systems › Demand Paging</a></p></div><h2>Where it appears</h2><h3>Digital Logic</h3><ul><li><a href="../notes/dld/u3/06-encoders.html">Unit III › Encoders</a></li></ul><h3>OS Lab</h3><ul><li><a href="../notes/oslab/lab/04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Lab › Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li></ul><h3>Operating Systems</h3><ul><li><a href="../notes/os/u1/02-computer-system-organization.html">Unit I › Computer-System Organization</a></li><li><a href="../notes/os/u1/04-operating-system-operations.html">Unit I › Operating-System Operations</a></li><li><a href="../notes/os/u1/11-operating-system-design-and-implementation.html">Unit I › Operating-System Design and Implementation</a></li><li><a href="../notes/os/u2/01-process-concept.html">Unit II › Process Concept</a></li><li><a href="../notes/os/u2/02-process-scheduling.html">Unit II › Process Scheduling</a></li><li><a href="../notes/os/u2/05-threads.html">Unit II › Threads</a></li><li><a href="../notes/os/u2/07-cpu-scheduling-basic-concepts.html">Unit II › CPU Scheduling — Basic Concepts</a></li><li><a href="../notes/os/u2/09-scheduling-algorithms.html">Unit II › Scheduling Algorithms</a></li><li><a href="../notes/os/u2/12-real-time-cpu-scheduling.html">Unit II › Real-Time CPU Scheduling</a></li><li><a href="../notes/os/u3/04-synchronisation-hardware.html">Unit III › Synchronisation Hardware</a></li><li><a href="../notes/os/u4/02-contiguous-memory-allocation.html">Unit IV › Contiguous Memory Allocation</a></li><li><a href="../notes/os/u4/08-demand-paging.html">Unit IV › Demand Paging</a></li><li><a href="../notes/os/u4/10-page-replacement.html">Unit IV › Page Replacement</a></li><li><a href="../notes/os/u4/12-thrashing.html">Unit IV › Thrashing</a></li><li><a href="../notes/os/u5/06-file-system-implementation-structure.html">Unit V › File-System Implementation — Structure</a></li><li><a href="../qa/os/u1.html">Unit I questions</a></li></ul><h3>Software Eng</h3><ul><li><a href="../notes/se/u5/05-test-strategies-for-conventional-software.html">Unit V › Test Strategies for Conventional Software</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="kernel.html">Kernel</a></li><li><a href="page-table.html">Page table</a></li><li><a href="paging.html">Paging</a></li><li><a href="swapping.html">Swapping</a></li><li><a href="context-switch.html">Context switch</a></li><li><a href="fcfs.html">FCFS</a></li><li><a href="linked-list.html">Linked list</a></li><li><a href="multiprocessor.html">Multiprocessor</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

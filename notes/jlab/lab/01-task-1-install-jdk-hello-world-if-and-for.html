@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 1 — Install JDK, Hello World, if and for · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li class="cur"><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li class="cur"><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Java Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 1 — Install JDK, Hello World, if and for</b></nav>
+    <article class="wiki" style="--h:#a8561f"><h1>Task 1 — Install JDK, Hello World, if and for</h1><p class="byline">Java Programming Lab · Lab: Tasks 1 to 12</p><aside class="infobox" style="--h:#a8561f"><div class="ib-h">Task 1 — Install JDK, Hello World, if and for</div><dl><dt>Subject</dt><dd><a href="../index.html">Java Programming Lab</a> (24CS281)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Tasks 1 to 12</a></dd><dt>Topic</dt><dd>1 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/java-development-kit.html">Java development kit</a>, <a href="../../../terms/jvm.html">JVM</a>, <a href="../../../terms/bytecode.html">Bytecode</a></dd></dl></aside><div class="toc"><b>On this page</b><ol><li><a href="#program-1-hello-world">Program 1 — Hello World</a></li><li><a href="#program-2-if-and-for">Program 2 — if and for</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Install the <a class="wk" href="../../../terms/java-development-kit.html">Java Development Kit</a>, set up the environment, and write a first program; then use decision (<code>if</code>) and looping (<code>for</code>) statements.</li>
+<li><strong>Key points</strong><ul>
+<li><strong>JDK</strong> = compiler <code>javac</code> + tools + <strong>JRE</strong>. <strong>JRE</strong> = <strong><a class="wk" href="../../../terms/jvm.html">JVM</a></strong> + libraries. Source file <code>.java</code> → <code>javac</code> → <a class="wk" href="../../../terms/bytecode.html">bytecode</a> <code>.class</code> → <code>java</code> runs it on the JVM</li>
+<li>File name <strong>must match the public class name</strong> (<code>HelloWorld.java</code>, case-sensitive); program starts at <code>public static void main(String[] args)</code></li>
+<li><code>if / else if / else</code> choose one path; <code>for(init; condition; update)</code> repeats a block a known number of times</li>
+<li>Leap year rule: divisible by 400, <strong>or</strong> divisible by 4 but not by 100</li>
+</ul>
+</li>
+<li><strong>Procedure</strong><ul>
+<li>Download a JDK (Oracle JDK or OpenJDK, e.g. version 17 or 21) and run the installer (Windows: <code>.exe</code>/<code>.msi</code>; Linux: <code>sudo apt install openjdk-21-jdk</code>; macOS: <code>.pkg</code> or <code>brew install openjdk</code>)</li>
+<li>Set <strong>JAVA_HOME</strong> to the JDK folder and add <code>%JAVA_HOME%\bin</code> (Windows) or <code>$JAVA_HOME/bin</code> (Linux/macOS) to <strong>PATH</strong> (Windows: System Properties → Environment Variables)</li>
+<li>Check: <code>java -version</code> and <code>javac -version</code> in a new terminal</li>
+<li>Write the program in a text editor or IDE (VS Code, IntelliJ IDEA, Eclipse, NetBeans) and save as <code>HelloWorld.java</code></li>
+<li>Compile: <code>javac HelloWorld.java</code> (creates <code>HelloWorld.class</code>). Run: <code>java HelloWorld</code> (no <code>.class</code>)</li>
+</ul>
+</li>
+</ul>
+<h5 id="program-1-hello-world">Program 1 — Hello World</h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        System.out.println("Welcome to Java Programming Lab");
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">Hello, World!
+Welcome to Java Programming Lab</code></pre></div>
+<h5 id="program-2-if-and-for">Program 2 — <code>if</code> and <code>for</code></h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">public class IfFor {
+    public static void main(String[] args) {
+        int year = 2024;
+        // if - else if - else
+        if (year % 400 == 0 || (year % 4 == 0 &amp;&amp; year % 100 != 0)) {
+            System.out.println(year + " is a leap year");
+        } else {
+            System.out.println(year + " is not a leap year");
+        }
+        int marks = 72;
+        if (marks &gt;= 90) System.out.println("Grade O");
+        else if (marks &gt;= 70) System.out.println("Grade A");
+        else if (marks &gt;= 50) System.out.println("Grade B");
+        else System.out.println("Fail");
+
+        // for loop: table of 7
+        for (int i = 1; i &lt;= 5; i++) {
+            System.out.println("7 x " + i + " = " + (7 * i));
+        }
+        // for loop: sum of 1..10 and a star pattern
+        int sum = 0;
+        for (int i = 1; i &lt;= 10; i++) sum += i;
+        System.out.println("Sum 1..10 = " + sum);
+        for (int i = 1; i &lt;= 4; i++) {
+            for (int j = 1; j &lt;= i; j++) System.out.print("* ");
+            System.out.println();
+        }
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">2024 is a leap year
+Grade A
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+Sum 1..10 = 55
+* 
+* * 
+* * * 
+* * * * </code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>Difference between JDK, JRE, JVM? Why is Java platform independent? (bytecode)</li>
+<li>Why must <code>main</code> be <code>public static void</code>? (JVM calls it without an object, from outside the class)</li>
+<li>What does <code>javac</code> produce? What happens if the class name and file name differ for a public class? (compile error)</li>
+<li>Difference between <code>for</code> and enhanced <code>for</code>?</li>
+<li>What is <code>String[] args</code>? (command-line arguments)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>The JDK is installed and <code>JAVA_HOME</code> and <code>PATH</code> are set so that the terminal can find <code>javac</code> and <code>java</code>. <code>javac</code> converts the source into <a class="wk" href="../../../terms/bytecode.html">bytecode</a> in a <code>.class</code> file, and <code>java</code> starts the <a class="wk" href="../../../terms/jvm.html">JVM</a>, which loads the class and calls <code>main</code>. In program 2 the leap-year condition combines <code>||</code> and <code>&amp;&amp;</code>; 2024 is divisible by 4 but not by 100, so it is a leap year. The ladder of <code>if-else if</code> stops at the first true condition, so 72 gives grade A. The <code>for</code> loops print the table of 7, add 1 to 10 (55) and print a triangle with a nested loop (the inner loop runs <code>i</code> times in row <code>i</code>).</p></div><nav class="pager"><span></span><a class="next" href="02-task-2-primitive-data-types-and-type-conversion.html"><small>Next →</small>Task 2 — Primitive data types and type conversion</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 3 — Two-dimensional arrays · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li class="cur"><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li class="cur"><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Java Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 3 — Two-dimensional arrays</b></nav>
+    <article class="wiki" style="--h:#a8561f"><h1>Task 3 — Two-dimensional arrays</h1><p class="byline">Java Programming Lab · Lab: Tasks 1 to 12</p><aside class="infobox" style="--h:#a8561f"><div class="ib-h">Task 3 — Two-dimensional arrays</div><dl><dt>Subject</dt><dd><a href="../index.html">Java Programming Lab</a> (24CS281)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Tasks 1 to 12</a></dd><dt>Topic</dt><dd>3 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/use-case.html">Use case</a>, <a href="../../../terms/swapping.html">Swapping</a></dd></dl></aside><div class="toc"><b>On this page</b><ol><li><a href="#program-1-matrix-operations-and-jagged-a">Program 1 — Matrix operations and jagged array</a></li><li><a href="#program-2-use-case-marks-table">Program 2 — Use case: marks table</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Work with a 2D array (matrix operations) and a practical <a class="wk" href="../../../terms/use-case.html">use case</a> (a marks table).</li>
+<li><strong>Key points</strong><ul>
+<li>Declaration: <code>int[][] a = new int[3][4];</code> — array of arrays. <code>a.length</code> = rows, <code>a[i].length</code> = columns of row <em>i</em></li>
+<li>Initialiser <code>{ {1,2}, {3,4} }</code>; <strong>jagged array:</strong> <code>new int[3][]</code> and then <code>a[i] = new int[size]</code></li>
+<li>Matrix addition: <code>c[i][j]=a[i][j]+b[i][j]</code>; transpose: <code>t[j][i]=a[i][j]</code>; multiplication needs three loops: \(c_{ij}=\sum_k a_{ik}b_{kj}\)</li>
+<li>Array indices start at 0; going outside gives <code>ArrayIndexOutOfBoundsException</code>; elements are auto-initialised to 0</li>
+</ul>
+</li>
+<li><strong>Procedure</strong><ul>
+<li>Declare the arrays and fill them using initialisers or loops</li>
+<li>Use nested <code>for</code> loops with <code>i</code> for rows and <code>j</code> for columns</li>
+<li>For multiplication add the inner loop <code>k</code> and accumulate</li>
+<li>Print using nested loops or enhanced <code>for</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="program-1-matrix-operations-and-jagged-a">Program 1 — Matrix operations and jagged array</h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">public class Matrix2D {
+    public static void main(String[] args) {
+        int[][] a = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+        int[][] b = { {9, 8, 7}, {6, 5, 4}, {3, 2, 1} };
+        int[][] sum = new int[3][3], prod = new int[3][3], t = new int[3][3];
+        for (int i = 0; i &lt; 3; i++)
+            for (int j = 0; j &lt; 3; j++) {
+                sum[i][j] = a[i][j] + b[i][j];
+                t[j][i] = a[i][j];
+                for (int k = 0; k &lt; 3; k++) prod[i][j] += a[i][k] * b[k][j];
+            }
+        print("A + B", sum);
+        print("A x B", prod);
+        print("Transpose of A", t);
+        // jagged array: rows of different length
+        int[][] jag = new int[3][];
+        for (int i = 0; i &lt; 3; i++) {
+            jag[i] = new int[i + 1];
+            for (int j = 0; j &lt;= i; j++) jag[i][j] = i + j;
+        }
+        System.out.println("Jagged array:");
+        for (int[] row : jag) {
+            for (int v : row) System.out.print(v + " ");
+            System.out.println();
+        }
+        System.out.println("a.length = " + a.length + ", a[0].length = " + a[0].length);
+    }
+    static void print(String title, int[][] m) {
+        System.out.println(title + ":");
+        for (int[] row : m) {
+            for (int v : row) System.out.print(v + "\t");
+            System.out.println();
+        }
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">A + B:
+10	10	10	
+10	10	10	
+10	10	10	
+A x B:
+30	24	18	
+84	69	54	
+138	114	90	
+Transpose of A:
+1	4	7	
+2	5	8	
+3	6	9	
+Jagged array:
+0 
+1 2 
+2 3 4 
+a.length = 3, a[0].length = 3</code></pre></div>
+<h5 id="program-2-use-case-marks-table">Program 2 — Use case: marks table</h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">public class MarksTable {
+    public static void main(String[] args) {
+        String[] names = {"Asha", "Bhanu", "Charan", "Divya"};
+        String[] subjects = {"PS", "DLD", "Java"};
+        int[][] marks = { {78, 85, 92}, {64, 70, 58}, {88, 91, 95}, {55, 49, 67} };
+        int topper = 0, best = -1;
+        System.out.println("Name\tPS\tDLD\tJava\tTotal\tAvg");
+        for (int i = 0; i &lt; marks.length; i++) {
+            int total = 0;
+            System.out.print(names[i] + "\t");
+            for (int j = 0; j &lt; marks[i].length; j++) {
+                System.out.print(marks[i][j] + "\t");
+                total += marks[i][j];
+            }
+            System.out.printf("%d\t%.2f%n", total, total / 3.0);
+            if (total &gt; best) { best = total; topper = i; }
+        }
+        for (int j = 0; j &lt; subjects.length; j++) {
+            int s = 0;
+            for (int i = 0; i &lt; marks.length; i++) s += marks[i][j];
+            System.out.printf("Class average in %s = %.2f%n", subjects[j], s / (double) marks.length);
+        }
+        System.out.println("Topper: " + names[topper] + " with " + best);
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">Name	PS	DLD	Java	Total	Avg
+Asha	78	85	92	255	85.00
+Bhanu	64	70	58	192	64.00
+Charan	88	91	95	274	91.33
+Divya	55	49	67	171	57.00
+Class average in PS = 71.25
+Class average in DLD = 73.75
+Class average in Java = 78.00
+Topper: Charan with 274</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>Is a 2D array in Java really a matrix? (array of arrays, rows can differ)</li>
+<li>Time complexity of matrix multiplication? (\(O(n^3)\))</li>
+<li>Default value of an <code>int[]</code> element?</li>
+<li>What is the difference between <code>a.length</code> and <code>a[0].length</code>?</li>
+<li>Can you have <code>int[][] a = new int[][3];</code>? (No — the first dimension is mandatory)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>Program 1 builds A and B, computes A+B (every cell is 10 because corresponding elements add to 10), A×B using the triple loop (first row: 1·9+2·6+3·3 = 30, 1·8+2·5+3·2 = 24, 1·7+2·4+3·1 = 18) and the transpose by <a class="wk" href="../../../terms/swapping.html">swapping</a> the indices. The jagged array has rows of length 1, 2, 3, which shows that each row is an independent array. Program 2 stores marks of four students in three subjects, sums each row for the total and average, sums each column for the class average, and tracks the maximum total to find the topper (Charan, 274).</p></div><nav class="pager"><a class="prev" href="02-task-2-primitive-data-types-and-type-conversion.html"><small>← Previous</small>Task 2 — Primitive data types and type conversion</a><a class="next" href="04-task-4-classes-objects-and-constructors.html"><small>Next →</small>Task 4 — Classes, objects and constructors</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

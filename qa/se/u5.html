@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software Engineering Unit V questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="index.html">Software Engineering</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="index.html">Software Engineering</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Software Eng</a> <span>›</span> <b>Unit V</b></nav>
+    <article class="wiki" style="--h:#1f6fb2"><span class="ulabel">Part B · Unit V</span><h1>Software Testing</h1><p class="byline">Software Engineering · 9 questions · <a href="../../notes/se/u5/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain the different levels of testing.</h4><div class="ans"><div class="tag">Answer</div><figure class="fig"><pre class="mermaid">flowchart LR
+  U[Unit testing] --&gt; I[Integration testing] --&gt; S[System testing] --&gt; A[Acceptance testing]</pre></figure>
+<ol>
+<li><strong><a class="wk" href="../../terms/unit-testing.html">Unit testing</a></strong>: tests each component or module in isolation (interface, local data, boundary conditions, independent paths, error handling). Done by the developer with drivers and stubs.</li>
+<li><strong><a class="wk" href="../../terms/integration-testing.html">Integration testing</a></strong>: tests the interfaces between modules as they are combined. Approaches: top-down, bottom-up, sandwich, big-bang; regression and <a class="wk" href="../../terms/smoke-testing.html">smoke testing</a>.</li>
+<li><strong>System testing</strong>: tests the complete integrated system against the requirements: recovery, security, stress, performance, deployment tests.</li>
+<li><strong>Acceptance testing</strong>: the customer confirms the system is acceptable (alpha at the developer's site, beta at the customer's site).
+Validation testing sits between integration and acceptance. Each level has a different aim: unit finds logic errors, integration finds interface errors, system finds requirement-level failures, acceptance builds confidence.</li>
+</ol></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain <a class="wk" href="../../terms/white-box-testing.html">white-box testing</a> techniques.</h4><div class="ans"><div class="tag">Answer</div><p>White-box (glass-box, structural) testing uses <strong>knowledge of the internal logic</strong>. Aims: exercise all independent paths, all logical decisions on true and false sides, all loops at their boundaries, and internal data structures.</p>
+<p>Techniques:</p>
+<ol>
+<li><strong><a class="wk" href="../../terms/basis-path-testing.html">Basis path testing</a></strong>: flow graph → <a class="wk" href="../../terms/cyclomatic-complexity.html">cyclomatic complexity</a> → independent paths → test cases (see the example below).</li>
+<li><strong>Control structure testing</strong><ul>
+<li><em>Condition testing</em>: exercise each logical condition.</li>
+<li><em>Data-flow testing</em>: select paths according to the definition and use of variables.</li>
+<li><em>Loop testing</em>: simple loops (skip, one pass, two passes, m passes, n−1, n, n+1), nested loops (innermost first), concatenated, unstructured (redesign).</li>
+</ul>
+</li>
+<li><strong>Statement, branch and path coverage</strong>.
+Benefits: finds hidden logic errors. Limits: needs the code, cannot find missing functions, costly for large programs.</li>
+</ol></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">(OR) Explain the testing strategies for conventional software.</h4><div class="ans"><div class="tag">Answer</div><p>A strategy is a roadmap of what to test, how and in what order. Generic characteristics: conduct effective technical reviews first; testing begins at the component level and moves outward; different techniques at different times; testing is by the developer and an independent group; <a class="wk" href="../../terms/debugging.html">debugging</a> is separate from testing.</p>
+<p>The "spiral" of testing: <strong>unit → integration → validation → system</strong> testing (see levels above). Strategic issues: state the requirements in a quantifiable manner, specify the objectives, know the users, build robust software, use formal reviews and continuous improvement.</p>
+<ul>
+<li><strong>Unit test</strong>: driver and stub; checks interface, local data structures, boundary conditions, independent paths, error-handling paths.</li>
+<li><strong>Integration</strong>: <em>top-down</em> (stubs), <em>bottom-up</em> (drivers and clusters), <em>regression</em>, <em>smoke</em> (daily build).</li>
+<li><strong>Validation testing</strong>: success is when the software functions in a way the customer reasonably expects; includes configuration review and alpha/beta tests.</li>
+<li><strong>System testing</strong>: recovery, security, stress, performance and deployment testing.</li>
+</ul></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">(OR) Explain <a class="wk" href="../../terms/basis-path-testing.html">basis path testing</a> with an example.</h4><div class="ans"><div class="tag">Answer</div><p>Steps: (1) draw the <strong>flow graph</strong> from the code; (2) compute the <strong><a class="wk" href="../../terms/cyclomatic-complexity.html">cyclomatic complexity</a></strong> \(V(G)\); (3) list the <strong>independent paths</strong>; (4) design one test case for each path.</p>
+<p>Program:</p>
+<div class="code"><pre><code>1  read(n); sum = 0; odd = 0;
+2  while (n &gt; 0) {
+3     if (n % 2 == 0)
+4         sum = sum + n;
+5     else  odd = odd + 1;
+6     n = n - 1;
+   }
+7  print(sum, odd);</code></pre></div>
+<figure class="fig"><pre class="mermaid">flowchart TB
+  N1((1)) --&gt; N2((2))
+  N2 --&gt; N3((3))
+  N2 --&gt; N7((7))
+  N3 --&gt; N4((4))
+  N3 --&gt; N5((5))
+  N4 --&gt; N6((6))
+  N5 --&gt; N6
+  N6 --&gt; N2</pre></figure>
+<p>Nodes N = 7, edges E = 8, predicate nodes P = 2 (nodes 2 and 3).
+\(V(G) = E - N + 2 = 8 - 7 + 2 = 3\); also \(P + 1 = 3\); regions = 3.</p>
+<p>Independent paths:</p>
+<ul>
+<li>Path 1: 1-2-7</li>
+<li>Path 2: 1-2-3-4-6-2-7</li>
+<li>Path 3: 1-2-3-5-6-2-7</li>
+</ul>
+<p>Test cases:</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Input n</th>
+<th>Path executed</th>
+<th>Expected (sum, odd)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>0</td>
+<td>1-2-7</td>
+<td>(0, 0)</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>1</td>
+<td>1-2-3-5-6-2-7 (path 3)</td>
+<td>(0, 1)</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>2</td>
+<td>1-2-3-4-6-2-3-5-6-2-7 (covers path 2 edges 3→4 and path 3)</td>
+<td>(2, 1)</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Honest note: path 2 (1-2-3-4-6-2-7) <em>on its own</em> is <strong>infeasible</strong> for integer input. It needs a single even iteration after which \(n-1\le0\), but an even \(n&gt;0\) gives \(n-1\ge1\). Infeasible paths are a known limit of <a class="wk" href="../../terms/basis-path-testing.html">basis path testing</a>; the edge 3→4 is still covered by T3. In an exam, simply list the three independent paths and one input for each as above.</p>
+</blockquote></div></article><article class="qa past" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Differentiate between internal and external views of testing.</h4><div class="ans"><div class="tag">Answer</div><ul>
+<li><strong>Internal view = <a class="wk" href="../../terms/white-box-testing.html">white-box testing</a></strong>: tester knows the code and tests the logic paths, loops and data structures. Done by developers.</li>
+<li><strong>External view = <a class="wk" href="../../terms/black-box-testing.html">black-box testing</a></strong>: tester knows only the specification; tests the functions and the input/output behaviour without regard to the code. Done by testers or users.</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>White-box (internal)</th>
+<th>Black-box (external)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Based on the code structure</td>
+<td>Based on the requirements</td>
+</tr>
+<tr>
+<td>Programming knowledge needed</td>
+<td>Not needed</td>
+</tr>
+<tr>
+<td>Unit level mostly</td>
+<td>Higher levels (system, acceptance)</td>
+</tr>
+<tr>
+<td>Finds logic errors</td>
+<td>Finds missing/incorrect functions, interface errors</td>
+</tr>
+<tr>
+<td>Techniques: basis path, control structure</td>
+<td>Techniques: <a class="wk" href="../../terms/equivalence-partitioning.html">equivalence partitioning</a>, BVA, graph-based, orthogonal arrays</td>
+</tr>
+</tbody>
+</table></div>
+<p>They are <strong>complementary</strong>; "grey-box" testing mixes both.</p></div></article><article class="qa past" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Explain the <a class="wk" href="../../terms/black-box-testing.html">black-box testing</a> strategies.</h4><div class="ans"><div class="tag">Answer</div><p>Black-box (behavioural) testing finds: incorrect or missing functions, interface errors, data-structure or external-database errors, behaviour/performance errors, and initialisation/termination errors.</p>
+<ol>
+<li><strong>Graph-based testing</strong>: build a graph of objects (nodes) and relationships (links); design tests that cover each relationship.</li>
+<li><strong><a class="wk" href="../../terms/equivalence-partitioning.html">Equivalence partitioning</a></strong>: divide the input domain into classes of valid and invalid data; one test case per class. Example: age 18 to 60 → classes: &lt;18 (invalid), 18–60 (valid), &gt;60 (invalid).</li>
+<li><strong><a class="wk" href="../../terms/boundary-value-analysis.html">Boundary value analysis</a> (BVA)</strong>: test at the edges of classes: for 18–60 test 17, 18, 19, 59, 60, 61.</li>
+<li><strong>Orthogonal array testing</strong>: for inputs with few values but many combinations, pick a small balanced set of combinations.</li>
+<li><strong>Other</strong>: comparison testing, cause–effect graphing, error guessing.</li>
+</ol></div></article><article class="qa past" id="q7"><div class="qhead"><span class="qn">Q7</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">(OR) Explain <a class="wk" href="../../terms/integration-testing.html">integration testing</a>.</h4><div class="ans"><div class="tag">Answer</div><p><a class="wk" href="../../terms/integration-testing.html">Integration testing</a> builds the program structure while <strong>testing for interface errors</strong>. Avoid "big bang"; use an incremental approach.</p>
+<ul>
+<li><strong>Top-down</strong>: start with the main control module, add subordinate modules depth-first or breadth-first; <strong>stubs</strong> replace missing lower modules. Early check of main control; needs many stubs.</li>
+<li><strong>Bottom-up</strong>: start from atomic (lowest-level) modules, grouped into <strong>clusters (builds)</strong> tested with <strong>drivers</strong>; no stubs needed; the top is checked late.</li>
+<li><strong>Sandwich (hybrid)</strong>: top-down on the upper layers plus bottom-up on the lower.</li>
+<li><strong><a class="wk" href="../../terms/regression-testing.html">Regression testing</a></strong>: re-execute a subset of tests after each change/addition.</li>
+<li><strong><a class="wk" href="../../terms/smoke-testing.html">Smoke testing</a></strong>: daily build of the integrated product tested by a fixed set of tests (used in time-critical projects).</li>
+</ul>
+<figure class="fig"><pre class="mermaid">flowchart TB
+  M[Main] --&gt; A[Module A]
+  M --&gt; B[Module B]
+  A --&gt; A1[A1]
+  A --&gt; A2[A2]
+  B --&gt; B1[B1]</pre></figure></div></article><article class="qa past" id="q8"><div class="qhead"><span class="qn">Q8</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">(OR) Differentiate between alpha and beta testing.</h4><div class="ans"><div class="tag">Answer</div><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Point</th>
+<th>Alpha testing</th>
+<th>Beta testing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Where</td>
+<td>At the <strong>developer's</strong> site</td>
+<td>At the <strong>customer's / end-user's</strong> site</td>
+</tr>
+<tr>
+<td>Who</td>
+<td>A representative group of end users with the developer observing</td>
+<td>Real end users, developer <strong>not present</strong></td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>Controlled</td>
+<td>Uncontrolled, live</td>
+</tr>
+<tr>
+<td>Recording</td>
+<td>Developer records errors and usage problems</td>
+<td>Customer records problems and reports them periodically</td>
+</tr>
+<tr>
+<td>Stage</td>
+<td>Before beta</td>
+<td>After alpha, just before release</td>
+</tr>
+<tr>
+<td>Fixes</td>
+<td>Easy to fix issues quickly</td>
+<td>Feedback used for the final release</td>
+</tr>
+</tbody>
+</table></div>
+<p>Both are acceptance tests, used when the software has many end users and a formal acceptance test per customer is impractical.</p></div></article><article class="qa exp" id="q9"><div class="qhead"><span class="qn">Q9</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Differentiate between verification and validation. Explain software quality assurance.</h4><div class="ans"><div class="tag">Answer</div><p><em>Verification</em>: are we building the product right? – reviews, walkthroughs, inspections, static analysis. <em>Validation</em>: are we building the right product? – dynamic testing and acceptance.</p>
+<p><strong>Software quality assurance (SQA)</strong> is an umbrella activity that applies to every process step: standards and procedures, formal technical reviews, a multi-tiered testing strategy, control of documentation and changes, enforcement of standards, and measurement and reporting. Goal: build quality in rather than test it in.</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Map Method — Karnaugh Map (K-map) · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details open><summary><a href="index.html">Unit II</a></summary><ul><li class="cur"><a href="01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="02-five-variable-map.html">Five-Variable Map</a></li><li><a href="03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="08-code-conversion.html">Code Conversion</a></li><li><a href="09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details open><summary><a href="index.html">Unit II</a></summary><ul><li class="cur"><a href="01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="02-five-variable-map.html">Five-Variable Map</a></li><li><a href="03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="08-code-conversion.html">Code Conversion</a></li><li><a href="09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Digital Logic</a> <span>›</span> <a href="index.html">Unit II</a> <span>›</span> <b>The Map Method — Karnaugh Map (K-map)</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><h1>The Map Method — Karnaugh Map (K-map)</h1><p class="byline">Digital Logic Design · Unit II: Boolean Function Simplification and Combinational Logic Design</p><aside class="infobox" style="--h:#0f7a6a"><div class="ib-h">The Map Method — Karnaugh Map (K-map)</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design</a> (24CS201)</dd><dt>Unit</dt><dd><a href="index.html">Unit II: Boolean Function Simplification and Combinational Logic Design</a></dd><dt>Topic</dt><dd>1 of 10</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/k-map.html">K-map</a>, <a href="../../../terms/minterm.html">Minterm</a>, <a href="../../../terms/gray-code.html">Gray code</a>, <a href="../../../terms/prime-implicant.html">Prime implicant</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/dld/u2.html">Part B questions for Unit II</a> and <a href="../../../qa/dld/part-a.html">Part A short questions</a>.</p><div class="toc"><b>On this page</b><ol><li><a href="#two-variable-map">Two-variable map</a></li><li><a href="#three-variable-map-rows-x-columns-yz-in">Three-variable map (rows \(x\), columns \(yz\) in order 00 01 11 10)</a></li><li><a href="#four-variable-map-rows-ab-columns-cd">Four-variable map (rows \(AB\), columns \(CD\))</a></li><li><a href="#rules-of-grouping-write-these-in-the-exa">Rules of grouping (write these in the exam)</a></li><li><a href="#prime-implicants">Prime implicants</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li>A <strong><a class="wk" href="../../../terms/k-map.html">K-map</a></strong> = truth table redrawn as a grid so that <strong>adjacent cells differ in exactly one variable</strong>. Lets us simplify by eye (<strong>graphical method</strong>)</li>
+<li>Number of cells \(=2^n\). Cell number = <a class="wk" href="../../../terms/minterm.html">minterm</a> number</li>
+<li>Rows/columns labelled in <strong><a class="wk" href="../../../terms/gray-code.html">Gray code</a></strong> (00, 01, 11, 10) — NOT binary order!</li>
+<li>Adjacent cells combine because \(xy+xy'=x\) (one variable disappears)</li>
+<li>Map is <strong>wrap-around</strong>: left edge touches right edge, top touches bottom, four corners touch (like a torus)</li>
+</ul>
+<h5 id="two-variable-map">Two-variable map</h5>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>\(y'\)</th>
+<th>\(y\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(x'\)</td>
+<td>\(m_0\)</td>
+<td>\(m_1\)</td>
+</tr>
+<tr>
+<td>\(x\)</td>
+<td>\(m_2\)</td>
+<td>\(m_3\)</td>
+</tr>
+</tbody>
+</table></div>
+<h5 id="three-variable-map-rows-x-columns-yz-in">Three-variable map (rows \(x\), columns \(yz\) in order 00 01 11 10)</h5>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>00</th>
+<th>01</th>
+<th>11</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(x=0\)</td>
+<td>\(m_0\)</td>
+<td>\(m_1\)</td>
+<td>\(m_3\)</td>
+<td>\(m_2\)</td>
+</tr>
+<tr>
+<td>\(x=1\)</td>
+<td>\(m_4\)</td>
+<td>\(m_5\)</td>
+<td>\(m_7\)</td>
+<td>\(m_6\)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Group of 1 cell → 3 literals; 2 cells → 2 literals; 4 cells → 1 literal; 8 cells → 1 (function = 1)</li>
+<li><strong>Example:</strong> \(F=\sum m(0,2,4,5,6)\) → group \(m_0,m_2,m_4,m_6\) (all with \(z=0\)) \(=z'\); group \(m_4,m_5\) \(=xy'\) → \(F=z'+xy'\)</li>
+</ul>
+<h5 id="four-variable-map-rows-ab-columns-cd">Four-variable map (rows \(AB\), columns \(CD\))</h5>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>\(AB\backslash CD\)</th>
+<th>00</th>
+<th>01</th>
+<th>11</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>01</td>
+<td>4</td>
+<td>5</td>
+<td>7</td>
+<td>6</td>
+</tr>
+<tr>
+<td>11</td>
+<td>12</td>
+<td>13</td>
+<td>15</td>
+<td>14</td>
+</tr>
+<tr>
+<td>10</td>
+<td>8</td>
+<td>9</td>
+<td>11</td>
+<td>10</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Group of 1 → 4 literals, 2 → 3, 4 → 2, 8 → 1, 16 → function \(=1\)</li>
+</ul>
+<h5 id="rules-of-grouping-write-these-in-the-exa">Rules of grouping (write these in the exam)</h5>
+<ol>
+<li>Group only <strong>1s</strong> (for SOP). Group sizes are <strong>powers of 2</strong> (1, 2, 4, 8, 16)</li>
+<li>Groups must be <strong>rectangular</strong> (including wrap-around), no diagonals</li>
+<li>Make each group <strong>as large as possible</strong></li>
+<li>Use <strong>as few groups as possible</strong> to cover all 1s</li>
+<li><strong>Overlap</strong> is allowed (a 1 may be in many groups)</li>
+<li>Every 1 must be covered at least once</li>
+<li>In a group, variables that <strong>change</strong> disappear; variables that <strong>stay the same</strong> remain (1 → true form, 0 → complemented)</li>
+</ol>
+<p><strong>Example (4-var):</strong> \(F(A,B,C,D)=\sum m(0,1,2,5,8,9,10)\)</p>
+<figure class="fig svgfig"><svg viewBox="0 0 628 206" width="628" role="img" aria-label="Karnaugh map groups" font-family="Bricolage Grotesque, sans-serif">
+<text x="78" y="16" text-anchor="middle" font-size="14" font-weight="700" fill="#17233a">B'D'  (four corners)</text>
+<text x="10" y="30" font-size="11" fill="#566475">AB\CD</text>
+<text x="57.0" y="30" text-anchor="middle" font-size="12" fill="#566475">00</text>
+<text x="91.0" y="30" text-anchor="middle" font-size="12" fill="#566475">01</text>
+<text x="125.0" y="30" text-anchor="middle" font-size="12" fill="#566475">11</text>
+<text x="159.0" y="30" text-anchor="middle" font-size="12" fill="#566475">10</text>
+<text x="36" y="57.0" text-anchor="end" font-size="12" fill="#566475">00</text>
+<rect x="40" y="36" width="34" height="34" fill="#f59e0b55" stroke="#566475"/>
+<text x="57.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="71" y="46" text-anchor="end" font-size="8" fill="#8a97a8">0</text>
+<rect x="74" y="36" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="91.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="105" y="46" text-anchor="end" font-size="8" fill="#8a97a8">1</text>
+<rect x="108" y="36" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="125.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="139" y="46" text-anchor="end" font-size="8" fill="#8a97a8">3</text>
+<rect x="142" y="36" width="34" height="34" fill="#f59e0b55" stroke="#566475"/>
+<text x="159.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="173" y="46" text-anchor="end" font-size="8" fill="#8a97a8">2</text>
+<text x="36" y="91.0" text-anchor="end" font-size="12" fill="#566475">01</text>
+<rect x="40" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="57.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="71" y="80" text-anchor="end" font-size="8" fill="#8a97a8">4</text>
+<rect x="74" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="91.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="105" y="80" text-anchor="end" font-size="8" fill="#8a97a8">5</text>
+<rect x="108" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="125.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="139" y="80" text-anchor="end" font-size="8" fill="#8a97a8">7</text>
+<rect x="142" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="159.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="173" y="80" text-anchor="end" font-size="8" fill="#8a97a8">6</text>
+<text x="36" y="125.0" text-anchor="end" font-size="12" fill="#566475">11</text>
+<rect x="40" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="57.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="71" y="114" text-anchor="end" font-size="8" fill="#8a97a8">12</text>
+<rect x="74" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="91.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="105" y="114" text-anchor="end" font-size="8" fill="#8a97a8">13</text>
+<rect x="108" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="125.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="139" y="114" text-anchor="end" font-size="8" fill="#8a97a8">15</text>
+<rect x="142" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="159.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="173" y="114" text-anchor="end" font-size="8" fill="#8a97a8">14</text>
+<text x="36" y="159.0" text-anchor="end" font-size="12" fill="#566475">10</text>
+<rect x="40" y="138" width="34" height="34" fill="#f59e0b55" stroke="#566475"/>
+<text x="57.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="71" y="148" text-anchor="end" font-size="8" fill="#8a97a8">8</text>
+<rect x="74" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="91.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="105" y="148" text-anchor="end" font-size="8" fill="#8a97a8">9</text>
+<rect x="108" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="125.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="139" y="148" text-anchor="end" font-size="8" fill="#8a97a8">11</text>
+<rect x="142" y="138" width="34" height="34" fill="#f59e0b55" stroke="#566475"/>
+<text x="159.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="173" y="148" text-anchor="end" font-size="8" fill="#8a97a8">10</text>
+<text x="284" y="16" text-anchor="middle" font-size="14" font-weight="700" fill="#17233a">B'C'</text>
+<text x="216" y="30" font-size="11" fill="#566475">AB\CD</text>
+<text x="263.0" y="30" text-anchor="middle" font-size="12" fill="#566475">00</text>
+<text x="297.0" y="30" text-anchor="middle" font-size="12" fill="#566475">01</text>
+<text x="331.0" y="30" text-anchor="middle" font-size="12" fill="#566475">11</text>
+<text x="365.0" y="30" text-anchor="middle" font-size="12" fill="#566475">10</text>
+<text x="242" y="57.0" text-anchor="end" font-size="12" fill="#566475">00</text>
+<rect x="246" y="36" width="34" height="34" fill="#2563eb55" stroke="#566475"/>
+<text x="263.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="277" y="46" text-anchor="end" font-size="8" fill="#8a97a8">0</text>
+<rect x="280" y="36" width="34" height="34" fill="#2563eb55" stroke="#566475"/>
+<text x="297.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="311" y="46" text-anchor="end" font-size="8" fill="#8a97a8">1</text>
+<rect x="314" y="36" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="331.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="345" y="46" text-anchor="end" font-size="8" fill="#8a97a8">3</text>
+<rect x="348" y="36" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="365.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="379" y="46" text-anchor="end" font-size="8" fill="#8a97a8">2</text>
+<text x="242" y="91.0" text-anchor="end" font-size="12" fill="#566475">01</text>
+<rect x="246" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="263.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="277" y="80" text-anchor="end" font-size="8" fill="#8a97a8">4</text>
+<rect x="280" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="297.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="311" y="80" text-anchor="end" font-size="8" fill="#8a97a8">5</text>
+<rect x="314" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="331.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="345" y="80" text-anchor="end" font-size="8" fill="#8a97a8">7</text>
+<rect x="348" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="365.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="379" y="80" text-anchor="end" font-size="8" fill="#8a97a8">6</text>
+<text x="242" y="125.0" text-anchor="end" font-size="12" fill="#566475">11</text>
+<rect x="246" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="263.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="277" y="114" text-anchor="end" font-size="8" fill="#8a97a8">12</text>
+<rect x="280" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="297.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="311" y="114" text-anchor="end" font-size="8" fill="#8a97a8">13</text>
+<rect x="314" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="331.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="345" y="114" text-anchor="end" font-size="8" fill="#8a97a8">15</text>
+<rect x="348" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="365.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="379" y="114" text-anchor="end" font-size="8" fill="#8a97a8">14</text>
+<text x="242" y="159.0" text-anchor="end" font-size="12" fill="#566475">10</text>
+<rect x="246" y="138" width="34" height="34" fill="#2563eb55" stroke="#566475"/>
+<text x="263.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="277" y="148" text-anchor="end" font-size="8" fill="#8a97a8">8</text>
+<rect x="280" y="138" width="34" height="34" fill="#2563eb55" stroke="#566475"/>
+<text x="297.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="311" y="148" text-anchor="end" font-size="8" fill="#8a97a8">9</text>
+<rect x="314" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="331.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="345" y="148" text-anchor="end" font-size="8" fill="#8a97a8">11</text>
+<rect x="348" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="365.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="379" y="148" text-anchor="end" font-size="8" fill="#8a97a8">10</text>
+<text x="490" y="16" text-anchor="middle" font-size="14" font-weight="700" fill="#17233a">A'C'D</text>
+<text x="422" y="30" font-size="11" fill="#566475">AB\CD</text>
+<text x="469.0" y="30" text-anchor="middle" font-size="12" fill="#566475">00</text>
+<text x="503.0" y="30" text-anchor="middle" font-size="12" fill="#566475">01</text>
+<text x="537.0" y="30" text-anchor="middle" font-size="12" fill="#566475">11</text>
+<text x="571.0" y="30" text-anchor="middle" font-size="12" fill="#566475">10</text>
+<text x="448" y="57.0" text-anchor="end" font-size="12" fill="#566475">00</text>
+<rect x="452" y="36" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="469.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="483" y="46" text-anchor="end" font-size="8" fill="#8a97a8">0</text>
+<rect x="486" y="36" width="34" height="34" fill="#16a34a55" stroke="#566475"/>
+<text x="503.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="517" y="46" text-anchor="end" font-size="8" fill="#8a97a8">1</text>
+<rect x="520" y="36" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="537.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="551" y="46" text-anchor="end" font-size="8" fill="#8a97a8">3</text>
+<rect x="554" y="36" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="571.0" y="58.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="585" y="46" text-anchor="end" font-size="8" fill="#8a97a8">2</text>
+<text x="448" y="91.0" text-anchor="end" font-size="12" fill="#566475">01</text>
+<rect x="452" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="469.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="483" y="80" text-anchor="end" font-size="8" fill="#8a97a8">4</text>
+<rect x="486" y="70" width="34" height="34" fill="#16a34a55" stroke="#566475"/>
+<text x="503.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="517" y="80" text-anchor="end" font-size="8" fill="#8a97a8">5</text>
+<rect x="520" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="537.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="551" y="80" text-anchor="end" font-size="8" fill="#8a97a8">7</text>
+<rect x="554" y="70" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="571.0" y="92.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="585" y="80" text-anchor="end" font-size="8" fill="#8a97a8">6</text>
+<text x="448" y="125.0" text-anchor="end" font-size="12" fill="#566475">11</text>
+<rect x="452" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="469.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="483" y="114" text-anchor="end" font-size="8" fill="#8a97a8">12</text>
+<rect x="486" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="503.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="517" y="114" text-anchor="end" font-size="8" fill="#8a97a8">13</text>
+<rect x="520" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="537.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="551" y="114" text-anchor="end" font-size="8" fill="#8a97a8">15</text>
+<rect x="554" y="104" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="571.0" y="126.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="585" y="114" text-anchor="end" font-size="8" fill="#8a97a8">14</text>
+<text x="448" y="159.0" text-anchor="end" font-size="12" fill="#566475">10</text>
+<rect x="452" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="469.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="483" y="148" text-anchor="end" font-size="8" fill="#8a97a8">8</text>
+<rect x="486" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="503.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="517" y="148" text-anchor="end" font-size="8" fill="#8a97a8">9</text>
+<rect x="520" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="537.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">0</text>
+<text x="551" y="148" text-anchor="end" font-size="8" fill="#8a97a8">11</text>
+<rect x="554" y="138" width="34" height="34" fill="#ffffff" stroke="#566475"/>
+<text x="571.0" y="160.0" text-anchor="middle" font-size="15" fill="#17233a">1</text>
+<text x="585" y="148" text-anchor="end" font-size="8" fill="#8a97a8">10</text>
+</svg></figure>
+<ul>
+<li>\(F=B'D'+B'C'+A'C'D\)</li>
+</ul>
+<h5 id="prime-implicants">Prime implicants</h5>
+<ul>
+<li><strong>Implicant:</strong> any product term (group of 1s) that implies \(F\)</li>
+<li><strong><a class="wk" href="../../../terms/prime-implicant.html">Prime implicant</a> (PI):</strong> an implicant that <strong>cannot be made bigger</strong> (a maximal group). Not contained in a larger group</li>
+<li><strong>Essential PI (EPI):</strong> a PI that covers a minterm <strong>no other PI covers</strong>. Must be in the answer</li>
+<li><strong>Non-essential / selective PI:</strong> choose enough to cover what is left</li>
+<li>Procedure: find all PIs → pick all EPIs → cover remaining 1s with min number of other PIs</li>
+<li>A function can have <strong>more than one</strong> minimal answer</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>A Boolean expression can be simplified algebraically, but this needs experience and there is no guarantee we reach the smallest form. The <a class="wk" href="../../../terms/k-map.html">K-map</a> turns the job into pattern spotting. It is the truth table written as a grid in which neighbouring cells differ by only one input, so any two neighbouring 1s can be merged into one term with one variable fewer (\(xy+xy'=x\)). The labels run 00, 01, 11, 10, a Gray sequence rather than a binary count. If you wrote 00, 01, 10, 11 instead, cells that look like neighbours would differ in two variables and the grouping would be wrong. This is the most common error in K-map answers.</p>
+<p>The edges of the map are joined. The cells in the left column are neighbours of those in the right column, and the same holds for the top and bottom rows. That is why the four corners of a 4-variable map form a valid group of four (they are \(B'D'\) in the example). The larger the group, the more variables drop out, so we always make the biggest possible rectangles and use as few as we can.</p>
+<p>A <a class="wk" href="../../../terms/prime-implicant.html">prime implicant</a> is a group you cannot enlarge. An essential prime implicant contains at least one 1 that no other group covers, so it is unavoidable. After taking the essential ones, any remaining 1s are covered with as few additional groups as possible. In the example, the cells 9 and 10 each have a group of four (\(B'C'\) and \(B'D'\)), while the cell 5 can only join a pair with cell 1 or cell 7 (it has no neighbour that could form a bigger rectangle), so the pair \(A'C'D\) is the cheapest cover for it. Always check whether a different choice gives the same cost, because a function can have more than one minimal form.</p></div><nav class="pager"><span></span><a class="next" href="02-five-variable-map.html"><small>Next →</small>Five-Variable Map</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

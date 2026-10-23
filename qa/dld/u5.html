@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Logic Design Unit V questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Digital Logic</a> <span>›</span> <b>Unit V</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><span class="ulabel">Part B · Unit V</span><h1>Registers, Counters, and Memory Units</h1><p class="byline">Digital Logic Design · 4 questions · <a href="../../notes/dld/u5/index.html">Notes for this unit</a></p><article class="qa exp" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain the 4-bit <a class="wk" href="../../terms/shift-register.html">shift registers</a> (SISO, SIPO, PISO, PIPO) and the universal shift register.</h4><div class="ans"><div class="tag">Answer</div><p>A <a class="wk" href="../../terms/shift-register.html">shift register</a> is a chain of D <a class="wk" href="../../terms/flip-flop.html">flip-flops</a> where each output feeds the next input; all share one clock.</p>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  SI[Serial in] --&gt; FF0[D FF0] --&gt; FF1[D FF1] --&gt; FF2[D FF2] --&gt; FF3[D FF3] --&gt; SO[Serial out]</pre></figure>
+<ul>
+<li><strong>SISO</strong>: serial in, serial out; 4 clock pulses to load, 4 more to read; used as a delay line.</li>
+<li><strong>SIPO</strong>: serial in, parallel out (all \(Q\)s read at once); serial-to-parallel conversion.</li>
+<li><strong>PISO</strong>: parallel load, serial out (mode control selects load or shift); parallel-to-serial.</li>
+<li><strong>PIPO</strong>: parallel in, parallel out; a plain storage register.
+Example: shifting the serial stream 1, 0, 1, 1 (first bit first) into a cleared SISO register, content shown as \(Q_0Q_1Q_2Q_3\):</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Pulse</th>
+<th>Serial in</th>
+<th>\(Q_0Q_1Q_2Q_3\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>–</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>1101</td>
+</tr>
+</tbody>
+</table></div>
+<p>Each pulse moves every bit one place to the right and the new bit enters at \(Q_0\); after 4 pulses the first bit is at \(Q_3\).
+<strong>Universal shift register</strong> (e.g. 74194): mode inputs \(S_1S_0\) select hold (00), shift right (01), shift left (10) or parallel load (11); it has serial inputs for both directions and four parallel inputs/outputs, so it works as any of the four types.</p></div></article><article class="qa exp" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Design a 3-bit asynchronous (ripple) up counter. How do you convert it to a mod-10 (decade) counter?</h4><div class="ans"><div class="tag">Answer</div><p>Use T <a class="wk" href="../../terms/flip-flop.html">flip-flops</a> (JK with \(J=K=1\)) that toggle on the <strong>falling edge</strong>. \(Q_0\) is clocked by the external clock; the clock of each next flip-flop is the previous output: \(CLK_1=Q_0\), \(CLK_2=Q_1\).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Clock</th>
+<th>\(Q_2Q_1Q_0\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>011</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>111</td>
+</tr>
+<tr>
+<td>8</td>
+<td>000</td>
+</tr>
+</tbody>
+</table></div>
+<p>The frequency is halved at each stage: \(f_{Q_0}=f/2\), \(f_{Q_1}=f/4\), \(f_{Q_2}=f/8\). A <strong>down counter</strong> takes the clock from \(Q'\) of the previous stage.
+<strong>Mod-10:</strong> use 4 flip-flops (0000 to 1111); when the count reaches <strong>1010 (10)</strong> a <a class="wk" href="../../terms/nand.html">NAND</a> gate of \(Q_3\) and \(Q_1\) clears all flip-flops asynchronously, so the sequence is 0000 to 1001 and back to 0000. The state 1010 lasts only a few nanoseconds (a glitch).
+Drawbacks of <a class="wk" href="../../terms/ripple-counter.html">ripple counters</a>: <a class="wk" href="../../terms/propagation-delay.html">propagation delays</a> add up (limits speed), decoding glitches.</p></div></article><article class="qa exp" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain the <a class="wk" href="../../terms/ring-counter.html">ring counter</a> and the <a class="wk" href="../../terms/johnson-counter.html">Johnson counter</a> with their state tables. Compare them.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/ring-counter.html">Ring counter</a></strong> (4 FFs): \(Q_3\) feeds back to \(D_0\); one <a class="wk" href="../../terms/flip-flop.html">flip-flop</a> is preset to 1, the others cleared. The single 1 circulates: 1000 → 0100 → 0010 → 0001 → 1000. Mod-4 with 4 FFs (\(N\) states with \(N\) FFs). No decoding gates are needed (each output is a timing pulse).</p>
+<p><strong>Johnson (twisted-ring) counter</strong> (4 FFs): \(\overline{Q_3}\) feeds back to \(D_0\). Starting from 0000: 0000 → 1000 → 1100 → 1110 → 1111 → 0111 → 0011 → 0001 → 0000. Mod-8 with 4 FFs (\(2N\) states).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Ring</th>
+<th>Johnson</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feedback</td>
+<td>\(Q_N\to D_0\)</td>
+<td>\(Q_N'\to D_0\)</td>
+</tr>
+<tr>
+<td>States for \(N\) FFs</td>
+<td>\(N\)</td>
+<td>\(2N\)</td>
+</tr>
+<tr>
+<td>Decoding</td>
+<td>none</td>
+<td>2-input gate per state</td>
+</tr>
+<tr>
+<td>Self-starting</td>
+<td>needs initial preset</td>
+<td>not self-starting without correction</td>
+</tr>
+</tbody>
+</table></div>
+<p>Both are used for timing/sequence generation.</p></div></article><article class="qa exp" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">Explain the memory unit: block diagram, memory read/write, and the classification of ROM and RAM.</h4><div class="ans"><div class="tag">Answer</div><p>A memory stores binary words in locations identified by <strong>addresses</strong>. A memory of \(2^k\) words of \(n\) bits has \(k\) address lines and \(n\) data lines, plus control lines <strong>Read/Write</strong> (R/W) and <strong>Memory enable</strong> (chip select).</p>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  AD["k address lines"] --&gt; M["Memory unit&lt;br/&gt;2^k words × n bits"]
+  DIN["n data input lines"] --&gt; M
+  M --&gt; DOUT["n data output lines"]
+  RW["Read / Write"] --&gt; M
+  MEN["Memory enable"] --&gt; M</pre></figure>
+<p><em>Write</em>: apply address, data, set R/W = write. <em>Read</em>: apply address, set R/W = read; data appears on the output.</p>
+<ul>
+<li>Example: \(2K\times8\): \(k=11\), \(n=8\), capacity 16 Kbit. Expansion: four \(1K\times8\) chips with a 2:4 <a class="wk" href="../../terms/decoder.html">decoder</a> on the two high address lines make a \(4K\times8\) memory.</li>
+</ul>
+<p><strong>ROM</strong>: non-volatile, internal AND-OR decoder structure; <em>Mask ROM</em> (programmed at the factory), <em><a class="wk" href="../../terms/prom.html">PROM</a></em> (one-time programmable by fusing), <em><a class="wk" href="../../terms/eprom.html">EPROM</a></em> (erased by UV light), <em><a class="wk" href="../../terms/eeprom.html">EEPROM</a></em> (electrically erasable), <em>Flash</em> (block erasable). Used for the boot program and fixed look-up tables.
+A ROM can implement any combinational function: 3-bit binary to <a class="wk" href="../../terms/gray-code.html">Gray code</a> needs an \(8\times3\) ROM storing the code at each address.</p>
+<p><strong>RAM</strong>: volatile read/write memory. <em><a class="wk" href="../../terms/sram.html">SRAM</a></em> (<a class="wk" href="../../terms/flip-flop.html">flip-flop</a> cell; fast, costly, used for cache) and <em><a class="wk" href="../../terms/dram.html">DRAM</a></em> (capacitor cell, refreshed periodically; dense, cheap, used for main memory).</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>SRAM</th>
+<th>DRAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cell</td>
+<td>flip-flop (6 transistors)</td>
+<td>1 transistor + capacitor</td>
+</tr>
+<tr>
+<td>Refresh</td>
+<td>not needed</td>
+<td>needed</td>
+</tr>
+<tr>
+<td>Speed / cost</td>
+<td>fast, costly</td>
+<td>slower, cheap</td>
+</tr>
+<tr>
+<td>Use</td>
+<td>cache</td>
+<td>main memory</td>
+</tr>
+</tbody>
+</table></div></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

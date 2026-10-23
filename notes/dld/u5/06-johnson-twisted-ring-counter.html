@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Johnson (Twisted-Ring) Counter · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="../u2/02-five-variable-map.html">Five-Variable Map</a></li><li><a href="../u2/03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="../u2/04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="../u2/05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="../u2/06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="../u2/07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="../u2/08-code-conversion.html">Code Conversion</a></li><li><a href="../u2/09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="../u2/10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details open><summary><a href="index.html">Unit V</a></summary><ul><li><a href="01-registers.html">Registers</a></li><li><a href="02-shift-registers.html">Shift Registers</a></li><li><a href="03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="05-ring-counter.html">Ring Counter</a></li><li class="cur"><a href="06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="07-timing-sequences.html">Timing Sequences</a></li><li><a href="08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="../u2/02-five-variable-map.html">Five-Variable Map</a></li><li><a href="../u2/03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="../u2/04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="../u2/05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="../u2/06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="../u2/07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="../u2/08-code-conversion.html">Code Conversion</a></li><li><a href="../u2/09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="../u2/10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="../u4/02-latches.html">Latches</a></li><li><a href="../u4/03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="../u4/04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li><a href="../u4/05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="../u4/06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="../u4/07-counter-design.html">Counter Design</a></li></ul></details><details open><summary><a href="index.html">Unit V</a></summary><ul><li><a href="01-registers.html">Registers</a></li><li><a href="02-shift-registers.html">Shift Registers</a></li><li><a href="03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="05-ring-counter.html">Ring Counter</a></li><li class="cur"><a href="06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="07-timing-sequences.html">Timing Sequences</a></li><li><a href="08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Digital Logic</a> <span>›</span> <a href="index.html">Unit V</a> <span>›</span> <b>Johnson (Twisted-Ring) Counter</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><h1>Johnson (Twisted-Ring) Counter</h1><p class="byline">Digital Logic Design · Unit V: Registers, Counters, and Memory Units</p><aside class="infobox" style="--h:#0f7a6a"><div class="ib-h">Johnson (Twisted-Ring) Counter</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design</a> (24CS201)</dd><dt>Unit</dt><dd><a href="index.html">Unit V: Registers, Counters, and Memory Units</a></dd><dt>Topic</dt><dd>6 of 10</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/johnson-counter.html">Johnson counter</a>, <a href="../../../terms/ring-counter.html">Ring counter</a>, <a href="../../../terms/shift-register.html">Shift register</a>, <a href="../../../terms/flip-flop.html">Flip-flop</a>, <a href="../../../terms/decoder.html">Decoder</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/dld/u5.html">Part B questions for Unit V</a> and <a href="../../../qa/dld/part-a.html">Part A short questions</a>.</p><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li>Feedback from the <strong>inverted</strong> last output: \(D_0=Q_{n-1}'\). <strong>\(n\) FFs → \(2n\) states</strong> (mod-\(2n\))</li>
+<li>4-bit sequence: 0000 → 1000 → 1100 → 1110 → 1111 → 0111 → 0011 → 0001 → 0000 (8 states)</li>
+</ul>
+<figure class="fig svgfig"><svg viewBox="0 0 710 216" width="710" role="img" aria-label="Johnson counter waveforms" font-family="Patrick Hand, sans-serif">
+<path d="M56 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M96 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M136 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M176 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M216 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M256 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M296 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M336 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M376 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M416 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M456 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M496 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M536 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M576 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M616 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M656 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<path d="M696 4 V208" stroke="#d6e4f3" stroke-dasharray="3 4"/>
+<text x="6" y="31" font-size="18" fill="#17233a">CK</text>
+<path d="M56 36 V10 H76.0 V36 H96 V10 H116.0 V36 H136 V10 H156.0 V36 H176 V10 H196.0 V36 H216 V10 H236.0 V36 H256 V10 H276.0 V36 H296 V10 H316.0 V36 H336 V10 H356.0 V36 H376 V10 H396.0 V36 H416 V10 H436.0 V36 H456 V10 H476.0 V36 H496 V10 H516.0 V36 H536 V10 H556.0 V36 H576 V10 H596.0 V36 H616 V10 H636.0 V36 H656 V10 H676.0 V36 H696" fill="none" stroke="#1f4fa8" stroke-width="2.2"/>
+<text x="6" y="71" font-size="18" fill="#17233a">Q0</text>
+<path d="M56 76 H96 V50 H136 H176 H216 H256 V76 H296 H336 H376 H416 V50 H456 H496 H536 H576 V76 H616 H656 H696" fill="none" stroke="#b3261e" stroke-width="2.2"/>
+<text x="6" y="111" font-size="18" fill="#17233a">Q1</text>
+<path d="M56 116 H96 H136 V90 H176 H216 H256 H296 V116 H336 H376 H416 H456 V90 H496 H536 H576 H616 V116 H656 H696" fill="none" stroke="#b3261e" stroke-width="2.2"/>
+<text x="6" y="151" font-size="18" fill="#17233a">Q2</text>
+<path d="M56 156 H96 H136 H176 V130 H216 H256 H296 H336 V156 H376 H416 H456 H496 V130 H536 H576 H616 H656 V156 H696" fill="none" stroke="#b3261e" stroke-width="2.2"/>
+<text x="6" y="191" font-size="18" fill="#17233a">Q3</text>
+<path d="M56 196 H96 H136 H176 H216 V170 H256 H296 H336 H376 V196 H416 H456 H496 H536 V170 H576 H616 H656 H696" fill="none" stroke="#b3261e" stroke-width="2.2"/>
+</svg></figure>
+<ul>
+<li>
+<p>Each output is a square wave at <strong>\(f/8\)</strong> (period = 8 clocks), and each is a copy of the previous one <strong>delayed by one clock</strong> (a 4-FF <a class="wk" href="../../../terms/johnson-counter.html">Johnson counter</a> = divide-by-8, 8 phases)</p>
+</li>
+<li>
+<p><strong>Advantages over ring:</strong> twice the states for the same FFs; <strong>any state decoded with only a 2-input AND gate</strong>; no glitches in decoding</p>
+</li>
+<li>Example use: 8-phase clock, motor control, digital waveform generators</li>
+<li>Self-starting version needed to avoid unused-state loops (2n of \(2^n\) states used, rest is a lock-out)</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Ring</th>
+<th>Johnson</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>States with \(n\) FFs</td>
+<td>\(n\)</td>
+<td>\(2n\)</td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td>\(Q_{n-1}\)</td>
+<td>\(Q_{n-1}'\)</td>
+</tr>
+<tr>
+<td>Decoding</td>
+<td>none</td>
+<td>2-input AND</td>
+</tr>
+<tr>
+<td>Unused states</td>
+<td>\(2^n-n\)</td>
+<td>\(2^n-2n\)</td>
+</tr>
+</tbody>
+</table></div></div><div class="explain"><div class="tag">Explanation</div><p>A <a class="wk" href="../../../terms/ring-counter.html">ring counter</a> is a <a class="wk" href="../../../terms/shift-register.html">shift register</a> with its last output connected back to the first input. If a single 1 is loaded, it circulates, and each <a class="wk" href="../../../terms/flip-flop.html">flip-flop</a> output is high during exactly one clock period out of \(n\). No <a class="wk" href="../../../terms/decoder.html">decoder</a> is needed because the outputs are already the timing signals, but \(n\) flip-flops give only \(n\) states. The counter is not self-starting: if the register powers up in an arbitrary pattern, extra 1s circulate forever, so the initial pattern must be preset.</p>
+<p>The <a class="wk" href="../../../terms/johnson-counter.html">Johnson counter</a> feeds back the complement of the last output. The register fills up with 1s from one end, and then fills with 0s, so it goes through \(2n\) states with \(n\) flip-flops. Any one of the \(2n\) states can be recognised from two adjacent flip-flop outputs, so each decoded signal needs only a 2-input AND gate. The remaining \(2^n-2n\) states form separate loops, so a self-correcting circuit or a reset is required.</p></div><nav class="pager"><a class="prev" href="05-ring-counter.html"><small>← Previous</small>Ring Counter</a><a class="next" href="07-timing-sequences.html"><small>Next →</small>Timing Sequences</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

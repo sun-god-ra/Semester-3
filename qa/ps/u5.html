@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Probability and Statistics Unit V questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="index.html">Probability and Statistics</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="index.html">Probability and Statistics</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li class="cur"><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Prob &amp; Stats</a> <span>›</span> <b>Unit V</b></nav>
+    <article class="wiki" style="--h:#6d4bc3"><span class="ulabel">Part B · Unit V</span><h1>Non-Parametric Statistical Tests</h1><p class="byline">Probability and Statistics · 5 questions · <a href="../../notes/ps/u5/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">A company claims that the median assembly time of a product is 50 minutes. A sample of 12 workers gave 52, 48, 49, 55, 51, 47, 50, 53, 46, 54, 49, 51. Use the <a class="wk" href="../../terms/sign-test.html">sign test</a> at the 5% level.</h4><div class="ans"><div class="tag">Answer</div><p>\(H_0:\tilde\mu=50\), \(H_1:\tilde\mu\ne50\).
+Signs: 52(+), 48(−), 49(−), 55(+), 51(+), 47(−), <strong>50 (tie, discard)</strong>, 53(+), 46(−), 54(+), 49(−), 51(+).
+Plus signs \(=6\), minus signs \(=5\), so effective \(n=11\).
+Under \(H_0\): \(X\sim B(11,0.5)\). Test statistic = smaller count \(=5\).
+\(P(X\le5)=0.5\) (symmetry of \(B(11,\frac12)\)), so the two-sided \(p=2(0.5)=1.0\) (capped at 1).
+\(p=1.0&gt;0.05\): <strong>cannot reject \(H_0\)</strong>. The sample gives no evidence against the claim of a 50-minute median.</p></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">The following arrangement indicates whether 60 consecutive cars passing a toll booth had local plates (L) or out-of-state plates (O). Test at the 0.05 level whether the arrangement of L's and O's may be regarded as random.</h4><div class="ans"><div class="tag">Answer</div><p>Count the symbols from the paper: \(n_1=38\) (L), \(n_2=22\) (O), number of runs \(u=28\). <em>(These counts come from my reading of the scanned sequence; recount on your paper and put in your own numbers using the same formulas.)</em></p>
+<p>\(H_0\): the arrangement is random. \(H_1\): not random. Both \(n_1,n_2\) are large, so use the normal approximation:
+\[\mu_u=\frac{2n_1n_2}{n_1+n_2}+1=\frac{2(38)(22)}{60}+1=28.87\]
+\[\sigma_u=\sqrt{\frac{2n_1n_2(2n_1n_2-n_1-n_2)}{(n_1+n_2)^2(n_1+n_2-1)}}=\sqrt{\frac{1672(1612)}{3600(59)}}=3.56\]
+\[z=\frac{u-\mu_u}{\sigma_u}=\frac{28-28.87}{3.56}=-0.24\]
+\(|z|=0.24&lt;1.96\): <strong>do not reject \(H_0\)</strong>; the arrangement may be regarded as random.</p></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K2</span></div><h4 class="qtext">(OR) Explain the steps involved in the Mann–Whitney \(U\) test.</h4><div class="ans"><div class="tag">Answer</div><p>Used to test whether two independent samples come from identical populations (<a class="wk" href="../../terms/non-parametric.html">non-parametric</a> alternative to the two-sample \(t\) test).</p>
+<ol>
+<li>State \(H_0\): the two populations are identical; \(H_1\): one tends to give larger values (or just "not identical").</li>
+<li><strong>Combine</strong> the \(n_1+n_2\) values and <strong>rank</strong> them from smallest (rank 1); tied values get the average of their ranks.</li>
+<li>Find \(W_1\) and \(W_2\), the rank sums of sample 1 and sample 2 (check \(W_1+W_2=\frac{N(N+1)}2\), \(N=n_1+n_2\)).</li>
+<li>Compute \(U_1=W_1-\dfrac{n_1(n_1+1)}2\) and \(U_2=W_2-\dfrac{n_2(n_2+1)}2\); check \(U_1+U_2=n_1n_2\).</li>
+<li>For small samples compare \(\min(U_1,U_2)\) with the table value. For large samples (\(n_1,n_2&gt;8\)) use the normal approximation: \(\mu_U=\dfrac{n_1n_2}2\), \(\sigma_U^2=\dfrac{n_1n_2(n_1+n_2+1)}{12}\), \(Z=\dfrac{U_1-\mu_U}{\sigma_U}\).</li>
+<li><strong>Decide</strong>: reject \(H_0\) if \(|Z|&gt;z_{\alpha/2}\) (two-sided), or \(Z&gt;z_\alpha\) / \(Z&lt;-z_\alpha\) for one-sided tests.
+Worked example from the lectures: two sands, \(n_1=15,n_2=14\): \(W_1=162\), \(U_1=42\), \(Z=-2.75&lt;-2.575\), reject at 1%.</li>
+</ol></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">(OR) The ranks assigned by two judges to 8 contestants: Judge A: 1, 2, 3, 4, 5, 6, 7, 8; Judge B: 2, 1, 4, 3, 5, 7, 6, 8. Compute <a class="wk" href="../../terms/spearman.html">Spearman</a>'s rank correlation and test for significance.</h4><div class="ans"><div class="tag">Answer</div><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>A</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+<td>6</td>
+<td>8</td>
+</tr>
+<tr>
+<td>\(d\)</td>
+<td>−1</td>
+<td>1</td>
+<td>−1</td>
+<td>1</td>
+<td>0</td>
+<td>−1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>\(d^2\)</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p>\(\sum d^2=6\).
+\[r_s=1-\frac{6\sum d^2}{n(n^2-1)}=1-\frac{36}{8\times63}=1-0.0714=\mathbf{0.9286}\]
+<strong>Test:</strong> \(H_0\): no association (\(\rho_s=0\)); \(H_1\): association exists.</p>
+<ul>
+<li>Using the lecturer's statistic \(Z=r_s\sqrt n=0.9286\times2.828=2.63&gt;1.96\): reject at 5%.</li>
+<li>Using the common book form \(z=r_s\sqrt{n-1}=0.9286\times2.646=2.46&gt;1.96\): also reject.</li>
+<li>(For small \(n=8\) the exact table critical value at 5% two-tailed is \(0.738\); \(0.9286&gt;0.738\) also gives significance.)
+<strong>Conclusion:</strong> the two judges' rankings are strongly and significantly positively related.</li>
+</ul></div></article><article class="qa exp" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO5 K3</span></div><h4 class="qtext">Explain the Kruskal–Wallis test with an example.</h4><div class="ans"><div class="tag">Answer</div><p><a class="wk" href="../../terms/non-parametric.html">Non-parametric</a> alternative to one-way ANOVA for \(k\ge3\) independent samples. Rank all \(n\) observations together, find the rank sum \(R_i\) of each group.
+\[H=\frac{12}{n(n+1)}\sum_{i=1}^k\frac{R_i^2}{n_i}-3(n+1)\]
+Valid if every \(n_i&gt;5\); compare \(H\) with \(\chi^2_\alpha(k-1)\). Reject if \(H&gt;\chi^2_\alpha\).
+Example (corrosion methods A, B, C; \(n=18\)): \(R_A=84,R_B=55.5,R_C=31.5\),
+\(H=\dfrac{12}{18\cdot19}\left(\dfrac{84^2}6+\dfrac{55.5^2}7+\dfrac{31.5^2}5\right)-57=6.67&gt;5.991=\chi^2_{0.05}(2)\): reject; the three methods are not equally effective.</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

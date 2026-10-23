@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operating Systems Unit III questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2f7d32"><a class="rs" href="index.html">Operating Systems</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li class="cur"><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#2f7d32"><a class="rs" href="index.html">Operating Systems</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li class="cur"><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Operating Systems</a> <span>›</span> <b>Unit III</b></nav>
+    <article class="wiki" style="--h:#2f7d32"><span class="ulabel">Part B · Unit III</span><h1>Process Synchronization and Deadlocks</h1><p class="byline">Operating Systems · 6 questions · <a href="../../notes/os/u3/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">Explain monitors.</h4><div class="ans"><div class="tag">Answer</div><p>A <strong>monitor</strong> is a high-level synchronisation construct: an <strong>abstract data type</strong> whose shared data can be accessed <strong>only through the monitor's procedures</strong>, and <strong>only one process can be active in the monitor at a time</strong>.</p>
+<div class="code"><pre><code>monitor Buffer {
+    int count = 0;                 // shared data
+    condition notFull, notEmpty;   // condition variables
+    procedure insert(item) {
+        if (count == N) notFull.wait();
+        add item; count++;
+        notEmpty.signal();
+    }
+    procedure remove() {
+        if (count == 0) notEmpty.wait();
+        take item; count--;
+        notFull.signal();
+    }
+}</code></pre></div>
+<ul>
+<li><strong>Condition variables</strong> <code>x</code>: <code>x.wait()</code> suspends the calling process until another process calls <code>x.signal()</code>, which resumes exactly one suspended process (no effect if none waits, unlike a <a class="wk" href="../../terms/semaphore.html">semaphore</a>).</li>
+<li>With <code>signal</code>, the signaller and the resumed process must not both be active: <em>signal and wait</em> (signaller waits) or <em>signal and continue</em> (resumed waits).</li>
+<li>Java's <code>synchronized</code> with <code>wait()</code>/<code>notify()</code> implements the idea.</li>
+</ul></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">Explain <a class="wk" href="../../terms/semaphore.html">semaphores</a>.</h4><div class="ans"><div class="tag">Answer</div><p>A <strong><a class="wk" href="../../terms/semaphore.html">semaphore</a></strong> \(S\) is an integer variable accessed only through two atomic operations:</p>
+<div class="code"><pre><code>wait(S)   { while (S &lt;= 0) ;  S--; }     // P
+signal(S) { S++; }                       // V</code></pre></div>
+<ul>
+<li><strong>Binary semaphore</strong> (0/1, like a <a class="wk" href="../../terms/mutex.html">mutex</a> lock) and <strong>counting semaphore</strong> (number of resource instances).</li>
+<li>Busy waiting (<em>spinlock</em>) wastes CPU; the <strong>blocking</strong> implementation puts the process in a waiting queue and wakes it up on <code>signal</code>, so <code>S</code> can become negative (its magnitude = waiting processes).</li>
+<li><strong><a class="wk" href="../../terms/mutual-exclusion.html">Mutual exclusion</a></strong>: <code>wait(mutex); critical section; signal(mutex);</code> with <code>mutex = 1</code>.</li>
+<li><strong>Ordering</strong>: to run S2 after S1, use a semaphore initialised to 0.</li>
+<li><strong>Problems</strong>: wrong order or a missing <code>signal</code> causes <a class="wk" href="../../terms/deadlock.html">deadlock</a> or violates mutual exclusion; also priority inversion.
+Classic uses: bounded buffer (<code>mutex=1</code>, <code>empty=n</code>, <code>full=0</code>), readers–writers, <a class="wk" href="../../terms/dining-philosophers.html">dining philosophers</a>.</li>
+</ul></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">(OR) Differentiate between monitors and <a class="wk" href="../../terms/semaphore.html">semaphores</a>.</h4><div class="ans"><div class="tag">Answer</div><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Semaphore</th>
+<th>Monitor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer variable with <code>wait</code>/<code>signal</code></td>
+<td>Language construct (abstract data type)</td>
+</tr>
+<tr>
+<td>Programmer writes the synchronisation everywhere it is needed</td>
+<td>Compiler guarantees <strong><a class="wk" href="../../terms/mutual-exclusion.html">mutual exclusion</a> automatically</strong></td>
+</tr>
+<tr>
+<td>Easy to make errors (omit, swap, double <code>wait</code>)</td>
+<td>Safer, errors are localised</td>
+</tr>
+<tr>
+<td><code>signal</code> is remembered (count)</td>
+<td><code>signal</code> on a condition with no waiter is <strong>lost</strong></td>
+</tr>
+<tr>
+<td>Low level, flexible</td>
+<td>High level, easier to reason about</td>
+</tr>
+<tr>
+<td>OS-level, supported in any language with a library</td>
+<td>Needs language support (Java, C#, Modula)</td>
+</tr>
+</tbody>
+</table></div></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">(OR) Explain <a class="wk" href="../../terms/deadlock.html">deadlock</a> prevention.</h4><div class="ans"><div class="tag">Answer</div><p><strong><a class="wk" href="../../terms/deadlock.html">Deadlock</a></strong>: a set of processes each waiting for a resource held by another in the set. It needs four conditions together (<a class="wk" href="../../terms/mutual-exclusion.html">mutual exclusion</a>, hold and wait, no pre-emption, circular wait). <strong>Prevention</strong> ensures that at least one of them can never hold:</p>
+<ol>
+<li><strong>Mutual exclusion</strong>: make resources sharable (read-only files). Not possible for inherently non-sharable resources (printer).</li>
+<li><strong>Hold and wait</strong>: a process must request <strong>all</strong> its resources at once before it starts, or may request only when it holds none. Drawbacks: low resource use, <a class="wk" href="../../terms/starvation.html">starvation</a>.</li>
+<li><strong>No pre-emption</strong>: if a process holding resources requests another that is unavailable, it <strong>releases</strong> all that it holds (they are pre-empted), or a resource is taken from a waiting holder. Works for CPU registers and memory, not for printers.</li>
+<li><strong>Circular wait</strong>: impose a <strong>total ordering</strong> of resource types, \(F: R\to N\), and make processes request resources in increasing order only. This is the most practical method.
+Side effect of prevention: poor device utilisation and reduced throughput.</li>
+</ol></div></article><article class="qa exp" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO3 K3</span></div><h4 class="qtext">Explain the <a class="wk" href="../../terms/banker-s-algorithm.html">Banker's algorithm</a> with an example.</h4><div class="ans"><div class="tag">Answer</div><p><em><a class="wk" href="../../terms/deadlock.html">Deadlock</a> avoidance</em>: each process declares its maximum need; a request is granted only if the system <strong>stays in a safe state</strong> (a safe sequence exists).
+Data structures (n processes, m resource types): <strong>Available[m]</strong>, <strong>Max[n][m]</strong>, <strong>Allocation[n][m]</strong>, <strong>Need = Max − Allocation</strong>.</p>
+<p><em>Safety algorithm</em>: Work = Available; Finish[i] = false. Find i with Finish[i] = false and Need[i] ≤ Work; set Work += Allocation[i], Finish[i] = true; repeat. If all finish → safe.</p>
+<p>Example (A, B, C): Available = (3, 3, 2)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Allocation</th>
+<th>Max</th>
+<th>Need</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>0 1 0</td>
+<td>7 5 3</td>
+<td>7 4 3</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>2 0 0</td>
+<td>3 2 2</td>
+<td>1 2 2</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>3 0 2</td>
+<td>9 0 2</td>
+<td>6 0 0</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>2 1 1</td>
+<td>2 2 2</td>
+<td>0 1 1</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>0 0 2</td>
+<td>4 3 3</td>
+<td>4 3 1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Work = (3,3,2). P1 (1,2,2 ≤ work) → Work = (5,3,2). P3 → (7,4,3). P4 → (7,4,5). P0 → (7,5,5). P2 → (10,5,7). Safe sequence <strong>⟨P1, P3, P4, P0, P2⟩</strong>: the state is safe.</p></div></article><article class="qa exp" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO3 K3</span></div><h4 class="qtext">Explain the classical problems of <a class="wk" href="../../terms/synchronization.html">synchronization</a> (bounded buffer, readers–writers, <a class="wk" href="../../terms/dining-philosophers.html">dining philosophers</a>).</h4><div class="ans"><div class="tag">Answer</div><p><strong>Bounded buffer</strong>: <a class="wk" href="../../terms/semaphore.html">semaphores</a> <code>mutex = 1</code>, <code>empty = n</code>, <code>full = 0</code>.</p>
+<div class="code"><pre><code>Producer: wait(empty); wait(mutex); add item; signal(mutex); signal(full);
+Consumer: wait(full);  wait(mutex); remove item; signal(mutex); signal(empty);</code></pre></div>
+<p><strong>Readers–writers</strong>: many readers may read together, a writer needs exclusive access. <code>rw_mutex = 1</code>, <code>mutex = 1</code>, <code>read_count = 0</code>. First reader locks <code>rw_mutex</code>, last reader releases it. Writer: <code>wait(rw_mutex); write; signal(rw_mutex);</code>. This <em>first</em> version can starve writers.</p>
+<p><strong><a class="wk" href="../../terms/dining-philosophers.html">Dining philosophers</a></strong>: 5 philosophers, 5 chopsticks (semaphore each). Naive solution: each picks left then right; if all pick the left, <strong><a class="wk" href="../../terms/deadlock.html">deadlock</a></strong>. Remedies: at most 4 philosophers sit, pick both chopsticks only if both are available (inside a <a class="wk" href="../../terms/critical-section.html">critical section</a>), or asymmetric pick (odd: left first, even: right first).</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

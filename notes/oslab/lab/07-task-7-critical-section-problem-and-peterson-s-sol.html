@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 7 — Critical-section problem and Peterson's solution · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li class="cur"><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li class="cur"><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">OS Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 7 — Critical-section problem and Peterson's solution</b></nav>
+    <article class="wiki" style="--h:#3f8f43"><h1>Task 7 — Critical-section problem and Peterson's solution</h1><p class="byline">Operating Systems Lab · Lab: Programming Tasks 1 to 17</p><aside class="infobox" style="--h:#3f8f43"><div class="ib-h">Task 7 — Critical-section problem and Peterson's solution</div><dl><dt>Subject</dt><dd><a href="../index.html">Operating Systems Lab</a> (24CS204)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Programming Tasks 1 to 17</a></dd><dt>Topic</dt><dd>7 of 17</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/race-condition.html">Race condition</a>, <a href="../../../terms/mutex.html">Mutex</a>, <a href="../../../terms/mutual-exclusion.html">Mutual exclusion</a>, <a href="../../../terms/critical-section.html">Critical section</a>, <a href="../../../terms/semaphore.html">Semaphore</a>, <a href="../../../terms/peterson-s-solution.html">Peterson's solution</a></dd></dl></aside><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Show a <a class="wk" href="../../../terms/race-condition.html">race condition</a> and solve the critical-section problem for two threads using Peterson's algorithm and a <a class="wk" href="../../../terms/mutex.html">mutex</a> lock.</li>
+<li><strong>Theory</strong><ul>
+<li>A <strong>race condition</strong> occurs when the result depends on the order of access to shared data. A solution must give <strong><a class="wk" href="../../../terms/mutual-exclusion.html">mutual exclusion</a>, progress and bounded waiting</strong>. <strong>Peterson's algorithm</strong> uses <code>flag[2]</code> and <code>turn</code>: <code>flag[i]=1; turn=j; while(flag[j] &amp;&amp; turn==j);</code> — <a class="wk" href="../../../terms/critical-section.html">critical section</a> — <code>flag[i]=0</code>. On modern CPUs compilers and processors reorder memory operations, so the program must use <strong>atomic operations with sequentially consistent ordering (memory barriers)</strong> — here C11 <code>atomic_int</code></li>
+<li>A <strong>mutex</strong> is the simpler tool: <code>pthread_mutex_lock()</code> / <code>pthread_mutex_unlock()</code> (see Unit III)</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong><ul>
+<li>Create two threads, each incrementing a shared counter 200,000 times</li>
+<li>Protect the increment with Peterson's entry/exit code; print the total</li>
+<li>Repeat with a pthread mutex</li>
+<li>(Without any protection the total is usually less than 400,000: remove the lock to see it)</li>
+</ul>
+</li>
+</ul>
+<div class="code"><span class="lang">c</span><pre><code class="language-c">/* Task 7: critical-section problem: race condition, Peterson's solution, mutex */
+#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;stdatomic.h&gt;
+#define LOOPS 200000
+
+long counter = 0;
+/* Peterson's algorithm for two threads; seq_cst atomics supply the memory barriers it needs on modern CPUs */
+atomic_int flag[2], turn;
+void enter(int i) { int j = 1 - i; atomic_store(&amp;flag[i], 1); atomic_store(&amp;turn, j);
+                    while (atomic_load(&amp;flag[j]) &amp;&amp; atomic_load(&amp;turn) == j) ; }
+void leave(int i) { atomic_store(&amp;flag[i], 0); }
+
+void *worker_peterson(void *arg) {
+    int id = *(int *)arg;
+    for (int i = 0; i &lt; LOOPS; i++) { enter(id); counter++; leave(id); }
+    return NULL;
+}
+pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
+void *worker_mutex(void *arg) {
+    for (int i = 0; i &lt; LOOPS; i++) { pthread_mutex_lock(&amp;m); counter++; pthread_mutex_unlock(&amp;m); }
+    return NULL;
+}
+int main() {
+    pthread_t t[2]; int id[2] = {0, 1};
+    counter = 0;
+    pthread_create(&amp;t[0], NULL, worker_peterson, &amp;id[0]);
+    pthread_create(&amp;t[1], NULL, worker_peterson, &amp;id[1]);
+    pthread_join(t[0], NULL); pthread_join(t[1], NULL);
+    printf("Peterson's solution : counter = %ld (expected %d)\n", counter, 2 * LOOPS);
+    counter = 0;
+    pthread_create(&amp;t[0], NULL, worker_mutex, NULL);
+    pthread_create(&amp;t[1], NULL, worker_mutex, NULL);
+    pthread_join(t[0], NULL); pthread_join(t[1], NULL);
+    printf("Mutex lock          : counter = %ld (expected %d)\n", counter, 2 * LOOPS);
+    return 0;
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">Peterson's solution : counter = 400000 (expected 400000)
+Mutex lock          : counter = 400000 (expected 400000)</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>What are the three requirements of a critical-section solution?</li>
+<li>Why can Peterson's algorithm fail without memory barriers?</li>
+<li>Why do we use <code>volatile</code>/atomics here?</li>
+<li>Mutex vs <a class="wk" href="../../../terms/semaphore.html">semaphore</a>?</li>
+<li>What is busy waiting? (spinlock)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>Each thread executes <code>counter++</code> 200,000 times, so a correct result is 400,000. In <a class="wk" href="../../../terms/peterson-s-solution.html">Peterson's solution</a> each thread first announces that it wants to enter (<code>flag[i]=1</code>), then gives the turn to the other (<code>turn=j</code>), and waits while the other wants to enter and it is the other's turn. <a class="wk" href="../../../terms/mutual-exclusion.html">Mutual exclusion</a> holds, so no increment is lost. The atomic variables are essential: with ordinary variables the compiler or the CPU may reorder the store operations and the algorithm may break on modern hardware. The <a class="wk" href="../../../terms/mutex.html">mutex</a> version gives the same total.</p></div><nav class="pager"><a class="prev" href="06-task-6-real-time-scheduling-earliest-deadline-firs.html"><small>← Previous</small>Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a><a class="next" href="08-task-8-producer-consumer-problem-using-semaphores.html"><small>Next →</small>Task 8 — Producer–consumer problem using semaphores</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

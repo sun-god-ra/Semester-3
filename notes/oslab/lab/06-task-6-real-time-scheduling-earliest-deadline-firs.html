@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS) · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li class="cur"><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li class="cur"><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">OS Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</b></nav>
+    <article class="wiki" style="--h:#3f8f43"><h1>Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</h1><p class="byline">Operating Systems Lab · Lab: Programming Tasks 1 to 17</p><aside class="infobox" style="--h:#3f8f43"><div class="ib-h">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</div><dl><dt>Subject</dt><dd><a href="../index.html">Operating Systems Lab</a> (24CS204)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Programming Tasks 1 to 17</a></dd><dt>Topic</dt><dd>6 of 17</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/real-time.html">Real-time</a></dd></dl></aside><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Simulate RMS and EDF for periodic tasks and check the deadlines.</li>
+<li><strong>Theory</strong><ul>
+<li>A periodic task has period \(p\), burst \(t\), and its deadline is the end of the period. <strong>RMS:</strong> <strong>static</strong> priority — <strong>shorter period = higher priority</strong>; preemptive; schedulable if \(U=\sum t_i/p_i\le N(2^{1/N}-1)\) (0.828 for 2 tasks) — a <em>sufficient</em> test, not necessary. <strong>EDF:</strong> <strong>dynamic</strong> priority — the task with the <strong>earliest absolute deadline</strong> runs; optimal: schedulable if \(U\le1\)</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong><ul>
+<li>At each time unit \(t\), release a new job of task \(i\) if \(t\) is a multiple of \(p_i\) (if the previous job is unfinished, report a missed deadline)</li>
+<li>Choose among the ready jobs: RMS — the smallest period; EDF — the earliest absolute deadline</li>
+<li>Run it for one unit; record the schedule over the hyper-period (LCM of the periods = 400 here; 200 shown)</li>
+</ul>
+</li>
+</ul>
+<div class="code"><span class="lang">c</span><pre><code class="language-c">/* Task 6: real-time scheduling simulation, RMS and EDF, unit time steps over the hyper-period */
+#include &lt;stdio.h&gt;
+#define N 2
+int main() {
+    int period[N] = {50, 80}, burst[N] = {25, 35};
+    double u = 0;
+    for (int i = 0; i &lt; N; i++) u += (double)burst[i] / period[i];
+    printf("P1: p=50 t=25, P2: p=80 t=35, utilisation = %.4f\n", u);
+    printf("RMS bound for 2 tasks = 0.8284, EDF bound = 1.0\n");
+    for (int mode = 0; mode &lt; 2; mode++) {            /* 0 = RMS, 1 = EDF */
+        printf("\n%s schedule over 0..200:\n", mode == 0 ? "Rate-monotonic" : "Earliest deadline first");
+        int rem[N] = {0, 0}, dl[N] = {0, 0}, missed = 0;
+        char last = 0; int start = 0;
+        for (int t = 0; t &lt; 200; t++) {
+            for (int i = 0; i &lt; N; i++) {
+                if (t % period[i] == 0) {
+                    if (rem[i] &gt; 0) { printf("  t=%3d: P%d MISSED its deadline (%d units left)\n", t, i + 1, rem[i]); missed++; }
+                    rem[i] = burst[i]; dl[i] = t + period[i];
+                }
+            }
+            int k = -1;
+            for (int i = 0; i &lt; N; i++) {
+                if (rem[i] &lt;= 0) continue;
+                if (k &lt; 0) k = i;
+                else if (mode == 0 ? period[i] &lt; period[k] : dl[i] &lt; dl[k]) k = i;
+            }
+            char c = k &lt; 0 ? 'I' : (char)('1' + k);
+            if (c != last) { if (last) printf("  %3d..%3d : %s%c\n", start, t, last == 'I' ? "idle " : "P", last == 'I' ? ' ' : last); last = c; start = t; }
+            if (k &gt;= 0) rem[k]--;
+        }
+        printf("  %3d..200 : %s%c\n", start, last == 'I' ? "idle " : "P", last == 'I' ? ' ' : last);
+        printf("  deadlines missed = %d\n", missed);
+    }
+    return 0;
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">P1: p=50 t=25, P2: p=80 t=35, utilisation = 0.9375
+RMS bound for 2 tasks = 0.8284, EDF bound = 1.0
+
+Rate-monotonic schedule over 0..200:
+    0.. 25 : P1
+   25.. 50 : P2
+   50.. 75 : P1
+  t= 80: P2 MISSED its deadline (5 units left)
+   75..100 : P2
+  100..125 : P1
+  125..140 : P2
+  140..150 : idle  
+  150..175 : P1
+  175..200 : P2
+  deadlines missed = 1
+
+Earliest deadline first schedule over 0..200:
+    0.. 25 : P1
+   25.. 60 : P2
+   60.. 85 : P1
+   85..100 : P2
+  100..125 : P1
+  125..145 : P2
+  145..150 : idle  
+  150..175 : P1
+  175..200 : P2
+  deadlines missed = 0</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>Why does RMS fail with U = 0.9375 while EDF succeeds?</li>
+<li>State the RMS utilisation bound; what is its limit for large N? (69 %, ln 2)</li>
+<li>Static vs dynamic priority?</li>
+<li>Soft vs hard <a class="wk" href="../../../terms/real-time.html">real-time</a>?</li>
+<li>Is EDF optimal? Is RMS?</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>The two tasks are P1 (period 50, burst 25) and P2 (period 80, burst 35). Their utilisation is 0.9375, which exceeds the RMS bound 0.828, but is less than the EDF bound of 1. In RMS, P1 has the higher priority (shorter period), so it takes 25 units of every 50, and at time 80 P2 has run only 30 of its 35 units, so it misses the deadline. In EDF, at time 50 the deadline of P1 is 100 and that of P2 is 80, so P2 continues until it finishes, and no deadline is missed. This is the example of Unit II.</p></div><nav class="pager"><a class="prev" href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html"><small>← Previous</small>Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a><a class="next" href="07-task-7-critical-section-problem-and-peterson-s-sol.html"><small>Next →</small>Task 7 — Critical-section problem and Peterson's solution</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

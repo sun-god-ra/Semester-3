@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Logic Design Unit I questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li class="cur"><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="index.html">Digital Logic Design</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li class="cur"><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Digital Logic</a> <span>›</span> <b>Unit I</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><span class="ulabel">Part B · Unit I</span><h1>Number Systems, Boolean Algebra, and Logic Gates</h1><p class="byline">Digital Logic Design · 6 questions · <a href="../../notes/dld/u1/index.html">Notes for this unit</a></p><article class="qa exp" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO1 K3</span></div><h4 class="qtext">Convert (a) \((156.625)_{10}\) to binary, octal and hexadecimal; (b) \((2AF.8)_{16}\) to decimal and binary.</h4><div class="ans"><div class="tag">Answer</div><p><strong>(a)</strong> Integer part: \(156=10011100_2\) (128+16+8+4). Fraction \(0.625\): \(\times2=1.25\to1\), \(0.25\times2=0.5\to0\), \(0.5\times2=1.0\to1\) so \(0.625=0.101_2\).
+Binary: \((10011100.101)_2\).
+Octal: group in 3 from the point: \(010\ 011\ 100\ .\ 101=(234.5)_8\).
+Hex: group in 4: \(1001\ 1100\ .\ 1010=(9C.A)_{16}\). Check: \(9\times16+12=156\); \(A/16=0.625\) ✓.</p>
+<p><strong>(b)</strong> \((2AF.8)_{16}=2\times256+10\times16+15+8/16=512+160+15+0.5=\mathbf{687.5}\).
+Binary: each hex digit to 4 bits: \(0010\ 1010\ 1111\ .\ 1000=(1010101111.1)_2\).</p></div></article><article class="qa exp" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO1 K3</span></div><h4 class="qtext">Perform \((1010100)_2-(1000011)_2\) using 2's complement. Also explain the \(r\)'s and \((r-1)\)'s complement.</h4><div class="ans"><div class="tag">Answer</div><p>\(84-67=17\).
+2's complement of \(1000011\): invert \(\to0111100\), add 1 \(\to0111101\).
+\(1010100+0111101=1\,0010001\). The carry out (1) shows the result is <strong>positive</strong>; discard it: \((0010001)_2=17\) ✓.</p>
+<p>If there were <strong>no end carry</strong>, the result is negative: take the 2's complement of the sum and put a minus sign.</p>
+<p><strong>Complements.</strong> The \(r\)'s complement of an \(n\)-digit number \(N\) in base \(r\) is \(r^n-N\) (2's complement in binary, 10's in decimal). The \((r-1)\)'s complement is \((r^n-1)-N\) (1's complement in binary: flip all bits; 9's in decimal). Relation: \(r\text{'s}=(r-1)\text{'s}+1\). For 1's complement subtraction the end-around carry is added back.</p></div></article><article class="qa exp" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Prove using <a class="wk" href="../../terms/boolean-algebra.html">Boolean algebra</a>: (a) \(A+AB=A\) (b) \(A+A'B=A+B\) (c) the consensus theorem \(AB+A'C+BC=AB+A'C\).</h4><div class="ans"><div class="tag">Answer</div><p>(a) \(A+AB=A(1+B)=A\cdot1=A\).
+(b) \(A+A'B=(A+A')(A+B)=1\cdot(A+B)=A+B\) (distributive law).
+(c) \(AB+A'C+BC=AB+A'C+BC(A+A')=AB+A'C+ABC+A'BC=AB(1+C)+A'C(1+B)=AB+A'C\) ∎</p></div></article><article class="qa exp" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO1 K3</span></div><h4 class="qtext">Express \(F(A,B,C)=\sum m(1,3,5,6)\) in canonical SOP and POS. Implement the simplified form using <a class="wk" href="../../terms/nand.html">NAND</a> gates only.</h4><div class="ans"><div class="tag">Answer</div><p>SOP: \(F=A'B'C+A'BC+AB'C+ABC'\).
+POS: the other rows (0, 2, 4, 7): \(F=\prod M(0,2,4,7)=(A+B+C)(A+B'+C)(A'+B+C)(A'+B'+C')\).</p>
+<p>Simplify: \(m1,m3,m5\): \(A'B'C+A'BC+AB'C=C(A'B'+A'B+AB')=C(A'+B')=C\,(AB)'\). So \(F=C(AB)'+ABC'\). This is \(F=C\oplus AB\) (since \(m6=ABC'\) and \(m1,3,5\) are \(C=1,AB=0\)).
+<a class="wk" href="../../terms/nand.html">NAND</a> realisation of \(F=C\oplus X\) with \(X=AB\):</p>
+<ul>
+<li>\(X=AB\) needs an AND: one NAND plus one NAND used as an inverter (2 gates).</li>
+<li><a class="wk" href="../../terms/xor.html">XOR</a> from four NANDs: \(N_1=(CX)'\), \(N_2=(C\,N_1)'\), \(N_3=(X\,N_1)'\), \(F=(N_2N_3)'\).
+Total <strong>6 NAND gates</strong>.</li>
+</ul></div></article><article class="qa exp" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Convert \(-13.25\) to the <a class="wk" href="../../terms/ieee-754.html">IEEE 754</a> single-precision format.</h4><div class="ans"><div class="tag">Answer</div><p>\(13.25=1101.01_2=1.10101\times2^3\).
+Sign \(=1\). Exponent \(=3+127=130=10000010_2\). Mantissa \(=10101\) followed by zeros (19 zeros to fill the 23 bits).
+\[1\ |\ 10000010\ |\ 10101000000000000000000\]
+In hex: \(\mathbf{C1540000}\).</p></div></article><article class="qa exp" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO1 K2</span></div><h4 class="qtext">Explain the logic gates with symbols, truth tables and Boolean expressions. Show how <a class="wk" href="../../terms/nand.html">NAND</a> and <a class="wk" href="../../terms/nor.html">NOR</a> are universal.</h4><div class="ans"><div class="tag">Answer</div><div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Expression</th>
+<th>Output is 1 when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOT</td>
+<td>\(Y=A'\)</td>
+<td>input 0</td>
+</tr>
+<tr>
+<td>AND</td>
+<td>\(Y=AB\)</td>
+<td>all inputs 1</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>\(Y=A+B\)</td>
+<td>any input 1</td>
+</tr>
+<tr>
+<td><a class="wk" href="../../terms/nand.html">NAND</a></td>
+<td>\(Y=(AB)'\)</td>
+<td>any input 0</td>
+</tr>
+<tr>
+<td><a class="wk" href="../../terms/nor.html">NOR</a></td>
+<td>\(Y=(A+B)'\)</td>
+<td>all inputs 0</td>
+</tr>
+<tr>
+<td><a class="wk" href="../../terms/xor.html">XOR</a></td>
+<td>\(Y=A\oplus B=A'B+AB'\)</td>
+<td>inputs differ</td>
+</tr>
+<tr>
+<td><a class="wk" href="../../terms/xnor.html">XNOR</a></td>
+<td>\(Y=A\odot B=AB+A'B'\)</td>
+<td>inputs equal</td>
+</tr>
+</tbody>
+</table></div>
+<p>Truth table for two inputs (A B → AND, OR, NAND, NOR, XOR, XNOR): 00 → 0,0,1,1,0,1; 01 → 0,1,1,0,1,0; 10 → 0,1,1,0,1,0; 11 → 1,1,0,0,0,1.</p>
+<p><strong>NAND is universal:</strong> NOT: \((AA)'=A'\). AND: \(((AB)')'\) (two NANDs). OR: \((A'B')'=A+B\) (three NANDs).
+<strong>NOR is universal:</strong> NOT: \((A+A)'=A'\). OR: \(((A+B)')'\). AND: \((A'+B')'=AB\).</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

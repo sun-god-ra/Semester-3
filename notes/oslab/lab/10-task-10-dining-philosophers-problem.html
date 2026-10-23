@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 10 — Dining philosophers problem · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li class="cur"><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li class="cur"><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">OS Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 10 — Dining philosophers problem</b></nav>
+    <article class="wiki" style="--h:#3f8f43"><h1>Task 10 — Dining philosophers problem</h1><p class="byline">Operating Systems Lab · Lab: Programming Tasks 1 to 17</p><aside class="infobox" style="--h:#3f8f43"><div class="ib-h">Task 10 — Dining philosophers problem</div><dl><dt>Subject</dt><dd><a href="../index.html">Operating Systems Lab</a> (24CS204)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Programming Tasks 1 to 17</a></dd><dt>Topic</dt><dd>10 of 17</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/deadlock.html">Deadlock</a>, <a href="../../../terms/semaphore.html">Semaphore</a>, <a href="../../../terms/starvation.html">Starvation</a>, <a href="../../../terms/dining-philosophers.html">Dining philosophers</a>, <a href="../../../terms/mutual-exclusion.html">Mutual exclusion</a></dd></dl></aside><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Solve the dining-philosophers problem without <a class="wk" href="../../../terms/deadlock.html">deadlock</a> using <a class="wk" href="../../../terms/semaphore.html">semaphores</a>.</li>
+<li><strong>Theory</strong><ul>
+<li>Five philosophers, five chopsticks (semaphores = 1). The naive solution (each takes the left, then the right chopstick) may <strong>deadlock</strong> when all take the left one together. <strong>Solution used here:</strong> a semaphore <code>room = 4</code> allows at most <strong>four</strong> philosophers at the table, so at least one can always get two chopsticks (no circular wait). Other solutions: asymmetric order (odd takes left first, even takes right first), picking both chopsticks only if both are free, or a monitor</li>
+</ul>
+</li>
+<li><strong>Algorithm</strong><ul>
+<li>Initialise <code>chopstick[i] = 1</code> and <code>room = N-1</code></li>
+<li>Each philosopher: think; <code>wait(room)</code>; <code>wait(chopstick[i])</code>; <code>wait(chopstick[(i+1)%N])</code>; eat; <code>signal</code> both; <code>signal(room)</code></li>
+<li>Check that no two neighbours eat at the same time; count the meals</li>
+</ul>
+</li>
+</ul>
+<div class="code"><span class="lang">c</span><pre><code class="language-c">/* Task 10: dining philosophers: semaphore solution, at most 4 philosophers sit at the table */
+#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;semaphore.h&gt;
+#include &lt;unistd.h&gt;
+#define N 5
+#define MEALS 3
+sem_t chopstick[N], room;                    /* room = N-1 prevents the circular wait */
+pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
+int eating[N], meals[N], bad = 0;
+
+void *philosopher(void *arg) {
+    int i = *(int *)arg;
+    for (int k = 0; k &lt; MEALS; k++) {
+        usleep(100);                          /* think */
+        sem_wait(&amp;room);
+        sem_wait(&amp;chopstick[i]);
+        sem_wait(&amp;chopstick[(i + 1) % N]);
+        pthread_mutex_lock(&amp;m);
+        eating[i] = 1;
+        if (eating[(i + 1) % N] || eating[(i + N - 1) % N]) bad++;   /* neighbours must not eat together */
+        pthread_mutex_unlock(&amp;m);
+        usleep(200);                          /* eat */
+        pthread_mutex_lock(&amp;m); eating[i] = 0; meals[i]++; pthread_mutex_unlock(&amp;m);
+        sem_post(&amp;chopstick[i]);
+        sem_post(&amp;chopstick[(i + 1) % N]);
+        sem_post(&amp;room);
+    }
+    return NULL;
+}
+int main() {
+    pthread_t t[N]; int id[N];
+    for (int i = 0; i &lt; N; i++) sem_init(&amp;chopstick[i], 0, 1);
+    sem_init(&amp;room, 0, N - 1);
+    for (int i = 0; i &lt; N; i++) { id[i] = i; pthread_create(&amp;t[i], NULL, philosopher, &amp;id[i]); }
+    for (int i = 0; i &lt; N; i++) pthread_join(t[i], NULL);
+    for (int i = 0; i &lt; N; i++) printf("philosopher %d ate %d times\n", i, meals[i]);
+    printf("neighbours eating together: %d times (must be 0)\n", bad);
+    printf("no deadlock: all threads finished\n");
+    return 0;
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">philosopher 0 ate 3 times
+philosopher 1 ate 3 times
+philosopher 2 ate 3 times
+philosopher 3 ate 3 times
+philosopher 4 ate 3 times
+neighbours eating together: 0 times (must be 0)
+no deadlock: all threads finished</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>How can the naive solution deadlock? Which of the four conditions is broken by <code>room = 4</code>? (circular wait)</li>
+<li>Name two other deadlock-free solutions</li>
+<li>Does your solution prevent <a class="wk" href="../../../terms/starvation.html">starvation</a>?</li>
+<li>How does the monitor solution work?</li>
+<li>What does the <a class="wk" href="../../../terms/dining-philosophers.html">dining philosophers</a> problem represent? (allocation of several resources to several processes)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>Every philosopher eats three times, so the five threads end, which shows that there is no <a class="wk" href="../../../terms/deadlock.html">deadlock</a>. The counter that detects two neighbours eating together stays at 0, which shows <a class="wk" href="../../../terms/mutual-exclusion.html">mutual exclusion</a> on each chopstick. The limit of four philosophers at the table breaks the circular-wait condition.</p></div><nav class="pager"><a class="prev" href="09-task-9-readers-writers-problem.html"><small>← Previous</small>Task 9 — Readers–writers problem</a><a class="next" href="11-task-11-banker-s-algorithm-deadlock-avoidance.html"><small>Next →</small>Task 11 — Banker's algorithm (deadlock avoidance)</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

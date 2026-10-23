@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Class-Based Modeling · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="../index.html">Software Engineering</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-the-nature-of-software.html">The Nature of Software</a></li><li><a href="../u1/02-the-changing-nature-of-software.html">The Changing Nature of Software</a></li><li><a href="../u1/03-the-software-process.html">The Software Process</a></li><li><a href="../u1/04-software-engineering-practice.html">Software Engineering Practice</a></li><li><a href="../u1/05-software-myths.html">Software Myths</a></li><li><a href="../u1/06-prescriptive-process-models.html">Prescriptive Process Models</a></li><li><a href="../u1/07-the-unified-process-up.html">The Unified Process (UP)</a></li><li><a href="../u1/08-personal-and-team-process-models.html">Personal and Team Process Models</a></li><li><a href="../u1/09-what-is-agility.html">What is Agility?</a></li><li><a href="../u1/10-what-is-an-agile-process.html">What is an Agile Process?</a></li><li><a href="../u1/11-extreme-programming-xp.html">Extreme Programming (XP)</a></li><li><a href="../u1/12-other-agile-process-models.html">Other Agile Process Models</a></li><li><a href="../u1/13-agile-tool-set.html">Agile Tool Set</a></li></ul></details><details open><summary><a href="index.html">Unit II</a></summary><ul><li><a href="01-requirements-engineering-overview.html">Requirements Engineering — Overview</a></li><li><a href="02-establishing-the-groundwork-initiating.html">Establishing the Groundwork (Initiating)</a></li><li><a href="03-eliciting-requirements.html">Eliciting Requirements</a></li><li><a href="04-developing-use-cases.html">Developing Use Cases</a></li><li><a href="05-building-the-requirements-analysis-model.html">Building the Requirements (Analysis) Model</a></li><li><a href="06-negotiating-requirements.html">Negotiating Requirements</a></li><li><a href="07-monitoring-requirements-requirements-management.html">Monitoring Requirements (Requirements Management)</a></li><li><a href="08-validating-requirements.html">Validating Requirements</a></li><li><a href="09-scenario-based-modeling.html">Scenario-Based Modeling</a></li><li><a href="10-uml-models-that-supplement-the-use-case.html">UML Models That Supplement the Use Case</a></li><li class="cur"><a href="11-class-based-modeling.html">Class-Based Modeling</a></li><li><a href="12-associations-and-dependencies.html">Associations and Dependencies</a></li><li><a href="13-analysis-packages.html">Analysis Packages</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-requirements-modeling-behavioral-model.html">Requirements Modeling — Behavioral Model</a></li><li><a href="../u3/02-identifying-events-with-the-use-case.html">Identifying Events with the Use Case</a></li><li><a href="../u3/03-state-representations.html">State Representations</a></li><li><a href="../u3/04-patterns-for-requirements-modeling.html">Patterns for Requirements Modeling</a></li><li><a href="../u3/05-requirements-modeling-for-web-and-mobile-apps.html">Requirements Modeling for Web and Mobile Apps</a></li><li><a href="../u3/06-design-within-the-context-of-software-engineering.html">Design Within the Context of Software Engineering</a></li><li><a href="../u3/07-the-design-process.html">The Design Process</a></li><li><a href="../u3/08-design-concepts.html">Design Concepts</a></li><li><a href="../u3/09-the-design-model.html">The Design Model</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-software-architecture.html">Software Architecture</a></li><li><a href="../u4/02-architectural-genres.html">Architectural Genres</a></li><li><a href="../u4/03-architectural-styles.html">Architectural Styles</a></li><li><a href="../u4/04-architectural-considerations.html">Architectural Considerations</a></li><li><a href="../u4/05-architectural-decisions.html">Architectural Decisions</a></li><li><a href="../u4/06-component-level-design-what-is-a-component.html">Component-Level Design — What is a Component?</a></li><li><a href="../u4/07-designing-class-based-components.html">Designing Class-Based Components</a></li><li><a href="../u4/08-conducting-component-level-design.html">Conducting Component-Level Design</a></li><li><a href="../u4/09-webapp-and-mobile-app-component-level-design.html">WebApp and Mobile App Component-Level Design</a></li><li><a href="../u4/10-user-interface-design-the-golden-rules-theo-mandel.html">User Interface Design — The Golden Rules (Theo Mandel)</a></li><li><a href="../u4/11-user-interface-analysis-and-design.html">User Interface Analysis and Design</a></li><li><a href="../u4/12-webapp-and-mobile-interface-design.html">WebApp and Mobile Interface Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-a-strategic-approach-to-software-testing.html">A Strategic Approach to Software Testing</a></li><li><a href="../u5/02-organizing-for-software-testing.html">Organizing for Software Testing</a></li><li><a href="../u5/03-a-software-testing-strategy-the-big-picture-spiral.html">A Software Testing Strategy — The Big Picture (Spiral)</a></li><li><a href="../u5/04-strategic-issues.html">Strategic Issues</a></li><li><a href="../u5/05-test-strategies-for-conventional-software.html">Test Strategies for Conventional Software</a></li><li><a href="../u5/06-test-strategies-for-object-oriented-software.html">Test Strategies for Object-Oriented Software</a></li><li><a href="../u5/07-testing-fundamentals.html">Testing Fundamentals</a></li><li><a href="../u5/08-internal-and-external-views-of-testing.html">Internal and External Views of Testing</a></li><li><a href="../u5/09-white-box-testing.html">White-Box Testing</a></li><li><a href="../u5/10-basis-path-testing-tom-mccabe.html">Basis Path Testing (Tom McCabe)</a></li><li><a href="../u5/11-control-structure-testing.html">Control Structure Testing</a></li><li><a href="../u5/12-black-box-testing.html">Black-Box Testing</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="../index.html">Software Engineering</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-the-nature-of-software.html">The Nature of Software</a></li><li><a href="../u1/02-the-changing-nature-of-software.html">The Changing Nature of Software</a></li><li><a href="../u1/03-the-software-process.html">The Software Process</a></li><li><a href="../u1/04-software-engineering-practice.html">Software Engineering Practice</a></li><li><a href="../u1/05-software-myths.html">Software Myths</a></li><li><a href="../u1/06-prescriptive-process-models.html">Prescriptive Process Models</a></li><li><a href="../u1/07-the-unified-process-up.html">The Unified Process (UP)</a></li><li><a href="../u1/08-personal-and-team-process-models.html">Personal and Team Process Models</a></li><li><a href="../u1/09-what-is-agility.html">What is Agility?</a></li><li><a href="../u1/10-what-is-an-agile-process.html">What is an Agile Process?</a></li><li><a href="../u1/11-extreme-programming-xp.html">Extreme Programming (XP)</a></li><li><a href="../u1/12-other-agile-process-models.html">Other Agile Process Models</a></li><li><a href="../u1/13-agile-tool-set.html">Agile Tool Set</a></li></ul></details><details open><summary><a href="index.html">Unit II</a></summary><ul><li><a href="01-requirements-engineering-overview.html">Requirements Engineering — Overview</a></li><li><a href="02-establishing-the-groundwork-initiating.html">Establishing the Groundwork (Initiating)</a></li><li><a href="03-eliciting-requirements.html">Eliciting Requirements</a></li><li><a href="04-developing-use-cases.html">Developing Use Cases</a></li><li><a href="05-building-the-requirements-analysis-model.html">Building the Requirements (Analysis) Model</a></li><li><a href="06-negotiating-requirements.html">Negotiating Requirements</a></li><li><a href="07-monitoring-requirements-requirements-management.html">Monitoring Requirements (Requirements Management)</a></li><li><a href="08-validating-requirements.html">Validating Requirements</a></li><li><a href="09-scenario-based-modeling.html">Scenario-Based Modeling</a></li><li><a href="10-uml-models-that-supplement-the-use-case.html">UML Models That Supplement the Use Case</a></li><li class="cur"><a href="11-class-based-modeling.html">Class-Based Modeling</a></li><li><a href="12-associations-and-dependencies.html">Associations and Dependencies</a></li><li><a href="13-analysis-packages.html">Analysis Packages</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-requirements-modeling-behavioral-model.html">Requirements Modeling — Behavioral Model</a></li><li><a href="../u3/02-identifying-events-with-the-use-case.html">Identifying Events with the Use Case</a></li><li><a href="../u3/03-state-representations.html">State Representations</a></li><li><a href="../u3/04-patterns-for-requirements-modeling.html">Patterns for Requirements Modeling</a></li><li><a href="../u3/05-requirements-modeling-for-web-and-mobile-apps.html">Requirements Modeling for Web and Mobile Apps</a></li><li><a href="../u3/06-design-within-the-context-of-software-engineering.html">Design Within the Context of Software Engineering</a></li><li><a href="../u3/07-the-design-process.html">The Design Process</a></li><li><a href="../u3/08-design-concepts.html">Design Concepts</a></li><li><a href="../u3/09-the-design-model.html">The Design Model</a></li></ul></details><details><summary><a href="../u4/index.html">Unit IV</a></summary><ul><li><a href="../u4/01-software-architecture.html">Software Architecture</a></li><li><a href="../u4/02-architectural-genres.html">Architectural Genres</a></li><li><a href="../u4/03-architectural-styles.html">Architectural Styles</a></li><li><a href="../u4/04-architectural-considerations.html">Architectural Considerations</a></li><li><a href="../u4/05-architectural-decisions.html">Architectural Decisions</a></li><li><a href="../u4/06-component-level-design-what-is-a-component.html">Component-Level Design — What is a Component?</a></li><li><a href="../u4/07-designing-class-based-components.html">Designing Class-Based Components</a></li><li><a href="../u4/08-conducting-component-level-design.html">Conducting Component-Level Design</a></li><li><a href="../u4/09-webapp-and-mobile-app-component-level-design.html">WebApp and Mobile App Component-Level Design</a></li><li><a href="../u4/10-user-interface-design-the-golden-rules-theo-mandel.html">User Interface Design — The Golden Rules (Theo Mandel)</a></li><li><a href="../u4/11-user-interface-analysis-and-design.html">User Interface Analysis and Design</a></li><li><a href="../u4/12-webapp-and-mobile-interface-design.html">WebApp and Mobile Interface Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-a-strategic-approach-to-software-testing.html">A Strategic Approach to Software Testing</a></li><li><a href="../u5/02-organizing-for-software-testing.html">Organizing for Software Testing</a></li><li><a href="../u5/03-a-software-testing-strategy-the-big-picture-spiral.html">A Software Testing Strategy — The Big Picture (Spiral)</a></li><li><a href="../u5/04-strategic-issues.html">Strategic Issues</a></li><li><a href="../u5/05-test-strategies-for-conventional-software.html">Test Strategies for Conventional Software</a></li><li><a href="../u5/06-test-strategies-for-object-oriented-software.html">Test Strategies for Object-Oriented Software</a></li><li><a href="../u5/07-testing-fundamentals.html">Testing Fundamentals</a></li><li><a href="../u5/08-internal-and-external-views-of-testing.html">Internal and External Views of Testing</a></li><li><a href="../u5/09-white-box-testing.html">White-Box Testing</a></li><li><a href="../u5/10-basis-path-testing-tom-mccabe.html">Basis Path Testing (Tom McCabe)</a></li><li><a href="../u5/11-control-structure-testing.html">Control Structure Testing</a></li><li><a href="../u5/12-black-box-testing.html">Black-Box Testing</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Software Eng</a> <span>›</span> <a href="index.html">Unit II</a> <span>›</span> <b>Class-Based Modeling</b></nav>
+    <article class="wiki" style="--h:#1f6fb2"><h1>Class-Based Modeling</h1><p class="byline">Software Engineering · Unit II: Requirements Engineering</p><aside class="infobox" style="--h:#1f6fb2"><div class="ib-h">Class-Based Modeling</div><dl><dt>Subject</dt><dd><a href="../index.html">Software Engineering</a> (24CS203)</dd><dt>Unit</dt><dd><a href="index.html">Unit II: Requirements Engineering</a></dd><dt>Topic</dt><dd>11 of 13</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/crc-card.html">Crc card</a>, <a href="../../../terms/use-case.html">Use case</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/se/u2.html">Part B questions for Unit II</a> and <a href="../../../qa/se/part-a.html">Part A short questions</a>.</p><div class="toc"><b>On this page</b><ol><li><a href="#identifying-analysis-classes">Identifying analysis classes</a></li><li><a href="#specifying-attributes">Specifying attributes</a></li><li><a href="#defining-operations">Defining operations</a></li><li><a href="#crc-modeling">CRC modeling</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Class-based modeling</strong> represents the <strong>objects</strong> the system manipulates, <strong>operations (methods)</strong> applied to the objects, <strong>relationships</strong> (some hierarchical) between the objects, and <strong>collaborations</strong> between the defined classes. Elements: <strong>classes and objects, attributes, operations, CRC models, collaboration diagrams, packages</strong></li>
+</ul>
+<h5 id="identifying-analysis-classes">Identifying analysis classes</h5>
+<ul>
+<li><strong>Grammatical parse</strong> of the use-case narrative: <strong>nouns → candidate classes; verbs → operations</strong></li>
+<li><strong>Potential classes</strong> come from the following types of things<ul>
+<li><strong>External entities</strong> (other systems, devices, people) that produce or consume info</li>
+<li><strong>Things</strong> (reports, displays, letters, signals) part of the information domain</li>
+<li><strong>Occurrences / events</strong> (a property transfer, completion of a robot movement)</li>
+<li><strong>Roles</strong> (manager, engineer, salesperson) played by people</li>
+<li><strong>Organizational units</strong> (division, group, team)</li>
+<li><strong>Places</strong> (manufacturing floor, loading dock) that set the context</li>
+<li><strong>Structures</strong> (sensors, four-wheeled vehicles, computers) that define a class of objects</li>
+</ul>
+</li>
+<li><strong>Selection characteristics</strong> for a class to be valid<ol>
+<li><strong>Retained information</strong> — needed to remember the info about it</li>
+<li><strong>Needed services</strong> — operations that change attributes</li>
+<li><strong>Multiple attributes</strong> — more than one (a class with a single attribute is better an attribute)</li>
+<li><strong>Common attributes</strong> — applicable to all instances</li>
+<li><strong>Common operations</strong></li>
+<li><strong>Essential requirements</strong> — external entities that produce/consume info are classes</li>
+</ol>
+</li>
+<li><strong>Reject:</strong> class representing an implementation construct; a <strong>single attribute</strong>; something that is an <strong>operation</strong>; <strong>redundant</strong> (synonym)</li>
+</ul>
+<h5 id="specifying-attributes">Specifying attributes</h5>
+<ul>
+<li><strong>Attributes</strong> = data items that describe the class (properties). Ask: "<strong>What data items fully define this class in the context of the problem?</strong>" e.g. class <code>Player</code>: name, position, defensive status, jersey number</li>
+<li>Keep to what's <strong>needed</strong> for the problem; avoid design details</li>
+</ul>
+<h5 id="defining-operations">Defining operations</h5>
+<ul>
+<li><strong>Operations</strong> = behaviour of the object (processing). Four categories: (1) <strong>manipulate data</strong> (add, delete, reformat, select); (2) <strong>perform computation</strong>; (3) <strong>inquire about the state of an object</strong>; (4) <strong>monitor for a controlling event</strong></li>
+<li>Parse the narrative for <strong>verbs</strong>; consider <strong>communication between objects</strong> (messages)</li>
+</ul>
+<figure class="fig"><pre class="mermaid">classDiagram
+  class Camera {
+    -int cameraID
+    -String type
+    -int viewAngle
+    -double pan
+    +setPan(angle)
+    +setZoom(level)
+    +displayView()
+  }
+  class FloorPlan {
+    -String name
+    -int width
+    -int height
+    +draw()
+    +placeDevice()
+  }
+  class Sensor {
+    -int sensorID
+    -String type
+    +read()
+  }
+  FloorPlan "1" o-- "0..*" Camera : contains
+  FloorPlan "1" o-- "0..*" Sensor : contains</pre></figure>
+<h5 id="crc-modeling">CRC modeling</h5>
+<ul>
+<li><strong><a class="wk" href="../../../terms/crc-card.html">CRC card</a></strong> (Class–Responsibility–Collaborator): index card with <strong>class name</strong> (top), <strong>responsibilities</strong> (left), <strong>collaborators</strong> (right). Developed by Beck &amp; Cunningham</li>
+<li><strong>Responsibilities</strong> = attributes and operations relevant to the class ("something a class knows or does")</li>
+<li><strong>Collaborators</strong> = other classes required to provide information or help to complete a responsibility. Collaboration is a <strong>request from a client to a server</strong></li>
+<li><strong>Types of classes</strong> (Wirfs-Brock)<ul>
+<li><strong>Entity classes</strong> (model classes, business classes): extracted straight from the problem (e.g. <code>FloorPlan</code>, <code>Sensor</code>)</li>
+<li><strong>Boundary classes</strong>: create the <strong>interface</strong> (e.g. display, interactive screens, reports). Handle user interaction</li>
+<li><strong>Controller classes</strong>: <strong>manage unit of work</strong> — creation/update of entity objects, instantiate boundary objects, complex communication between objects, validation of data</li>
+</ul>
+</li>
+<li><strong>Responsibilities guidelines</strong><ol>
+<li><strong>Distribute system intelligence evenly</strong> (no god class)</li>
+<li>State each responsibility <strong>as generally as possible</strong></li>
+<li>Put information and the behaviour that uses it <strong>in the same class</strong></li>
+<li><strong>Localise</strong> information about <strong>one thing</strong> in a single class</li>
+<li><strong>Share responsibilities</strong> among related classes when appropriate</li>
+</ol>
+</li>
+<li><strong>Collaborators:</strong> class collaborates if it <strong>sends / receives messages</strong> to fulfil a responsibility. Relationships: <strong>is-part-of</strong>, <strong>has-knowledge-of</strong>, <strong>depends-upon</strong></li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Class: <strong>FloorPlan</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Responsibility</strong></td>
+<td><strong>Collaborator</strong></td>
+</tr>
+<tr>
+<td>defines floor plan name / type</td>
+<td></td>
+</tr>
+<tr>
+<td>manages floor plan positioning</td>
+<td></td>
+</tr>
+<tr>
+<td>scales floor plan for display</td>
+<td></td>
+</tr>
+<tr>
+<td>incorporates walls, doors and windows</td>
+<td><strong>Wall</strong></td>
+</tr>
+<tr>
+<td>shows position of video cameras</td>
+<td><strong>Camera</strong></td>
+</tr>
+</tbody>
+</table></div></div><div class="explain"><div class="tag">Explanation</div><p>Class-based modeling finds the objects in the problem. A practical technique is the grammatical parse of the <a class="wk" href="../../../terms/use-case.html">use case</a>: the nouns are candidate classes and the verbs are candidate operations. A candidate is kept only if it passes selection tests, such as having information to remember, having multiple attributes, and having operations of its own. A noun with only one attribute is usually an attribute of another class, and a noun that is only an implementation detail is rejected.</p>
+<p>Attributes are the data that describe the class, while operations are what it can do, in four groups: manipulating data, computing, inquiring about state, and watching for events. A <a class="wk" href="../../../terms/crc-card.html">CRC card</a> records the class name, its responsibilities (what it knows or does), and its collaborators, the other classes it needs help from. Classes are grouped into entity classes (the real business concepts), boundary classes (the interface to users), and controller classes (which coordinate the work). The guidelines for assigning responsibilities say that intelligence should be spread evenly, so that no class does everything, and that data and the behaviour that uses it should be in the same class.</p></div><nav class="pager"><a class="prev" href="10-uml-models-that-supplement-the-use-case.html"><small>← Previous</small>UML Models That Supplement the Use Case</a><a class="next" href="12-associations-and-dependencies.html"><small>Next →</small>Associations and Dependencies</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

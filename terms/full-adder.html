@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Full adder · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>Full adder</b></nav>
+    <article class="wiki term"><p class="kicker">Term · DLD Lab, Digital Logic</p><h1>Full adder</h1><div class="ex lead"><ul>
+<li><strong>Full adder:</strong> \(S=A\oplus B\oplus C_{in}\), \(C_{out}=AB+C_{in}(A\oplus B)\) — built from two <a class="wk" href="half-adder.html">half adders</a> and an OR. <strong>Full subtractor:</strong> \(D=A\oplus B\oplus B_{in}\), \(B_{out}=\overline{A}B+\overline{(A\oplus B)}B_{in}\) — two half subtractors and an OR</li>
+</ul><p class="src">From <a href="../notes/dlab/lab/02-experiment-2-half-adder-and-half-subtractor-and-fu.html">DLD Lab › Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></p></div><div class="ex"><p><strong>Full adder</strong> (inputs \(A,B,C_{in}\)):</p><p class="src">From <a href="../qa/dld/u2.html#q4">Digital Logic Design Unit II questions › question</a></p></div><div class="ex"><ul>
+<li>Full adder: \(S=\sum m(1,2,4,7)\), \(C=\sum m(3,5,6,7)\) → one 3-to-8 <a class="wk" href="decoder.html">decoder</a> + two 4-input OR gates</li>
+</ul><p class="src">From <a href="../notes/dld/u3/04-decoders.html">Digital Logic › Decoders</a></p></div><div class="ex"><ul>
+<li>Adds two \(n\)-bit numbers <strong>at once</strong> using \(n\) full adders in a chain. Carry out of stage \(i\) → carry in of stage \(i+1\)</li>
+</ul><p class="src">From <a href="../notes/dld/u3/01-binary-parallel-adder.html">Digital Logic › Binary Parallel Adder</a></p></div><div class="ex"><ul>
+<li>Serial transfer between two registers: connect output of A to input of B, both shifted for \(n\) clocks; <strong>serial adder</strong> uses a <a class="wk" href="shift-register.html">shift register</a> + 1 full adder + 1 carry <a class="wk" href="flip-flop.html">flip-flop</a> (saves hardware, slower)</li>
+</ul><p class="src">From <a href="../notes/dld/u5/02-shift-registers.html">Digital Logic › Shift Registers</a></p></div><h2>Topic pages about Full adder</h2><ul><li><a href="../notes/dlab/lab/02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a> <small>DLD Lab › Lab</small></li></ul><h2>Where it appears</h2><h3>DLD Lab</h3><ul><li><a href="../notes/dlab/lab/02-experiment-2-half-adder-and-half-subtractor-and-fu.html">Lab › Experiment 2 — Half adder and half subtractor (and full adder / full subtractor)</a></li><li><a href="../notes/dlab/lab/05-experiment-5-decoders-and-encoders.html">Lab › Experiment 5 — Decoders and encoders</a></li><li><a href="../notes/dlab/lab/12-experiment-12-introduction-to-the-xilinx-spartan-6.html">Lab › Experiment 12 — Introduction to the Xilinx Spartan-6 FPGA: gates and combinational circuits</a></li></ul><h3>Digital Logic</h3><ul><li><a href="../notes/dld/u2/07-adders-and-subtractors.html">Unit II › Adders and Subtractors</a></li><li><a href="../notes/dld/u3/01-binary-parallel-adder.html">Unit III › Binary Parallel Adder</a></li><li><a href="../notes/dld/u3/04-decoders.html">Unit III › Decoders</a></li><li><a href="../notes/dld/u5/02-shift-registers.html">Unit V › Shift Registers</a></li><li><a href="../qa/dld/part-a.html">Part A questions</a></li><li><a href="../qa/dld/u2.html">Unit II questions</a></li><li><a href="../qa/dld/u3.html">Unit III questions</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="minterm.html">Minterm</a></li><li><a href="decoder.html">Decoder</a></li><li><a href="flip-flop.html">Flip-flop</a></li><li><a href="half-adder.html">Half adder</a></li><li><a href="multiplexer.html">Multiplexer</a></li><li><a href="xor.html">XOR</a></li><li><a href="bcd.html">BCD</a></li><li><a href="comparator.html">Comparator</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

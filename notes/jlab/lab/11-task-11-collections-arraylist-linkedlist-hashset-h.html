@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li class="cur"><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li class="cur"><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Java Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</b></nav>
+    <article class="wiki" style="--h:#a8561f"><h1>Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</h1><p class="byline">Java Programming Lab · Lab: Tasks 1 to 12</p><aside class="infobox" style="--h:#a8561f"><div class="ib-h">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</div><dl><dt>Subject</dt><dd><a href="../index.html">Java Programming Lab</a> (24CS281)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Tasks 1 to 12</a></dd><dt>Topic</dt><dd>11 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/collections-framework.html">Collections framework</a>, <a href="../../../terms/arraylist.html">Arraylist</a>, <a href="../../../terms/linked-list.html">Linked list</a>, <a href="../../../terms/hashmap.html">Hashmap</a>, <a href="../../../terms/hash-table.html">Hash table</a>, <a href="../../../terms/treemap.html">Treemap</a>, <a href="../../../terms/iterator.html">Iterator</a></dd></dl></aside><div class="toc"><b>On this page</b><ol><li><a href="#program-1-arraylist-linkedlist-hashset">Program 1 — ArrayList, LinkedList, HashSet</a></li><li><a href="#program-2-hashmap-and-treemap">Program 2 — HashMap and TreeMap</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Use the List, Set and Map implementations of the <a class="wk" href="../../../terms/collections-framework.html">Collections Framework</a>.</li>
+<li><strong>Key points</strong><ul>
+<li><strong>Hierarchy:</strong> <code>Iterable</code> → <code>Collection</code> → <code>List</code> (ordered, duplicates: <code>ArrayList</code>, <code>LinkedList</code>, <code>Vector</code>), <code>Set</code> (no duplicates: <code>HashSet</code>, <code>LinkedHashSet</code>, <code>TreeSet</code>), <code>Queue/Deque</code> (<code>LinkedList</code>, <code>PriorityQueue</code>, <code>ArrayDeque</code>); <code>Map</code> (key → value; separate from <code>Collection</code>): <code>HashMap</code>, <code>LinkedHashMap</code>, <code>TreeMap</code>, <code>Hashtable</code></li>
+<li><strong><a class="wk" href="../../../terms/arraylist.html">ArrayList</a>:</strong> dynamic array — <code>get(i)</code> \(O(1)\), insert/remove in the middle \(O(n)\). <strong>LinkedList:</strong> doubly <a class="wk" href="../../../terms/linked-list.html">linked list</a> — add/remove at the ends \(O(1)\), <code>get(i)</code> \(O(n)\); also a <code>Deque</code></li>
+<li><strong>HashSet/<a class="wk" href="../../../terms/hashmap.html">HashMap</a>:</strong> <a class="wk" href="../../../terms/hash-table.html">hash table</a> — average \(O(1)\) add/get/remove; <strong>no order guarantee</strong>; uses <code>hashCode()</code> and <code>equals()</code>. <strong>LinkedHashSet/Map:</strong> insertion order. <strong>TreeSet/<a class="wk" href="../../../terms/treemap.html">TreeMap</a>:</strong> red-black tree — <strong>sorted</strong> order, \(O(\log n)\), needs <code>Comparable</code> or a <code>Comparator</code>; <code>firstKey</code>, <code>floorKey</code>, <code>headMap</code>…</li>
+<li><code>HashMap</code> allows one <code>null</code> key; <code>TreeMap</code> does not; <code>Hashtable</code> is synchronized and allows no null. <code>put</code> with an existing key <strong>replaces</strong> the value; <code>Set.add</code> returns <code>false</code> for a duplicate</li>
+<li>Generics <code>&lt;String&gt;</code> give type safety; only objects (wrapper classes <code>Integer</code>) can be stored</li>
+</ul>
+</li>
+<li><strong>Procedure</strong><ul>
+<li>Create an <code>ArrayList</code> of strings; add, insert, remove, search, sort</li>
+<li>Create a <code>LinkedList</code>; use <code>addFirst</code>, <code>addLast</code>, <code>removeFirst</code>, <code>pop</code>, <code>peek</code></li>
+<li>Create a <code>HashSet</code>, show that duplicates are ignored; compare with <code>LinkedHashSet</code>/<code>TreeSet</code>; do union, intersection, difference</li>
+<li>Create a <code>HashMap</code> and a <code>TreeMap</code>; <code>put</code>, <code>get</code>, <code>remove</code>, iterate over <code>entrySet()</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="program-1-arraylist-linkedlist-hashset">Program 1 — ArrayList, LinkedList, HashSet</h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+public class ListSetDemo {
+    public static void main(String[] args) {
+        // ArrayList: resizable array, fast get(i)
+        ArrayList&lt;String&gt; al = new ArrayList&lt;&gt;();
+        al.add("Java"); al.add("C"); al.add("Python"); al.add(1, "C++"); al.add("C");
+        System.out.println(al + " size " + al.size());
+        al.remove("C");                                   // removes the first match only
+        al.set(0, "JAVA");
+        System.out.println(al + " get(2) = " + al.get(2) + ", indexOf(Python) = " + al.indexOf("Python") + ", contains(C) = " + al.contains("C"));
+        Collections.sort(al);
+        System.out.println("sorted : " + al);
+        // LinkedList: doubly linked, fast add/remove at the ends
+        LinkedList&lt;Integer&gt; ll = new LinkedList&lt;&gt;(Arrays.asList(10, 20, 30));
+        ll.addFirst(5); ll.addLast(40); ll.add(2, 15);
+        System.out.println(ll + " first " + ll.getFirst() + " last " + ll.getLast());
+        ll.removeFirst(); ll.removeLast(); ll.pop();
+        System.out.println(ll + " peek " + ll.peek());
+        // HashSet: no duplicates, no guaranteed order
+        HashSet&lt;Integer&gt; hs = new HashSet&lt;&gt;(Arrays.asList(5, 3, 9, 3, 5, 1));
+        System.out.println("HashSet : " + hs + " size " + hs.size() + " add(9)=" + hs.add(9) + " add(7)=" + hs.add(7));
+        // LinkedHashSet keeps insertion order, TreeSet keeps sorted order
+        Set&lt;Integer&gt; lhs = new LinkedHashSet&lt;&gt;(Arrays.asList(5, 3, 9, 3, 5, 1));
+        Set&lt;Integer&gt; ts = new TreeSet&lt;&gt;(Arrays.asList(5, 3, 9, 3, 5, 1));
+        System.out.println("LinkedHashSet : " + lhs + ", TreeSet : " + ts);
+        // set operations
+        Set&lt;Integer&gt; a = new TreeSet&lt;&gt;(Arrays.asList(1, 2, 3, 4)), b = new TreeSet&lt;&gt;(Arrays.asList(3, 4, 5));
+        Set&lt;Integer&gt; union = new TreeSet&lt;&gt;(a); union.addAll(b);
+        Set&lt;Integer&gt; inter = new TreeSet&lt;&gt;(a); inter.retainAll(b);
+        Set&lt;Integer&gt; diff = new TreeSet&lt;&gt;(a); diff.removeAll(b);
+        System.out.println("union " + union + " intersection " + inter + " difference " + diff);
+        // iteration
+        Iterator&lt;String&gt; it = al.iterator();
+        while (it.hasNext()) System.out.print(it.next() + ";");
+        System.out.println();
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">[Java, C++, C, Python, C] size 5
+[JAVA, C++, Python, C] get(2) = Python, indexOf(Python) = 2, contains(C) = true
+sorted : [C, C++, JAVA, Python]
+[5, 10, 15, 20, 30, 40] first 5 last 40
+[15, 20, 30] peek 15
+HashSet : [1, 3, 5, 9] size 4 add(9)=false add(7)=true
+LinkedHashSet : [5, 3, 9, 1], TreeSet : [1, 3, 5, 9]
+union [1, 2, 3, 4, 5] intersection [3, 4] difference [1, 2]
+C;C++;JAVA;Python;</code></pre></div>
+<h5 id="program-2-hashmap-and-treemap">Program 2 — HashMap and TreeMap</h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.*;
+public class MapDemo {
+    public static void main(String[] args) {
+        // HashMap: key -&gt; value, one null key allowed, no order guarantee
+        HashMap&lt;String, Integer&gt; marks = new HashMap&lt;&gt;();
+        marks.put("Asha", 85); marks.put("Bhanu", 72); marks.put("Charan", 91); marks.put("Divya", 64);
+        marks.put("Asha", 88);                           // same key: value replaced
+        System.out.println("size " + marks.size() + ", Asha = " + marks.get("Asha") + ", Zed = " + marks.get("Zed")
+                + ", getOrDefault = " + marks.getOrDefault("Zed", 0));
+        System.out.println("containsKey(Bhanu) " + marks.containsKey("Bhanu") + ", containsValue(64) " + marks.containsValue(64));
+        marks.remove("Divya");
+        marks.putIfAbsent("Esha", 55);
+        marks.merge("Esha", 5, Integer::sum);            // 55 + 5
+        for (Map.Entry&lt;String, Integer&gt; e : new TreeMap&lt;&gt;(marks).entrySet())
+            System.out.println("  " + e.getKey() + " -&gt; " + e.getValue());
+        // TreeMap: sorted by key
+        TreeMap&lt;Integer, String&gt; tm = new TreeMap&lt;&gt;();
+        tm.put(30, "thirty"); tm.put(10, "ten"); tm.put(20, "twenty"); tm.put(40, "forty");
+        System.out.println(tm + " first " + tm.firstKey() + " last " + tm.lastKey());
+        System.out.println("floorKey(25) = " + tm.floorKey(25) + ", ceilingKey(25) = " + tm.ceilingKey(25)
+                + ", headMap(30) = " + tm.headMap(30) + ", tailMap(30) = " + tm.tailMap(30));
+        System.out.println("descending " + tm.descendingMap());
+        // word frequency count
+        String text = "to be or not to be that is the question to be";
+        Map&lt;String, Integer&gt; freq = new TreeMap&lt;&gt;();
+        for (String w : text.split(" ")) freq.put(w, freq.getOrDefault(w, 0) + 1);
+        System.out.println(freq);
+        // LinkedHashMap keeps insertion order
+        Map&lt;String, Integer&gt; lhm = new LinkedHashMap&lt;&gt;();
+        lhm.put("z", 1); lhm.put("a", 2); lhm.put("m", 3);
+        System.out.println(lhm + " keys " + lhm.keySet() + " values " + lhm.values());
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">size 4, Asha = 88, Zed = null, getOrDefault = 0
+containsKey(Bhanu) true, containsValue(64) true
+  Asha -&gt; 88
+  Bhanu -&gt; 72
+  Charan -&gt; 91
+  Esha -&gt; 60
+{10=ten, 20=twenty, 30=thirty, 40=forty} first 10 last 40
+floorKey(25) = 20, ceilingKey(25) = 30, headMap(30) = {10=ten, 20=twenty}, tailMap(30) = {30=thirty, 40=forty}
+descending {40=forty, 30=thirty, 20=twenty, 10=ten}
+{be=3, is=1, not=1, or=1, question=1, that=1, the=1, to=3}
+{z=1, a=2, m=3} keys [z, a, m] values [1, 2, 3]</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>Difference between <code>ArrayList</code> and <code>LinkedList</code>? <code>ArrayList</code> and <code>Vector</code>?</li>
+<li>How does <code>HashMap</code> work internally? (array of buckets; hash of key; collisions chained in a list/tree)</li>
+<li>What if two keys have the same hash code?</li>
+<li>Difference between <code>HashMap</code> and <code>TreeMap</code>? <code>Comparable</code> and <code>Comparator</code>?</li>
+<li><code>Iterator</code> vs <code>ListIterator</code>; fail-fast <a class="wk" href="../../../terms/iterator.html">iterators</a>?</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>In program 1 <code>add(1, "C++")</code> inserts at an index, <code>remove("C")</code> removes only the first match, and <code>Collections.sort</code> orders the list alphabetically. In the <code>LinkedList</code> <code>addFirst</code>/<code>addLast</code> add at the ends, <code>removeFirst</code>, <code>removeLast</code> and <code>pop</code> (= <code>removeFirst</code>) take them out. The <code>HashSet</code> ignores the duplicates 3 and 5, so its size is 4, and <code>add(9)</code> returns false while <code>add(7)</code> returns true. <code>LinkedHashSet</code> keeps the insertion order [5,3,9,1], and <code>TreeSet</code> sorts [1,3,5,9]. For the sets, <code>addAll</code> is the union, <code>retainAll</code> the intersection and <code>removeAll</code> the difference. In program 2, putting "Asha" twice replaces the value (88); <code>getOrDefault</code> avoids <code>null</code>; <code>merge</code> adds to the old value (55+5 = 60). The <code>TreeMap</code> keeps the keys sorted, and <code>floorKey(25)</code> is the largest key ≤ 25 (20) while <code>ceilingKey(25)</code> is the smallest key ≥ 25 (30). The word-count loop uses <code>getOrDefault(w, 0) + 1</code>.</p></div><nav class="pager"><a class="prev" href="10-task-10-generic-functional-interfaces-and-lambdas.html"><small>← Previous</small>Task 10 — Generic functional interfaces and lambdas as arguments</a><a class="next" href="12-task-12-stream-reduce-iterators-and-streams.html"><small>Next →</small>Task 12 — Stream reduce, iterators and streams</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

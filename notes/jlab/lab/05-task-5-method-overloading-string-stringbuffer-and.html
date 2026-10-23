@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 5 — Method overloading, String, StringBuffer and StringTokenizer · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li class="cur"><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#a8561f"><a class="rs" href="../index.html">Java Programming Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li><a href="01-task-1-install-jdk-hello-world-if-and-for.html">Task 1 — Install JDK, Hello World, if and for</a></li><li><a href="02-task-2-primitive-data-types-and-type-conversion.html">Task 2 — Primitive data types and type conversion</a></li><li><a href="03-task-3-two-dimensional-arrays.html">Task 3 — Two-dimensional arrays</a></li><li><a href="04-task-4-classes-objects-and-constructors.html">Task 4 — Classes, objects and constructors</a></li><li class="cur"><a href="05-task-5-method-overloading-string-stringbuffer-and.html">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</a></li><li><a href="06-task-6-inheritance-super-overriding-and-dynamic-di.html">Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></li><li><a href="07-task-7-packages-interfaces-and-exceptions.html">Task 7 — Packages, interfaces and exceptions</a></li><li><a href="08-task-8-byte-streams-and-character-streams.html">Task 8 — Byte streams and character streams</a></li><li><a href="09-task-9-threads-and-thread-priorities.html">Task 9 — Threads and thread priorities</a></li><li><a href="10-task-10-generic-functional-interfaces-and-lambdas.html">Task 10 — Generic functional interfaces and lambdas as arguments</a></li><li><a href="11-task-11-collections-arraylist-linkedlist-hashset-h.html">Task 11 — Collections: ArrayList, LinkedList, HashSet, HashMap, TreeMap</a></li><li><a href="12-task-12-stream-reduce-iterators-and-streams.html">Task 12 — Stream reduce, iterators and streams</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Java Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 5 — Method overloading, String, StringBuffer and StringTokenizer</b></nav>
+    <article class="wiki" style="--h:#a8561f"><h1>Task 5 — Method overloading, String, StringBuffer and StringTokenizer</h1><p class="byline">Java Programming Lab · Lab: Tasks 1 to 12</p><aside class="infobox" style="--h:#a8561f"><div class="ib-h">Task 5 — Method overloading, String, StringBuffer and StringTokenizer</div><dl><dt>Subject</dt><dd><a href="../index.html">Java Programming Lab</a> (24CS281)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Tasks 1 to 12</a></dd><dt>Topic</dt><dd>5 of 12</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/polymorphism.html">Polymorphism</a>, <a href="../../../terms/method-overloading.html">Method overloading</a>, <a href="../../../terms/jvm.html">JVM</a></dd></dl></aside><div class="toc"><b>On this page</b><ol><li><a href="#program-1-method-overloading">Program 1 — Method overloading</a></li><li><a href="#program-2-string-stringbuffer-stringtoke">Program 2 — String, StringBuffer, StringTokenizer</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Show compile-time <a class="wk" href="../../../terms/polymorphism.html">polymorphism</a> through <a class="wk" href="../../../terms/method-overloading.html">method overloading</a>, and use the string-handling classes.</li>
+<li><strong>Key points</strong><ul>
+<li><strong>Overloading:</strong> same method name, <strong>different parameter lists</strong> (number, type or order). Return type alone is not enough. Resolved at <strong>compile time</strong> (static binding) — <strong>exact match → widening → boxing → varargs</strong></li>
+<li><strong><code>String</code></strong> is <strong>immutable</strong> (methods return new strings); literals are shared in the <strong>string pool</strong>, <code>new String(..)</code> creates a separate object → <code>==</code> compares references, <code>equals()</code> compares content</li>
+<li><strong><code>StringBuffer</code></strong> is <strong>mutable</strong> and thread-safe (synchronized); <code>StringBuilder</code> is the same but faster and not synchronized. <code>append</code>, <code>insert</code>, <code>reverse</code>, <code>delete</code>, <code>replace</code>, <code>setCharAt</code>, <code>length()</code>, <code>capacity()</code> (initial 16 + length of the initial string)</li>
+<li><strong><code>StringTokenizer</code></strong> (<code>java.util</code>) splits a string by delimiters: <code>hasMoreTokens()</code>, <code>nextToken()</code>, <code>countTokens()</code>; with <code>returnDelims = true</code> the delimiters are tokens too</li>
+</ul>
+</li>
+<li><strong>Procedure</strong><ul>
+<li>Write several methods with the same name and different parameters</li>
+<li>Call them with different arguments and see which one is chosen</li>
+<li>Use String methods: <code>length</code>, <code>charAt</code>, <code>substring</code>, <code>indexOf</code>, <code>replace</code>, <code>compareTo</code>, <code>equals</code></li>
+<li>Modify a <code>StringBuffer</code> and print</li>
+<li>Tokenize a string with several delimiters</li>
+</ul>
+</li>
+</ul>
+<h5 id="program-1-method-overloading">Program 1 — Method overloading</h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">public class OverloadDemo {
+    static int area(int side) { return side * side; }                     // square
+    static int area(int l, int b) { return l * b; }                       // rectangle
+    static double area(double r) { return Math.PI * r * r; }              // circle
+    static double area(double b, double h, boolean triangle) { return 0.5 * b * h; }
+    static void show(int x) { System.out.println("int version " + x); }
+    static void show(long x) { System.out.println("long version " + x); }
+    static void show(double x) { System.out.println("double version " + x); }
+    static void show(Object x) { System.out.println("Object version " + x); }
+    static int sum(int... nums) {                                          // varargs
+        int s = 0;
+        for (int n : nums) s += n;
+        return s;
+    }
+    public static void main(String[] args) {
+        System.out.println("square 4         = " + area(4));
+        System.out.println("rectangle 4 x 5  = " + area(4, 5));
+        System.out.printf("circle r=2.0     = %.2f%n", area(2.0));
+        System.out.println("triangle 6, 3    = " + area(6, 3, true));
+        show(5);          // exact match int
+        show(5L);         // exact match long
+        show(5.5f);       // float -&gt; double (widening)
+        show('A');        // char -&gt; int (widening)
+        show("text");     // Object
+        byte bt = 1;
+        show(bt);         // byte -&gt; int
+        System.out.println("sum() = " + sum() + ", sum(1,2,3) = " + sum(1, 2, 3));
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">square 4         = 16
+rectangle 4 x 5  = 20
+circle r=2.0     = 12.57
+triangle 6, 3    = 9.0
+int version 5
+long version 5
+double version 5.5
+int version 65
+Object version text
+int version 1
+sum() = 0, sum(1,2,3) = 6</code></pre></div>
+<h5 id="program-2-string-stringbuffer-stringtoke">Program 2 — String, StringBuffer, StringTokenizer</h5>
+<div class="code"><span class="lang">java</span><pre><code class="language-java">import java.util.StringTokenizer;
+public class StringDemo {
+    public static void main(String[] args) {
+        // ---- String (immutable) ----
+        String s = "Java Programming";
+        System.out.println(s.length() + " " + s.charAt(5) + " " + s.indexOf("Pro") + " " + s.toUpperCase());
+        System.out.println(s.substring(5) + " | " + s.substring(0, 4) + " | " + s.replace('a', 'A'));
+        String s1 = "hello", s2 = "hello", s3 = new String("hello");
+        System.out.println("s1 == s2 : " + (s1 == s2) + ", s1 == s3 : " + (s1 == s3)
+                + ", s1.equals(s3) : " + s1.equals(s3));
+        System.out.println("compareTo : " + "apple".compareTo("banana") + ", equalsIgnoreCase : " + "JAVA".equalsIgnoreCase("java"));
+        System.out.println("trim : [" + "  hi  ".trim() + "], contains : " + s.contains("gram") + ", startsWith : " + s.startsWith("Java"));
+        String t = s.concat("!");
+        System.out.println("original unchanged : " + s + ", new : " + t);
+        // ---- StringBuffer (mutable) ----
+        StringBuffer sb = new StringBuffer("Hello");
+        sb.append(" World").insert(0, "&gt;&gt; ").reverse();
+        System.out.println(sb);
+        sb.reverse();
+        sb.setCharAt(3, 'h');
+        sb.delete(0, 3).replace(0, 5, "HELLO");
+        System.out.println(sb + " length " + sb.length() + " capacity " + sb.capacity());
+        // ---- StringTokenizer ----
+        StringTokenizer st = new StringTokenizer("one,two;three four", ",; ");
+        System.out.println("tokens = " + st.countTokens());
+        while (st.hasMoreTokens()) System.out.println(st.nextToken());
+        StringTokenizer st2 = new StringTokenizer("a=1&amp;b=2", "=&amp;", true);   // returns delimiters too
+        while (st2.hasMoreTokens()) System.out.print("[" + st2.nextToken() + "]");
+        System.out.println();
+    }
+}</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">16 P 5 JAVA PROGRAMMING
+Programming | Java | JAvA ProgrAmming
+s1 == s2 : true, s1 == s3 : false, s1.equals(s3) : true
+compareTo : -1, equalsIgnoreCase : true
+trim : [hi], contains : true, startsWith : true
+original unchanged : Java Programming, new : Java Programming!
+dlroW olleH &gt;&gt;
+HELLO World length 11 capacity 21
+tokens = 4
+one
+two
+three
+four
+[a][=][1][&amp;][b][=][2]</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>Can we overload <code>main</code>? (yes, but <a class="wk" href="../../../terms/jvm.html">JVM</a> calls only the standard one)</li>
+<li>Can overloading be done by changing only the return type? (No)</li>
+<li>Why is <code>String</code> immutable? (security, string pool, thread safety, hash code caching)</li>
+<li>Difference between <code>String</code>, <code>StringBuffer</code> and <code>StringBuilder</code>?</li>
+<li><code>s1 == s2</code> for two literals with the same content? (true — string pool)</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>In program 1 the compiler picks the version by argument types: <code>show(5)</code> matches <code>int</code>, <code>show(5L)</code> matches <code>long</code>, <code>show(5.5f)</code> is widened to <code>double</code>, <code>show('A')</code> is widened to <code>int</code> (prints 65), <code>show(bt)</code> with a <code>byte</code> goes to <code>int</code>, and a <code>String</code> goes to <code>Object</code>. The varargs method <code>sum(int...)</code> accepts any number of arguments. In program 2, <code>s1 == s2</code> is true because both literals share one object in the pool, while <code>new String("hello")</code> makes another one, so <code>==</code> is false but <code>equals</code> is true. <code>concat</code> does not change <code>s</code>; it returns a new string. The <code>StringBuffer</code> is changed in place by chained calls. <code>StringTokenizer</code> splits on any character in the delimiter set, so "one,two;three four" gives four tokens.</p></div><nav class="pager"><a class="prev" href="04-task-4-classes-objects-and-constructors.html"><small>← Previous</small>Task 4 — Classes, objects and constructors</a><a class="next" href="06-task-6-inheritance-super-overriding-and-dynamic-di.html"><small>Next →</small>Task 6 — Inheritance, `super`, overriding and dynamic dispatch</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

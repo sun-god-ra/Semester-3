@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Probability and Statistics Unit III questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="index.html">Probability and Statistics</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li class="cur"><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#6d4bc3"><a class="rs" href="index.html">Probability and Statistics</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li class="cur"><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Prob &amp; Stats</a> <span>›</span> <b>Unit III</b></nav>
+    <article class="wiki" style="--h:#6d4bc3"><span class="ulabel">Part B · Unit III</span><h1>Statistical Inference</h1><p class="byline">Probability and Statistics · 5 questions · <a href="../../notes/ps/u3/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K3</span></div><h4 class="qtext">A sample of 400 items is taken from a population whose <a class="wk" href="../../terms/standard-deviation.html">standard deviation</a> is 10. The sample mean is 40. Test whether the sample has come from a population with mean 38. Also calculate the 95% <a class="wk" href="../../terms/confidence-interval.html">confidence interval</a> for the population mean.</h4><div class="ans"><div class="tag">Answer</div><p>\(H_0:\mu=38\), \(H_1:\mu\ne38\). Large sample, \(\sigma\) known, \(\alpha=0.05\): critical \(|z|=1.96\).</p>
+<p>\[z=\frac{\bar x-\mu_0}{\sigma/\sqrt n}=\frac{40-38}{10/\sqrt{400}}=\frac{2}{0.5}=4\]
+\(|z|=4&gt;1.96\): <strong>reject \(H_0\)</strong>. The sample has not come from a population with mean 38.</p>
+<p>95% CI: \(\bar x\pm1.96\dfrac\sigma{\sqrt n}=40\pm1.96(0.5)=40\pm0.98=\mathbf{(39.02,\ 40.98)}\). Since 38 is outside the interval, the conclusion agrees.</p></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">Explain the procedure for testing of hypothesis.</h4><div class="ans"><div class="tag">Answer</div><ol>
+<li><strong>State</strong> \(H_0\) (equality) and the alternative \(H_1\) (decides one- or two-tailed).</li>
+<li><strong>Choose the <a class="wk" href="../../terms/level-of-significance.html">level of significance</a></strong> \(\alpha\) (usually 5% or 1%).</li>
+<li><strong>Choose the test statistic</strong> and its sampling distribution: \(z\) (large sample or \(\sigma\) known), \(t\) (small sample, \(\sigma\) unknown), \(\chi^2\), \(F\).</li>
+<li><strong>Find the <a class="wk" href="../../terms/critical-region.html">critical region</a></strong> (critical value) from the tables for the chosen \(\alpha\) and tail.</li>
+<li><strong>Compute</strong> the test statistic from the sample.</li>
+<li><strong>Decide</strong>: if the value falls in the critical region (or \(p\le\alpha\)), reject \(H_0\); else do not reject (accept) \(H_0\).</li>
+<li><strong>Conclude</strong> in words about the problem.</li>
+</ol>
+<figure class="fig"><pre class="mermaid">flowchart TB
+  A[State H0, H1] --&gt; B[Fix alpha] --&gt; C[Select test statistic] --&gt; D[Critical region] --&gt; E[Compute from sample] --&gt; F{In critical region?}
+  F -- yes --&gt; G[Reject H0]
+  F -- no --&gt; H[Do not reject H0]</pre></figure>
+<p>Errors: Type I (\(\alpha\)) and Type II (\(\beta\)); "accepting \(H_0\)" means only that the evidence is not strong enough to reject it.</p></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">A research worker wants to determine the average time a mechanic takes to rotate the tires of a car, and wants to assert with 95% confidence that her sample mean is off by at most 0.50 min. If \(\sigma=1.6\) min, how large a sample must she take?</h4><div class="ans"><div class="tag">Answer</div><p>Sample size: \(n=\left(\dfrac{z_{\alpha/2}\,\sigma}{E}\right)^2=\left(\dfrac{1.96\times1.6}{0.5}\right)^2=(6.272)^2=39.34\).
+Always round <strong>up</strong>: \(n=\mathbf{40}\).</p></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K3</span></div><h4 class="qtext">The following are the average weekly losses of worker-hours due to accidents in 10 industrial plants before and after a safety programme: before 45, 73, 46, 124, 33, 57, 83, 34, 26, 17; after 36, 60, 44, 119, 35, 51, 77, 29, 24, 11. Use the 0.05 level to test whether the safety programme is effective.</h4><div class="ans"><div class="tag">Answer</div><p>Paired data, small sample: paired \(t\)-test. \(D=\) before − after: 9, 13, 2, 5, −2, 6, 6, 5, 2, 6.
+\(H_0:\mu_D=0\), \(H_1:\mu_D&gt;0\) (programme reduces losses), \(\alpha=0.05\) one-tailed, d.f. \(=9\), \(t_{0.05}(9)=1.833\).</p>
+<p>\(\bar D=\dfrac{52}{10}=5.2\), \(s_D=4.08\) (from \(\sum D^2=420\), so \(s_D^2=\frac{420-10(5.2)^2}{9}=\frac{149.6}{9}=16.62\)).
+\[t=\frac{\bar D}{s_D/\sqrt n}=\frac{5.2}{4.08/\sqrt{10}}=4.03&gt;1.833\]
+<strong>Reject \(H_0\)</strong>: the safety programme is effective. (The <a class="wk" href="../../terms/sign-test.html">sign test</a> and <a class="wk" href="../../terms/spearman.html">Spearman</a> test on the same data also agree: see Unit V.)</p></div></article><article class="qa exp" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag exp">Expected</span><span class="qm">8M</span><span class="qm">CO3 K3</span></div><h4 class="qtext">Two groups have \(n_1=10,\bar x_1=52,s_1=4\) and \(n_2=12,\bar x_2=48,s_2=5\). Test at 5% whether the means differ (assume equal population <a class="wk" href="../../terms/variance.html">variances</a>).</h4><div class="ans"><div class="tag">Answer</div><p>\(H_0:\mu_1=\mu_2\), \(H_1:\mu_1\ne\mu_2\). <a class="wk" href="../../terms/pooled-variance.html">Pooled variance</a>: \(s_p^2=\dfrac{9(16)+11(25)}{20}=20.95\), \(s_p=4.577\).
+\[t=\frac{52-48}{4.577\sqrt{\frac1{10}+\frac1{12}}}=\frac{4}{1.960}=2.04\]
+d.f. \(=20\), \(t_{0.025}(20)=2.086\). \(2.04&lt;2.086\): <strong>do not reject \(H_0\)</strong> at 5% (a narrow miss; it would be significant at the 10% level).</p></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

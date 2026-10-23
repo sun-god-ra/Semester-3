@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software Engineering Unit IV questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="index.html">Software Engineering</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li class="cur"><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="index.html">Software Engineering</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li><a href="u3.html">Part B · Unit III</a></li><li class="cur"><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Software Eng</a> <span>›</span> <b>Unit IV</b></nav>
+    <article class="wiki" style="--h:#1f6fb2"><span class="ulabel">Part B · Unit IV</span><h1>Software Design</h1><p class="byline">Software Engineering · 8 questions · <a href="../../notes/se/u4/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">Explain the design decisions in architectural design.</h4><div class="ans"><div class="tag">Answer</div><p>Architectural design decisions are the choices that shape the structure and decide whether quality attributes are met. A sound architecture answers:</p>
+<ol>
+<li><strong>Is there a generic application architecture</strong> to reuse (web, transaction processing, language processing)?</li>
+<li><strong>How will the system be distributed</strong> (client–server, multi-tier, cloud) across hardware?</li>
+<li><strong>Which architectural patterns/styles</strong> fit (layered, MVC, pipes and filters, repository, microservices)?</li>
+<li><strong>How to decompose</strong> into subsystems and modules, and how they communicate (shared data, messages, calls)?</li>
+<li><strong>How to meet the non-functional requirements</strong>: performance (localise critical operations), security (layered with protection), safety, availability (redundancy), maintainability (small replaceable parts).</li>
+<li><strong>Control strategy</strong>: centralised or event-driven.</li>
+<li><strong>How to document</strong> the architecture (views).
+Each decision involves trade-offs (e.g. security vs performance); record the rationale.</li>
+</ol></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">Explain the web application design concepts.</h4><div class="ans"><div class="tag">Answer</div><p>WebApp design covers six areas:</p>
+<ul>
+<li><strong>Interface design</strong>: layout, navigation, aesthetics, consistent look.</li>
+<li><strong>Aesthetic design</strong>: colour, fonts, graphics, images.</li>
+<li><strong>Content design</strong>: structure and presentation of text, graphics, audio and video.</li>
+<li><strong>Architecture design</strong>: overall content structure (linear, grid, hierarchical, networked/web) and the functional architecture (e.g. MVC, multi-tier).</li>
+<li><strong>Navigation design</strong>: how users move through the content; semantics of navigation units, syntax of navigation (links, menus, tabs, breadcrumbs).</li>
+<li><strong>Component-level design</strong>: functional components (forms, search, shopping cart).
+Principles: simplicity, consistency, identity, robustness, navigability, visual appeal, compatibility; follow the <strong>MVC</strong> pattern to separate model, view and controller.</li>
+</ul></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">(OR) Explain the architectural styles.</h4><div class="ans"><div class="tag">Answer</div><p>An architectural style defines a set of component types, connectors, constraints on how to combine them and a semantic model.</p>
+<ol>
+<li><strong>Data-centred</strong>: a central data store (repository/blackboard) accessed by independent clients; easy to integrate, the store is a bottleneck.</li>
+<li><strong>Data-flow (pipe and filter)</strong>: filters transform data and pass it through pipes; good for batch processing and compilers.</li>
+<li><strong>Call and return</strong>: main program/subprogram, remote procedure call, and <strong>layered</strong> architecture (each layer serves the one above).</li>
+<li><strong>Object-oriented</strong>: components are objects that encapsulate data and operations; communicate by messages.</li>
+<li><strong>Layered</strong>: presentation, application, data, each layer with a defined responsibility.</li>
+</ol>
+<figure class="fig"><pre class="mermaid">flowchart TB
+  P[Presentation layer] --&gt; B[Business-logic layer] --&gt; D[Data-access layer] --&gt; DB[(Database)]</pre></figure>
+<p>Choose by the quality attributes needed; most real systems combine several.</p></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO4 K3</span></div><h4 class="qtext">(OR) Explain the interface analysis and design steps.</h4><div class="ans"><div class="tag">Answer</div><p><strong>Interface analysis</strong> studies the people who will use the interface (user analysis), the tasks they perform (task analysis), the content to display, and the environment (hardware, lighting, mobility). <strong>User analysis</strong> asks: who are the users, their skills, their goals, how they work.</p>
+<p><strong>Interface design steps</strong></p>
+<ol>
+<li>Use the analysis to define <strong>interface objects and actions</strong> (operations).</li>
+<li>Define <strong>events</strong> (user actions) that change the state of the interface.</li>
+<li>Depict each <strong>interface state</strong> as the user sees it.</li>
+<li>Indicate how the user <strong>interprets the state</strong> from the information shown.
+Also: design the layout, menus, icons, messages and help; build a prototype; evaluate for usability. The design issues: response time, help facilities, error handling, menu and command labelling, application accessibility, internationalisation.</li>
+</ol></div></article><article class="qa past" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">Explain the golden rules of user interface design.</h4><div class="ans"><div class="tag">Answer</div><p>Theo Mandel's three golden rules:</p>
+<ol>
+<li><strong>Place the user in control</strong><ul>
+<li>Define modes of interaction so that the user is not forced into unnecessary actions.</li>
+<li>Provide flexible interaction (keyboard, mouse, voice).</li>
+<li>Allow interaction to be interruptible and undoable.</li>
+<li>Streamline interaction as skill levels advance; allow customisation.</li>
+<li>Hide technical internals from the casual user.</li>
+<li>Design for direct interaction with the objects on the screen.</li>
+</ul>
+</li>
+<li><strong>Reduce the user's memory load</strong><ul>
+<li>Reduce demand on short-term memory.</li>
+<li>Establish meaningful defaults.</li>
+<li>Define shortcuts that are intuitive.</li>
+<li>The visual layout should be based on a real-world metaphor.</li>
+<li>Disclose information progressively.</li>
+</ul>
+</li>
+<li><strong>Make the interface consistent</strong><ul>
+<li>Allow the user to put the current task into a meaningful context.</li>
+<li>Maintain consistency across a family of applications.</li>
+<li>If past interactive models have created user expectations, do not change them without a good reason.</li>
+</ul>
+</li>
+</ol></div></article><article class="qa past" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO4 K3</span></div><h4 class="qtext">Explain architectural decisions with an example.</h4><div class="ans"><div class="tag">Answer</div><p>Example: <strong>Online shopping system</strong>.</p>
+<ul>
+<li><em>Decision 1, distribution</em>: multi-tier client–server, so that the web client, application server and database server can scale separately.</li>
+<li><em>Decision 2, style</em>: layered MVC (presentation → business logic → data access) for modifiability.</li>
+<li><em>Decision 3, performance</em>: cache product catalogue; put the checkout and payment on dedicated servers.</li>
+<li><em>Decision 4, security</em>: put payment in the innermost layer behind a firewall, with encryption (TLS) and authentication.</li>
+<li><em>Decision 5, availability</em>: replicate the database and use a load balancer.</li>
+<li><em>Decision 6, integration</em>: use a REST interface to a third-party payment gateway.</li>
+</ul>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  U[Browser / App] --&gt; LB[Load balancer] --&gt; W1[App server 1]
+  LB --&gt; W2[App server 2]
+  W1 --&gt; C[(Cache)]
+  W1 --&gt; DB[(Primary DB)]
+  W2 --&gt; DB
+  DB --&gt; R[(Replica)]
+  W1 --&gt; PG[Payment gateway]</pre></figure>
+<p>Trade-off recorded: caching improves speed but needs invalidation.</p></div></article><article class="qa past" id="q7"><div class="qhead"><span class="qn">Q7</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">(OR) Explain <a class="wk" href="../../terms/software-architecture.html">software architecture</a> and quality attributes.</h4><div class="ans"><div class="tag">Answer</div><p><a class="wk" href="../../terms/software-architecture.html">Software architecture</a> is the structure of the system: components, their externally visible properties and their relationships. Bass, Clements and Kazman: architecture is a vehicle for stakeholder communication, an early design decision set and a transferable <a class="wk" href="../../terms/abstraction.html">abstraction</a>.</p>
+<p><strong>Quality attributes</strong> the architecture must support:</p>
+<ul>
+<li><em>Runtime</em>: performance, security, availability, reliability, usability, safety.</li>
+<li><em>Development-time</em>: modifiability, testability, portability, reusability, interoperability.</li>
+</ul>
+<p>How the architecture supports them: performance by localising operations and reducing communication; security by layering with critical assets in the inner layer; availability by redundancy; modifiability by small, self-contained, loosely coupled components; testability by well-defined interfaces. There are <strong>trade-offs</strong> between attributes (e.g. security vs usability), which are analysed with scenarios (ATAM).</p></div></article><article class="qa past" id="q8"><div class="qhead"><span class="qn">Q8</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO4 K2</span></div><h4 class="qtext">(OR) Explain component-level design techniques.</h4><div class="ans"><div class="tag">Answer</div><p>Component-level design (completed after the architecture) refines the architectural components to a level that is nearly code.</p>
+<ul>
+<li><strong>Definition</strong>: a component is a modular, deployable, replaceable part of a system that encapsulates implementation and exposes a set of interfaces.</li>
+<li><strong>Views</strong>: object-oriented (classes, with the analysis class elaborated into a design class with all attributes, operations and interfaces) and traditional (a processing element with its data structures and the algorithm).</li>
+<li><strong>Design principles</strong>: Open–Closed, Liskov Substitution, Dependency Inversion, Interface Segregation, Release Reuse Equivalency, Common Closure, Common Reuse.</li>
+<li><strong>Guidelines</strong>: naming conventions, interfaces, dependencies and <a class="wk" href="../../terms/inheritance.html">inheritance</a>.</li>
+<li><strong><a class="wk" href="../../terms/cohesion.html">Cohesion</a> types</strong> (aim for functional): utility, layer, communicational, sequential, procedural, temporal.</li>
+<li><strong><a class="wk" href="../../terms/coupling.html">Coupling</a> types</strong> (aim for low): content, common, control, stamp, data, routine call, type use, inclusion/import, external.</li>
+<li><strong>Conducting the design</strong>: identify the classes from the problem domain and the infrastructure; elaborate; describe persistent data sources; develop behavioural representations; elaborate deployment diagrams; refactor.</li>
+<li><strong>Notation</strong>: <a class="wk" href="../../terms/uml.html">UML</a>, pseudocode, flowcharts, decision tables, and the structured-programming constructs (sequence, condition, repetition).</li>
+</ul></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State Reduction and State Assignment · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="../u2/02-five-variable-map.html">Five-Variable Map</a></li><li><a href="../u2/03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="../u2/04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="../u2/05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="../u2/06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="../u2/07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="../u2/08-code-conversion.html">Code Conversion</a></li><li><a href="../u2/09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="../u2/10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details open><summary><a href="index.html">Unit IV</a></summary><ul><li><a href="01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="02-latches.html">Latches</a></li><li><a href="03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li class="cur"><a href="05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#0f7a6a"><a class="rs" href="../index.html">Digital Logic Design</a><details><summary><a href="../u1/index.html">Unit I</a></summary><ul><li><a href="../u1/01-digital-computers-and-digital-systems.html">Digital Computers and Digital Systems</a></li><li><a href="../u1/02-number-systems.html">Number Systems</a></li><li><a href="../u1/03-number-base-conversions.html">Number Base Conversions</a></li><li><a href="../u1/04-complements-r-s-and-r-1-s.html">Complements — $r$'s and $(r-1)$'s</a></li><li><a href="../u1/05-binary-codes.html">Binary Codes</a></li><li><a href="../u1/06-integer-and-floating-point-representation.html">Integer and Floating-Point Representation</a></li><li><a href="../u1/07-integer-arithmetic.html">Integer Arithmetic</a></li><li><a href="../u1/08-boolean-algebra-definitions-and-axioms.html">Boolean Algebra — Definitions and Axioms</a></li><li><a href="../u1/09-basic-theorems-and-properties.html">Basic Theorems and Properties</a></li><li><a href="../u1/10-boolean-functions.html">Boolean Functions</a></li><li><a href="../u1/11-canonical-and-standard-forms.html">Canonical and Standard Forms</a></li><li><a href="../u1/12-other-logic-operations-and-logic-gates.html">Other Logic Operations and Logic Gates</a></li></ul></details><details><summary><a href="../u2/index.html">Unit II</a></summary><ul><li><a href="../u2/01-the-map-method-karnaugh-map-k-map.html">The Map Method — Karnaugh Map (K-map)</a></li><li><a href="../u2/02-five-variable-map.html">Five-Variable Map</a></li><li><a href="../u2/03-product-of-sums-simplification.html">Product-of-Sums Simplification</a></li><li><a href="../u2/04-don-t-care-conditions.html">Don't-Care Conditions</a></li><li><a href="../u2/05-tabulation-quine-mccluskey-method.html">Tabulation (Quine–McCluskey) Method</a></li><li><a href="../u2/06-combinational-logic-design-procedure.html">Combinational Logic — Design Procedure</a></li><li><a href="../u2/07-adders-and-subtractors.html">Adders and Subtractors</a></li><li><a href="../u2/08-code-conversion.html">Code Conversion</a></li><li><a href="../u2/09-exclusive-or-functions.html">Exclusive-OR Functions</a></li><li><a href="../u2/10-parity-generators-and-checkers.html">Parity Generators and Checkers</a></li></ul></details><details><summary><a href="../u3/index.html">Unit III</a></summary><ul><li><a href="../u3/01-binary-parallel-adder.html">Binary Parallel Adder</a></li><li><a href="../u3/02-decimal-bcd-adder.html">Decimal (BCD) Adder</a></li><li><a href="../u3/03-magnitude-comparator.html">Magnitude Comparator</a></li><li><a href="../u3/04-decoders.html">Decoders</a></li><li><a href="../u3/05-demultiplexers.html">Demultiplexers</a></li><li><a href="../u3/06-encoders.html">Encoders</a></li><li><a href="../u3/07-multiplexers.html">Multiplexers</a></li><li><a href="../u3/08-programmable-logic-devices-pld.html">Programmable Logic Devices (PLD)</a></li><li><a href="../u3/09-introduction-to-fpga.html">Introduction to FPGA</a></li></ul></details><details open><summary><a href="index.html">Unit IV</a></summary><ul><li><a href="01-sequential-circuits-introduction.html">Sequential Circuits — Introduction</a></li><li><a href="02-latches.html">Latches</a></li><li><a href="03-flip-flops-and-triggering.html">Flip-Flops and Triggering</a></li><li><a href="04-state-table-state-diagram-state-equations.html">State Table, State Diagram, State Equations</a></li><li class="cur"><a href="05-state-reduction-and-state-assignment.html">State Reduction and State Assignment</a></li><li><a href="06-design-procedure-for-sequential-circuits.html">Design Procedure for Sequential Circuits</a></li><li><a href="07-counter-design.html">Counter Design</a></li></ul></details><details><summary><a href="../u5/index.html">Unit V</a></summary><ul><li><a href="../u5/01-registers.html">Registers</a></li><li><a href="../u5/02-shift-registers.html">Shift Registers</a></li><li><a href="../u5/03-asynchronous-ripple-counters.html">Asynchronous (Ripple) Counters</a></li><li><a href="../u5/04-synchronous-counters.html">Synchronous Counters</a></li><li><a href="../u5/05-ring-counter.html">Ring Counter</a></li><li><a href="../u5/06-johnson-twisted-ring-counter.html">Johnson (Twisted-Ring) Counter</a></li><li><a href="../u5/07-timing-sequences.html">Timing Sequences</a></li><li><a href="../u5/08-memory-unit-basic-concepts-and-block-diagram.html">Memory Unit — Basic Concepts and Block Diagram</a></li><li><a href="../u5/09-rom-design-and-classification.html">ROM — Design and Classification</a></li><li><a href="../u5/10-ram-design-and-classification.html">RAM — Design and Classification</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">Digital Logic</a> <span>›</span> <a href="index.html">Unit IV</a> <span>›</span> <b>State Reduction and State Assignment</b></nav>
+    <article class="wiki" style="--h:#0f7a6a"><h1>State Reduction and State Assignment</h1><p class="byline">Digital Logic Design · Unit IV: Sequential Logic and State Machine Design</p><aside class="infobox" style="--h:#0f7a6a"><div class="ib-h">State Reduction and State Assignment</div><dl><dt>Subject</dt><dd><a href="../index.html">Digital Logic Design</a> (24CS201)</dd><dt>Unit</dt><dd><a href="index.html">Unit IV: Sequential Logic and State Machine Design</a></dd><dt>Topic</dt><dd>5 of 7</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/flip-flop.html">Flip-flop</a>, <a href="../../../terms/gray-code.html">Gray code</a></dd></dl></aside><p class="hatnote">Practice: <a href="../../../qa/dld/u4.html">Part B questions for Unit IV</a> and <a href="../../../qa/dld/part-a.html">Part A short questions</a>.</p><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>State reduction:</strong> fewer states → fewer <a class="wk" href="../../../terms/flip-flop.html">flip-flops</a> and gates. Two states are <strong>equivalent</strong> if, for every input sequence, they give the <strong>same outputs</strong> and go to <strong>equivalent next states</strong></li>
+<li><strong>Row-matching method:</strong> find two rows with the <strong>same next states and same outputs</strong> → merge (replace one by the other everywhere) → repeat</li>
+<li><strong>Example:</strong> 7 states reduce to 5</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Present</th>
+<th>\(x=0\)</th>
+<th>\(x=1\)</th>
+<th>Output \(x=0,1\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+<td>0,0</td>
+</tr>
+<tr>
+<td>b</td>
+<td>c</td>
+<td>d</td>
+<td>0,0</td>
+</tr>
+<tr>
+<td>c</td>
+<td>a</td>
+<td>d</td>
+<td>0,0</td>
+</tr>
+<tr>
+<td>d</td>
+<td>e</td>
+<td>f</td>
+<td>0,1</td>
+</tr>
+<tr>
+<td>e</td>
+<td>a</td>
+<td>f</td>
+<td>0,1</td>
+</tr>
+<tr>
+<td>f</td>
+<td>g</td>
+<td>f</td>
+<td>0,1</td>
+</tr>
+<tr>
+<td>g</td>
+<td>a</td>
+<td>f</td>
+<td>0,1</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>\(e\) and \(g\) identical (a,f / 0,1) → replace \(g\) by \(e\)<ul>
+<li>then \(f\) becomes (e,f / 0,1) = same as \(d\) → replace \(f\) by \(d\)</li>
+<li>reduced: a (a,b), b (c,d), c (a,d), d (e,d / 0,1), e (a,d / 0,1) → <strong>5 states</strong>. Still 3 flip-flops (\(\lceil\log_2 5\rceil=\lceil\log_2 7\rceil=3\)) but simpler logic and more don't-cares</li>
+</ul>
+</li>
+<li>Number of FFs: \(n\ge\lceil\log_2(\text{states})\rceil\)</li>
+<li>For incompletely specified machines → <strong>implication table</strong> method (compatible states)</li>
+<li><strong>State assignment:</strong> give binary codes to states. Different assignments → different logic cost. Rules of thumb: states with the same next state get <strong>adjacent codes</strong>; <strong><a class="wk" href="../../../terms/gray-code.html">Gray code</a></strong> assignment; <strong>one-hot</strong> assignment (one FF per state; fast, more FFs)</li>
+<li>Binary (000,001,…), Gray, one-hot (0001,0010,0100,1000)</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>Fewer states can mean fewer <a class="wk" href="../../../terms/flip-flop.html">flip-flops</a> and simpler logic. Two states are equivalent if no experiment on the outputs can tell them apart. The simple test is that they have the same outputs for each input and lead to the same next states (or to states that are themselves equivalent). In the example \(e\) and \(g\) are identical, so \(g\) is removed and everything that went to \(g\) now goes to \(e\). After that substitution, \(f\) becomes identical to \(d\), and so \(f\) is removed. It is important to repeat the check after each merge, since a merge can create new equal rows.</p>
+<p>The number of flip-flops is the ceiling of \(\log_2\) of the number of states, so reducing from 7 to 5 states does not change the count (3 flip-flops either way), but the combinational logic will usually be simpler and there are more unused states to use as don't-cares. State assignment is the choice of binary codes. Different choices give different logic costs, and there is no formula for the best one. A practical rule is to give adjacent codes to states that share a next state or that follow each other. One-hot encoding uses one flip-flop per state, which needs more flip-flops but very simple next-state logic, and is common in FPGAs.</p></div><nav class="pager"><a class="prev" href="04-state-table-state-diagram-state-equations.html"><small>← Previous</small>State Table, State Diagram, State Equations</a><a class="next" href="06-design-procedure-for-sequential-circuits.html"><small>Next →</small>Design Procedure for Sequential Circuits</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

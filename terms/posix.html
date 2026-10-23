@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POSIX · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>POSIX</b></nav>
+    <article class="wiki term"><p class="kicker">Term · OS Lab, Operating Systems</p><h1>POSIX</h1><div class="ex lead"><ul>
+<li><strong>POSIX <a class="wk" href="shared-memory.html">shared memory</a>:</strong> <code>shm_open()</code> → <code>ftruncate()</code> (set size) → <code>mmap()</code> (map into address space) → <code>write/sprintf</code> → <code>munmap</code>, <code>shm_unlink()</code></li>
+</ul><p class="src">From <a href="../notes/os/u2/04-interprocess-communication-ipc.html">Operating Systems › Interprocess Communication (IPC)</a></p></div><div class="ex"><ul>
+<li><strong>API (Application Programming Interface)</strong> — programmers normally access <a class="wk" href="system-call.html">system calls</a> via an <strong>API</strong>, not directly. The three most common APIs: <strong>Windows API</strong> (Win32), <strong>POSIX API</strong> (<a class="wk" href="unix.html">UNIX</a>, Linux, macOS), <strong>Java API</strong> (for the <a class="wk" href="jvm.html">JVM</a>). A function in the API <strong>invokes the actual system call</strong>. Why API instead of system calls directly? <strong>Portability</strong>, and APIs are <strong>simpler</strong> to use than the <strong>actual system calls</strong> (e.g. <code>printf()</code> in C library → <code>write()</code> system call; Windows API <code>CreateProcess()</code> → <code>NTCreateProcess()</code> <a class="wk" href="kernel.html">kernel</a> call)</li>
+</ul><p class="src">From <a href="../notes/os/u1/09-system-calls.html">Operating Systems › System Calls</a></p></div><div class="ex"><ul>
+<li><strong>Thread libraries</strong> provide the programmer an <strong>API for creating and managing threads</strong>: <strong>POSIX Pthreads</strong> (user- or kernel-level; <strong>specification, not implementation</strong>; <code>pthread_create</code>, <code>pthread_join</code>), <strong>Windows threads</strong> (kernel-level; <code>CreateThread</code>), <strong>Java threads</strong> (managed by the <a class="wk" href="jvm.html">JVM</a>; implemented using the host's native thread library; <code>Thread</code> class or <code>Runnable</code> interface; <code>start()</code> → <code>run()</code>)</li>
+</ul><p class="src">From <a href="../notes/os/u2/06-multithreading-models.html">Operating Systems › Multithreading Models</a></p></div><div class="ex"><ul>
+<li><strong>Proportional share scheduling:</strong> allocate <strong>\(T\) shares</strong> among all applications; an application receiving <strong>\(N\) shares</strong> is assured <strong>\(N/T\)</strong> of total processor time; needs <strong>admission control</strong> (don't admit if not enough shares). <strong>POSIX <a class="wk" href="real-time.html">real-time</a> scheduling:</strong> <code>SCHED_FIFO</code> (<a class="wk" href="fcfs.html">FCFS</a> with no time slicing among equal priority), <code>SCHED_RR</code> (like FIFO but <strong>time slicing</strong> among equal priority), <code>pthread_attr_setschedpolicy()</code></li>
+</ul><p class="src">From <a href="../notes/os/u2/12-real-time-cpu-scheduling.html">Operating Systems › Real-Time CPU Scheduling</a></p></div><div class="ex"><ul>
+<li><strong>Aim:</strong> Implement the bounded-buffer problem with POSIX <a class="wk" href="semaphore.html">semaphores</a> and a <a class="wk" href="mutex.html">mutex</a>.</li>
+</ul><p class="src">From <a href="../notes/oslab/lab/08-task-8-producer-consumer-problem-using-semaphores.html">OS Lab › Task 8 — Producer–consumer problem using semaphores</a></p></div><h2>Where it appears</h2><h3>OS Lab</h3><ul><li><a href="../notes/oslab/lab/08-task-8-producer-consumer-problem-using-semaphores.html">Lab › Task 8 — Producer–consumer problem using semaphores</a></li></ul><h3>Operating Systems</h3><ul><li><a href="../notes/os/u1/09-system-calls.html">Unit I › System Calls</a></li><li><a href="../notes/os/u2/04-interprocess-communication-ipc.html">Unit II › Interprocess Communication (IPC)</a></li><li><a href="../notes/os/u2/06-multithreading-models.html">Unit II › Multithreading Models</a></li><li><a href="../notes/os/u2/12-real-time-cpu-scheduling.html">Unit II › Real-Time CPU Scheduling</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="kernel.html">Kernel</a></li><li><a href="system-call.html">System call</a></li><li><a href="unix.html">UNIX</a></li><li><a href="jvm.html">JVM</a></li><li><a href="message-passing.html">Message passing</a></li><li><a href="shared-memory.html">Shared memory</a></li><li><a href="critical-section.html">Critical section</a></li><li><a href="deadlock.html">Deadlock</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>

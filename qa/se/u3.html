@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software Engineering Unit III questions · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../notes/index.html">Notes</a><a href="../index.html" class="on">Questions</a><a href="../../terms/index.html">Terms A–Z</a><a href="../../about.html">About</a></nav>
+  <form class="sform" action="../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="index.html">Software Engineering</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li class="cur"><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../index.html">Home</a></li><li><a href="../../notes/index.html">Notes</a></li><li><a href="../index.html">Questions &amp; answers</a></li><li><a href="../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#1f6fb2"><a class="rs" href="index.html">Software Engineering</a><ul><li><a href="part-a.html">Part A · 2 marks</a></li><li><a href="u1.html">Part B · Unit I</a></li><li><a href="u2.html">Part B · Unit II</a></li><li class="cur"><a href="u3.html">Part B · Unit III</a></li><li><a href="u4.html">Part B · Unit IV</a></li><li><a href="u5.html">Part B · Unit V</a></li></ul></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span>›</span> <a href="../index.html">Questions</a> <span>›</span> <a href="index.html">Software Eng</a> <span>›</span> <b>Unit III</b></nav>
+    <article class="wiki" style="--h:#1f6fb2"><span class="ulabel">Part B · Unit III</span><h1>Requirements Modeling and Design Concepts</h1><p class="byline">Software Engineering · 7 questions · <a href="../../notes/se/u3/index.html">Notes for this unit</a></p><article class="qa past" id="q1"><div class="qhead"><span class="qn">Q1</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">Explain the role of <a class="wk" href="../../terms/abstraction.html">abstraction</a> in design.</h4><div class="ans"><div class="tag">Answer</div><p><a class="wk" href="../../terms/abstraction.html">Abstraction</a> lets us concentrate on the <strong>essential features and ignore low-level detail</strong>; at each level of the design we use a higher level of abstraction and refine downwards (stepwise refinement).</p>
+<ul>
+<li><strong>Procedural abstraction</strong>: a named sequence of instructions with a specific, limited function, e.g. <code>open</code> a door (walk to door, reach, grasp knob, turn, pull). We use the name and not the steps.</li>
+<li><strong>Data abstraction</strong>: a named collection of data describing a data object, e.g. <code>door</code> with attributes type, swing direction, weight, dimension. Procedural abstraction <code>open</code> then uses the data abstraction <code>door</code>.</li>
+<li><strong>Control abstraction</strong>: e.g. synchronisation <a class="wk" href="../../terms/semaphore.html">semaphore</a>.</li>
+</ul>
+<p>Benefits: manage complexity, hide detail (information hiding), allow changes in implementation, support reuse and parallel development. Related: refinement is the process of elaboration (abstraction and refinement are complementary).</p></div></article><article class="qa past" id="q2"><div class="qhead"><span class="qn">Q2</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K3</span></div><h4 class="qtext">Explain requirements modelling for mobile apps.</h4><div class="ans"><div class="tag">Answer</div><p>Mobile apps (<strong>MobileApps</strong>) have special constraints, so the requirement model must reflect them:</p>
+<ul>
+<li><strong>Context</strong>: small screen, touch input, intermittent connectivity, limited battery, memory and processing, sensors (GPS, camera, accelerometer), many device models and OS versions.</li>
+<li><strong>Scenario-based</strong>: user stories and <a class="wk" href="../../terms/use-case.html">use cases</a> for short, task-oriented sessions; include interruptions (calls, notifications, loss of network), and offline mode.</li>
+<li><strong>Class-based</strong>: classes for the user, session, data cache, device sensors, permissions, sync service.</li>
+<li><strong>Behavioural</strong>: <a class="wk" href="../../terms/state-diagram.html">state diagram</a> for lifecycle (foreground, background, suspended, terminated) and for connectivity states.</li>
+<li><strong>Non-functional</strong>: responsiveness, battery use, security (permissions, storage), accessibility, usability for touch, app-store rules.</li>
+<li><strong>Navigation/Interface</strong>: screen flow (storyboard) and navigation model.</li>
+<li><strong>Data/sync</strong>: local storage and server synchronisation.</li>
+</ul></div></article><article class="qa past" id="q3"><div class="qhead"><span class="qn">Q3</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">(OR) Explain the design concepts that improve software quality.</h4><div class="ans"><div class="tag">Answer</div><p>Fundamental concepts (Pressman):</p>
+<ol>
+<li><strong><a class="wk" href="../../terms/abstraction.html">Abstraction</a></strong>: procedural and data abstraction.</li>
+<li><strong>Architecture</strong>: the overall structure; chosen style (layered, MVC...).</li>
+<li><strong>Patterns</strong>: reusable solutions to known problems.</li>
+<li><strong>Separation of concerns</strong>: break a problem into parts that can be solved independently.</li>
+<li><strong>Modularity</strong>: divide the software into separately named, addressable components (modules); improves manageability.</li>
+<li><strong>Information hiding</strong>: modules hide internal data and procedures; only the interface is visible.</li>
+<li><strong>Functional independence</strong>: single-minded modules with low interaction; measured by <strong>high <a class="wk" href="../../terms/cohesion.html">cohesion</a> and low <a class="wk" href="../../terms/coupling.html">coupling</a></strong>.</li>
+<li><strong>Refinement</strong>: stepwise elaboration from high-level statement to detail.</li>
+<li><strong>Aspects</strong>: crosscutting concerns (security, logging).</li>
+<li><strong><a class="wk" href="../../terms/refactoring.html">Refactoring</a></strong>: improve internal structure without changing behaviour.</li>
+<li><strong>Object-oriented design concepts</strong>: classes, <a class="wk" href="../../terms/inheritance.html">inheritance</a>, <a class="wk" href="../../terms/polymorphism.html">polymorphism</a>, <a class="wk" href="../../terms/encapsulation.html">encapsulation</a>.</li>
+<li><strong>Design classes</strong>, and <strong>dependency inversion</strong>.</li>
+</ol>
+<p>Quality impact: high cohesion and low coupling → easy to test, modify and reuse; information hiding → fewer ripple effects.</p></div></article><article class="qa past" id="q4"><div class="qhead"><span class="qn">Q4</span><span class="qtag past">Nov 2025</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">(OR) Explain object-oriented design concepts.</h4><div class="ans"><div class="tag">Answer</div><ul>
+<li><strong>Class</strong>: template of attributes and operations. <strong>Object</strong>: instance of a class.</li>
+<li><strong><a class="wk" href="../../terms/encapsulation.html">Encapsulation</a></strong>: data and operations are packed together; internal details are hidden behind the interface.</li>
+<li><strong><a class="wk" href="../../terms/inheritance.html">Inheritance</a></strong>: a subclass acquires the attributes and operations of its superclass, enabling reuse and specialisation (generalisation/specialisation).</li>
+<li><strong><a class="wk" href="../../terms/polymorphism.html">Polymorphism</a></strong>: the same message (operation) behaves differently on different objects; <strong>overloading</strong> and <strong>overriding</strong>.</li>
+<li><strong><a class="wk" href="../../terms/abstraction.html">Abstraction</a></strong>: <a class="wk" href="../../terms/abstract-class.html">abstract classes</a> and interfaces.</li>
+<li><strong>Messages</strong>: objects communicate by sending messages; <strong><a class="wk" href="../../terms/coupling.html">coupling</a></strong> is through messages.</li>
+<li><strong>Design classes</strong>: user-interface classes, business-domain classes, process classes, persistent classes, system classes. Good design classes are complete and sufficient, primitive, have high <a class="wk" href="../../terms/cohesion.html">cohesion</a> and low coupling.</li>
+<li><strong><a class="wk" href="../../terms/class-diagram.html">Class diagram</a></strong> shows association, aggregation, composition, generalisation and dependency.</li>
+</ul></div></article><article class="qa past" id="q5"><div class="qhead"><span class="qn">Q5</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO3 K3</span></div><h4 class="qtext">Explain requirements modelling for web applications: the interaction and configuration models.</h4><div class="ans"><div class="tag">Answer</div><p><strong>Requirements model for WebApps</strong> has content, interaction, functional, navigation and configuration models.</p>
+<ul>
+<li><strong>Interaction model</strong>: how the user interacts with the page. Components: <a class="wk" href="../../terms/use-case.html">use cases</a>, <a class="wk" href="../../terms/sequence-diagram.html">sequence diagrams</a> (user ↔ browser ↔ server), <a class="wk" href="../../terms/state-diagram.html">state diagrams</a> (page states, e.g. logged-out, logged-in), and the <strong>user interface prototype</strong> (layout, navigation, forms).</li>
+<li><strong>Configuration model</strong>: describes the <strong>environment in which the WebApp lives</strong> – server-side (web server, application server, database, OS, middleware, firewalls, security) and client-side (browsers, versions, screen sizes, plug-ins, mobile). Shown by deployment diagrams and a textual list of constraints, and it is concerned with scalability and security.</li>
+</ul>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  Browser --&gt; LB[Web server / load balancer] --&gt; App[Application server] --&gt; DB[(Database)]
+  App --&gt; Ext[Payment gateway]</pre></figure></div></article><article class="qa past" id="q6"><div class="qhead"><span class="qn">Q6</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">(OR) Explain object-based modelling (class-based modelling).</h4><div class="ans"><div class="tag">Answer</div><p>Object-based (class-based) modelling represents the <strong>objects the system will manipulate, the operations applied to them, the relationships between them and the collaborations</strong>. Steps and elements: identify classes (noun analysis from <a class="wk" href="../../terms/use-case.html">use cases</a>), attributes, operations (verbs), <a class="wk" href="../../terms/crc-card.html">CRC cards</a>, <a class="wk" href="../../terms/class-diagram.html">class diagram</a>, class packages, and behavioural modelling by <a class="wk" href="../../terms/state-diagram.html">state diagram</a> and <a class="wk" href="../../terms/sequence-diagram.html">sequence diagram</a>. See the CRC answer in Unit II for the worked example.</p></div></article><article class="qa past" id="q7"><div class="qhead"><span class="qn">Q7</span><span class="qtag past">Apr 2026</span><span class="qm">8M</span><span class="qm">CO3 K2</span></div><h4 class="qtext">(OR) Explain component-level design elements and deployment-level design elements.</h4><div class="ans"><div class="tag">Answer</div><p><strong>Component-level design elements</strong> describe the internals of each software component: its interface, the data structures, the algorithms (in pseudocode or flowchart), the control logic and the processing. Shown as <a class="wk" href="../../terms/uml.html">UML</a> component diagrams, <a class="wk" href="../../terms/class-diagram.html">class diagrams</a> with operations, <a class="wk" href="../../terms/activity-diagram.html">activity diagrams</a> and <a class="wk" href="../../terms/state-diagram.html">state diagrams</a>. They lead directly to code.</p>
+<p><strong>Deployment-level design elements</strong> show how <strong>software functionality and subsystems are allocated to the physical computing environment</strong> (nodes, servers, devices, networks). Shown as UML <strong>deployment diagrams</strong>: nodes (e.g. PC, application server, database server) connected by communication links, each with the artifacts (software) deployed on it.</p>
+<figure class="fig"><pre class="mermaid">flowchart LR
+  subgraph PC[Client PC]
+    BR[Browser]
+  end
+  subgraph S1[Application Server]
+    WA[WebApp component]
+  end
+  subgraph S2[Database Server]
+    DB[(Database)]
+  end
+  BR -- HTTP --&gt; WA -- JDBC --&gt; DB</pre></figure></div></article></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../assets/titles.js"></script>
+<script defer src="../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../assets/site.js"></script>
+</body></html>

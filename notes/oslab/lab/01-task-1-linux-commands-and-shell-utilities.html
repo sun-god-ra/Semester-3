@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 1 — Linux commands and shell utilities · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../../../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../../../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../../../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../../index.html" class="on">Notes</a><a href="../../../qa/index.html">Questions</a><a href="../../../terms/index.html">Terms A–Z</a><a href="../../../about.html">About</a></nav>
+  <form class="sform" action="../../../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li class="cur"><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../../../index.html">Home</a></li><li><a href="../../index.html">Notes</a></li><li><a href="../../../qa/index.html">Questions &amp; answers</a></li><li><a href="../../../terms/index.html">Terms A–Z</a></li></ul><div class="rsub" style="--h:#3f8f43"><a class="rs" href="../index.html">Operating Systems Lab</a><details open><summary><a href="index.html">Lab</a></summary><ul><li class="cur"><a href="01-task-1-linux-commands-and-shell-utilities.html">Task 1 — Linux commands and shell utilities</a></li><li><a href="02-task-2-powershell-and-batch-scripts-windows.html">Task 2 — PowerShell and batch scripts (Windows)</a></li><li><a href="03-task-3-unix-system-calls-process-and-file.html">Task 3 — UNIX system calls: process and file</a></li><li><a href="04-task-4-cpu-scheduling-fcfs-sjf-non-preemptive-and.html">Task 4 — CPU scheduling: FCFS, SJF (non-preemptive and preemptive), Round Robin</a></li><li><a href="05-task-5-cpu-scheduling-priority-non-preemptive-and.html">Task 5 — CPU scheduling: priority (non-preemptive and preemptive)</a></li><li><a href="06-task-6-real-time-scheduling-earliest-deadline-firs.html">Task 6 — Real-time scheduling: Earliest Deadline First (EDF) and Rate Monotonic (RMS)</a></li><li><a href="07-task-7-critical-section-problem-and-peterson-s-sol.html">Task 7 — Critical-section problem and Peterson's solution</a></li><li><a href="08-task-8-producer-consumer-problem-using-semaphores.html">Task 8 — Producer–consumer problem using semaphores</a></li><li><a href="09-task-9-readers-writers-problem.html">Task 9 — Readers–writers problem</a></li><li><a href="10-task-10-dining-philosophers-problem.html">Task 10 — Dining philosophers problem</a></li><li><a href="11-task-11-banker-s-algorithm-deadlock-avoidance.html">Task 11 — Banker's algorithm (deadlock avoidance)</a></li><li><a href="12-task-12-memory-allocation-first-fit-best-fit-worst.html">Task 12 — Memory allocation: first fit, best fit, worst fit</a></li><li><a href="13-task-13-logical-to-physical-address-translation-pa.html">Task 13 — Logical to physical address translation (paging and segmentation)</a></li><li><a href="14-task-14-page-replacement-fifo-lru-and-optimal.html">Task 14 — Page replacement: FIFO, LRU and Optimal</a></li><li><a href="15-task-15-disk-scheduling-fcfs-sstf-scan-and-c-scan.html">Task 15 — Disk scheduling: FCFS, SSTF, SCAN and C-SCAN</a></li><li><a href="16-task-16-file-allocation-methods-contiguous-linked.html">Task 16 — File allocation methods: contiguous, linked and indexed</a></li><li><a href="17-task-17-free-space-management-bit-vector-linked-li.html">Task 17 — Free-space management: bit vector, linked list and grouping</a></li></ul></details></div></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>›</span> <a href="../../index.html">Notes</a> <span>›</span> <a href="../index.html">OS Lab</a> <span>›</span> <a href="index.html">Lab</a> <span>›</span> <b>Task 1 — Linux commands and shell utilities</b></nav>
+    <article class="wiki" style="--h:#3f8f43"><h1>Task 1 — Linux commands and shell utilities</h1><p class="byline">Operating Systems Lab · Lab: Programming Tasks 1 to 17</p><aside class="infobox" style="--h:#3f8f43"><div class="ib-h">Task 1 — Linux commands and shell utilities</div><dl><dt>Subject</dt><dd><a href="../index.html">Operating Systems Lab</a> (24CS204)</dd><dt>Unit</dt><dd><a href="index.html">Lab: Programming Tasks 1 to 17</a></dd><dt>Topic</dt><dd>1 of 17</dd><dt>Terms</dt><dd class="ib-terms"><a href="../../../terms/unix.html">UNIX</a></dd></dl></aside><div class="toc"><b>On this page</b><ol><li><a href="#program-1-commands-in-a-script">Program 1 — Commands in a script</a></li><li><a href="#program-2-shell-programming">Program 2 — Shell programming</a></li></ol></div><div class="notes"><div class="tag">Notebook notes</div><ul>
+<li><strong>Aim:</strong> Use the common Linux commands, filters, redirection and pipes, and write shell scripts with variables, conditions, loops and functions.</li>
+<li><strong>Theory</strong><ul>
+<li>The <strong>shell</strong> (<code>bash</code>) reads a command, finds the program (searching the directories in <code>$PATH</code>), creates a child with <code>fork()</code>, runs it with <code>exec()</code> and waits (<code>wait()</code>) — see Unit I. <strong>Everything is a file</strong> in <a class="wk" href="../../../terms/unix.html">UNIX</a>; every process has three open files: <strong>stdin (0), stdout (1), stderr (2)</strong></li>
+<li><strong>File permissions:</strong> 10 characters <code>-rwxr-xr--</code>: type, then user/group/others; <strong>octal</strong> <code>chmod 754</code> = rwx r-x r--. <strong>Pipe</strong> <code>a | b</code> connects stdout of a to stdin of b. <code>$?</code> = exit status (0 = success), <code>$#</code> = number of arguments, <code>$1 ... $9</code> = arguments, <code>$$</code> = PID</li>
+<li><strong>Script header:</strong> <code>#!/bin/bash</code> and make it executable with <code>chmod +x script.sh</code>; run with <code>./script.sh args</code></li>
+</ul>
+</li>
+<li><strong>Algorithm</strong><ul>
+<li>Open the terminal and try each command of the table on a scratch directory</li>
+<li>Combine commands with pipes and redirection</li>
+<li>Write the scripts below, make them executable and run them with arguments</li>
+</ul>
+</li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code>, <code>cd dir</code>, <code>ls -l -a</code>, <code>ls -R</code></td>
+<td>where am I; change directory; list (long, hidden, recursive)</td>
+</tr>
+<tr>
+<td><code>mkdir -p</code>, <code>rmdir</code>, <code>touch f</code></td>
+<td>make directory; remove empty directory; create empty file / update time</td>
+</tr>
+<tr>
+<td><code>cp -r</code>, <code>mv</code>, <code>rm -r -f</code></td>
+<td>copy; move or rename; delete (<strong>no recycle bin</strong>)</td>
+</tr>
+<tr>
+<td><code>cat</code>, <code>more</code>/<code>less</code>, <code>head -n</code>, <code>tail -n</code> / <code>tail -f</code></td>
+<td>show file; page through; first / last lines; follow a log</td>
+</tr>
+<tr>
+<td><code>wc -l -w -c</code>, <code>sort -n -r</code>, <code>uniq -c</code>, <code>cut -d: -f1</code>, <code>tr</code>, <code>tee</code></td>
+<td>count; sort; remove/count duplicates; pick fields; translate characters; copy stream to a file</td>
+</tr>
+<tr>
+<td><code>grep -i -n -v -r -c pattern</code></td>
+<td>search text (ignore case, line numbers, invert, recursive, count)</td>
+</tr>
+<tr>
+<td><code>find . -name "*.c" -type f</code></td>
+<td>search for files by name, type, size, time</td>
+</tr>
+<tr>
+<td><code>sed 's/a/b/'</code>, <code>awk '{print $1}'</code></td>
+<td>stream editor; pattern-action language</td>
+</tr>
+<tr>
+<td><code>chmod 755 f</code> / <code>chmod u+x f</code>, <code>chown user f</code>, <code>umask</code></td>
+<td>change permissions (r=4, w=2, x=1; user, group, others); owner; default mask</td>
+</tr>
+<tr>
+<td><code>ps -ef</code>, <code>top</code>, <code>kill -9 pid</code>, <code>jobs</code>, <code>bg</code>, <code>fg</code>, <code>nice</code>, <code>&amp;</code></td>
+<td>process status; live view; terminate; job control; priority; run in background</td>
+</tr>
+<tr>
+<td><code>df -h</code>, <code>du -sh</code>, <code>free -m</code>, <code>uname -a</code>, <code>uptime</code>, <code>who</code>, <code>whoami</code>, <code>date</code>, <code>cal</code></td>
+<td>disk free; disk usage; memory; system info; users; time</td>
+</tr>
+<tr>
+<td><code>ln -s target link</code>, <code>diff a b</code>, <code>tar -cvf / -xvf</code>, <code>gzip</code></td>
+<td>symbolic link; compare files; archive; compress</td>
+</tr>
+<tr>
+<td><code>man cmd</code>, <code>history</code>, <code>echo $PATH</code>, <code>export VAR=val</code>, <code>alias</code></td>
+<td>manual; command history; environment variables</td>
+</tr>
+<tr>
+<td><code>&gt;</code>, <code>&gt;&gt;</code>, <code>&lt;</code>, <code>2&gt;</code>, <code>\|</code></td>
+<td>output redirection (overwrite / append), input redirection, error redirection, pipe</td>
+</tr>
+</tbody>
+</table></div>
+<h5 id="program-1-commands-in-a-script">Program 1 — Commands in a script</h5>
+<div class="code"><span class="lang">bash</span><pre><code class="language-bash">#!/bin/bash
+# Task 1: Linux commands demo (run in a scratch directory)
+set -e
+rm -rf lab &amp;&amp; mkdir lab &amp;&amp; cd lab
+printf "banana\napple\ncherry\napple\nbanana\napple\n" &gt; fruits.txt
+echo "== cat, wc, head, tail =="
+cat fruits.txt | head -3
+tail -2 fruits.txt
+wc -l fruits.txt
+echo "== sort | uniq -c | sort -nr =="
+sort fruits.txt | uniq -c | sort -nr
+echo "== grep, cut, tr, sed, awk =="
+grep -c apple fruits.txt
+grep -n "an" fruits.txt
+echo "a:b:c" | cut -d: -f2
+echo "hello" | tr 'a-z' 'A-Z'
+sed 's/apple/mango/' fruits.txt | head -2
+awk '{ n[$1]++ } END { for (k in n) print k, n[k] }' fruits.txt | sort
+echo "== files and permissions =="
+mkdir -p dir1/dir2
+cp fruits.txt dir1/copy.txt
+mv dir1/copy.txt dir1/dir2/moved.txt
+ls dir1/dir2
+chmod 640 fruits.txt
+stat -c "%a %n" fruits.txt
+find . -name "*.txt" | sort
+ls -R | head -8
+rm -r dir1
+ls
+echo "== redirection and pipes =="
+echo "first" &gt; out.txt
+echo "second" &gt;&gt; out.txt
+cat out.txt
+ls nofile 2&gt; err.txt || echo "ls failed, exit status $?"
+wc -c &lt; err.txt | awk '{ print ($1 &gt; 0) ? "error message was redirected to err.txt" : "no error text" }'
+echo "== variables, arithmetic, loop =="
+x=7; y=3
+echo "sum=$((x+y)) product=$((x*y)) remainder=$((x%y))"
+for i in 1 2 3; do echo -n "$i "; done; echo
+echo "exit status of last command: $?"</code></pre></div>
+<p><strong>Output</strong></p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">== cat, wc, head, tail ==
+banana
+apple
+cherry
+banana
+apple
+6 fruits.txt
+== sort | uniq -c | sort -nr ==
+      3 apple
+      2 banana
+      1 cherry
+== grep, cut, tr, sed, awk ==
+3
+1:banana
+5:banana
+b
+HELLO
+banana
+mango
+apple 3
+banana 2
+cherry 1
+== files and permissions ==
+moved.txt
+640 fruits.txt
+./dir1/dir2/moved.txt
+./fruits.txt
+.:
+dir1
+fruits.txt
+
+./dir1:
+dir2
+
+./dir1/dir2:
+fruits.txt
+== redirection and pipes ==
+first
+second
+ls failed, exit status 2
+error message was redirected to err.txt
+== variables, arithmetic, loop ==
+sum=10 product=21 remainder=1
+1 2 3 
+exit status of last command: 0</code></pre></div>
+<h5 id="program-2-shell-programming">Program 2 — Shell programming</h5>
+<div class="code"><span class="lang">bash</span><pre><code class="language-bash">#!/bin/bash
+# Task 1 (shell programming): arguments, conditions, loops, functions
+fact() { local n=$1 f=1; while [ $n -gt 1 ]; do f=$((f*n)); n=$((n-1)); done; echo $f; }
+isprime() { local n=$1 i=2; [ $n -lt 2 ] &amp;&amp; return 1; while [ $((i*i)) -le $n ]; do [ $((n%i)) -eq 0 ] &amp;&amp; return 1; i=$((i+1)); done; return 0; }
+echo "script name check: number of arguments = $#, first = $1"
+echo "factorial of 5 = $(fact 5)"
+a=0; b=1; printf "fibonacci:"; for ((k=0;k&lt;10;k++)); do printf " %d" $a; t=$((a+b)); a=$b; b=$t; done; echo
+printf "primes up to 30:"; for n in $(seq 2 30); do isprime $n &amp;&amp; printf " %d" $n; done; echo
+n=153; s=0; t=$n; while [ $t -gt 0 ]; do d=$((t%10)); s=$((s+d*d*d)); t=$((t/10)); done
+[ $s -eq $n ] &amp;&amp; echo "$n is an Armstrong number" || echo "$n is not an Armstrong number"
+case "$1" in
+  start) echo "starting" ;;
+  stop)  echo "stopping" ;;
+  *)     echo "usage: $0 start|stop" ;;
+esac
+if [ -f /etc/passwd ] &amp;&amp; [ -r /etc/passwd ]; then echo "/etc/passwd exists and is readable"; fi</code></pre></div>
+<p><strong>Output</strong> (run as <code>./s2.sh start</code>)</p>
+<div class="code"><span class="lang">text</span><pre><code class="language-text">script name check: number of arguments = 1, first = start
+factorial of 5 = 120
+fibonacci: 0 1 1 2 3 5 8 13 21 34
+primes up to 30: 2 3 5 7 11 13 17 19 23 29
+153 is an Armstrong number
+starting
+/etc/passwd exists and is readable</code></pre></div>
+<ul>
+<li><strong>Viva questions</strong><ul>
+<li>Difference between <code>&gt;</code> and <code>&gt;&gt;</code>? Between <code>|</code> and <code>&gt;</code>?</li>
+<li>What does <code>chmod 754 file</code> do? What is <code>umask 022</code>? (new files get 644, directories 755)</li>
+<li>What is the difference between a hard link and a symbolic link?</li>
+<li>Explain <code>ps -ef | grep java | wc -l</code></li>
+<li>What is <code>$$</code>, <code>$?</code>, <code>$#</code>, <code>$@</code>? What does <code>#!/bin/bash</code> do?</li>
+</ul>
+</li>
+</ul></div><div class="explain"><div class="tag">Explanation</div><p>The first script makes a scratch directory and uses the common commands. <code>sort | uniq -c | sort -nr</code> is the standard idiom for counting how many times each line occurs. The numbers 3 apple, 2 banana, 1 cherry come from the file. <code>grep -n</code> prints the line numbers, <code>cut -d: -f2</code> picks the second field and <code>tr</code> changes the case. <code>awk</code> keeps an associative array of counts. <code>chmod 640</code> gives rw- to the owner, r-- to the group and nothing to others, which <code>stat</code> shows as 640. <code>2&gt;</code> sends error messages to a file, and <code>$?</code> shows the exit status 2 of the failed <code>ls</code>. In the second script, the functions use <code>local</code> variables, <code>$((...))</code> for arithmetic, and <code>while</code> loops to compute the factorial, the first ten Fibonacci numbers, the primes (trial division up to \(\sqrt{n}\)) and an Armstrong number test (153 = 1³ + 5³ + 3³). The <code>case</code> statement matches the first argument.</p></div><nav class="pager"><span></span><a class="next" href="02-task-2-powershell-and-batch-scripts-windows.html"><small>Next →</small>Task 2 — PowerShell and batch scripts (Windows)</a></nav></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../../../assets/titles.js"></script>
+<script defer src="../../../assets/vendor/mermaid.min.js"></script>
+<script defer src="../../../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bytecode · Semester 3 Wiki</title><meta name="color-scheme" content="light">
+<link rel="stylesheet" href="../assets/site.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']],processEscapes:false},svg:{fontCache:'global'},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="../assets/vendor/tex-svg.js"></script>
+</head>
+<body data-root="../">
+<header class="topbar"><div class="topin">
+  <a class="logo" href="../index.html"><b>Semester 3</b><span>Wiki</span></a>
+  <nav class="topnav"><a href="../notes/index.html">Notes</a><a href="../qa/index.html">Questions</a><a href="index.html" class="on">Terms A–Z</a><a href="../about.html">About</a></nav>
+  <form class="sform" action="../search.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Search notes, terms, questions" autocomplete="off" aria-label="Search"><button type="submit">Search</button><div id="sugg" class="sugg" hidden></div></form>
+</div></header>
+<div class="shell2">
+  <aside class="rail2"><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></aside>
+  <main>
+    <details class="mobile-nav"><summary>Contents</summary><p class="rtitle">Contents</p><ul class="rtop"><li><a href="../index.html">Home</a></li><li><a href="../notes/index.html">Notes</a></li><li><a href="../qa/index.html">Questions &amp; answers</a></li><li><a href="index.html">Terms A–Z</a></li></ul></details>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span>›</span> <a href="index.html">Terms A–Z</a> <span>›</span> <b>Bytecode</b></nav>
+    <article class="wiki term"><p class="kicker">Term · Java, Java Lab</p><h1>Bytecode</h1><div class="ex lead"><ul>
+<li><strong><a class="wk" href="jvm.html">JVM</a> (<a class="wk" href="java-virtual-machine.html">Java Virtual Machine</a>):</strong> abstract machine that <strong>runs bytecode</strong>. Different JVM for each OS/CPU, but the same bytecode runs on all → portability. Parts: <strong>class loader, bytecode verifier, interpreter, <a class="wk" href="jit.html">JIT</a>, garbage collector, runtime data areas</strong> (heap, stack, method area)</li>
+</ul><p class="src">From <a href="../notes/java/u1/03-bytecode-jvm-jre-jdk.html">Java › Bytecode, JVM, JRE, JDK</a></p></div><div class="ex"><p><strong><a class="wk" href="jvm.html">JVM</a></strong> executes bytecode (the <a class="wk" href="virtual-machine.html">virtual machine</a>). <strong>JRE</strong> = JVM + class libraries needed to <em>run</em> programs. <strong>JDK</strong> = JRE + development tools (<code>javac</code>, <code>jar</code>, <code>javadoc</code>, debugger) needed to <em>develop</em> programs.</p><p class="src">From <a href="../qa/java/part-a.html#q21">Object Oriented Programming Through Java Part A › question</a></p></div><div class="ex"><ul>
+<li>Difference between JDK, JRE, <a class="wk" href="jvm.html">JVM</a>? Why is Java platform independent? (bytecode)</li>
+</ul><p class="src">From <a href="../notes/jlab/lab/01-task-1-install-jdk-hello-world-if-and-for.html">Java Lab › Task 1 — Install JDK, Hello World, if and for</a></p></div><div class="ex"><ol start="8">
+<li><strong>Interpreted and high performance</strong>: bytecode is interpreted, and the <strong><a class="wk" href="jit.html">JIT</a> compiler</strong> converts hot spots into native code for speed.</li>
+</ol><p class="src">From <a href="../qa/java/u1.html#q2">Object Oriented Programming Through Java Unit I questions › question</a></p></div><div class="ex"><p>The "buzzwords" are the features designers claimed for the language, and each one is a consequence of a design choice. It is simple and secure because pointers were removed, so a program can neither forge an address nor overwrite arbitrary memory. It is robust because types are checked strictly, exceptions force error handling, and <a class="wk" href="garbage-collection.html">garbage collection</a> removes manual freeing. It is portable and architecture-neutral because programs are compiled to bytecode, and because the size of each type is fixed by the language and not by the machine: an int is 32 bits everywhere.</p><p class="src">From <a href="../notes/java/u1/01-history-and-evolution-of-java.html">Java › History and Evolution of Java</a></p></div><h2>Topic pages about Bytecode</h2><ul><li><a href="../notes/java/u1/03-bytecode-jvm-jre-jdk.html">Bytecode, JVM, JRE, JDK</a> <small>Java › Unit I</small></li></ul><h2>Where it appears</h2><h3>Java</h3><ul><li><a href="../notes/java/u1/01-history-and-evolution-of-java.html">Unit I › History and Evolution of Java</a></li><li><a href="../notes/java/u1/02-features-of-java-the-java-buzzwords.html">Unit I › Features of Java (the "Java buzzwords")</a></li><li><a href="../notes/java/u1/03-bytecode-jvm-jre-jdk.html">Unit I › Bytecode, JVM, JRE, JDK</a></li><li><a href="../notes/java/u1/04-java-vs-c-and-c.html">Unit I › Java vs C and C++</a></li><li><a href="../qa/java/part-a.html">Part A questions</a></li><li><a href="../qa/java/u1.html">Unit I questions</a></li></ul><h3>Java Lab</h3><ul><li><a href="../notes/jlab/lab/01-task-1-install-jdk-hello-world-if-and-for.html">Lab › Task 1 — Install JDK, Hello World, if and for</a></li></ul><h2>See also</h2><ul class="seealso"><li><a href="jvm.html">JVM</a></li><li><a href="inheritance.html">Inheritance</a></li><li><a href="jit.html">JIT</a></li><li><a href="garbage-collection.html">Garbage collection</a></li><li><a href="abstraction.html">Abstraction</a></li><li><a href="autoboxing.html">Autoboxing</a></li><li><a href="encapsulation.html">Encapsulation</a></li><li><a href="inner-class.html">Inner class</a></li></ul></article>
+    <footer class="foot">Semester 3 Wiki · SU24 B.Tech CSE · SAHE · fully offline, no external links. Notes are written from subject knowledge, not copied from the textbooks: check numbers against the prescribed book.</footer>
+  </main>
+</div>
+<script src="../assets/titles.js"></script>
+<script defer src="../assets/vendor/mermaid.min.js"></script>
+<script defer src="../assets/site.js"></script>
+</body></html>
